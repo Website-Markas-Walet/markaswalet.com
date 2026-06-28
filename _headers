@@ -1,0 +1,9 @@
+# Cloudflare Pages headers — long-lived browser cache for static assets.
+# Improves repeat-visit performance ("efficient cache lifetimes" audit).
+# Assets are versioned (?ver=) or content-stable; purge Cloudflare cache on redeploy.
+
+/wp-content/*
+  Cache-Control: public, max-age=2592000
+
+/wp-includes/*
+  Cache-Control: public, max-age=2592000
