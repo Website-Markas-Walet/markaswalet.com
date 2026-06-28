@@ -1,277 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/main-sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>/</loc>
+		<loc>https://markaswalet.com/</loc>
 		<lastmod>2024-09-23T13:55:55+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-40.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-40.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-38.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-38.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-39.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-39.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/workshop.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/workshop.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/farmer.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/farmer.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/export.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/export.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/intellectual.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/intellectual.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-18-1.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-18-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/sensory-box.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/sensory-box.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-615@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-615@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/renewable-energy.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/renewable-energy.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-612@2x-e1685338144242.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-612@2x-e1685338144242.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/enzyme.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/enzyme.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-644@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-644@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-645@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-645@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-646@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-646@2x.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/information-center/</loc>
+		<loc>https://markaswalet.com/information-center/</loc>
 		<lastmod>2025-05-19T03:34:50+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/swiftlet-house-construction/</loc>
+		<loc>https://markaswalet.com/swiftlet-house-construction/</loc>
 		<lastmod>2025-04-01T08:35:09+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/markaswalet-apps/</loc>
+		<loc>https://markaswalet.com/markaswalet-apps/</loc>
 		<lastmod>2025-04-01T08:23:52+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-39.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-39.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-26.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-26.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/apps-removebg-preview.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/apps-removebg-preview.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-20.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-20.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-49.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-49.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/04/google-play.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/04/google-play.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/about-us/</loc>
+		<loc>https://markaswalet.com/about-us/</loc>
 		<lastmod>2025-02-11T09:33:31+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/new-our-founder.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/new-our-founder.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/aset_white-removebg-preview-1.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/aset_white-removebg-preview-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-869@2x-300x107.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-869@2x-300x107.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-869@2x-300x107.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-869@2x-300x107.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-869@2x-300x107.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-869@2x-300x107.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-869@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-869@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-872@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-872@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-875@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-875@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-873@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-873@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-874@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-874@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/aset_white-removebg-preview-1.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/aset_white-removebg-preview-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/new-our-founder-1024x499.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/new-our-founder-1024x499.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-863@2x-e1685516774773-1024x1024.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-863@2x-e1685516774773-1024x1024.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-862@2x-e1685518325597-1024x1024.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-862@2x-e1685518325597-1024x1024.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-861@2x-e1685520558468-1024x1024.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-861@2x-e1685520558468-1024x1024.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-860@2x-e1685520832107-1024x1024.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-860@2x-e1685520832107-1024x1024.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-859@2x-e1685521157329-1024x1024.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-859@2x-e1685521157329-1024x1024.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-858@2x-e1685521306244-1024x1024.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-858@2x-e1685521306244-1024x1024.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/article/</loc>
+		<loc>https://markaswalet.com/article/</loc>
 		<lastmod>2024-10-28T03:58:12+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/premium-birdnest-product/</loc>
+		<loc>https://markaswalet.com/premium-birdnest-product/</loc>
 		<lastmod>2024-10-13T15:36:20+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/Nest-Sorting-2.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/Nest-Sorting-2.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/Cleaning.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/Cleaning.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/Feather-Removal-1.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/Feather-Removal-1.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/Grade.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/Grade.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/Steril.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/Steril.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/Package.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/Package.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/nkv.jpg</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/nkv.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2024/08/hccp-removebg-preview-e1722496235465.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2024/08/hccp-removebg-preview-e1722496235465.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-724@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-724@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-725@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-725@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-723@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-723@2x.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/cultivation-technology/</loc>
+		<loc>https://markaswalet.com/cultivation-technology/</loc>
 		<lastmod>2024-09-12T12:13:47+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/suara1-removebg-preview.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/suara1-removebg-preview.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/suara2-removebg-preview.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/suara2-removebg-preview.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/suara3-removebg-preview.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/suara3-removebg-preview.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/parfum-removebg-preview.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/parfum-removebg-preview.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/manufacture-and-export/</loc>
+		<loc>https://markaswalet.com/manufacture-and-export/</loc>
 		<lastmod>2024-08-01T06:11:40+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-41.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-41.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-7@2x.jpg</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-7@2x.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-3@2x.jpg</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-3@2x.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-9@2x.jpg</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-9@2x.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-1@2x.jpg</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-1@2x.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-5@2x.jpg</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-5@2x.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-674@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-674@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-672@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-672@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/05/Asset-673@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/05/Asset-673@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-724@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-724@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-725@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-725@2x.png</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2023/06/Asset-723@2x.png</image:loc>
+			<image:loc>https://markaswalet.com/wp-content/uploads/2023/06/Asset-723@2x.png</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/our-product/</loc>
+		<loc>https://markaswalet.com/our-product/</loc>
 		<lastmod>2023-04-16T03:18:02+00:00</lastmod>
 	</url>
 </urlset>
