@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/main-sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
-		<loc>/post-sitemap1.xml</loc>
+		<loc>https://markaswalet.com/post-sitemap1.xml</loc>
 		<lastmod>2025-05-23T07:29:55+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>/post-sitemap2.xml</loc>
+		<loc>https://markaswalet.com/post-sitemap2.xml</loc>
 		<lastmod>2025-05-23T07:21:56+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>/page-sitemap.xml</loc>
+		<loc>https://markaswalet.com/page-sitemap.xml</loc>
 		<lastmod>2025-05-19T03:34:50+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>/elementor-hf-sitemap.xml</loc>
+		<loc>https://markaswalet.com/elementor-hf-sitemap.xml</loc>
 		<lastmod>2025-02-17T08:32:28+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>/category-sitemap.xml</loc>
+		<loc>https://markaswalet.com/category-sitemap.xml</loc>
 		<lastmod>2025-05-23T07:29:55+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>/zh-sitemap.xml</loc>
+		<loc>https://markaswalet.com/zh-sitemap.xml</loc>
 		<lastmod>2026-06-28T00:00:00+00:00</lastmod>
 	</sitemap>
 </sitemapindex>
