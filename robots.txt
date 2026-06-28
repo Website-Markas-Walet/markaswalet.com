@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-json/
+Disallow: /*?s=
+Disallow: /*?replytocom=
+
+Sitemap: https://markaswalet.com/sitemap_index.xml
