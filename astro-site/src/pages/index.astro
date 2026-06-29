@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+const articles = (await getCollection('articles')).sort((a, b) =>
+  (b.data.pubDate || '').localeCompare(a.data.pubDate || '')
+);
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Markas Walet — Artikel</title>
+    <meta name="description" content="Kumpulan artikel seputar budidaya dan sarang burung walet." />
+    <style>
+      :root { --w: 760px; --ink: #1a1a1a; --muted: #666; --accent: #0a7d4b; }
+      body { margin: 0; font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); }
+      header.site { border-bottom: 1px solid #eee; padding: 14px 20px; }
+      header.site img { height: 40px; }
+      main { max-width: var(--w); margin: 0 auto; padding: 32px 20px; }
+      h1 { font-size: 1.8rem; }
+      ul { list-style: none; padding: 0; }
+      li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .date { color: var(--muted); font-size: 0.85rem; }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <img src="/wp-content/uploads/2023/04/cropped-logo-website-white-291x45.png" alt="Markas Walet" />
+    </header>
+    <main>
+      <h1>Artikel ({articles.length})</h1>
+      <ul>
+        {articles.map((a) => (
+          <li>
+            <a href={`/article/${a.slug}/`}>{a.data.title}</a>
+            {a.data.pubDate && <div class="date">{a.data.pubDate}</div>}
+          </li>
+        ))}
+      </ul>
+    </main>
+  </body>
+</html>
