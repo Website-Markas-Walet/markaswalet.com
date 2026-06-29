@@ -1,4 +1,5 @@
 ---
+import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
 const { title, description, pubDate, author, image, video, canonical } = frontmatter;
 
@@ -23,65 +24,44 @@ const videoSchema = video
       embedUrl: `https://www.youtube-nocookie.com/embed/${video}`,
     }
   : null;
-const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site).href;
 ---
 
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} - Markas Walet</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    {image && <meta property="og:image" content={image} />}
-    <style>
-      :root { --w: 720px; --ink: #1a1a1a; --muted: #666; --accent: #0a7d4b; }
-      * { box-sizing: border-box; }
-      body { margin: 0; font: 17px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); }
-      header.site { border-bottom: 1px solid #eee; padding: 14px 20px; }
-      header.site img { height: 40px; width: auto; }
-      main { max-width: var(--w); margin: 0 auto; padding: 32px 20px; }
-      h1 { font-size: 2rem; line-height: 1.2; margin: 0.2em 0; }
-      .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5em; }
-      article :global(img) { max-width: 100%; height: auto; border-radius: 8px; margin: 1em 0; }
-      article :global(h2) { margin-top: 1.6em; font-size: 1.4rem; }
-      article :global(h3) { margin-top: 1.3em; font-size: 1.15rem; }
-      article :global(a) { color: var(--accent); }
-      .hero { max-width: 100%; height: auto; border-radius: 10px; margin: 0 0 1.5em; }
-      .video { position: relative; aspect-ratio: 16/9; margin: 2em 0; }
-      .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
-      footer.site { border-top: 1px solid #eee; padding: 24px 20px; color: var(--muted); font-size: 0.85rem; text-align: center; }
-    </style>
+<BaseLayout title={`${title} - Markas Walet`} description={description} canonical={canonical} image={image} ogType="article">
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     {videoSchema && <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />}
-  </head>
-  <body>
-    <header class="site">
-      <a href="/"><img src="/wp-content/uploads/2023/04/cropped-logo-website-white-291x45.png" alt="Markas Walet" width="291" height="45" /></a>
-    </header>
-    <main>
-      <h1>{title}</h1>
-      <div class="meta">{author}{pubDate ? ` · ${pubDate}` : ''}</div>
-      {image && <img class="hero" src={image} alt={title} />}
-      <article>
-        <slot />
-        {video && (
-          <figure class="video">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${video}`}
-              title={title}
-              loading="lazy"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </figure>
-        )}
-      </article>
-    </main>
-    <footer class="site">© Markas Walet</footer>
-  </body>
-</html>
+  </Fragment>
+
+  <main class="article-main">
+    <a class="back" href="/article/">← Semua artikel</a>
+    <h1>{title}</h1>
+    <div class="meta">{author}{pubDate ? ` · ${pubDate}` : ''}</div>
+    {image && <img class="hero" src={image} alt={title} loading="eager" />}
+    <article>
+      <slot />
+      {video && (
+        <figure class="video">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${video}`}
+            title={title}
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </figure>
+      )}
+    </article>
+  </main>
+
+  <style>
+    .article-main { max-width: var(--w); margin: 0 auto; padding: 28px 20px 8px; }
+    .back { display: inline-block; margin-bottom: 14px; font-size: 0.9rem; text-decoration: none; }
+    h1 { font-size: 2rem; line-height: 1.2; margin: 0.2em 0; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5em; }
+    .hero { width: 100%; border-radius: 10px; margin: 0 0 1.5em; }
+    article :global(h2) { margin-top: 1.6em; font-size: 1.4rem; }
+    article :global(h3) { margin-top: 1.3em; font-size: 1.15rem; }
+    article :global(img) { border-radius: 8px; margin: 1em 0; }
+    .video { position: relative; aspect-ratio: 16/9; margin: 2em 0; }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
+  </style>
+</BaseLayout>

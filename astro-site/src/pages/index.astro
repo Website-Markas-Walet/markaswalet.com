@@ -1,45 +1,81 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-const articles = (await getCollection('articles')).sort((a, b) =>
-  (b.data.pubDate || '').localeCompare(a.data.pubDate || '')
-);
+
+const articles = (await getCollection('articles'))
+  .filter((a) => a.data.title && !/^\d+$/.test(a.slug))
+  .sort((a, b) => (b.data.pubDate || '').localeCompare(a.data.pubDate || ''));
+const latest = articles.slice(0, 6);
+
+const products = [
+  { title: 'Premium Birdnest', href: '/premium-birdnest-product/', desc: 'Produk sarang walet premium siap konsumsi.' },
+  { title: 'Markaswalet Apps', href: '/markaswalet-apps/', desc: 'Aplikasi pendukung budidaya walet.' },
+  { title: 'Cultivation Technology', href: '/cultivation-technology/', desc: 'Teknologi cerdas untuk rumah walet.' },
+  { title: 'Swiftlet House Construction', href: '/swiftlet-house-construction/', desc: 'Pembangunan rumah burung walet.' },
+];
 ---
 
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Markas Walet — Artikel</title>
-    <meta name="description" content="Kumpulan artikel seputar budidaya dan sarang burung walet." />
-    <style>
-      :root { --w: 760px; --ink: #1a1a1a; --muted: #666; --accent: #0a7d4b; }
-      body { margin: 0; font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); }
-      header.site { border-bottom: 1px solid #eee; padding: 14px 20px; }
-      header.site img { height: 40px; }
-      main { max-width: var(--w); margin: 0 auto; padding: 32px 20px; }
-      h1 { font-size: 1.8rem; }
-      ul { list-style: none; padding: 0; }
-      li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
-      a { color: var(--accent); text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .date { color: var(--muted); font-size: 0.85rem; }
-    </style>
-  </head>
-  <body>
-    <header class="site">
-      <img src="/wp-content/uploads/2023/04/cropped-logo-website-white-291x45.png" alt="Markas Walet" />
-    </header>
-    <main>
-      <h1>Artikel ({articles.length})</h1>
-      <ul>
-        {articles.map((a) => (
-          <li>
-            <a href={`/article/${a.slug}/`}>{a.data.title}</a>
-            {a.data.pubDate && <div class="date">{a.data.pubDate}</div>}
-          </li>
-        ))}
-      </ul>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  title="Markas Walet — Edukasi & Produk Budidaya Sarang Walet"
+  description="Markas Walet: artikel, teknologi, dan produk seputar budidaya sarang burung walet di Indonesia."
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Pusatnya Budidaya Sarang Burung Walet</h1>
+      <p>Edukasi, teknologi, dan produk untuk peternak walet Indonesia — dari membangun rumah walet hingga panen sarang berkualitas.</p>
+      <div class="cta">
+        <a class="btn" href="/article/">Baca Artikel</a>
+        <a class="btn ghost" href="/premium-birdnest-product/">Lihat Produk</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block">
+    <div class="head"><h2>Artikel Terbaru</h2><a href="/article/">Semua →</a></div>
+    <div class="grid">
+      {latest.map((a) => (
+        <a class="card" href={`/article/${a.slug}/`}>
+          {a.data.image && <img src={a.data.image} alt={a.data.title} loading="lazy" />}
+          <div class="card-body">
+            <h3>{a.data.title}</h3>
+            {a.data.pubDate && <span class="date">{a.data.pubDate}</span>}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap block">
+    <div class="head"><h2>Produk & Layanan</h2></div>
+    <div class="grid">
+      {products.map((p) => (
+        <a class="card pad" href={p.href}>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .hero { background: linear-gradient(135deg, var(--bg-soft), #eaf3ee); padding: 64px 0; }
+    .hero h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 0.4em; max-width: 16ch; }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 52ch; margin: 0 0 1.6em; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    .btn:hover { background: var(--accent-dark); }
+    .btn.ghost { background: #fff; color: var(--accent); border: 1px solid var(--accent); }
+    .block { padding: 40px 20px; }
+    .head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px; }
+    .head h2 { margin: 0; font-size: 1.5rem; }
+    .head a { text-decoration: none; font-size: 0.95rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+    .card { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: box-shadow .15s, transform .15s; background: #fff; }
+    .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
+    .card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+    .card-body, .card.pad { padding: 14px 16px; }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.3; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .card .date { color: var(--muted); font-size: 0.82rem; }
+  </style>
+</BaseLayout>
