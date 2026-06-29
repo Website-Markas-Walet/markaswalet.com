@@ -1,81 +1,206 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 
-const articles = (await getCollection('articles'))
-  .filter((a) => a.data.title && !/^\d+$/.test(a.slug))
-  .sort((a, b) => (b.data.pubDate || '').localeCompare(a.data.pubDate || ''));
-const latest = articles.slice(0, 6);
+const ecosystem = [
+  { label: 'Government', icon: '🏛️' },
+  { label: 'Swiftlet Farmers', icon: '👨‍🌾' },
+  { label: 'Exporters & Buyers', icon: '🌐' },
+];
+
+const built = [
+  {
+    title: 'Real-Time Swiftlet Population Counting',
+    desc: 'Real-time detection that counts swiftlets entering and leaving the house — data-driven cultivation.',
+    video: 'KI2f_Tr-nx4',
+    cta: 'See Cultivation Technology',
+    href: '/cultivation-technology/',
+  },
+  {
+    title: 'All-in-One Swiftlet Farming Solution',
+    desc: 'From harvest tracking and market pricing to cultivation guides — the Markaswalet App puts everything a swiftlet farmer needs into one mobile platform.',
+    video: 'HHqAyut4EQI',
+    cta: 'Markaswalet Apps',
+    href: '/markaswalet-apps/',
+  },
+];
+
+const values = [
+  { title: 'Edu-Agri Tech', icon: '/wp-content/uploads/2023/05/Asset-40.png', desc: 'Free education for swiftlet nest farmers — cultivation guides, industry news, and expert interviews.' },
+  { title: 'Social Impact', icon: '/wp-content/uploads/2023/05/Asset-38.png', desc: 'Empowering farming communities and creating shared value across Indonesia’s swiftlet ecosystem.' },
+  { title: 'Traceability', icon: '/wp-content/uploads/2023/05/Asset-39.png', desc: 'The market price of swiftlet nests is significantly higher when the swiftlet house is traceable. We build trust with technology-backed quality verification.' },
+];
 
 const products = [
-  { title: 'Premium Birdnest', href: '/premium-birdnest-product/', desc: 'Produk sarang walet premium siap konsumsi.' },
-  { title: 'Markaswalet Apps', href: '/markaswalet-apps/', desc: 'Aplikasi pendukung budidaya walet.' },
-  { title: 'Cultivation Technology', href: '/cultivation-technology/', desc: 'Teknologi cerdas untuk rumah walet.' },
-  { title: 'Swiftlet House Construction', href: '/swiftlet-house-construction/', desc: 'Pembangunan rumah burung walet.' },
+  { tag: 'Export Ready', title: 'Premium Birdnest Product', desc: 'GACC-compliant, traceable swiftlet nests processed for the global market.', cta: 'Explore', href: '/premium-birdnest-product/' },
+  { tag: 'AgriTech App', title: 'Markaswalet Apps', desc: 'Farmer-facing mobile platform for harvest tracking, market pricing, and cultivation guides.', cta: 'Download', href: '/markaswalet-apps/' },
+  { tag: 'IoT Technology', title: 'Cultivation Technology', desc: 'Smart IoT solutions for monitoring swiftlet houses — optimizing sound, humidity, and harvest.', cta: 'See Tech', href: '/cultivation-technology/' },
+  { tag: 'Construction', title: 'Swiftlet House Construction', desc: 'End-to-end swiftlet house building — design, sound installation, and maintenance.', cta: 'Build Now', href: '/swiftlet-house-construction/' },
+];
+
+const socials = [
+  { icon: '📺', name: 'Markaswalet YouTube Channel', desc: 'Free education for swiftlet nest farmers — cultivation guides, industry news, and expert interviews. New videos every week.', label: 'Visit Channel', href: 'https://www.youtube.com/c/MarkasWalet' },
+  { icon: '📷', name: 'Instagram', desc: 'Behind-the-scenes, farm visits, product updates, and community stories.', label: '@markaswaletdotcom', href: 'https://www.instagram.com/markaswaletdotcom/' },
+  { icon: '👍', name: 'Facebook', desc: 'Community discussions, event announcements, and swiftlet farming tips.', label: 'Markas Walet', href: 'https://www.facebook.com/markaswalet' },
 ];
 ---
 
 <BaseLayout
-  title="Markas Walet — Edukasi & Produk Budidaya Sarang Walet"
-  description="Markas Walet: artikel, teknologi, dan produk seputar budidaya sarang burung walet di Indonesia."
+  title="Markas Walet — Built from Community, Powered by Technology"
+  description="Indonesia's most traceable raw bird nest supply. Edukasi, teknologi IoT, dan produk untuk ekosistem budidaya sarang burung walet."
 >
+  <!-- HERO -->
   <section class="hero">
-    <div class="wrap">
-      <h1>Pusatnya Budidaya Sarang Burung Walet</h1>
-      <p>Edukasi, teknologi, dan produk untuk peternak walet Indonesia — dari membangun rumah walet hingga panen sarang berkualitas.</p>
-      <div class="cta">
-        <a class="btn" href="/article/">Baca Artikel</a>
-        <a class="btn ghost" href="/premium-birdnest-product/">Lihat Produk</a>
+    <div class="hero-inner wrap">
+      <div class="hero-copy">
+        <span class="pill">● Our Story</span>
+        <h1>Built from <span class="gold">Community</span>,<br />Powered by Technology</h1>
+        <p>We started by listening — to farmers, exporters, and government agencies. That’s how we became more than a company. We became the missing link in Indonesia’s swiftlet nest ecosystem.</p>
+        <a class="btn" href="#nestcosystem">Check Our Nestcosystem</a>
+      </div>
+      <div class="hero-diagram" aria-hidden="true">
+        <div class="node center">MARKASWALET</div>
+        {ecosystem.map((n) => (
+          <div class="node sat"><span>{n.icon}</span>{n.label}</div>
+        ))}
       </div>
     </div>
   </section>
 
+  <!-- SEE WHAT WE'VE BUILT -->
   <section class="wrap block">
-    <div class="head"><h2>Artikel Terbaru</h2><a href="/article/">Semua →</a></div>
-    <div class="grid">
-      {latest.map((a) => (
-        <a class="card" href={`/article/${a.slug}/`}>
-          {a.data.image && <img src={a.data.image} alt={a.data.title} loading="lazy" />}
-          <div class="card-body">
-            <h3>{a.data.title}</h3>
-            {a.data.pubDate && <span class="date">{a.data.pubDate}</span>}
+    <h2 class="sec-title">See What We’ve Built</h2>
+    <div class="built-grid">
+      {built.map((b) => (
+        <div class="built-card">
+          <a class="thumb" href={`https://www.youtube.com/watch?v=${b.video}`} target="_blank" rel="noopener" aria-label={b.title}>
+            <img src={`https://i.ytimg.com/vi/${b.video}/hqdefault.jpg`} alt={b.title} loading="lazy" width="480" height="270" />
+            <span class="play">▶</span>
+          </a>
+          <div class="built-body">
+            <h3>{b.title}</h3>
+            <p>{b.desc}</p>
+            <a class="link" href={b.href}>{b.cta} →</a>
           </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="values">
+    <div class="wrap block">
+      <h2 class="sec-title center">Built on Three Core Values</h2>
+      <p class="sec-sub">Everything we do is guided by education, social impact, and traceability — the pillars of a sustainable swiftlet nest ecosystem.</p>
+      <div class="val-grid">
+        {values.map((v) => (
+          <div class="val-card">
+            <img src={v.icon} alt={v.title} loading="lazy" width="64" height="64" />
+            <h3>{v.title}</h3>
+            <p>{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="nestcosystem" class="wrap block">
+    <h2 class="sec-title center">Our Products &amp; Services</h2>
+    <div class="prod-grid">
+      {products.map((p) => (
+        <a class="prod-card" href={p.href}>
+          <span class="tag">{p.tag}</span>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+          <span class="link">{p.cta} →</span>
         </a>
       ))}
     </div>
   </section>
 
-  <section class="wrap block">
-    <div class="head"><h2>Produk & Layanan</h2></div>
-    <div class="grid">
-      {products.map((p) => (
-        <a class="card pad" href={p.href}>
-          <h3>{p.title}</h3>
-          <p>{p.desc}</p>
-        </a>
-      ))}
+  <!-- STAY CONNECTED -->
+  <section class="connect">
+    <div class="wrap block">
+      <h2 class="sec-title center">Stay Connected with Markas Walet</h2>
+      <div class="soc-grid">
+        {socials.map((s) => (
+          <div class="soc-card">
+            <div class="soc-ic">{s.icon}</div>
+            <h3>{s.name}</h3>
+            <p>{s.desc}</p>
+            <a class="btn sm" href={s.href} target="_blank" rel="noopener">{s.label}</a>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   <style>
-    .hero { background: linear-gradient(135deg, var(--bg-soft), #eaf3ee); padding: 64px 0; }
-    .hero h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 0.4em; max-width: 16ch; }
-    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 52ch; margin: 0 0 1.6em; }
-    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-    .btn:hover { background: var(--accent-dark); }
-    .btn.ghost { background: #fff; color: var(--accent); border: 1px solid var(--accent); }
-    .block { padding: 40px 20px; }
-    .head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px; }
-    .head h2 { margin: 0; font-size: 1.5rem; }
-    .head a { text-decoration: none; font-size: 0.95rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
-    .card { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: box-shadow .15s, transform .15s; background: #fff; }
-    .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
-    .card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
-    .card-body, .card.pad { padding: 14px 16px; }
-    .card h3 { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.3; }
-    .card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
-    .card .date { color: var(--muted); font-size: 0.82rem; }
+    .sec-title { font-size: 1.8rem; margin: 0 0 8px; }
+    .sec-title.center { text-align: center; }
+    .sec-sub { text-align: center; color: var(--muted); max-width: 60ch; margin: 0 auto 28px; }
+    .block { padding: 56px 20px; }
+    .btn { display: inline-block; background: var(--gold); color: #1a1300; padding: 13px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+    .btn:hover { filter: brightness(1.05); }
+    .btn.sm { padding: 9px 18px; font-size: .9rem; }
+    .link { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+    /* HERO */
+    .hero { background:
+        linear-gradient(105deg, rgba(8,32,26,.94) 0%, rgba(8,32,26,.78) 45%, rgba(8,32,26,.45) 100%),
+        url('/wp-content/uploads/2023/05/aset8-scaled.jpg') center/cover no-repeat;
+      color: #fff; }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding: 72px 20px; }
+    .pill { display: inline-block; background: rgba(244,180,26,.15); color: var(--gold); border: 1px solid rgba(244,180,26,.4); padding: 6px 16px; border-radius: 999px; font-size: .85rem; font-weight: 600; margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.08; font-weight: 800; margin: 0 0 18px; letter-spacing: -.02em; }
+    .hero .gold { color: var(--gold); }
+    .hero p { color: #cfe0d8; font-size: 1.08rem; max-width: 48ch; margin: 0 0 28px; }
+    .hero-diagram { position: relative; min-height: 320px; display: flex; align-items: center; justify-content: center; }
+    .node { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(4px); border-radius: 16px; color: #fff; font-size: .8rem; font-weight: 600; text-align: center; padding: 14px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .node span { font-size: 1.6rem; }
+    .node.center { width: 150px; height: 150px; justify-content: center; border-radius: 50%; background: var(--accent); border-color: var(--accent); font-size: .95rem; }
+    .hero-diagram .sat:nth-child(2) { position: absolute; top: 0; right: 8%; }
+    .hero-diagram .sat:nth-child(3) { position: absolute; bottom: 6%; left: 4%; }
+    .hero-diagram .sat:nth-child(4) { position: absolute; bottom: 6%; right: 4%; }
+
+    /* BUILT */
+    .built-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .built-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+    .thumb { position: relative; display: block; aspect-ratio: 16/9; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb .play { position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: rgba(244,180,26,.95); color: #1a1300; border-radius: 50%; font-size: 1.2rem; }
+    .built-body { padding: 18px; }
+    .built-body h3 { margin: 0 0 8px; }
+    .built-body p { color: var(--muted); margin: 0 0 12px; }
+
+    /* VALUES */
+    .values { background: var(--bg-soft); }
+    .val-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
+    .val-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 26px; text-align: center; }
+    .val-card img { width: 64px; height: 64px; object-fit: contain; }
+    .val-card h3 { margin: 14px 0 8px; }
+    .val-card p { color: var(--muted); margin: 0; font-size: .95rem; }
+
+    /* PRODUCTS */
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+    .prod-card { display: block; border: 1px solid var(--line); border-radius: 14px; padding: 22px; text-decoration: none; color: inherit; background: #fff; transition: box-shadow .15s, transform .15s; }
+    .prod-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .tag { display: inline-block; background: var(--bg-soft); color: var(--accent); font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+    .prod-card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .prod-card p { color: var(--muted); margin: 0 0 14px; font-size: .92rem; }
+
+    /* CONNECT */
+    .connect { background: #08201a; color: #fff; }
+    .connect .sec-title { color: #fff; }
+    .soc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .soc-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 24px; text-align: center; }
+    .soc-ic { font-size: 2rem; }
+    .soc-card h3 { margin: 10px 0 8px; }
+    .soc-card p { color: #b9ccc3; font-size: .92rem; margin: 0 0 16px; }
+
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-diagram { min-height: 260px; margin-top: 10px; }
+    }
   </style>
 </BaseLayout>
