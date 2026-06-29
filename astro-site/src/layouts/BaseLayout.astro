@@ -9,14 +9,12 @@ export interface Props {
 const { title, description = '', canonical, image = '', ogType = 'website' } = Astro.props;
 const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site).href;
 
-const nav = [
-  { label: 'Home', href: '/' },
-  { label: 'Premium Birdnest', href: '/premium-birdnest-product/' },
+const products = [
+  { label: 'Premium Birdnest Product', href: '/premium-birdnest-product/' },
   { label: 'Markaswalet Apps', href: '/markaswalet-apps/' },
-  { label: 'Teknologi', href: '/cultivation-technology/' },
-  { label: 'Konstruksi RBW', href: '/swiftlet-house-construction/' },
-  { label: 'Artikel', href: '/article/' },
-  { label: 'Tentang', href: '/about-us/' },
+  { label: 'Cultivation Technology', href: '/cultivation-technology/' },
+  { label: 'Farming Products', href: '/farming-products/' },
+  { label: 'Swiftlet House Construction', href: '/swiftlet-house-construction/' },
 ];
 ---
 
@@ -45,9 +43,19 @@ const nav = [
       .site-header { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #fff; z-index: 10; }
       .site-header .bar { display: flex; align-items: center; gap: 20px; padding: 12px 20px; max-width: var(--wide); margin: 0 auto; flex-wrap: wrap; }
       .site-header .logo img { height: 38px; display: block; }
-      .site-nav { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-left: auto; font-size: .95rem; }
-      .site-nav a { color: var(--ink); text-decoration: none; padding: 4px 0; white-space: nowrap; }
-      .site-nav a:hover { color: var(--accent); }
+      .site-nav { display: flex; align-items: center; gap: 26px; margin-left: auto; font-size: .95rem; }
+      .site-nav > a, .site-nav .dd > .dd-t { color: var(--ink); background: none; border: 0; font: inherit; cursor: pointer; text-decoration: none; padding: 6px 0; white-space: nowrap; font-weight: 600; }
+      .site-nav > a:hover, .site-nav .dd:hover > .dd-t { color: var(--accent); }
+      .site-nav .dd { position: relative; }
+      .site-nav .dd > .dd-t::after { content: ' ▾'; font-size: .8em; }
+      .site-nav .dd-menu { position: absolute; top: 100%; right: 0; min-width: 230px; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px; display: none; box-shadow: 0 12px 30px rgba(0,0,0,.12); }
+      .site-nav .dd:hover .dd-menu, .site-nav .dd:focus-within .dd-menu { display: block; }
+      .site-nav .dd-menu a { display: block; color: var(--ink); text-decoration: none; font-size: .9rem; padding: 9px 12px; border-radius: 7px; white-space: nowrap; }
+      .site-nav .dd-menu a:hover { background: var(--bg-soft); color: var(--accent); }
+      @media (max-width: 820px) {
+        .site-nav { gap: 14px 18px; flex-wrap: wrap; margin: 8px 0 0; }
+        .site-nav .dd-menu { position: static; display: block; border: 0; box-shadow: none; padding: 0 0 0 12px; min-width: 0; }
+      }
       /* footer */
       .site-footer { background: var(--bg-soft); border-top: 1px solid var(--line); margin-top: 48px; }
       .site-footer .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 40px 20px; max-width: var(--wide); margin: 0 auto; }
@@ -65,7 +73,15 @@ const nav = [
       <div class="bar">
         <a href="/" class="logo"><img src="/wp-content/uploads/2023/04/cropped-logo-website-white-291x45.png" alt="Markas Walet" width="291" height="45" /></a>
         <nav class="site-nav">
-          {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+          <a href="/">Home</a>
+          <div class="dd">
+            <button class="dd-t" type="button" aria-haspopup="true">Our Product</button>
+            <div class="dd-menu">
+              {products.map((p) => <a href={p.href}>{p.label}</a>)}
+            </div>
+          </div>
+          <a href="/article/">Article</a>
+          <a href="/about-us/">About Us</a>
         </nav>
       </div>
     </header>

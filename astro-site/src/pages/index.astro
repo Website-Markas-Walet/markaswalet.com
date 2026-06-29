@@ -6,14 +6,12 @@
 import bodyHtml from '../home/homepage-body.html?raw';
 import customJs from '../home/homepage.js?raw';
 
-const nav = [
-  { label: 'Home', href: '/' },
-  { label: 'Premium Birdnest', href: '/premium-birdnest-product/' },
+const products = [
+  { label: 'Premium Birdnest Product', href: '/premium-birdnest-product/' },
   { label: 'Markaswalet Apps', href: '/markaswalet-apps/' },
   { label: 'Cultivation Technology', href: '/cultivation-technology/' },
+  { label: 'Farming Products', href: '/farming-products/' },
   { label: 'Swiftlet House Construction', href: '/swiftlet-house-construction/' },
-  { label: 'Article', href: '/article/' },
-  { label: 'About Us', href: '/about-us/' },
 ];
 
 const orgSchema = {
@@ -45,18 +43,39 @@ const orgSchema = {
       body { margin: 0; font-family: 'Poppins', system-ui, -apple-system, sans-serif; color: #18201c; }
       img { max-width: 100%; height: auto; }
       .hp-header { background: #0b241d; position: sticky; top: 0; z-index: 50; }
-      .hp-bar { display: flex; align-items: center; gap: 18px; max-width: 1180px; margin: 0 auto; padding: 12px 20px; flex-wrap: wrap; }
-      .hp-bar .logo img { height: 40px; display: block; }
-      .hp-nav { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-left: auto; }
-      .hp-nav a { color: #eaf3ee; text-decoration: none; font-size: 0.92rem; font-weight: 500; white-space: nowrap; }
-      .hp-nav a:hover { color: #f4b41a; }
+      .hp-bar { display: flex; align-items: center; gap: 18px; max-width: 1180px; margin: 0 auto; padding: 14px 20px; }
+      .hp-bar .logo img { height: 44px; display: block; }
+      .hp-nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+      .hp-nav > a, .hp-nav .dd > .dd-t { color: #eaf3ee; background: none; border: 0; font: inherit; cursor: pointer; text-decoration: none; font-size: 0.95rem; font-weight: 600; white-space: nowrap; padding: 6px 0; }
+      .hp-nav > a:hover, .hp-nav .dd:hover > .dd-t, .hp-nav > a.active { color: #f4b41a; }
+      .hp-nav .dd { position: relative; }
+      .hp-nav .dd > .dd-t::after { content: ' ▾'; font-size: 0.8em; }
+      .hp-nav .dd-menu { position: absolute; top: 100%; right: 0; min-width: 230px; background: #0b241d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 8px; display: none; box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+      .hp-nav .dd:hover .dd-menu, .hp-nav .dd:focus-within .dd-menu { display: block; }
+      .hp-nav .dd-menu a { display: block; color: #eaf3ee; text-decoration: none; font-size: 0.9rem; padding: 9px 12px; border-radius: 7px; white-space: nowrap; }
+      .hp-nav .dd-menu a:hover { background: rgba(244,180,26,.12); color: #f4b41a; }
+      @media (max-width: 820px) {
+        .hp-bar { flex-wrap: wrap; }
+        .hp-nav { gap: 14px 18px; flex-wrap: wrap; margin: 8px 0 0; }
+        .hp-nav .dd-menu { position: static; display: block; border: 0; box-shadow: none; padding: 0 0 0 12px; min-width: 0; background: none; }
+      }
     </style>
   </head>
   <body>
     <header class="hp-header">
       <div class="hp-bar">
         <a href="/" class="logo"><img src="/wp-content/uploads/2023/04/cropped-logo-website-white-291x45.png" alt="Markas Walet" width="291" height="45" /></a>
-        <nav class="hp-nav">{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav>
+        <nav class="hp-nav">
+          <a href="/" class="active">Home</a>
+          <div class="dd">
+            <button class="dd-t" type="button" aria-haspopup="true">Our Product</button>
+            <div class="dd-menu">
+              {products.map((p) => <a href={p.href}>{p.label}</a>)}
+            </div>
+          </div>
+          <a href="/article/">Article</a>
+          <a href="/about-us/">About Us</a>
+        </nav>
       </div>
     </header>
 
