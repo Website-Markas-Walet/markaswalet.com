@@ -96,26 +96,34 @@ img{max-width:100%;display:block;height:auto}
    menyeluruh dihapus; yang tersisa hanya penggelapan tipis di tepi atas dan
    bawah, memakai abu netral (bukan biru) supaya tidak mengubah rona video.
    Gunanya cuma menyatukan hero dengan bilah gelap di atas dan section di bawah. */
-/* Teks dipisah ke atas dan bawah supaya bagian tengah frame, tempat walet
-   berterbangan, tidak tertutup apa pun. Karena itu penggelapan juga dibuat
-   dua pita: gelap di pita atas dan bawah tempat teks berada, lalu bening di
-   tengah. Abu netral, bukan navy, agar warna video tidak bergeser. */
+/* Penggelapan menyeluruh sengaja dibuat sangat tipis: hanya menyentuh tepi
+   paling atas dan paling bawah untuk menyambung hero dengan bilah gelap di
+   atas dan section di bawahnya. Sisanya video warna asli. */
 .hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,
-    rgba(6,10,18,.78) 0%,
-    rgba(6,10,18,.66) 16%,
-    rgba(6,10,18,.30) 30%,
-    rgba(6,10,18,.06) 42%,
-    rgba(6,10,18,.06) 54%,
-    rgba(6,10,18,.34) 66%,
-    rgba(6,10,18,.68) 80%,
-    rgba(6,10,18,.80) 100%)}
+    rgba(6,10,18,.34) 0%, rgba(6,10,18,.06) 12%,
+    rgba(6,10,18,0) 30%, rgba(6,10,18,0) 70%,
+    rgba(6,10,18,.10) 88%, rgba(6,10,18,.38) 100%)}
 
 /* Dua kelompok teks didorong ke ujung atas dan bawah, menyisakan ruang bening
    di tengah sebagai panggung untuk video walet keluar masuk. */
 .hero-in{position:relative;z-index:2;max-width:840px;margin:0 auto;text-align:center;
   flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
-.hero-top,.hero-bot{display:flex;flex-direction:column;align-items:center}
+/* Tiap kelompok membawa peredupnya sendiri, menempel pada posisi teksnya.
+   Ini menggantikan gradasi satu-halaman yang sebelumnya meleset: saat teks
+   didorong ke ujung, area beningnya melebar melewati batas teks sehingga
+   bagian bawah judul sempat hanya mencapai kontras 1,95:1.
+   Dengan cara ini, gelapnya selalu mengikuti teks ke mana pun ia berada,
+   dan celah di antara keduanya tetap bening untuk video. */
+.hero-top,.hero-bot{position:relative;display:flex;flex-direction:column;align-items:center}
+.hero-top::before,.hero-bot::before{content:"";position:absolute;z-index:-1;pointer-events:none;
+  left:50%;transform:translateX(-50%);width:min(170vw,1700px)}
+.hero-top::before{top:-140px;bottom:-40px;
+  background:radial-gradient(ellipse 54% 100% at 50% 58%,
+    rgba(6,10,18,.76) 0%, rgba(6,10,18,.70) 52%, rgba(6,10,18,.34) 76%, rgba(6,10,18,0) 100%)}
+.hero-bot::before{top:-40px;bottom:-140px;
+  background:radial-gradient(ellipse 54% 100% at 50% 42%,
+    rgba(6,10,18,.76) 0%, rgba(6,10,18,.70) 52%, rgba(6,10,18,.34) 76%, rgba(6,10,18,0) 100%)}
 /* Latar badge dibuat gelap, bukan kuning transparan: di atas video warna asli
    yang ramai, kuning di atas kuning tipis nyaris tak terbaca. */
 .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:999px;background:rgba(6,10,18,.62);border:1px solid rgba(255,204,60,.6);color:var(--accent);font-size:12.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
