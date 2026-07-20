@@ -10,9 +10,12 @@
 <meta property="og:type" content="product">
 <meta property="og:title" content="Pre-Order MataWalet PRO — Early Bird 100 Orang Pertama">
 <meta property="og:description" content="AI IoT Camera pertama di Indonesia untuk rumah burung walet. Real-time population counting, terhubung ke Markaswalet App. Harga spesial untuk 100 pemesan pertama.">
-<meta property="og:image" content="https://markaswalet.com/wp-content/uploads/nestcosystem/packaging_matawalet_pro.jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<!-- Sebelumnya menunjuk packaging_matawalet_pro.jpeg yang TIDAK ADA di server
+     (yang ada berekstensi .jpg), sehingga preview WhatsApp/FB halaman ini
+     tampil tanpa gambar. Diganti ke mockup banner, ukuran sesuai file asli. -->
+<meta property="og:image" content="https://markaswalet.com/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png">
+<meta property="og:image:width" content="763">
+<meta property="og:image:height" content="606">
 <meta property="og:url" content="https://markaswalet.com/lp_matawalet_pro/">
 <meta property="og:site_name" content="Markas Walet">
 <meta property="og:locale" content="id_ID">
@@ -21,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pre-Order MataWalet PRO — Early Bird 100 Orang Pertama">
 <meta name="twitter:description" content="AI IoT Camera pertama di Indonesia untuk rumah burung walet.">
-<meta name="twitter:image" content="https://markaswalet.com/wp-content/uploads/nestcosystem/packaging_matawalet_pro.jpeg">
+<meta name="twitter:image" content="https://markaswalet.com/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png">
 
 <!-- Canonical -->
 <link rel="canonical" href="https://markaswalet.com/lp_matawalet_pro/">
@@ -32,7 +35,7 @@
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "MataWalet PRO — AI IoT Camera",
-  "image": "https://markaswalet.com/wp-content/uploads/nestcosystem/packaging_matawalet_pro.jpeg",
+  "image": "https://markaswalet.com/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png",
   "description": "AI IoT Camera pertama di Indonesia untuk rumah burung walet. Real-time population counting, membedakan static vs motion, terhubung ke Markaswalet App.",
   "brand": { "@type": "Brand", "name": "Markas Walet" },
   "offers": {
@@ -150,11 +153,16 @@ img{max-width:100%;display:block;height:auto}
 
 /* ===== PRODUCT GALLERY (new) ===== */
 .gallery{padding:72px 0 40px;background:var(--bg-soft)}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
-.gal-item{aspect-ratio:1;border-radius:14px;overflow:hidden;background:#ffffff;border:1px solid var(--border);position:relative;transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;cursor:zoom-in;box-shadow:0 4px 12px rgba(19,47,94,.05)}
+/* Galeri mockup: 2 kolom, sama persis dengan /lp_matawalet_pro_b/ supaya A/B test
+   hanya menguji perbedaan copy, bukan perbedaan tampilan. Gambar sengaja TIDAK
+   dipotong (object-fit:contain) karena salah satunya diagram berlabel yang
+   keterangannya hilang kalau dipangkas, dan rasio kedua mockup berbeda. */
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
+.gal-item{border-radius:14px;overflow:hidden;background:#ffffff;border:1px solid var(--border);transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;cursor:zoom-in;box-shadow:0 4px 12px rgba(19,47,94,.05)}
 .gal-item:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 14px 32px rgba(40,85,161,.18)}
-.gal-item img{width:100%;height:100%;object-fit:cover}
-.gal-item .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 14px 10px;font-size:12px;font-weight:600;color:#fff;background:linear-gradient(to top, rgba(19,47,94,.85), transparent);letter-spacing:.3px}
+.gal-item .shot{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;padding:18px;background:var(--bg-soft)}
+.gal-item img{width:100%;height:100%;object-fit:contain}
+.gal-item .cap{padding:13px 16px;font-size:13.5px;font-weight:700;color:var(--text);border-top:1px solid var(--border);background:#fff;letter-spacing:.2px}
 
 /* ===== SECTION BASE ===== */
 section{padding:80px 0;position:relative;background:var(--bg)}
@@ -239,7 +247,7 @@ footer a{color:var(--blue)}
   .offer{grid-template-columns:1fr;padding:30px 24px}
   .steps{grid-template-columns:repeat(2,1fr)}
   .slot-card{grid-template-columns:1fr;text-align:center;gap:14px}
-  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:1fr}
   .sticky{display:flex}
   section{padding:58px 0}
   .hero{padding:48px 0 40px}
@@ -284,7 +292,7 @@ footer a{color:var(--blue)}
            dan sekaligus syarat wajib agar autoplay tidak diblokir browser. -->
       <video id="heroVideo" autoplay muted loop playsinline controls preload="auto">
         <source src="/wp-content/uploads/nestcosystem/matawalet_pro_demo.mp4" type="video/mp4">
-        <img src="/wp-content/uploads/nestcosystem/packaging_matawalet_pro.jpeg" alt="MataWalet PRO — AI IoT Camera untuk Rumah Burung Walet">
+        <img src="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png" alt="MataWalet PRO — AI IoT Camera untuk Rumah Burung Walet">
       </video>
       <button class="hero-play" id="heroPlay" type="button" aria-label="Putar video MataWalet PRO">
         <i></i>
@@ -313,21 +321,13 @@ footer a{color:var(--blue)}
     <p class="sec-p">Dirancang compact — mudah dipasang di plafon atau dinding RBW, tanpa mengganggu walet.</p>
 
     <div class="gal-grid">
-      <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/packaging_matawalet_pro.jpeg">
-        <img src="/wp-content/uploads/nestcosystem/packaging_matawalet_pro.jpeg" alt="MataWalet PRO dalam kemasan" loading="lazy">
-        <div class="cap">Kemasan Produk</div>
+      <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png">
+        <div class="shot"><img src="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png" alt="Kamera MataWalet PRO tampak depan bersama banner produk" loading="lazy"></div>
+        <div class="cap">Tampak Depan Produk</div>
       </div>
-      <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/matawaletpro_tampakdepanatas.jpeg">
-        <img src="/wp-content/uploads/nestcosystem/matawaletpro_tampakdepanatas.jpeg" alt="Tampak depan atas" loading="lazy">
-        <div class="cap">Tampak Depan Atas</div>
-      </div>
-      <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/matawaletpro_tampakdepan_samping.jpeg">
-        <img src="/wp-content/uploads/nestcosystem/matawaletpro_tampakdepan_samping.jpeg" alt="Tampak depan samping" loading="lazy">
-        <div class="cap">Tampak Samping</div>
-      </div>
-      <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/matawaletpro_tampakdepan.jpeg">
-        <img src="/wp-content/uploads/nestcosystem/matawaletpro_tampakdepan.jpeg" alt="Tampak depan" loading="lazy">
-        <div class="cap">Detail Lensa</div>
+      <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/komponen_kamera.png">
+        <div class="shot"><img src="/wp-content/uploads/nestcosystem/komponen_kamera.png" alt="Bagian-bagian kamera MataWalet PRO beserta keterangannya" loading="lazy"></div>
+        <div class="cap">Komponen &amp; Bagian Kamera</div>
       </div>
     </div>
   </div>
