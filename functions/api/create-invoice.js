@@ -21,6 +21,25 @@ const json = (data, status = 200) =>
     headers: { "Content-Type": "application/json" },
   });
 
+/**
+ * Kegagalan yang perlu DIBACA browser harus dikirim dengan status 200.
+ *
+ * Cloudflare mengganti bodi respons ber-status 5xx dengan halaman error HTML
+ * miliknya sendiri, sehingga pesan JSON kita hilang dan browser cuma melihat
+ * "502 + HTML". Status 4xx lolos utuh, 5xx tidak. Karena itu kegagalan di sisi
+ * kami dikirim sebagai 200 dengan penanda ok:false — kliennya yang menilai,
+ * bukan status HTTP-nya.
+ */
+const gagal = (pesan, debug) =>
+  json({
+    ok: false,
+    error: pesan,
+    debug: debug,
+    wa: `https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(
+      "Halo Markaswalet, saya gagal checkout Pre-Order MataWalet PRO di website."
+    )}`,
+  });
+
 export async function onRequestPost(ctx) {
   // Pembungkus terluar: tanpa ini, exception apa pun yang lolos membuat
   // Cloudflare membalas halaman error HTML 502 — pengunjung bingung dan
@@ -29,16 +48,10 @@ export async function onRequestPost(ctx) {
     return await tanganiPesanan(ctx);
   } catch (err) {
     console.error("Exception tak tertangani:", err && err.stack ? err.stack : err);
-    return json(
-      {
-        error: "Terjadi kesalahan di sisi kami. Silakan hubungi kami via WhatsApp.",
-        wa: `https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(
-          "Halo Markaswalet, saya gagal checkout Pre-Order MataWalet PRO di website."
-        )}`,
-        // Ringkas dan bebas rahasia — cukup untuk mendiagnosis dari browser.
-        debug: `${(err && err.name) || "Error"}: ${String((err && err.message) || err).slice(0, 200)}`,
-      },
-      500
+    return gagal(
+      "Terjadi kesalahan di sisi kami. Silakan hubungi kami via WhatsApp.",
+      // Ringkas dan bebas rahasia — cukup untuk mendiagnosis dari browser.
+      `${(err && err.name) || "Error"}: ${String((err && err.message) || err).slice(0, 200)}`
     );
   }
 }
@@ -47,7 +60,7 @@ async function tanganiPesanan({ request, env }) {
   if (!env.XENDIT_SECRET_KEY) {
     // Jangan bocorkan detail ke pengunjung, tapi tetap jelas di log.
     console.error("XENDIT_SECRET_KEY belum di-set di environment variables");
-    return json({ error: "Pembayaran belum aktif. Silakan hubungi kami via WhatsApp." }, 503);
+    return gagal("Pembayaran belum aktif. Silakan hubungi kami via WhatsApp.", "env-tidak-ada");
   }
 
   let body;
@@ -118,12 +131,9 @@ async function tanganiPesanan({ request, env }) {
   const key = String(env.XENDIT_SECRET_KEY).trim();
   if (!/^[\x20-\x7E]+$/.test(key)) {
     console.error("XENDIT_SECRET_KEY memuat karakter tak tercetak / non-ASCII");
-    return json(
-      {
-        error: "Konfigurasi pembayaran bermasalah. Silakan hubungi kami via WhatsApp.",
-        debug: "key-berisi-karakter-tidak-sah",
-      },
-      500
+    return gagal(
+      "Konfigurasi pembayaran bermasalah. Silakan hubungi kami via WhatsApp.",
+      "key-berisi-karakter-tidak-sah"
     );
   }
 
@@ -140,22 +150,22 @@ async function tanganiPesanan({ request, env }) {
     inv = await res.json();
   } catch (err) {
     console.error("Gagal menghubungi Xendit:", err);
-    return json({ error: "Gagal menghubungi penyedia pembayaran. Coba lagi sebentar lagi." }, 502);
+    return gagal(
+      "Gagal menghubungi penyedia pembayaran. Coba lagi sebentar lagi.",
+      `fetch-gagal: ${String((err && err.message) || err).slice(0, 120)}`
+    );
   }
 
   if (!res.ok || !inv.invoice_url) {
     // Pesan asli Xendit hanya untuk log — pengunjung dapat pesan netral + jalur WA.
     console.error("Xendit menolak permintaan:", res.status, JSON.stringify(inv));
-    return json(
-      {
-        error: "Pembayaran gagal dibuat. Silakan hubungi kami via WhatsApp.",
-        wa: `https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(
-          "Halo Markaswalet, saya gagal checkout Pre-Order MataWalet PRO di website."
-        )}`,
-      },
-      502
+    // Kode error Xendit ikut dikirim (bukan pesan mentahnya) supaya penyebab
+    // seperti API_VALIDATION_ERROR atau key salah bisa dikenali dari browser.
+    return gagal(
+      "Pembayaran gagal dibuat. Silakan hubungi kami via WhatsApp.",
+      `xendit-${res.status}: ${String((inv && (inv.error_code || inv.message)) || "tanpa-kode").slice(0, 120)}`
     );
   }
 
-  return json({ url: inv.invoice_url, external_id: externalId });
+  return json({ ok: true, url: inv.invoice_url, external_id: externalId });
 }

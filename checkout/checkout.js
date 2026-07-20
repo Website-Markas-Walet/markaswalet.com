@@ -184,7 +184,9 @@
         });
       })
       .then(function (res) {
-        if (res.ok && res.data.url) { window.location.href = res.data.url; return; }
+        // Kegagalan dikirim server sebagai HTTP 200 dengan ok:false — status 5xx
+        // tidak dipakai karena Cloudflare mengganti bodinya dengan halaman HTML.
+        if (res.data.url) { window.location.href = res.data.url; return; }
         console.error('[checkout] ditolak server', res.data);
         gagal(res.data.error || 'Pembayaran gagal dibuat. Silakan coba lagi.', res.data.wa);
       })
