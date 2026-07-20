@@ -53,6 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="all">
 
+<link rel="stylesheet" href="/checkout/checkout.css">
 <style>
 :root{
   /* Brand palette — primary #2855a1 · secondary #132f5e · third #e1e0e0 */
@@ -273,9 +274,10 @@ footer a{color:var(--blue)}
       <p class="lead">Kamera AI pertama di Indonesia yang menghitung populasi burung walet <b>secara real-time</b>, membedakan static vs motion dengan confidence score, dan terhubung langsung ke aplikasi Markaswalet. Pantau RBW Anda dari mana saja, 24/7.</p>
 
       <div class="cta-row">
-        <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20ingin%20ikut%20Pre-Order%20MataWalet%20PRO%20(100%20orang%20pertama)" target="_blank" rel="noopener" class="btn btn-primary">🎯 Ambil Slot Pre-Order</a>
+        <button type="button" class="btn btn-primary js-order">🎯 Ambil Slot Pre-Order</button>
         <a href="#fitur" class="btn btn-ghost">Lihat Fitur →</a>
       </div>
+      <a class="cta-wa" href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20mau%20tanya%20soal%20MataWalet%20PRO" target="_blank" rel="noopener">💬 Tanya dulu via WhatsApp</a>
 
       <div class="meta">
         <div><span class="chk">✓</span> Garansi 1 tahun</div>
@@ -309,7 +311,7 @@ footer a{color:var(--blue)}
     <div class="slot-label">Pre-Order Early Bird dibuka sampai <b>10 September 2026</b>
       <span>Atau sampai slot 100 unit terisi — mana yang lebih cepat. First come, first served.</span>
     </div>
-    <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20ingin%20ikut%20Pre-Order%20MataWalet%20PRO" target="_blank" rel="noopener" class="btn btn-primary">Amankan Slot</a>
+    <button type="button" class="btn btn-primary js-order">Amankan Slot</button>
   </div>
 </div>
 
@@ -449,7 +451,7 @@ footer a{color:var(--blue)}
           <li>Prioritas support teknis grup Early Adopter</li>
         </ul>
 
-        <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20ingin%20ikut%20Pre-Order%20MataWalet%20PRO%20(100%20orang%20pertama)" target="_blank" rel="noopener" class="btn btn-primary">🎯 Pesan via WhatsApp</a>
+        <button type="button" class="btn btn-primary js-order">🎯 Pesan via WhatsApp</button>
       </div>
 
       <div class="offer-card">
@@ -477,9 +479,9 @@ footer a{color:var(--blue)}
     <h2 class="sec-h">4 langkah untuk amankan slot Anda.</h2>
 
     <div class="steps">
-      <div class="step"><div class="n">01</div><h4>Klik Tombol Pre-Order</h4><p>WhatsApp langsung terbuka ke tim Markas Walet.</p></div>
-      <div class="step"><div class="n">02</div><h4>Konfirmasi Data &amp; Alamat</h4><p>Tim kami kirim form singkat dan invoice pre-order.</p></div>
-      <div class="step"><div class="n">03</div><h4>Pembayaran DP atau Lunas</h4><p>DP 50% untuk amankan slot, atau lunas untuk prioritas pengiriman.</p></div>
+      <div class="step"><div class="n">01</div><h4>Isi Form Pre-Order</h4><p>Nama, WhatsApp, email, dan jumlah unit. Cukup 30 detik.</p></div>
+      <div class="step"><div class="n">02</div><h4>Bayar Online</h4><p>DP 50% untuk amankan slot, atau lunas untuk prioritas pengiriman. Transfer bank, e-wallet, QRIS, atau kartu kredit.</p></div>
+      <div class="step"><div class="n">03</div><h4>Konfirmasi Alamat</h4><p>Tim kami hubungi via WhatsApp untuk alamat pengiriman.</p></div>
       <div class="step"><div class="n">04</div><h4>Unit Dikirim</h4><p>Batch pertama dikirim 4–6 minggu setelah pre-order ditutup.</p></div>
     </div>
   </div>
@@ -527,7 +529,7 @@ footer a{color:var(--blue)}
   <div class="wrap">
     <h2>Jadilah satu dari 100 Early Adopter MataWalet PRO.</h2>
     <p>Harga resmi, bonus eksklusif, dan prioritas support. Slot terbatas — first come, first served.</p>
-    <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20ingin%20ikut%20Pre-Order%20MataWalet%20PRO%20(100%20orang%20pertama)" target="_blank" rel="noopener" class="btn btn-primary">🎯 Ambil Slot Pre-Order Sekarang</a>
+    <button type="button" class="btn btn-primary js-order">🎯 Ambil Slot Pre-Order Sekarang</button>
   </div>
 </section>
 
@@ -540,7 +542,7 @@ footer a{color:var(--blue)}
 <!-- Sticky mobile CTA -->
 <div class="sticky">
   <div class="p">MataWalet PRO<b>Rp 1.500.000 / unit</b></div>
-  <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20ingin%20ikut%20Pre-Order%20MataWalet%20PRO" target="_blank" rel="noopener" class="btn btn-primary" style="padding:11px 18px">Pre-Order</a>
+  <button type="button" class="btn btn-primary js-order" style="padding:11px 18px">Pre-Order</button>
 </div>
 
 <!-- Lightbox for gallery -->
@@ -627,5 +629,6 @@ footer a{color:var(--blue)}
 })();
 </script>
 
+<script src="/checkout/checkout.js" defer></script>
 </body>
 </html>

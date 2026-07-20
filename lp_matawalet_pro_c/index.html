@@ -44,6 +44,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="all">
 
+<link rel="stylesheet" href="/checkout/checkout.css">
 <style>
 :root{
   /* Brand palette — primary #2855a1 · secondary #132f5e · third #e1e0e0 */
@@ -339,7 +340,7 @@ footer a{color:var(--blue)}
     <div class="slot-label">Pre-Order Early Bird dibuka sampai <b>10 September 2026</b>
       <span>Atau sampai slot 100 unit habis, mana yang lebih dulu. Siapa cepat, dia dapat!</span>
     </div>
-    <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20masih%20membandingkan%20pilihan%20alat%20pantau%20RBW.%20Boleh%20tanya-tanya%20soal%20MataWalet%20PRO%3F" target="_blank" rel="noopener" class="btn btn-primary">Amankan Slot</a>
+    <button type="button" class="btn btn-primary js-order">Amankan Slot</button>
   </div>
 </div>
 
@@ -569,9 +570,9 @@ footer a{color:var(--blue)}
     <h2 class="sec-h">Empat langkah, selesai dalam hitungan menit.</h2>
 
     <div class="steps">
-      <div class="step"><div class="n">01</div><h4>Klik Tombol Pre-Order</h4><p>WhatsApp langsung terbuka ke tim Markas Walet.</p></div>
-      <div class="step"><div class="n">02</div><h4>Konfirmasi Data &amp; Alamat</h4><p>Tim kami kirim form singkat dan invoice pre-order.</p></div>
-      <div class="step"><div class="n">03</div><h4>Pembayaran DP atau Lunas</h4><p>DP 50% untuk amankan slot, atau lunas untuk prioritas pengiriman.</p></div>
+      <div class="step"><div class="n">01</div><h4>Isi Form Pre-Order</h4><p>Nama, WhatsApp, email, dan jumlah unit. Cukup 30 detik.</p></div>
+      <div class="step"><div class="n">02</div><h4>Bayar Online</h4><p>DP 50% untuk amankan slot, atau lunas untuk prioritas pengiriman. Transfer bank, e-wallet, QRIS, atau kartu kredit.</p></div>
+      <div class="step"><div class="n">03</div><h4>Konfirmasi Alamat</h4><p>Tim kami hubungi via WhatsApp untuk alamat pengiriman.</p></div>
       <div class="step"><div class="n">04</div><h4>Unit Dikirim</h4><p>Batch pertama dikirim 4–6 minggu setelah pre-order ditutup.</p></div>
     </div>
   </div>
@@ -686,7 +687,7 @@ footer a{color:var(--blue)}
 <!-- Sticky mobile CTA -->
 <div class="sticky">
   <div class="p">MataWalet PRO<b>Rp 1.500.000 / unit</b></div>
-  <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20masih%20membandingkan%20pilihan%20alat%20pantau%20RBW.%20Boleh%20tanya-tanya%20soal%20MataWalet%20PRO%3F" target="_blank" rel="noopener" class="btn btn-primary" style="padding:11px 18px">Pre-Order</a>
+  <button type="button" class="btn btn-primary js-order" style="padding:11px 18px">Pre-Order</button>
 </div>
 
 <!-- Lightbox for gallery -->
@@ -773,5 +774,6 @@ footer a{color:var(--blue)}
 })();
 </script>
 
+<script src="/checkout/checkout.js" defer></script>
 </body>
 </html>
