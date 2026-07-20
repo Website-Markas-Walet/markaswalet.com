@@ -165,13 +165,40 @@
         sumber: location.pathname
       })
     })
-      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+      .then(function (r) {
+        // Respons bisa saja bukan JSON — misalnya halaman 404 saat deployment
+        // belum siap, atau halaman error dari Cloudflare. Ditangani terpisah
+        // supaya pesannya menunjuk penyebab sebenarnya, bukan menuduh jaringan.
+        return r.text().then(function (teks) {
+          var data;
+          try { data = JSON.parse(teks); }
+          catch (e) {
+            console.error('[checkout] respons bukan JSON', r.status, teks.slice(0, 200));
+            throw new Error(
+              r.status === 404
+                ? 'Layanan pembayaran belum aktif di halaman ini (404).'
+                : 'Server membalas dengan format tak terduga (HTTP ' + r.status + ').'
+            );
+          }
+          return { ok: r.ok, data: data };
+        });
+      })
       .then(function (res) {
         if (res.ok && res.data.url) { window.location.href = res.data.url; return; }
+        console.error('[checkout] ditolak server', res.data);
         gagal(res.data.error || 'Pembayaran gagal dibuat. Silakan coba lagi.', res.data.wa);
       })
-      .catch(function () {
-        gagal('Koneksi bermasalah. Periksa jaringan Anda lalu coba lagi.');
+      .catch(function (e) {
+        console.error('[checkout] gagal', e);
+        // TypeError dari fetch = benar-benar tidak sampai ke server.
+        var jaringan = e instanceof TypeError;
+        gagal(
+          jaringan
+            ? 'Koneksi bermasalah. Periksa jaringan Anda lalu coba lagi.'
+            : e.message + ' Silakan coba lagi atau hubungi kami via WhatsApp.',
+          jaringan ? null : 'https://wa.me/' + WA + '?text=' + encodeURIComponent(
+            'Halo Markaswalet, saya gagal checkout MataWalet PRO di website.')
+        );
       });
   });
 
