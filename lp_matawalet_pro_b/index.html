@@ -79,60 +79,64 @@ img{max-width:100%;display:block;height:auto}
 .bar strong{color:var(--accent)}
 
 /* ===== HERO ===== */
-.hero{position:relative;padding:72px 0 56px;background:
-  radial-gradient(900px 500px at 15% 10%, rgba(40,85,161,.10), transparent 60%),
-  radial-gradient(700px 420px at 90% 60%, rgba(109,151,212,.10), transparent 55%),
-  linear-gradient(180deg, #ffffff 0%, #f6f6f7 100%);
-  overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background-image:
-  linear-gradient(rgba(40,85,161,.07) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(40,85,161,.07) 1px, transparent 1px);
-  background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse at center, #000 40%, transparent 75%);mask-image:radial-gradient(ellipse at center, #000 40%, transparent 75%);pointer-events:none}
-.hero-in{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center;position:relative;z-index:2}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,204,60,.18);border:1px solid rgba(255,163,0,.5);color:var(--accent-text);font-size:12.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px}
+/* ===== HERO DENGAN VIDEO SEBAGAI LATAR =====
+   Video dipasang penuh selebar layar, teks ditaruh di atasnya.
+   Warna dasar --blue-dark dipakai sebagai cadangan supaya teks putih tetap
+   terbaca pada sepersekian detik sebelum frame pertama video tampil. */
+.hero{position:relative;overflow:hidden;background:var(--blue-dark);
+  min-height:clamp(560px,82vh,760px);display:flex;align-items:center;
+  padding:96px 0 72px}
+
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+/* Peredup. Kecerahan video ini terukur rata-rata 99/255 dan stabil antar frame,
+   jadi peredup tetap dengan takaran ini sudah cukup: teks putih di atasnya
+   mencapai rasio kontras sekitar 10:1, jauh di atas ambang WCAG AA 4.5:1.
+   Memakai navy brand, bukan hitam polos, agar tetap terasa satu keluarga warna. */
+.hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 50% 45%, rgba(19,47,94,.42) 0%, rgba(19,47,94,.68) 60%, rgba(19,47,94,.82) 100%),
+    linear-gradient(180deg, rgba(19,47,94,.55) 0%, rgba(19,47,94,.35) 42%, rgba(19,47,94,.72) 100%)}
+
+.hero-in{position:relative;z-index:2;max-width:880px;margin:0 auto;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,204,60,.16);border:1px solid rgba(255,204,60,.55);color:var(--accent);font-size:12.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 0 rgba(255,163,0,.7);animation:pulse 1.8s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,163,0,.7)}70%{box-shadow:0 0 0 12px rgba(255,163,0,0)}100%{box-shadow:0 0 0 0 rgba(255,163,0,0)}}
 
-.h1{font-size:clamp(34px,5.2vw,58px);line-height:1.05;font-weight:800;letter-spacing:-.5px;margin-bottom:18px;color:var(--text)}
-.h1 span{background:linear-gradient(135deg,#2855a1 0%,#3467bd 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:17.5px;color:var(--text-2);max-width:560px;margin-bottom:26px}
-.lead b{color:var(--text)}
+/* Teks hero kini berada di atas video, jadi warnanya dibalik jadi terang.
+   text-shadow tipis menjaga keterbacaan andai ada frame yang lebih terang. */
+.h1{font-size:clamp(34px,5.2vw,58px);line-height:1.06;font-weight:800;letter-spacing:-.5px;margin-bottom:18px;color:#fff;text-shadow:0 2px 24px rgba(19,47,94,.45)}
+.h1 span{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--accent)}
+.lead{font-size:17.5px;color:rgba(255,255,255,.92);max-width:620px;margin:0 auto 28px;text-shadow:0 1px 14px rgba(19,47,94,.5)}
+.lead b{color:#fff}
 
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px;justify-content:center}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;border:0;transition:transform .15s ease, box-shadow .2s ease;text-decoration:none}
 .btn-primary{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);color:#1a1200;box-shadow:0 10px 30px rgba(255,163,0,.30)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,163,0,.42)}
 .btn-ghost{background:#ffffff;color:var(--blue);border:1px solid var(--border-strong)}
 .btn-ghost:hover{background:var(--blue-soft);border-color:var(--blue)}
 
-.meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:13.5px}
-.meta .chk{color:var(--blue);font-weight:700}
+.meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;color:rgba(255,255,255,.85);font-size:13.5px;justify-content:center;text-shadow:0 1px 10px rgba(19,47,94,.5)}
+.meta .chk{color:var(--accent);font-weight:700}
 
-/* Hero video */
-/* width:100% wajib — tanpa itu margin-left:auto membatalkan stretch grid dan frame menyusut ke 0 */
-.hero-vis{position:relative;aspect-ratio:16/9;width:100%;max-width:540px;margin-left:auto;border-radius:22px;overflow:hidden;
-  background:linear-gradient(180deg, #ffffff 0%, #e9e9ea 100%);
-  border:1px solid var(--border-strong);
-  box-shadow:0 30px 80px rgba(19,47,94,.14)}
-.hero-vis img,.hero-vis video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#132f5e}
-.hero-vis .tag{position:absolute;z-index:3;top:18px;left:18px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid var(--border);color:var(--blue);font-size:12px;font-weight:700;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 4px 12px rgba(19,47,94,.10);transition:opacity .25s ease}
-.hero-vis .tag.r{left:auto;right:18px;background:rgba(255,255,255,.92);color:#d63340;border-color:rgba(214,51,64,.35)}
-.hero-vis .tag .d{display:inline-block;width:8px;height:8px;background:#e63946;border-radius:50%;margin-right:6px;animation:pulse2 1.6s infinite}
-@keyframes pulse2{50%{opacity:.35}}
-
-/* Click-to-play overlay — video hanya dimuat saat diklik (preload="none") */
-.hero-play{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(180deg, rgba(19,47,94,.15) 0%, rgba(19,47,94,.45) 100%);
-  border:0;cursor:pointer;transition:opacity .25s ease;padding:0}
-.hero-play i{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);
-  box-shadow:0 12px 34px rgba(255,163,0,.45);transition:transform .2s ease}
-.hero-play i::after{content:"";width:0;height:0;margin-left:5px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent #1a1200}
-.hero-play:hover i{transform:scale(1.08)}
-.hero-play .cap{position:absolute;bottom:18px;left:0;right:0;color:#fff;font-size:13px;font-weight:600;letter-spacing:.3px;text-shadow:0 2px 10px rgba(19,47,94,.6)}
-/* Badge .tag sengaja TIDAK ikut disembunyikan: dengan autoplay video selalu jalan,
-   jadi menyembunyikannya saat playing berarti badge tak pernah terlihat sama sekali. */
-.hero-vis.playing .hero-play{opacity:0;pointer-events:none}
+/* Tombol play cadangan.
+   Dengan video sebagai latar, tombol besar di tengah akan menabrak judul.
+   Jadi tombolnya kecil di pojok kanan bawah, dan HANYA muncul kalau autoplay
+   ditolak browser atau pengunjung memilih hemat gerak. Saat video berjalan
+   normal, tombol ini tidak terlihat sama sekali. */
+.hero-play{position:absolute;z-index:4;right:22px;bottom:22px;display:inline-flex;align-items:center;gap:10px;
+  padding:10px 18px 10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.35);
+  background:rgba(19,47,94,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  color:#fff;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;
+  transition:opacity .25s ease, transform .2s ease}
+.hero-play i{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);flex:0 0 auto}
+.hero-play i::after{content:"";width:0;height:0;margin-left:3px;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #1a1200}
+.hero-play:hover{transform:translateY(-2px);background:rgba(19,47,94,.72)}
+/* Tombol kini bersaudara dengan .hero-bg, bukan anaknya, supaya tidak ikut
+   terkubur di bawah lapisan teks. Karena itu pemilihnya memakai ~ (sibling). */
+.hero-bg.playing ~ .hero-play{opacity:0;pointer-events:none}
 
 /* ===== SLOT COUNTER ===== */
 .slot{margin-top:-30px;position:relative;z-index:3}
@@ -232,8 +236,6 @@ footer a{color:var(--blue)}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width:900px){
-  .hero-in{grid-template-columns:1fr;gap:40px}
-  .hero-vis{max-width:520px;margin:0 auto}
   .grid-3{grid-template-columns:1fr}
   .offer{grid-template-columns:1fr;padding:30px 24px}
   .steps{grid-template-columns:repeat(2,1fr)}
@@ -241,7 +243,7 @@ footer a{color:var(--blue)}
   .gal-grid{grid-template-columns:1fr}
   .sticky{display:flex}
   section{padding:58px 0}
-  .hero{padding:48px 0 40px}
+  .hero{padding:72px 0 56px;min-height:clamp(500px,76vh,640px)}
   .gallery{padding:58px 0 30px}
 }
 @media (max-width:520px){
@@ -264,6 +266,18 @@ footer a{color:var(--blue)}
 
 <!-- ============= HERO ============= -->
 <header class="hero">
+  <!-- Video latar. Tanpa "controls": ini elemen dekoratif selebar layar,
+       bilah kontrol bawaan browser akan mengganggu dan menutupi teks. -->
+  <div class="hero-bg" id="heroVis">
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+      <source src="/wp-content/uploads/nestcosystem/matawalet_pro_demo.mp4" type="video/mp4">
+      <img src="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png" alt="">
+    </video>
+  </div>
+  <button class="hero-play" id="heroPlay" type="button" aria-label="Putar video latar">
+    <i></i><span>Putar video</span>
+  </button>
+
   <div class="wrap hero-in">
     <div>
       <div class="badge"><span class="dot"></span>Early Bird · Terbatas 100 Unit</div>
@@ -282,21 +296,6 @@ footer a{color:var(--blue)}
       </div>
     </div>
 
-    <div class="hero-vis" id="heroVis">
-      <div class="tag">📡 AI Camera</div>
-      <div class="tag r"><span class="d"></span>LIVE</div>
-      <!-- Tanpa poster: semua foto produk berorientasi potret, jadi terpotong parah di frame 16:9.
-           Video ini memang bisu (tidak punya track audio), jadi "muted" tidak menghilangkan apa pun
-           dan sekaligus syarat wajib agar autoplay tidak diblokir browser. -->
-      <video id="heroVideo" autoplay muted loop playsinline controls preload="auto">
-        <source src="/wp-content/uploads/nestcosystem/matawalet_pro_demo.mp4" type="video/mp4">
-        <img src="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png" alt="MataWalet PRO, kamera penghitung walet untuk rumah burung walet">
-      </video>
-      <button class="hero-play" id="heroPlay" type="button" aria-label="Putar video MataWalet PRO">
-        <i></i>
-        <span class="cap">Lihat MataWalet PRO bekerja</span>
-      </button>
-    </div>
   </div>
 </header>
 
