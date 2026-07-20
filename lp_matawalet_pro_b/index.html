@@ -86,8 +86,8 @@ img{max-width:100%;display:block;height:auto}
 /* Warna dasar abu gelap netral, bukan navy, agar sepersekian detik sebelum
    frame pertama video tampil tidak terlihat semburat biru. */
 .hero{position:relative;overflow:hidden;background:#0d1219;
-  min-height:clamp(560px,82vh,760px);display:flex;align-items:center;
-  padding:96px 0 72px}
+  min-height:clamp(620px,88vh,820px);display:flex;align-items:stretch;
+  padding:74px 0 56px}
 
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
@@ -96,21 +96,26 @@ img{max-width:100%;display:block;height:auto}
    menyeluruh dihapus; yang tersisa hanya penggelapan tipis di tepi atas dan
    bawah, memakai abu netral (bukan biru) supaya tidak mengubah rona video.
    Gunanya cuma menyatukan hero dengan bilah gelap di atas dan section di bawah. */
+/* Teks dipisah ke atas dan bawah supaya bagian tengah frame, tempat walet
+   berterbangan, tidak tertutup apa pun. Karena itu penggelapan juga dibuat
+   dua pita: gelap di pita atas dan bawah tempat teks berada, lalu bening di
+   tengah. Abu netral, bukan navy, agar warna video tidak bergeser. */
 .hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,
-    rgba(8,12,20,.42) 0%, rgba(8,12,20,.10) 20%,
-    rgba(8,12,20,0) 46%, rgba(8,12,20,.14) 74%, rgba(8,12,20,.52) 100%)}
+    rgba(6,10,18,.78) 0%,
+    rgba(6,10,18,.66) 16%,
+    rgba(6,10,18,.30) 30%,
+    rgba(6,10,18,.06) 42%,
+    rgba(6,10,18,.06) 54%,
+    rgba(6,10,18,.34) 66%,
+    rgba(6,10,18,.68) 80%,
+    rgba(6,10,18,.80) 100%)}
 
-.hero-in{position:relative;z-index:2;max-width:820px;margin:0 auto;text-align:center;
-  padding:44px 34px}
-/* Keterbacaan ditangani SETEMPAT, hanya di belakang teks, bukan menutup video.
-   Halo gelap netral yang memudar habis sebelum tepi, jadi sebagian besar frame
-   video tetap terlihat warna asli. Diukur pada titik video paling terang
-   (RGB 227,228,225), teks putih di atas halo ini mencapai sekitar 6:1,
-   di atas ambang WCAG AA 4,5:1. */
-.hero-in::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(ellipse 74% 64% at 50% 50%,
-    rgba(6,10,18,.68) 0%, rgba(6,10,18,.58) 45%, rgba(6,10,18,.30) 72%, rgba(6,10,18,0) 90%)}
+/* Dua kelompok teks didorong ke ujung atas dan bawah, menyisakan ruang bening
+   di tengah sebagai panggung untuk video walet keluar masuk. */
+.hero-in{position:relative;z-index:2;max-width:840px;margin:0 auto;text-align:center;
+  flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.hero-top,.hero-bot{display:flex;flex-direction:column;align-items:center}
 /* Latar badge dibuat gelap, bukan kuning transparan: di atas video warna asli
    yang ramai, kuning di atas kuning tipis nyaris tak terbaca. */
 .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:999px;background:rgba(6,10,18,.62);border:1px solid rgba(255,204,60,.6);color:var(--accent);font-size:12.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
@@ -264,8 +269,10 @@ footer a{color:var(--blue)}
   .gal-grid{grid-template-columns:1fr}
   .sticky{display:flex}
   section{padding:58px 0}
-  .hero{padding:72px 0 56px;min-height:clamp(500px,76vh,640px)}
-  .hero-in{padding:34px 8px}
+  /* Di layar sempit jarak atas-bawah dikurangi supaya kedua kelompok teks
+     tidak terlempar terlalu jauh ke ujung. */
+  .hero{padding:58px 0 44px;min-height:clamp(560px,82vh,700px)}
+  .hero-in{gap:20px}
   .gallery{padding:58px 0 30px}
 }
 @media (max-width:520px){
@@ -301,9 +308,15 @@ footer a{color:var(--blue)}
   </button>
 
   <div class="wrap hero-in">
-    <div>
+    <!-- Kelompok atas: badge + judul -->
+    <div class="hero-top">
       <div class="badge"><span class="dot"></span>Early Bird · Terbatas 100 Unit</div>
       <h1 class="h1">Waletnya nambah atau kabur? <span>Sekarang ketahuan!</span></h1>
+    </div>
+
+    <!-- Kelompok bawah: penjelasan + ajakan. Ruang di antara keduanya sengaja
+         dibiarkan kosong agar video walet keluar masuk jadi pusat perhatian. -->
+    <div class="hero-bot">
       <p class="lead">Cukup buka HP. Jumlah walet di RBW Anda <b>muncul sendiri</b>, 24 jam nonstop. Nggak perlu datang, nggak perlu nebak lagi.</p>
 
       <div class="cta-row">
