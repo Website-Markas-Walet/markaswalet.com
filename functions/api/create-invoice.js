@@ -21,7 +21,29 @@ const json = (data, status = 200) =>
     headers: { "Content-Type": "application/json" },
   });
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(ctx) {
+  // Pembungkus terluar: tanpa ini, exception apa pun yang lolos membuat
+  // Cloudflare membalas halaman error HTML 502 — pengunjung bingung dan
+  // penyebabnya tidak terlihat dari sisi browser sama sekali.
+  try {
+    return await tanganiPesanan(ctx);
+  } catch (err) {
+    console.error("Exception tak tertangani:", err && err.stack ? err.stack : err);
+    return json(
+      {
+        error: "Terjadi kesalahan di sisi kami. Silakan hubungi kami via WhatsApp.",
+        wa: `https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(
+          "Halo Markaswalet, saya gagal checkout Pre-Order MataWalet PRO di website."
+        )}`,
+        // Ringkas dan bebas rahasia — cukup untuk mendiagnosis dari browser.
+        debug: `${(err && err.name) || "Error"}: ${String((err && err.message) || err).slice(0, 200)}`,
+      },
+      500
+    );
+  }
+}
+
+async function tanganiPesanan({ request, env }) {
   if (!env.XENDIT_SECRET_KEY) {
     // Jangan bocorkan detail ke pengunjung, tapi tetap jelas di log.
     console.error("XENDIT_SECRET_KEY belum di-set di environment variables");
@@ -90,12 +112,27 @@ export async function onRequestPost({ request, env }) {
     invoice_duration: 86400, // 24 jam
   };
 
+  // Menempel key lewat textarea dashboard gampang menyeret spasi atau baris
+  // baru ikut serta. Karakter seperti itu membuat header Authorization tidak
+  // sah dan permintaannya gagal sebelum sempat berangkat.
+  const key = String(env.XENDIT_SECRET_KEY).trim();
+  if (!/^[\x20-\x7E]+$/.test(key)) {
+    console.error("XENDIT_SECRET_KEY memuat karakter tak tercetak / non-ASCII");
+    return json(
+      {
+        error: "Konfigurasi pembayaran bermasalah. Silakan hubungi kami via WhatsApp.",
+        debug: "key-berisi-karakter-tidak-sah",
+      },
+      500
+    );
+  }
+
   let res, inv;
   try {
     res = await fetch("https://api.xendit.co/v2/invoices", {
       method: "POST",
       headers: {
-        Authorization: "Basic " + btoa(env.XENDIT_SECRET_KEY + ":"),
+        Authorization: "Basic " + btoa(key + ":"),
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
