@@ -39,7 +39,7 @@ Anggap aja ini asuransi, Pak Bos. Pohon di depan gedung tumbuh makin rimbun, tet
 
 Pada RBW besar, dua LMB yang diposisikan di titik strategis bikin walet bisa nyampe ke area yang tadinya susah dijangkau kalau cuma ada satu pintu. Ujungnya, ruang di dalam gedung kepakai lebih efisien dan peluang burung bersarang ikut naik.
 
-![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
+[![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20jumlah%20LMB%20yang%20pas%20untuk%20ukuran%20gedung%20saya)
 
 ## Dua Konfigurasi yang Lazim Dipakai
 
@@ -69,6 +69,6 @@ Satu catatan penutup yang nggak boleh diabaikan: setiap penambahan LMB harus dib
 
 Sekalian, jangan lupa bahwa LMB juga jadi titik penting buat penempatan audio. Pak Bos bisa lihat bahasannya di artikel [pengaruh tweeter di LMB buat walet](/article/tweeter-di-lmb-pengaruh-buat-walet/).
 
-Masih ragu gedung Pak Bos masuk kategori yang cukup satu LMB atau sudah wajib dua? Itu justru pertanyaan yang paling enak dibahas sambil lihat ukuran dan denah gedungnya langsung. Silakan [hubungi kami](https://form.jotform.com/242052136147044) buat diskusiin—mulai dari nentuin jumlah dan posisi LMB, layout sirip, sampai setelan audio. Tim Markaswalet siap bantu supaya gedung Pak Bos nggak setengah jalan hasilnya.
+Masih ragu gedung Pak Bos masuk kategori yang cukup satu LMB atau sudah wajib dua? Itu justru pertanyaan yang paling enak dibahas sambil lihat ukuran dan denah gedungnya langsung. Silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20jumlah%20LMB%20yang%20pas%20untuk%20ukuran%20gedung%20saya) buat diskusiin—mulai dari nentuin jumlah dan posisi LMB, layout sirip, sampai setelan audio. Tim Markaswalet siap bantu supaya gedung Pak Bos nggak setengah jalan hasilnya.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 256–258).

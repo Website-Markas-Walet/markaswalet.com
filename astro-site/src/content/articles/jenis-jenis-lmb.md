@@ -47,7 +47,7 @@ Sesuai namanya, bukaan tipe ini berbentuk siku dan biasanya ditaruh persis di po
 
 ![Desain LMB siku tampak depan, bukaan menyudut di pojok bangunan](/wp-content/uploads/2026/07/desain-lmb-siku.jpg)
 
-![Layanan Eksklusif untuk Pembangunan RBW Anda](/wp-content/uploads/2024/12/Layanan-Eksklusif-untuk-Pembangunan-RBW-Anda.png)
+[![Layanan Eksklusif untuk Pembangunan RBW Anda](/wp-content/uploads/2024/12/Layanan-Eksklusif-untuk-Pembangunan-RBW-Anda.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20pemilihan%20jenis%20LMB%20untuk%20RBW%20saya)
 
 ## 4\. LMB Lubang Naga
 
@@ -71,7 +71,7 @@ Empat variabel itu saling terkait erat. Begitu satu diubah, tiga sisanya ikut be
 
 Empat tipe, empat karakter berbeda. LMB 1 sisi jadi andalan gedung kecil dengan arah datang burung yang konsisten. LMB 2 sisi menang di sirkulasi udara dan keleluasaan akses. LMB siku memperlebar sudut pandang burung terhadap pintu masuk. Sementara lubang naga adalah opsi lanjutan untuk gedung yang koloninya sudah mapan.
 
-Memilih tipe yang tepat sejak awal itu keputusan kecil dengan efek panjang, Pak Bos, kerasa sampai bertahun-tahun ke depan. Kalau masih bingung tipe mana yang paling nyambung sama ukuran gedung dan tahap perkembangan koloni di lokasi Pak Bos, silakan [hubungi kami](https://form.jotform.com/242052136147044) buat dibahas bareng. Tim Markas Walet siap bantu dari sisi desain gedung, penentuan tipe dan posisi LMB, sampai penataan sistem suaranya biar semua bagian kerja selaras.
+Memilih tipe yang tepat sejak awal itu keputusan kecil dengan efek panjang, Pak Bos, kerasa sampai bertahun-tahun ke depan. Kalau masih bingung tipe mana yang paling nyambung sama ukuran gedung dan tahap perkembangan koloni di lokasi Pak Bos, silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20pemilihan%20jenis%20LMB%20untuk%20RBW%20saya) buat dibahas bareng. Tim Markas Walet siap bantu dari sisi desain gedung, penentuan tipe dan posisi LMB, sampai penataan sistem suaranya biar semua bagian kerja selaras.
 
 **Baca juga:** [Rekomendasi Ventilasi RBW Supaya Walet Betah Seperti di Hotel!](/article/rekomendasi-ventilasi-rbw/)
 

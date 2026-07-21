@@ -41,7 +41,7 @@ Kelihatannya terlalu sederhana, tapi strategi ini punya beberapa keunggulan yang
 -   **Hemat biaya dan tenaga**  
     Nggak perlu keluar duit buat banyak perangkat sebelum Pak Bos paham dasarnya.
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+[![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20setelan%20suara%20di%20LMB%20untuk%20RBW%20baru)
 
 ## Kapan Boleh Naik Level ke Kombinasi Suara?
 
@@ -59,7 +59,7 @@ Satu hal yang sering kelewat: suara sebagus apa pun bakal percuma kalau tweeter-
 
 Rekomendasi buat pemula sesederhana ini, Pak Bos: pasang satu jenis suara inap dulu di LMB. Frekuensinya yang rendah dan menenangkan bakal ngebentuk suasana nyaman buat walet bersarang. Setting-nya gampang, evaluasinya jelas, dan risiko salah racikannya kecil. Setelah Pak Bos makin paham karakter gedung sendiri, baru pelan-pelan naik level ke kombinasi suara yang lebih kompleks.
 
-Kalau Pak Bos lagi siap-siap bangun atau upgrade RBW dan pengin urusan desain, penempatan tweeter, sampai posisi LMB ditangani yang sudah biasa, silakan [konsultasi](https://form.jotform.com/242052136147044) sama tim kami. Tim Markaswalet siap bantu dari perencanaan sampai instalasi biar gedung Pak Bos jalan optimal sejak awal.
+Kalau Pak Bos lagi siap-siap bangun atau upgrade RBW dan pengin urusan desain, penempatan tweeter, sampai posisi LMB ditangani yang sudah biasa, silakan [konsultasi](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20setelan%20suara%20di%20LMB%20untuk%20RBW%20baru) sama tim kami. Tim Markaswalet siap bantu dari perencanaan sampai instalasi biar gedung Pak Bos jalan optimal sejak awal.
 
 **Baca juga:** [Tweeter di LMB, Pengaruh Nggak Sih Buat Walet?](/article/tweeter-di-lmb-pengaruh-buat-walet/)
 

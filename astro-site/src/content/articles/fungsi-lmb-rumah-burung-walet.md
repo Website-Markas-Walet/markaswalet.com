@@ -27,7 +27,7 @@ Bagian ini yang paling sering luput. Kualitas udara di dalam RBW ikut ditentukan
 
 Skemanya sederhana: udara masuk dari bukaan bawah, lalu terdorong keluar lewat LMB di menara. Karena perannya berhimpitan dengan lubang angin, ada baiknya Pak Bos baca juga [rekomendasi ventilasi RBW](/article/rekomendasi-ventilasi-rbw/) supaya dua sistem ini nggak saling gigit.
 
-![Layanan Eksklusif untuk Pembangunan RBW Anda](/wp-content/uploads/2024/12/Layanan-Eksklusif-untuk-Pembangunan-RBW-Anda.png)
+[![Layanan Eksklusif untuk Pembangunan RBW Anda](/wp-content/uploads/2024/12/Layanan-Eksklusif-untuk-Pembangunan-RBW-Anda.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20fungsi%20dan%20desain%20LMB%20di%20RBW%20saya)
 
 ## Tugas Ketiga: Jendela Cahaya
 
@@ -55,6 +55,6 @@ Kalau Pak Bos mau masuk lebih dalam ke urusan teknisnya, silakan lanjut ke pemba
 
 Ringkasnya, LMB itu empat benda dalam satu bukaan, Pak Bos: pintu akses, saluran ventilasi, jendela cahaya, sekaligus katup kelembapan. Kombinasi peran itulah yang bikin LMB jadi penentu berhasil atau tidaknya desain sebuah rumah burung walet. Begitu Pak Bos paham keempat fungsinya sejak tahap perencanaan, keputusan desainnya jadi jauh lebih matang — dan peluang bikin gedung yang benar-benar menarik, menahan, serta memproduktifkan walet jadi makin besar.
 
-Kalau Pak Bos masih bingung nyeimbangin keempat fungsi tadi di gedung sendiri — mana yang harus dikorbankan sedikit demi yang lain — jangan diputusin sendirian. Silakan [hubungi kami](https://form.jotform.com/242052136147044) dan ceritain kondisi gedungnya. Tim Markaswalet siap dampingi dari nol: desain gedung, penempatan tweeter, sampai penentuan posisi LMB yang paling pas buat lokasi Pak Bos.
+Kalau Pak Bos masih bingung nyeimbangin keempat fungsi tadi di gedung sendiri — mana yang harus dikorbankan sedikit demi yang lain — jangan diputusin sendirian. Silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20fungsi%20dan%20desain%20LMB%20di%20RBW%20saya) dan ceritain kondisi gedungnya. Tim Markaswalet siap dampingi dari nol: desain gedung, penempatan tweeter, sampai penentuan posisi LMB yang paling pas buat lokasi Pak Bos.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 254–255) oleh Markaswalet.

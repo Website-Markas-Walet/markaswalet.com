@@ -51,7 +51,7 @@ Kabar baiknya, LMB masih bisa digeser atau dirombak kalau memang dibutuhkan, dem
 
 Cuma, mari jujur soal ongkosnya. Memindahkan LMB itu pekerjaan berat: tembok dibongkar, koloni yang sudah menetap berisiko terganggu, dan efeknya merembet ke mana-mana. Jalur cahaya berubah, pola sirkulasi udara ikut berubah, penempatan sistem suara di dalam pun harus dihitung ulang. Karena itu keputusan sebesar ini tidak boleh berangkat dari firasat. Harus ada catatan pengamatan yang rapi sebagai dasarnya.
 
-![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
+[![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20RBW%20saya%20sepi%2C%20saya%20ingin%20konsultasi%20soal%20evaluasi%20dan%20penyesuaian%20LMB)
 
 ## Jangan Sampai Salah Vonis
 
@@ -85,6 +85,6 @@ LMB memang salah satu penentu keberhasilan sebuah rumah burung walet. Dengan mem
 
 **Baca juga:** [Sirip RBW Itu Penting! Ini Desain dan Material Sirip yang Bikin Walet Betah](/article/desain-dan-material-sirip-rbw/)
 
-Kalau catatan pengamatan Pak Bos sudah terkumpul tapi bingung menerjemahkannya jadi tindakan — apalagi kalau ujungnya mengarah ke keputusan besar seperti memindahkan LMB — jangan diputuskan sendirian. Silakan [hubungi kami](https://form.jotform.com/242052136147044) sambil membawa data pengamatannya. Tim Markaswalet siap bantu dari pembacaan hasil evaluasi, perencanaan desain, penempatan tweeter, sampai penentuan posisi LMB yang paling pas untuk lokasi Pak Bos.
+Kalau catatan pengamatan Pak Bos sudah terkumpul tapi bingung menerjemahkannya jadi tindakan — apalagi kalau ujungnya mengarah ke keputusan besar seperti memindahkan LMB — jangan diputuskan sendirian. Silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20RBW%20saya%20sepi%2C%20saya%20ingin%20konsultasi%20soal%20evaluasi%20dan%20penyesuaian%20LMB) sambil membawa data pengamatannya. Tim Markaswalet siap bantu dari pembacaan hasil evaluasi, perencanaan desain, penempatan tweeter, sampai penentuan posisi LMB yang paling pas untuk lokasi Pak Bos.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 269–270).

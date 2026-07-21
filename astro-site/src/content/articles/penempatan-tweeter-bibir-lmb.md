@@ -31,7 +31,7 @@ Nah, bagian ini yang biasanya bikin Pak Bos ngerutin dahi, karena rasanya kebali
 
 Iya. Tweeter yang duduk di bibir luar sebenarnya **nggak kena tampias air hujan secara langsung**, karena dia terlindungi oleh geometri bukaan LMB itu sendiri. Sebaliknya, tweeter yang "diumpetin" ke dalam justru berisiko jadi cekungan tempat air ngumpul dan mantul-mantul. Jadi alasan "biar nggak kehujanan" yang selama ini dipakai buat mendorong tweeter ke dalam sebenarnya nggak terbukti di lapangan.
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+[![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20posisi%20pemasangan%20tweeter%20di%20LMB)
 
 ## Soal Ketahanan Air, Ini Faktanya
 
@@ -64,7 +64,7 @@ Kalau dari hasil pengecekan ternyata bukan cuma tweeternya yang bermasalah tapi 
 
 Ringkasnya begini, Pak Bos: tweeter itu pasang di **bibir LMB bagian luar**, titik. Dengan begitu suaranya nggak bocor balik dan tabrakan sama suara inap di dalam gedung, dan tweeternya sendiri malah lebih terlindung dari tampias hujan. Sebagian besar tweeter RBW sudah anti air, tapi jangan jadikan itu alasan buat males ngecek — rutinitas pemeriksaan tetap yang bikin sistem suara awet kerja optimal.
 
-Kalau setelah dicek ternyata tweeter di gedung Pak Bos terlanjur masuk ke dalam lubang dan bingung mau digeser ke mana, jangan asal bor tembok baru. Silakan [hubungi kami](https://form.jotform.com/242052136147044) dulu buat dibantu nentuin titiknya. Tim Markas Walet bisa bantu dari penentuan desain, titik pasang tweeter, sampai posisi LMB yang paling pas buat lokasi Pak Bos.
+Kalau setelah dicek ternyata tweeter di gedung Pak Bos terlanjur masuk ke dalam lubang dan bingung mau digeser ke mana, jangan asal bor tembok baru. Silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20posisi%20pemasangan%20tweeter%20di%20LMB) dulu buat dibantu nentuin titiknya. Tim Markas Walet bisa bantu dari penentuan desain, titik pasang tweeter, sampai posisi LMB yang paling pas buat lokasi Pak Bos.
 
 **Baca juga:** [Rekomendasi Ventilasi RBW Supaya Walet Betah Seperti di Hotel!](/article/rekomendasi-ventilasi-rbw/)
 
