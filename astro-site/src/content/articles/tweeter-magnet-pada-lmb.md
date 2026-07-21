@@ -31,7 +31,7 @@ Yang nggak boleh ditawar: **arahkan mulut tweeter ke luar RBW**. Kalau kepalanya
 
 ![Desain penempatan satu tweeter magnet pada LMB 1 sisi tampak depan](/wp-content/uploads/2026/07/tweeter-magnet-lmb-1-sisi.jpg)
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+[![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20jumlah%20dan%20pemasangan%20tweeter%20magnet%20di%20LMB)
 
 ## Nambah Tweeter Bukan Berarti Nambah Walet
 
@@ -43,14 +43,14 @@ Pegang aja aturan mainnya: **jumlah tweeter nyesuaiin jumlah bidang bukaan LMB**
 
 Soal "sisi kanan" tadi jangan dianggap harga mati, ya Pak Bos. Itu titik awal, bukan aturan baku. Beberapa hal di sekitar gedung bisa bikin posisi paling optimalnya bergeser:
 
--   **Bangunan tetangga  
-    **Tembok rumah sebelah yang berdiri terlalu dekat bisa mantulin suara balik ke arah gedung Pak Bos.
+-   **Bangunan tetangga**  
+    Tembok rumah sebelah yang berdiri terlalu dekat bisa mantulin suara balik ke arah gedung Pak Bos.
 
--   **Pohon rimbun  
-    **Daun dan ranting yang padat itu peredam alami. Tweeter yang ngadep ke situ jangkauannya bakal jauh berkurang.
+-   **Pohon rimbun**  
+    Daun dan ranting yang padat itu peredam alami. Tweeter yang ngadep ke situ jangkauannya bakal jauh berkurang.
 
--   **Arah datangnya burung  
-    **Kalau pola terbang walet di lokasi Pak Bos condong dari kiri, ya percuma tweeternya ngotot ditaruh di kanan.
+-   **Arah datangnya burung**  
+    Kalau pola terbang walet di lokasi Pak Bos condong dari kiri, ya percuma tweeternya ngotot ditaruh di kanan.
 
 Sebelum ngebor tembok, luangin waktu buat ngamatin sore-sore ke mana walet biasa lewat. Sepuluh menit ngamatin bisa nyelametin berbulan-bulan hasil.
 
@@ -58,16 +58,16 @@ Sebelum ngebor tembok, luangin waktu buat ngamatin sore-sore ke mana walet biasa
 
 Rumusnya cukup dua baris dan gampang diinget:
 
--   **LMB siku  
-    **Dua tweeter magnet, satu di tiap sisi siku.
+-   **LMB siku**  
+    Dua tweeter magnet, satu di tiap sisi siku.
 
--   **LMB satu sisi  
-    **Satu tweeter magnet, mulutnya diarahin ke luar gedung.
+-   **LMB satu sisi**  
+    Satu tweeter magnet, mulutnya diarahin ke luar gedung.
 
 Begitu Pak Bos ngerti bentuk LMB-nya dan paham cara suara nyebar dari titik itu, keputusan pemasangan jadi jauh lebih gampang — dan nggak ada duit yang kebuang buat unit yang sebenarnya nggak dibutuhin.
 
 **Baca juga:** [Cara Benar Meletakkan Tweeter Walet](/article/cara-benar-meletakkan-tweeter-walet/) dan [Kenapa Tweeter LMB Harus di Bibir Luar](/article/penempatan-tweeter-bibir-lmb/)
 
-Jumlahnya udah pas tapi gedung masih adem ayem? Bisa jadi masalahnya pindah ke titik pasang atau jenis suara yang diputar. Kalau Pak Bos mau dibantu ngecek satu per satu, silakan [hubungi kami](https://form.jotform.com/242052136147044). Tim Markas Walet bisa bantu dari desain gedung, ngitung dan masang tweeter di titik yang pas, sampai nentuin posisi LMB biar hasilnya maksimal.
+Jumlahnya udah pas tapi gedung masih adem ayem? Bisa jadi masalahnya pindah ke titik pasang atau jenis suara yang diputar. Kalau Pak Bos mau dibantu ngecek satu per satu, silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20jumlah%20dan%20pemasangan%20tweeter%20magnet%20di%20LMB). Tim Markas Walet bisa bantu dari desain gedung, ngitung dan masang tweeter di titik yang pas, sampai nentuin posisi LMB biar hasilnya maksimal.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 261–263).

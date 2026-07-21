@@ -31,7 +31,7 @@ Ini paling terasa di RBW yang berdiri dekat pantai, di tengah hamparan sawah, at
 
 Perhatikan juga hubungan antara poin pertama dan kedua. Keputusan soal ketinggian lubang tidak bisa dilepaskan dari kondisi angin setempat — keduanya **saling terkait**. Di lokasi berangin, toleransi ketinggian jadi jauh lebih sempit dibanding lokasi yang teduh.
 
-![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
+[![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20RBW%20saya%20masih%20sepi%2C%20saya%20ingin%20konsultasi%20soal%20faktor%20lingkungan%20di%20sekitar%20LMB)
 
 ## 3\. Hambatan di Sekitar LMB
 
@@ -39,11 +39,11 @@ Pastikan tidak ada pohon, bangunan, atau benda apa pun yang memotong jalur terba
 
 Tim Riset Markaswalet memakai patokan berikut:
 
--   **Hambatan setinggi LMB  
-    **Beri jarak **minimal 50 meter** dari lubang masuk.
+-   **Hambatan setinggi LMB**  
+    Beri jarak **minimal 50 meter** dari lubang masuk.
 
--   **Hambatan yang lebih rendah dari LMB  
-    **Masih tergolong aman dan tidak perlu dikhawatirkan.
+-   **Hambatan yang lebih rendah dari LMB**  
+    Masih tergolong aman dan tidak perlu dikhawatirkan.
 
 ![Jarak minimal 50 meter untuk hambatan setinggi LMB, dan hambatan di bawah ketinggian LMB yang masih aman](/wp-content/uploads/2026/07/hambatan-lmb-jarak-50-meter.jpg)
 
@@ -59,6 +59,6 @@ Ketinggian lubang, kekuatan angin, dan halangan di sekitarnya sanggup menggagalk
 
 **Baca juga:** [Cara Benar Meletakkan Tweeter Walet](/article/cara-benar-meletakkan-tweeter-walet/) dan [Rekomendasi Ventilasi RBW Supaya Walet Betah Seperti di Hotel!](/article/rekomendasi-ventilasi-rbw/)
 
-Tiga faktor tadi paling gampang dibaca kalau lokasinya dilihat langsung — ketinggian koridor terbang, terpaan angin, dan apa saja yang berdiri di depan lubang. Kalau Pak Bos mau dibantu membacanya, silakan [hubungi kami](https://form.jotform.com/242052136147044). Tim Markaswalet siap bantu dari survei lokasi, penentuan posisi dan ketinggian LMB, sampai penataan tweeter supaya hasilnya maksimal.
+Tiga faktor tadi paling gampang dibaca kalau lokasinya dilihat langsung — ketinggian koridor terbang, terpaan angin, dan apa saja yang berdiri di depan lubang. Kalau Pak Bos mau dibantu membacanya, silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20RBW%20saya%20masih%20sepi%2C%20saya%20ingin%20konsultasi%20soal%20faktor%20lingkungan%20di%20sekitar%20LMB). Tim Markaswalet siap bantu dari survei lokasi, penentuan posisi dan ketinggian LMB, sampai penataan tweeter supaya hasilnya maksimal.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 267–269).

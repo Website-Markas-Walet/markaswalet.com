@@ -33,7 +33,7 @@ Yang ketiga agak melawan akal sehat, tapi masuk logikanya. LMB bisa sengaja diha
 
 Bayangkan begini, Pak Bos. Burung yang baru coba-coba menginap di gedung Pak Bos itu belum benar-benar pindah rumah. Kalau dari mulut LMB mereka masih bisa langsung mengarah ke gua atau gedung lama, godaan buat balik ke sana besar sekali. Diputar ke arah sebaliknya, godaan itu berkurang sendirinya.
 
-![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
+[![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20penentuan%20arah%20LMB%20di%20RBW%20saya)
 
 ## 4\. Jangan Lupa Urusan Cahaya
 
@@ -45,11 +45,11 @@ Di titik inilah keputusan mulai terasa rumit. Arah yang paling jitu untuk menang
 
 Untuk gedung berukuran besar, dua LMB bisa ditempatkan secara strategis supaya jangkauan dan akses burung lebih maksimal. Pola umumnya seperti ini:
 
--   **LMB pertama  
-    **Ditaruh di bagian depan gedung, menghadap arah datangnya burung.
+-   **LMB pertama**  
+    Ditaruh di bagian depan gedung, menghadap arah datangnya burung.
 
--   **LMB kedua  
-    **Ditaruh di sisi atau belakang gedung, supaya walet bisa menjangkau area yang susah dicapai kalau hanya mengandalkan satu lubang.
+-   **LMB kedua**  
+    Ditaruh di sisi atau belakang gedung, supaya walet bisa menjangkau area yang susah dicapai kalau hanya mengandalkan satu lubang.
 
 Jadi dua LMB bukan berarti sekadar menggandakan lubang, Pak Bos. Masing-masing punya peran sendiri. Pertimbangan lengkap soal kapan gedung memang butuh lubang kedua sudah kami bahas di [satu atau dua LMB](/article/satu-atau-dua-lmb/). Kalau desain gedungnya belum final, pikirkan juga aliran udaranya bareng-bareng, karena LMB dan [ventilasi RBW](/article/rekomendasi-ventilasi-rbw/) itu satu paket yang saling memengaruhi.
 
@@ -67,6 +67,6 @@ Yang jelas, salah menentukan arah sejak awal itu mahal ongkosnya, karena membetu
 
 **Baca juga:** [Pentingnya Lubang Masuk Burung (LMB) pada Rumah Walet](/article/pentingnya-lubang-masuk-burung-lmb-pada-rumah-walet/) dan [3 Faktor Lingkungan yang Bikin LMB Kurang Efektif](/article/faktor-efektivitas-lmb/)
 
-Kalau masih ragu menentukan orientasi LMB di lahan Pak Bos, silakan [konsultasi](https://form.jotform.com/242052136147044) dengan tim Markaswalet. Mulai dari pembacaan jalur terbang, penentuan arah lubang, sampai penataan audio di dalam gedung, semuanya bisa kita bahas bareng supaya RBW Pak Bos tidak berakhir jadi bangunan bagus yang sepi penghuni.
+Kalau masih ragu menentukan orientasi LMB di lahan Pak Bos, silakan [konsultasi](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20penentuan%20arah%20LMB%20di%20RBW%20saya) dengan tim Markaswalet. Mulai dari pembacaan jalur terbang, penentuan arah lubang, sampai penataan audio di dalam gedung, semuanya bisa kita bahas bareng supaya RBW Pak Bos tidak berakhir jadi bangunan bagus yang sepi penghuni.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 265–267).
