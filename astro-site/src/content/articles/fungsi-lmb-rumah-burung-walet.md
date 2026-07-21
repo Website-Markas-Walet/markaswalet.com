@@ -27,6 +27,8 @@ Bagian ini yang paling sering luput. Kualitas udara di dalam RBW ikut ditentukan
 
 Skemanya sederhana: udara masuk dari bukaan bawah, lalu terdorong keluar lewat LMB di menara. Karena perannya berhimpitan dengan lubang angin, ada baiknya Pak Bos baca juga [rekomendasi ventilasi RBW](/article/rekomendasi-ventilasi-rbw/) supaya dua sistem ini nggak saling gigit.
 
+![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+
 ## Tugas Ketiga: Jendela Cahaya
 
 Cahaya alami yang masuk ke ruang inap sebagian besar datang dari LMB. Buat walet, kadar terang yang tepat itu modal untuk navigasi, orientasi arah, sekaligus milih titik bersarang. Kuncinya ada di kata "tepat". Terlalu terang, burung ogah masuk lebih dalam ke ruangan. Terlalu gelap, mereka kesulitan mengenali ruang. Di sinilah logika "bikin lubang gede biar burung gampang masuk" mulai gugur.

@@ -39,6 +39,8 @@ Anggap aja ini asuransi, Pak Bos. Pohon di depan gedung tumbuh makin rimbun, tet
 
 Pada RBW besar, dua LMB yang diposisikan di titik strategis bikin walet bisa nyampe ke area yang tadinya susah dijangkau kalau cuma ada satu pintu. Ujungnya, ruang di dalam gedung kepakai lebih efisien dan peluang burung bersarang ikut naik.
 
+![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+
 ## Dua Konfigurasi yang Lazim Dipakai
 
 Ambil contoh gedung ukuran 8x24. Ada dua pola penempatan yang umum:

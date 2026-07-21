@@ -35,6 +35,8 @@ Secara teori bentuk LMB bebas, Pak Bos. Mau bulat, oval, atau persegi panjang, s
 
 Jadi persegi panjang ini menang dua-duanya: menang di fungsi, menang juga di kemudahan bikinnya. Wajar kalau mayoritas RBW yang dibangun sekarang pakai bentuk ini. Soal bentuk bukaan ini masih ada turunannya lagi — satu sisi, dua sisi, siku, sampai lubang naga — yang kami bahas di [empat tipe LMB gedung walet](/article/jenis-jenis-lmb/).
 
+![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+
 ## Jumlah Lubang Ngikutin Ukuran Gedung
 
 Sampai ke komponen ketiga. Jumlah LMB ditentuin sama dua faktor: seberapa besar gedungnya dan berapa banyak walet yang mau ditampung. Prinsipnya gampang diinget, **makin besar RBW, makin banyak LMB yang dibutuhin** supaya sirkulasi udara dan pencahayaan tetap merata sampai ke sudut-sudut gedung.

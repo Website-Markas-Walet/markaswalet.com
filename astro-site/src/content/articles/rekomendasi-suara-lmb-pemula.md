@@ -41,6 +41,8 @@ Kelihatannya terlalu sederhana, tapi strategi ini punya beberapa keunggulan yang
 -   **Hemat biaya dan tenaga  
     **Nggak perlu keluar duit buat banyak perangkat sebelum Pak Bos paham dasarnya.
 
+![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+
 ## Kapan Boleh Naik Level ke Kombinasi Suara?
 
 Nggak ada larangan buat pakai kombinasi. Cuma waktunya yang harus tepat. Tunggu sampai Pak Bos benar-benar paham perilaku walet di sekitar gedung sendiri: jam berapa mereka datang, dari arah mana, dan gimana respons mereka terhadap suara inap yang dipasang. Kalau bacaan itu sudah dikuasai, barulah masuk akal nambah jenis suara.
