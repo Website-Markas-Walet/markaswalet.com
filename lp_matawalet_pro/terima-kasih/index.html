@@ -40,8 +40,19 @@ h1{font-size:clamp(24px,4.4vw,32px);font-weight:800;letter-spacing:-.4px;margin-
 .back{display:block;margin-top:26px;padding-top:20px;border-top:1px solid var(--border);font-size:14px;color:var(--muted)}
 @media (max-width:600px){ .wrap{padding:34px 16px 56px} .card{padding:30px 22px} }
 </style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WX5D42HV');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WX5D42HV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="wrap">
   <div class="card">
@@ -76,13 +87,53 @@ h1{font-size:clamp(24px,4.4vw,32px);font-weight:800;letter-spacing:-.4px;margin-
 </div>
 
 <script>
-// Sertakan nomor invoice di pesan WA bila Xendit mengembalikannya lewat query string,
-// supaya tim bisa langsung cocokkan pembayaran tanpa tanya-tanya lagi.
 (function(){
-  var id = new URLSearchParams(location.search).get('external_id');
-  if(!id) return;
-  var btn = document.getElementById('waBtn');
-  btn.href = btn.href.replace('Berikut%20alamat', 'No.%20pesanan%3A%20' + encodeURIComponent(id) + '%0A%0ABerikut%20alamat');
+  var q = new URLSearchParams(location.search);
+  var id = q.get('external_id');
+
+  // Sertakan nomor invoice di pesan WA supaya tim bisa langsung mencocokkan
+  // pembayaran tanpa tanya-tanya lagi.
+  if(id){
+    var btn = document.getElementById('waBtn');
+    btn.href = btn.href.replace('Berikut%20alamat', 'No.%20pesanan%3A%20' + encodeURIComponent(id) + '%0A%0ABerikut%20alamat');
+  }
+
+  // ---- Event purchase ke GA4 ----------------------------------------------
+  // Nilai yang dikirim = uang yang BENAR-BENAR dibayar sekarang, supaya laporan
+  // pendapatan GA4 cocok dengan yang masuk di Xendit. Untuk pembeli DP itu
+  // berarti separuh harga; nilai pesanan penuhnya tetap dikirim terpisah
+  // sebagai nilai_pesanan_penuh. Kalau nanti mau GA4 memakai nilai penuh
+  // (berguna untuk optimasi iklan), tukar saja kedua angka di bawah.
+  if(!id) return;                       // tanpa nomor pesanan, jangan kirim apa pun
+  try {
+    if(sessionStorage.getItem('mw_purchase_' + id)) return;  // cegah hitung dobel saat refresh
+    sessionStorage.setItem('mw_purchase_' + id, '1');
+  } catch(e) {}                          // mode privat bisa memblokir sessionStorage
+
+  var dibayar = parseInt(q.get('amount'), 10) || 0;
+  var penuh   = parseInt(q.get('total'), 10) || dibayar;
+  var qty     = parseInt(q.get('qty'), 10) || 1;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ ecommerce: null });
+  window.dataLayer.push({
+    event: 'purchase',
+    lp_varian: q.get('lp') || 'lain',
+    metode_bayar: q.get('bayar') === 'dp' ? 'DP 50%' : 'Lunas',
+    nilai_pesanan_penuh: penuh,
+    ecommerce: {
+      transaction_id: id,
+      currency: 'IDR',
+      value: dibayar,
+      items: [{
+        item_id: 'matawalet-pro',
+        item_name: 'MataWalet PRO — AI IoT Camera',
+        item_brand: 'Markas Walet',
+        price: qty ? Math.round(penuh / qty) : penuh,
+        quantity: qty
+      }]
+    }
+  });
 })();
 </script>
 
