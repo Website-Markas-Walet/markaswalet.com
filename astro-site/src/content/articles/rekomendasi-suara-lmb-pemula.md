@@ -29,17 +29,17 @@ Kalau Pak Bos ingin ngulik lebih jauh soal karakter tiap jenis suara sebelum amb
 
 Kelihatannya terlalu sederhana, tapi strategi ini punya beberapa keunggulan yang nggak langsung keliatan, Pak Bos:
 
--   **Gampang dievaluasi  
-    **Kalau cuma ada satu variabel yang jalan, Pak Bos tahu persis apa yang berhasil dan apa yang enggak. Begitu semua suara dinyalain bareng, mustahil nentuin mana yang sebenarnya ngasih efek.
+-   **Gampang dievaluasi**  
+    Kalau cuma ada satu variabel yang jalan, Pak Bos tahu persis apa yang berhasil dan apa yang enggak. Begitu semua suara dinyalain bareng, mustahil nentuin mana yang sebenarnya ngasih efek.
 
--   **Minim risiko tabrakan suara  
-    **Satu jenis suara berarti nggak ada frekuensi yang saling ganggu di area LMB. Sinyal yang sampai ke burung jadi bersih.
+-   **Minim risiko tabrakan suara**  
+    Satu jenis suara berarti nggak ada frekuensi yang saling ganggu di area LMB. Sinyal yang sampai ke burung jadi bersih.
 
--   **Suasananya pas untuk gedung baru  
-    **Frekuensi rendah suara inap ngasih pesan "tempat ini aman dan nyaman". Ini persis yang dibutuhin gedung yang belum punya koloni.
+-   **Suasananya pas untuk gedung baru**  
+    Frekuensi rendah suara inap ngasih pesan "tempat ini aman dan nyaman". Ini persis yang dibutuhin gedung yang belum punya koloni.
 
--   **Hemat biaya dan tenaga  
-    **Nggak perlu keluar duit buat banyak perangkat sebelum Pak Bos paham dasarnya.
+-   **Hemat biaya dan tenaga**  
+    Nggak perlu keluar duit buat banyak perangkat sebelum Pak Bos paham dasarnya.
 
 ![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
 

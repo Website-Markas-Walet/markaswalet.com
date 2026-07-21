@@ -33,17 +33,17 @@ Bagian ini yang paling kaya informasi, sekaligus paling sering dilewatkan. Duduk
 
 Yang perlu diperhatikan:
 
--   **Berputar lama tapi enggan masuk  
-    **Walet mondar-mandir di depan bukaan, mendekat, lalu menjauh lagi. Ini biasanya mengarah ke persoalan cahaya atau embusan angin di mulut LMB.
+-   **Berputar lama tapi enggan masuk**  
+    Walet mondar-mandir di depan bukaan, mendekat, lalu menjauh lagi. Ini biasanya mengarah ke persoalan cahaya atau embusan angin di mulut LMB.
 
--   **Datang dari arah yang tak terduga  
-    **Kalau jalur pendekatan mereka berbeda dari asumsi waktu gedung dirancang, berarti peta terbang di kawasan itu sudah bergeser. Bahan pembandingnya bisa Pak Bos ambil dari [panduan menentukan arah hadap LMB](/article/penempatan-arah-lmb/).
+-   **Datang dari arah yang tak terduga**  
+    Kalau jalur pendekatan mereka berbeda dari asumsi waktu gedung dirancang, berarti peta terbang di kawasan itu sudah bergeser. Bahan pembandingnya bisa Pak Bos ambil dari [panduan menentukan arah hadap LMB](/article/penempatan-arah-lmb/).
 
--   **Antre menumpuk di jam ramai  
-    **Kepadatan burung yang menunggu giliran masuk menandakan kapasitas bukaan sudah tidak cukup. Gedung mungkin butuh LMB tambahan.
+-   **Antre menumpuk di jam ramai**  
+    Kepadatan burung yang menunggu giliran masuk menandakan kapasitas bukaan sudah tidak cukup. Gedung mungkin butuh LMB tambahan.
 
--   **Masuk sebentar lalu buru-buru keluar  
-    **Ini justru sinyal bahwa persoalannya ada di dalam ruangan, bukan di lubang masuknya.
+-   **Masuk sebentar lalu buru-buru keluar**  
+    Ini justru sinyal bahwa persoalannya ada di dalam ruangan, bukan di lubang masuknya.
 
 ## LMB Bukan Keputusan Sekali Seumur Hidup
 
@@ -65,17 +65,17 @@ Sebelum menyalahkan bukaan, coba periksa dulu tersangka lain. Soal aliran udara,
 
 Supaya evaluasi tidak berhenti jadi niat, kunci utamanya adalah ritme yang tetap. Ini pembagian yang praktis dijalankan:
 
--   **Tiap bulan  
-    **Catat jumlah walet yang masuk dan awasi ke mana arah tren populasinya.
+-   **Tiap bulan**  
+    Catat jumlah walet yang masuk dan awasi ke mana arah tren populasinya.
 
--   **Tiap 3 bulan  
-    **Amati perilaku terbang di sekitar LMB saat jam sibuk, pagi dan sore hari.
+-   **Tiap 3 bulan**  
+    Amati perilaku terbang di sekitar LMB saat jam sibuk, pagi dan sore hari.
 
--   **Tiap 6 bulan  
-    **Periksa kondisi fisik tweeter, arah pemasangannya, serta kabel-kabelnya.
+-   **Tiap 6 bulan**  
+    Periksa kondisi fisik tweeter, arah pemasangannya, serta kabel-kabelnya.
 
--   **Tiap tahun  
-    **Tinjau lingkungan sekitar gedung: pohon yang makin tinggi, bangunan baru yang berdiri, dan perubahan area pakan. Patokan jarak dan ketinggiannya bisa Pak Bos cocokkan dengan [tiga faktor lingkungan yang menentukan efektivitas LMB](/article/faktor-efektivitas-lmb/).
+-   **Tiap tahun**  
+    Tinjau lingkungan sekitar gedung: pohon yang makin tinggi, bangunan baru yang berdiri, dan perubahan area pakan. Patokan jarak dan ketinggiannya bisa Pak Bos cocokkan dengan [tiga faktor lingkungan yang menentukan efektivitas LMB](/article/faktor-efektivitas-lmb/).
 
 Catat semuanya di satu buku atau satu file saja, Pak Bos. Nilai sebenarnya dari kebiasaan ini baru terasa setelah dua-tiga tahun, waktu Pak Bos bisa membandingkan kondisi antarperiode dan melihat polanya dengan jelas.
 

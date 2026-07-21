@@ -27,11 +27,11 @@ Pertanyaan lanjutannya selalu sama: kenapa nggak sekalian dibikin lebar biar mak
 
 Secara teori bentuk LMB bebas, Pak Bos. Mau bulat, oval, atau persegi panjang, semuanya bisa dipakai. Tapi pilihan kami jatuh ke **persegi panjang**, dan alasannya ada dua:
 
--   **Bidang masuknya lebih lega  
-    **Dengan dimensi yang sama persis, bukaan persegi panjang ngasih luas area masuk yang lebih besar dibanding lingkaran atau oval. Walet dapat ruang manuver lebih banyak tanpa perlu nambah ukuran lubang.
+-   **Bidang masuknya lebih lega**  
+    Dengan dimensi yang sama persis, bukaan persegi panjang ngasih luas area masuk yang lebih besar dibanding lingkaran atau oval. Walet dapat ruang manuver lebih banyak tanpa perlu nambah ukuran lubang.
 
--   **Pengerjaannya jauh lebih ringan  
-    **Buat tukang, bikin bukaan siku itu urusan gampang. Coba bandingin sama bikin lingkaran atau oval yang rapi dan simetris, jauh lebih makan waktu dan gampang meleset.
+-   **Pengerjaannya jauh lebih ringan**  
+    Buat tukang, bikin bukaan siku itu urusan gampang. Coba bandingin sama bikin lingkaran atau oval yang rapi dan simetris, jauh lebih makan waktu dan gampang meleset.
 
 Jadi persegi panjang ini menang dua-duanya: menang di fungsi, menang juga di kemudahan bikinnya. Wajar kalau mayoritas RBW yang dibangun sekarang pakai bentuk ini. Soal bentuk bukaan ini masih ada turunannya lagi — satu sisi, dua sisi, siku, sampai lubang naga — yang kami bahas di [empat tipe LMB gedung walet](/article/jenis-jenis-lmb/).
 

@@ -39,11 +39,11 @@ Pastikan tidak ada pohon, bangunan, atau benda apa pun yang memotong jalur terba
 
 Tim Riset Markaswalet memakai patokan berikut:
 
--   **Hambatan setinggi LMB  
-    **Beri jarak **minimal 50 meter** dari lubang masuk.
+-   **Hambatan setinggi LMB**  
+    Beri jarak **minimal 50 meter** dari lubang masuk.
 
--   **Hambatan yang lebih rendah dari LMB  
-    **Masih tergolong aman dan tidak perlu dikhawatirkan.
+-   **Hambatan yang lebih rendah dari LMB**  
+    Masih tergolong aman dan tidak perlu dikhawatirkan.
 
 ![Jarak minimal 50 meter untuk hambatan setinggi LMB, dan hambatan di bawah ketinggian LMB yang masih aman](/wp-content/uploads/2026/07/hambatan-lmb-jarak-50-meter.jpg)
 

@@ -43,14 +43,14 @@ Pegang aja aturan mainnya: **jumlah tweeter nyesuaiin jumlah bidang bukaan LMB**
 
 Soal "sisi kanan" tadi jangan dianggap harga mati, ya Pak Bos. Itu titik awal, bukan aturan baku. Beberapa hal di sekitar gedung bisa bikin posisi paling optimalnya bergeser:
 
--   **Bangunan tetangga  
-    **Tembok rumah sebelah yang berdiri terlalu dekat bisa mantulin suara balik ke arah gedung Pak Bos.
+-   **Bangunan tetangga**  
+    Tembok rumah sebelah yang berdiri terlalu dekat bisa mantulin suara balik ke arah gedung Pak Bos.
 
--   **Pohon rimbun  
-    **Daun dan ranting yang padat itu peredam alami. Tweeter yang ngadep ke situ jangkauannya bakal jauh berkurang.
+-   **Pohon rimbun**  
+    Daun dan ranting yang padat itu peredam alami. Tweeter yang ngadep ke situ jangkauannya bakal jauh berkurang.
 
--   **Arah datangnya burung  
-    **Kalau pola terbang walet di lokasi Pak Bos condong dari kiri, ya percuma tweeternya ngotot ditaruh di kanan.
+-   **Arah datangnya burung**  
+    Kalau pola terbang walet di lokasi Pak Bos condong dari kiri, ya percuma tweeternya ngotot ditaruh di kanan.
 
 Sebelum ngebor tembok, luangin waktu buat ngamatin sore-sore ke mana walet biasa lewat. Sepuluh menit ngamatin bisa nyelametin berbulan-bulan hasil.
 
@@ -58,11 +58,11 @@ Sebelum ngebor tembok, luangin waktu buat ngamatin sore-sore ke mana walet biasa
 
 Rumusnya cukup dua baris dan gampang diinget:
 
--   **LMB siku  
-    **Dua tweeter magnet, satu di tiap sisi siku.
+-   **LMB siku**  
+    Dua tweeter magnet, satu di tiap sisi siku.
 
--   **LMB satu sisi  
-    **Satu tweeter magnet, mulutnya diarahin ke luar gedung.
+-   **LMB satu sisi**  
+    Satu tweeter magnet, mulutnya diarahin ke luar gedung.
 
 Begitu Pak Bos ngerti bentuk LMB-nya dan paham cara suara nyebar dari titik itu, keputusan pemasangan jadi jauh lebih gampang — dan nggak ada duit yang kebuang buat unit yang sebenarnya nggak dibutuhin.
 

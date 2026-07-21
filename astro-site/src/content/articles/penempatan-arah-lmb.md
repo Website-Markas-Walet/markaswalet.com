@@ -45,11 +45,11 @@ Di titik inilah keputusan mulai terasa rumit. Arah yang paling jitu untuk menang
 
 Untuk gedung berukuran besar, dua LMB bisa ditempatkan secara strategis supaya jangkauan dan akses burung lebih maksimal. Pola umumnya seperti ini:
 
--   **LMB pertama  
-    **Ditaruh di bagian depan gedung, menghadap arah datangnya burung.
+-   **LMB pertama**  
+    Ditaruh di bagian depan gedung, menghadap arah datangnya burung.
 
--   **LMB kedua  
-    **Ditaruh di sisi atau belakang gedung, supaya walet bisa menjangkau area yang susah dicapai kalau hanya mengandalkan satu lubang.
+-   **LMB kedua**  
+    Ditaruh di sisi atau belakang gedung, supaya walet bisa menjangkau area yang susah dicapai kalau hanya mengandalkan satu lubang.
 
 Jadi dua LMB bukan berarti sekadar menggandakan lubang, Pak Bos. Masing-masing punya peran sendiri. Pertimbangan lengkap soal kapan gedung memang butuh lubang kedua sudah kami bahas di [satu atau dua LMB](/article/satu-atau-dua-lmb/). Kalau desain gedungnya belum final, pikirkan juga aliran udaranya bareng-bareng, karena LMB dan [ventilasi RBW](/article/rekomendasi-ventilasi-rbw/) itu satu paket yang saling memengaruhi.
 

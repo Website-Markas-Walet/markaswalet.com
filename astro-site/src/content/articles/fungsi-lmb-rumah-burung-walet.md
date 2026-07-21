@@ -41,11 +41,11 @@ Terakhir, LMB ikut mengatur tingkat kelembapan ruangan. Baik kelembapan yang kel
 
 Nah, di sinilah urusannya jadi rumit. Keempat fungsi tadi berbagi satu bukaan yang sama, jadi tiap perubahan pasti merembet.
 
--   **LMB diperbesar biar burung gampang masuk  
-    **Cahaya yang menerobos ke dalam ikut bertambah.
+-   **LMB diperbesar biar burung gampang masuk**  
+    Cahaya yang menerobos ke dalam ikut bertambah.
 
--   **LMB ditambah jadi dua biar sirkulasi lancar  
-    **Intensitas cahaya naik, dan kelembapan ruangan ikut bergeser.
+-   **LMB ditambah jadi dua biar sirkulasi lancar**  
+    Intensitas cahaya naik, dan kelembapan ruangan ikut bergeser.
 
 Nggak ada satu pun keputusan soal LMB yang efeknya berhenti di satu variabel saja. Ini juga sebabnya kenapa perbaikan RBW yang dikerjakan sepotong-sepotong sering berujung kecewa: satu masalah beres, tiga masalah baru muncul. Yang dibutuhkan adalah cara pandang yang memperlakukan LMB, cahaya, ventilasi, dan sistem suara sebagai satu paket.
 

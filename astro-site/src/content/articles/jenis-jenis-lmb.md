@@ -15,11 +15,11 @@ Kalau Pak Bos belum kenalan sama peran dasar LMB, ada baiknya baca dulu [kenapa 
 
 Bentuk paling dasar: satu bukaan tunggal di salah satu sisi bangunan. Karena sesederhana itu, tipe ini juga yang paling sering kita temui di lapangan.
 
--   **Paling pas untuk  
-    **RBW berukuran kecil, atau lokasi yang pola terbang waletnya sudah jelas datang dari satu arah saja. Kalau koloni di sekitar gedung Pak Bos rutin lewat jalur yang sama tiap hari, satu bukaan sudah lebih dari cukup.
+-   **Paling pas untuk**  
+    RBW berukuran kecil, atau lokasi yang pola terbang waletnya sudah jelas datang dari satu arah saja. Kalau koloni di sekitar gedung Pak Bos rutin lewat jalur yang sama tiap hari, satu bukaan sudah lebih dari cukup.
 
--   **Nilai plus  
-    **Tim Riset Markaswalet memang merekomendasikan model satu sisi untuk gedung kecil. Alasannya sederhana: makin sedikit bukaan, makin sedikit pula cahaya yang nyelonong masuk dan bikin walet nggak nyaman.
+-   **Nilai plus**  
+    Tim Riset Markaswalet memang merekomendasikan model satu sisi untuk gedung kecil. Alasannya sederhana: makin sedikit bukaan, makin sedikit pula cahaya yang nyelonong masuk dan bikin walet nggak nyaman.
 
 ![Desain LMB 1 sisi tampak depan pada rumah burung walet](/wp-content/uploads/2026/07/desain-lmb-1-sisi.jpg)
 
@@ -27,11 +27,11 @@ Bentuk paling dasar: satu bukaan tunggal di salah satu sisi bangunan. Karena ses
 
 Di tipe ini bukaan dibuat pada dua sisi bangunan atau menara yang saling berseberangan.
 
--   **Nilai plus  
-    **Udara jadi punya jalur masuk sekaligus jalur keluar, jadi sirkulasinya lebih enak. Waletnya pun punya dua opsi arah untuk masuk. Cocok buat gedung berukuran lebih besar, atau lokasi yang koloninya memang datang dari dua arah berbeda. Pertimbangan lengkap soal kapan gedung butuh bukaan kedua ada di [satu atau dua LMB](/article/satu-atau-dua-lmb/).
+-   **Nilai plus**  
+    Udara jadi punya jalur masuk sekaligus jalur keluar, jadi sirkulasinya lebih enak. Waletnya pun punya dua opsi arah untuk masuk. Cocok buat gedung berukuran lebih besar, atau lokasi yang koloninya memang datang dari dua arah berbeda. Pertimbangan lengkap soal kapan gedung butuh bukaan kedua ada di [satu atau dua LMB](/article/satu-atau-dua-lmb/).
 
--   **Yang perlu diwaspadai  
-    **Dua bukaan artinya cahaya yang masuk juga berlipat. Pengaturan pencahayaan di dalam ruangan otomatis harus lebih disiplin, jangan sampai bagian dalam gedung malah jadi terlalu terang.
+-   **Yang perlu diwaspadai**  
+    Dua bukaan artinya cahaya yang masuk juga berlipat. Pengaturan pencahayaan di dalam ruangan otomatis harus lebih disiplin, jangan sampai bagian dalam gedung malah jadi terlalu terang.
 
 ![Desain LMB 2 sisi tampak depan dengan bukaan di dua sisi berlawanan](/wp-content/uploads/2026/07/desain-lmb-2-sisi.jpg)
 
@@ -39,11 +39,11 @@ Di tipe ini bukaan dibuat pada dua sisi bangunan atau menara yang saling bersebe
 
 Sesuai namanya, bukaan tipe ini berbentuk siku dan biasanya ditaruh persis di pojok bangunan.
 
--   **Nilai plus  
-    **Karena bukaannya menyudut, burung yang melintas dari dua arah berbeda sama-sama bisa "melihat" mulut LMB-nya. Jangkauan daya tarik gedung jadi lebih lebar dibanding bukaan datar biasa.
+-   **Nilai plus**  
+    Karena bukaannya menyudut, burung yang melintas dari dua arah berbeda sama-sama bisa "melihat" mulut LMB-nya. Jangkauan daya tarik gedung jadi lebih lebar dibanding bukaan datar biasa.
 
--   **Konsekuensi teknisnya  
-    **LMB siku punya dua bidang, jadi sistem suaranya nggak bisa disamakan dengan LMB satu sisi. Penempatan tweeternya butuh perhitungan tersendiri. Soal ini Pak Bos bisa dalami lebih jauh lewat [pengaruh tweeter di area LMB](/article/tweeter-di-lmb-pengaruh-buat-walet/) dan [cara meletakkan tweeter walet yang benar](/article/cara-benar-meletakkan-tweeter-walet/).
+-   **Konsekuensi teknisnya**  
+    LMB siku punya dua bidang, jadi sistem suaranya nggak bisa disamakan dengan LMB satu sisi. Penempatan tweeternya butuh perhitungan tersendiri. Soal ini Pak Bos bisa dalami lebih jauh lewat [pengaruh tweeter di area LMB](/article/tweeter-di-lmb-pengaruh-buat-walet/) dan [cara meletakkan tweeter walet yang benar](/article/cara-benar-meletakkan-tweeter-walet/).
 
 ![Desain LMB siku tampak depan, bukaan menyudut di pojok bangunan](/wp-content/uploads/2026/07/desain-lmb-siku.jpg)
 
@@ -53,8 +53,8 @@ Sesuai namanya, bukaan tipe ini berbentuk siku dan biasanya ditaruh persis di po
 
 Tipe ini desainnya khusus: lubang dibuat di bagian atas bangunan atau menara.
 
--   **Paling pas untuk  
-    **Gedung yang populasi waletnya sudah mulai ramai. Ini poin yang sering salah kaprah, Pak Bos. Lubang naga bukan untuk gedung baru yang isinya masih nol. Tipe ini baru masuk akal ketika koloni sudah terbentuk dan gedung memang butuh jalur masuk tambahan dari arah atas.
+-   **Paling pas untuk**  
+    Gedung yang populasi waletnya sudah mulai ramai. Ini poin yang sering salah kaprah, Pak Bos. Lubang naga bukan untuk gedung baru yang isinya masih nol. Tipe ini baru masuk akal ketika koloni sudah terbentuk dan gedung memang butuh jalur masuk tambahan dari arah atas.
 
 ## Terus, Sebaiknya Ambil yang Mana?
 

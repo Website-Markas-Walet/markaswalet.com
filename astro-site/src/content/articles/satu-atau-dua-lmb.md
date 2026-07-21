@@ -45,11 +45,11 @@ Pada RBW besar, dua LMB yang diposisikan di titik strategis bikin walet bisa nya
 
 Ambil contoh gedung ukuran 8x24. Ada dua pola penempatan yang umum:
 
--   **Dua LMB pada dua menara terpisah  
-    **Cocok kalau Pak Bos mau jangkauan yang lebar sampai ke dua ujung gedung.
+-   **Dua LMB pada dua menara terpisah**  
+    Cocok kalau Pak Bos mau jangkauan yang lebar sampai ke dua ujung gedung.
 
--   **Dua LMB pada satu menara tengah  
-    **Lebih hemat dari sisi konstruksi dan pas buat lahan atau bentuk gedung yang terbatas.
+-   **Dua LMB pada satu menara tengah**  
+    Lebih hemat dari sisi konstruksi dan pas buat lahan atau bentuk gedung yang terbatas.
 
 Mana yang lebih unggul? Nggak ada jawaban tunggal. Pilihannya balik lagi ke arah datang burung di lokasi Pak Bos, kondisi lingkungan sekitar, dan target intensitas cahaya di dalam gedung. Soal bagi tugas antara LMB pertama dan kedua, sudah kami urai lebih detail di [panduan menentukan arah hadap LMB](/article/penempatan-arah-lmb/). Kalau Pak Bos masih meraba-raba soal fungsi dasar lubang ini, ada baiknya baca dulu [kenapa LMB itu krusial buat rumah burung walet](/article/lmb-penting-buat-rumah-burung-walet/) sebelum nentuin jumlahnya.
 

@@ -43,20 +43,20 @@ Tapi anti air bukan berarti abadi ya, Pak Bos. Pengecekan berkala tetap wajib ja
 
 Biar nggak kelewat, ini yang perlu Pak Bos periksa tiap kali naik ke area LMB:
 
--   **Keluaran suara tiap unit  
-    **Pastikan suara masih keluar normal dari semua tweeter, bukan cuma dari satu yang kebetulan paling dekat waktu dicek. Soal berapa unit yang seharusnya terpasang, patokannya ada di [rumus jumlah tweeter magnet di LMB](/article/tweeter-magnet-pada-lmb/).
+-   **Keluaran suara tiap unit**  
+    Pastikan suara masih keluar normal dari semua tweeter, bukan cuma dari satu yang kebetulan paling dekat waktu dicek. Soal berapa unit yang seharusnya terpasang, patokannya ada di [rumus jumlah tweeter magnet di LMB](/article/tweeter-magnet-pada-lmb/).
 
--   **Kondisi fisik bagian depan  
-    **Amati apakah ada retakan, korosi, atau kotoran yang nyumbat permukaan depan tweeter.
+-   **Kondisi fisik bagian depan**  
+    Amati apakah ada retakan, korosi, atau kotoran yang nyumbat permukaan depan tweeter.
 
--   **Arah hadap tweeter  
-    **Cek apakah arahnya masih sama dengan pemasangan awal. Baut yang kendor atau terpaan angin bisa pelan-pelan menggeser sudutnya.
+-   **Arah hadap tweeter**  
+    Cek apakah arahnya masih sama dengan pemasangan awal. Baut yang kendor atau terpaan angin bisa pelan-pelan menggeser sudutnya.
 
--   **Kabel dan sambungan  
-    **Perhatikan terutama titik-titik yang kena matahari langsung, karena di situ kabel paling cepat getas.
+-   **Kabel dan sambungan**  
+    Perhatikan terutama titik-titik yang kena matahari langsung, karena di situ kabel paling cepat getas.
 
--   **Uji dengar dari luar gedung  
-    **Berdiri agak jauh dari gedung dan dengerin baik-baik: masih ada gejala suara yang mantul balik ke dalam atau sudah bersih?
+-   **Uji dengar dari luar gedung**  
+    Berdiri agak jauh dari gedung dan dengerin baik-baik: masih ada gejala suara yang mantul balik ke dalam atau sudah bersih?
 
 Kalau dari hasil pengecekan ternyata bukan cuma tweeternya yang bermasalah tapi desain lubangnya sendiri yang kurang pas, ada baiknya Pak Bos baca ulang [kenapa LMB itu krusial banget buat rumah burung walet](/article/lmb-penting-buat-rumah-burung-walet/) sebelum ambil keputusan renovasi.
 
