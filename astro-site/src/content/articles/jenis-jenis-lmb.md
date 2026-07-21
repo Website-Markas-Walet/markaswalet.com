@@ -47,6 +47,8 @@ Sesuai namanya, bukaan tipe ini berbentuk siku dan biasanya ditaruh persis di po
 
 ![Desain LMB siku tampak depan, bukaan menyudut di pojok bangunan](/wp-content/uploads/2026/07/desain-lmb-siku.jpg)
 
+![Layanan Eksklusif untuk Pembangunan RBW Anda](/wp-content/uploads/2024/12/Layanan-Eksklusif-untuk-Pembangunan-RBW-Anda.png)
+
 ## 4\. LMB Lubang Naga
 
 Tipe ini desainnya khusus: lubang dibuat di bagian atas bangunan atau menara.

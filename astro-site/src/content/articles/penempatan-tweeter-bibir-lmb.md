@@ -31,6 +31,8 @@ Nah, bagian ini yang biasanya bikin Pak Bos ngerutin dahi, karena rasanya kebali
 
 Iya. Tweeter yang duduk di bibir luar sebenarnya **nggak kena tampias air hujan secara langsung**, karena dia terlindungi oleh geometri bukaan LMB itu sendiri. Sebaliknya, tweeter yang "diumpetin" ke dalam justru berisiko jadi cekungan tempat air ngumpul dan mantul-mantul. Jadi alasan "biar nggak kehujanan" yang selama ini dipakai buat mendorong tweeter ke dalam sebenarnya nggak terbukti di lapangan.
 
+![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+
 ## Soal Ketahanan Air, Ini Faktanya
 
 Kabar baiknya, tweeter yang beredar buat kebutuhan RBW umumnya **sudah punya fitur anti air**. Kena tampias hujan sekali-sekali nggak bakal langsung bikin dia mati. Artinya, Pak Bos nggak perlu sampai ngorbanin performa akustik gedung cuma demi "ngelindungin" satu komponen yang sebenarnya memang dirancang buat kondisi luar.

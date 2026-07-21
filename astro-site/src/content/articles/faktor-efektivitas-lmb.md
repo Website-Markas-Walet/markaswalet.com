@@ -31,6 +31,8 @@ Ini paling terasa di RBW yang berdiri dekat pantai, di tengah hamparan sawah, at
 
 Perhatikan juga hubungan antara poin pertama dan kedua. Keputusan soal ketinggian lubang tidak bisa dilepaskan dari kondisi angin setempat — keduanya **saling terkait**. Di lokasi berangin, toleransi ketinggian jadi jauh lebih sempit dibanding lokasi yang teduh.
 
+![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
+
 ## 3\. Hambatan di Sekitar LMB
 
 Pastikan tidak ada pohon, bangunan, atau benda apa pun yang memotong jalur terbang walet menuju lubang masuk. Halangan semacam ini bisa menurunkan daya tarik RBW secara signifikan, bahkan ketika seluruh bagian gedung lainnya sudah dikerjakan dengan benar.

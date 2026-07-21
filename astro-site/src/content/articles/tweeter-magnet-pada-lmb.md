@@ -31,6 +31,8 @@ Yang nggak boleh ditawar: **arahkan mulut tweeter ke luar RBW**. Kalau kepalanya
 
 ![Desain penempatan satu tweeter magnet pada LMB 1 sisi tampak depan](/wp-content/uploads/2026/07/tweeter-magnet-lmb-1-sisi.jpg)
 
+![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+
 ## Nambah Tweeter Bukan Berarti Nambah Walet
 
 Ada mitos yang lumayan awet di kalangan peternak: makin banyak tweeter, makin kenceng, makin cepat rame. Keliru, Pak Bos. Di LMB satu sisi, unit tambahan justru memperbesar peluang suara mantul masuk ke dalam gedung. Ujung-ujungnya walet yang udah betah nginep malah kabur gara-gara ruangannya berisik nggak karuan.
