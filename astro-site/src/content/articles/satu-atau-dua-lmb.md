@@ -39,7 +39,7 @@ Anggap aja ini asuransi, Pak Bos. Pohon di depan gedung tumbuh makin rimbun, tet
 
 Pada RBW besar, dua LMB yang diposisikan di titik strategis bikin walet bisa nyampe ke area yang tadinya susah dijangkau kalau cuma ada satu pintu. Ujungnya, ruang di dalam gedung kepakai lebih efisien dan peluang burung bersarang ikut naik.
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
 
 ## Dua Konfigurasi yang Lazim Dipakai
 

@@ -51,7 +51,7 @@ Kabar baiknya, LMB masih bisa digeser atau dirombak kalau memang dibutuhkan, dem
 
 Cuma, mari jujur soal ongkosnya. Memindahkan LMB itu pekerjaan berat: tembok dibongkar, koloni yang sudah menetap berisiko terganggu, dan efeknya merembet ke mana-mana. Jalur cahaya berubah, pola sirkulasi udara ikut berubah, penempatan sistem suara di dalam pun harus dihitung ulang. Karena itu keputusan sebesar ini tidak boleh berangkat dari firasat. Harus ada catatan pengamatan yang rapi sebagai dasarnya.
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
 
 ## Jangan Sampai Salah Vonis
 

@@ -31,7 +31,7 @@ Ini paling terasa di RBW yang berdiri dekat pantai, di tengah hamparan sawah, at
 
 Perhatikan juga hubungan antara poin pertama dan kedua. Keputusan soal ketinggian lubang tidak bisa dilepaskan dari kondisi angin setempat — keduanya **saling terkait**. Di lokasi berangin, toleransi ketinggian jadi jauh lebih sempit dibanding lokasi yang teduh.
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
 
 ## 3\. Hambatan di Sekitar LMB
 

@@ -33,7 +33,7 @@ Yang ketiga agak melawan akal sehat, tapi masuk logikanya. LMB bisa sengaja diha
 
 Bayangkan begini, Pak Bos. Burung yang baru coba-coba menginap di gedung Pak Bos itu belum benar-benar pindah rumah. Kalau dari mulut LMB mereka masih bisa langsung mengarah ke gua atau gedung lama, godaan buat balik ke sana besar sekali. Diputar ke arah sebaliknya, godaan itu berkurang sendirinya.
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)
 
 ## 4\. Jangan Lupa Urusan Cahaya
 

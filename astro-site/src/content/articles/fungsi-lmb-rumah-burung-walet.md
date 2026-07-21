@@ -27,7 +27,7 @@ Bagian ini yang paling sering luput. Kualitas udara di dalam RBW ikut ditentukan
 
 Skemanya sederhana: udara masuk dari bukaan bawah, lalu terdorong keluar lewat LMB di menara. Karena perannya berhimpitan dengan lubang angin, ada baiknya Pak Bos baca juga [rekomendasi ventilasi RBW](/article/rekomendasi-ventilasi-rbw/) supaya dua sistem ini nggak saling gigit.
 
-![Tukang, Material, Instalasi di 1 Layanan](/wp-content/uploads/2024/12/Tukang-Material-Instalasi-di-1-Layanan.png)
+![Layanan Eksklusif untuk Pembangunan RBW Anda](/wp-content/uploads/2024/12/Layanan-Eksklusif-untuk-Pembangunan-RBW-Anda.png)
 
 ## Tugas Ketiga: Jendela Cahaya
 
