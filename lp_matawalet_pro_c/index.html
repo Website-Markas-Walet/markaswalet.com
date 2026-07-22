@@ -245,10 +245,13 @@ footer a{color:var(--blue)}
 .cmp-note{margin-top:14px;font-size:13.5px;color:var(--muted);line-height:1.7}
 
 /* ===== DOKUMENTASI LAPANGAN (pengganti FAQ) ===== */
-.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+/* Empat kolom untuk empat foto. Slot dibuat POTRET (3:4) mengikuti foto asli
+   dari lapangan yang semuanya 720x1280 hasil kamera HP tegak. Dipaksakan ke
+   slot mendatar, sekitar separuh tinggi foto akan terpotong. */
+.doc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
 .doc-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 4px 12px rgba(19,47,94,.05);transition:transform .25s ease, box-shadow .25s ease}
 .doc-item:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,85,161,.14)}
-.doc-item .shot{aspect-ratio:4/3;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.doc-item .shot{aspect-ratio:3/4;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .doc-item .shot img{width:100%;height:100%;object-fit:cover}
 .doc-item .cap{padding:14px 16px;border-top:1px solid var(--border)}
 .doc-item .cap b{display:block;font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:3px}
@@ -590,88 +593,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ============= DOKUMENTASI LAPANGAN (menggantikan FAQ) =============
-     CARA MENGISI FOTO NANTI:
-     1. Taruh foto di /wp-content/uploads/nestcosystem/ dengan nama tanpa spasi,
-        misalnya pasang_01_survei.jpg
-     2. Pada kartu yang bersangkutan, hapus class "kosong" dari <figure>
-     3. Ganti seluruh isi <div class="shot"> dengan satu baris:
-        <img src="/wp-content/uploads/nestcosystem/pasang_01_survei.jpg"
-             alt="Tim survei titik pasang di dalam RBW" loading="lazy">
-     Foto sebaiknya mendatar (4:3) agar tidak terpotong. Kartu yang belum ada
-     fotonya tetap tampil rapi sebagai placeholder, bukan gambar rusak.
+     Berisi foto asli kiriman tim lapangan. Isinya bukan tahapan pemasangan
+     (survei, pasang, kabel, uji), melainkan unit yang SUDAH terpasang di
+     beberapa titik berbeda di dalam RBW. Keterangan tiap kartu ditulis sesuai
+     isi fotonya, jangan diubah tanpa melihat fotonya lagi.
+
+     MENAMBAH FOTO BARU:
+     1. Taruh di /wp-content/uploads/nestcosystem/ dengan nama tanpa spasi.
+     2. Salin satu blok <figure class="doc-item"> di bawah, ganti src, alt,
+        judul, dan keterangannya.
+     3. Foto dari lapangan umumnya potret hasil kamera HP, dan slot di sini
+        memang dibuat potret (3:4) mengikuti itu. Kalau nanti ada foto
+        mendatar, ia akan terpotong kiri kanan.
+     Kelas "kosong" beserta gayanya masih tersedia di CSS untuk dipakai kalau
+     suatu saat perlu kartu placeholder lagi.
 ================================================================= -->
 <section class="section-alt" style="padding-top:20px">
   <div class="wrap">
     <div style="text-align:center">
       <div class="sec-lbl">Dokumentasi Lapangan</div>
-      <h2 class="sec-h" style="margin:0 auto 14px">Begini tim kami memasang di <em>RBW asli</em>.</h2>
-      <p class="sec-p" style="margin:0 auto">Bukan foto studio. Ini proses pemasangan sebenarnya, dari survei sampai alatnya siap dipakai.</p>
+      <h2 class="sec-h" style="margin:0 auto 14px">Begini wujudnya setelah terpasang di <em>RBW asli</em>.</h2>
+      <p class="sec-p" style="margin:0 auto">Bukan foto studio. Ini unit yang benar-benar sudah bekerja di dalam rumah walet, dipasang di beberapa titik berbeda sesuai kebutuhan pemantauan.</p>
     </div>
 
     <div class="doc-grid">
-      <figure class="doc-item kosong">
-        <div class="shot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="14" rx="2.5"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 5.5l1.4-2h5.2L16 5.5"/></svg>
-          <em>Foto menyusul</em>
-        </div>
+      <figure class="doc-item">
+        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_1_balok_lantai.jpeg" alt="Kamera MataWalet PRO terpasang di bawah balok kayu di dalam RBW" loading="lazy"></div>
         <figcaption class="cap">
-          <b>1. Survei lokasi</b>
-          <span>Tim mengecek kondisi RBW dan menentukan titik pasang terbaik.</span>
+          <b>Menempel di balok lantai</b>
+          <span>Dipasang di bawah balok kayu menghadap ruang sarang. Kabel dirapikan mengikuti alur balok.</span>
         </figcaption>
       </figure>
 
-      <figure class="doc-item kosong">
-        <div class="shot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="14" rx="2.5"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 5.5l1.4-2h5.2L16 5.5"/></svg>
-          <em>Foto menyusul</em>
-        </div>
+      <figure class="doc-item">
+        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_2_lubang_masuk.jpeg" alt="Kamera diarahkan ke lubang masuk burung di dalam RBW yang gelap" loading="lazy"></div>
         <figcaption class="cap">
-          <b>2. Pemasangan di plafon</b>
-          <span>Alat dipasang pada posisi yang menjangkau area sarang.</span>
+          <b>Mengawasi lubang masuk burung</b>
+          <span>Diarahkan ke LMB untuk memantau walet yang keluar masuk, tetap bekerja di ruang gelap.</span>
         </figcaption>
       </figure>
 
-      <figure class="doc-item kosong">
-        <div class="shot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="14" rx="2.5"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 5.5l1.4-2h5.2L16 5.5"/></svg>
-          <em>Foto menyusul</em>
-        </div>
+      <figure class="doc-item">
+        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_3_rangka_kayu.jpeg" alt="Kamera menempel pada rangka kayu di dinding RBW dengan panel surya di bawahnya" loading="lazy"></div>
         <figcaption class="cap">
-          <b>3. Penarikan kabel &amp; daya</b>
-          <span>Kabel dirapikan agar tidak mengganggu lalu lintas walet.</span>
+          <b>Menempel pada rangka kayu</b>
+          <span>Dipasang di rangka kayu dekat dinding, dengan panel surya sebagai sumber daya.</span>
         </figcaption>
       </figure>
 
-      <figure class="doc-item kosong">
-        <div class="shot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="14" rx="2.5"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 5.5l1.4-2h5.2L16 5.5"/></svg>
-          <em>Foto menyusul</em>
-        </div>
+      <figure class="doc-item">
+        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_4_jalur_masuk.jpeg" alt="Kamera dipasang pada tiang kayu di jalur masuk walet, dengan panel surya" loading="lazy"></div>
         <figcaption class="cap">
-          <b>4. Sambung ke jaringan</b>
-          <span>Alat dihubungkan ke WiFi atau modem 4G di lokasi.</span>
-        </figcaption>
-      </figure>
-
-      <figure class="doc-item kosong">
-        <div class="shot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="14" rx="2.5"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 5.5l1.4-2h5.2L16 5.5"/></svg>
-          <em>Foto menyusul</em>
-        </div>
-        <figcaption class="cap">
-          <b>5. Uji hitung</b>
-          <span>Hasil hitungan dicocokkan langsung dengan kondisi di lokasi.</span>
-        </figcaption>
-      </figure>
-
-      <figure class="doc-item kosong">
-        <div class="shot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="14" rx="2.5"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 5.5l1.4-2h5.2L16 5.5"/></svg>
-          <em>Foto menyusul</em>
-        </div>
-        <figcaption class="cap">
-          <b>6. Serah terima &amp; training</b>
-          <span>Pemilik diajari membaca angka di aplikasi sampai paham.</span>
+          <b>Di jalur lalu lintas walet</b>
+          <span>Ditempatkan pada tiang kayu di jalur keluar masuk, juga bertenaga panel surya.</span>
         </figcaption>
       </figure>
     </div>

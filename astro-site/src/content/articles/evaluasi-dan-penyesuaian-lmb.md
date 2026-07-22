@@ -33,23 +33,25 @@ Bagian ini yang paling kaya informasi, sekaligus paling sering dilewatkan. Duduk
 
 Yang perlu diperhatikan:
 
--   **Berputar lama tapi enggan masuk  
-    **Walet mondar-mandir di depan bukaan, mendekat, lalu menjauh lagi. Ini biasanya mengarah ke persoalan cahaya atau embusan angin di mulut LMB.
+-   **Berputar lama tapi enggan masuk**  
+    Walet mondar-mandir di depan bukaan, mendekat, lalu menjauh lagi. Ini biasanya mengarah ke persoalan cahaya atau embusan angin di mulut LMB.
 
--   **Datang dari arah yang tak terduga  
-    **Kalau jalur pendekatan mereka berbeda dari asumsi waktu gedung dirancang, berarti peta terbang di kawasan itu sudah bergeser. Bahan pembandingnya bisa Pak Bos ambil dari [panduan menentukan arah hadap LMB](/article/penempatan-arah-lmb/).
+-   **Datang dari arah yang tak terduga**  
+    Kalau jalur pendekatan mereka berbeda dari asumsi waktu gedung dirancang, berarti peta terbang di kawasan itu sudah bergeser. Bahan pembandingnya bisa Pak Bos ambil dari [panduan menentukan arah hadap LMB](/article/penempatan-arah-lmb/).
 
--   **Antre menumpuk di jam ramai  
-    **Kepadatan burung yang menunggu giliran masuk menandakan kapasitas bukaan sudah tidak cukup. Gedung mungkin butuh LMB tambahan.
+-   **Antre menumpuk di jam ramai**  
+    Kepadatan burung yang menunggu giliran masuk menandakan kapasitas bukaan sudah tidak cukup. Gedung mungkin butuh LMB tambahan.
 
--   **Masuk sebentar lalu buru-buru keluar  
-    **Ini justru sinyal bahwa persoalannya ada di dalam ruangan, bukan di lubang masuknya.
+-   **Masuk sebentar lalu buru-buru keluar**  
+    Ini justru sinyal bahwa persoalannya ada di dalam ruangan, bukan di lubang masuknya.
 
 ## LMB Bukan Keputusan Sekali Seumur Hidup
 
 Kabar baiknya, LMB masih bisa digeser atau dirombak kalau memang dibutuhkan, demi menaikkan daya tarik sekaligus produktivitas gedung. Jadi tidak ada istilah salah desain lalu tamat riwayat.
 
 Cuma, mari jujur soal ongkosnya. Memindahkan LMB itu pekerjaan berat: tembok dibongkar, koloni yang sudah menetap berisiko terganggu, dan efeknya merembet ke mana-mana. Jalur cahaya berubah, pola sirkulasi udara ikut berubah, penempatan sistem suara di dalam pun harus dihitung ulang. Karena itu keputusan sebesar ini tidak boleh berangkat dari firasat. Harus ada catatan pengamatan yang rapi sebagai dasarnya.
+
+[![Konsultasikan Masalah RBW Anda di Markaswalet](/wp-content/uploads/2026/07/Konsultasikan-Masalah-RBW-di-Markaswalet.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20RBW%20saya%20sepi%2C%20saya%20ingin%20konsultasi%20soal%20evaluasi%20dan%20penyesuaian%20LMB)
 
 ## Jangan Sampai Salah Vonis
 
@@ -63,17 +65,17 @@ Sebelum menyalahkan bukaan, coba periksa dulu tersangka lain. Soal aliran udara,
 
 Supaya evaluasi tidak berhenti jadi niat, kunci utamanya adalah ritme yang tetap. Ini pembagian yang praktis dijalankan:
 
--   **Tiap bulan  
-    **Catat jumlah walet yang masuk dan awasi ke mana arah tren populasinya.
+-   **Tiap bulan**  
+    Catat jumlah walet yang masuk dan awasi ke mana arah tren populasinya.
 
--   **Tiap 3 bulan  
-    **Amati perilaku terbang di sekitar LMB saat jam sibuk, pagi dan sore hari.
+-   **Tiap 3 bulan**  
+    Amati perilaku terbang di sekitar LMB saat jam sibuk, pagi dan sore hari.
 
--   **Tiap 6 bulan  
-    **Periksa kondisi fisik tweeter, arah pemasangannya, serta kabel-kabelnya.
+-   **Tiap 6 bulan**  
+    Periksa kondisi fisik tweeter, arah pemasangannya, serta kabel-kabelnya.
 
--   **Tiap tahun  
-    **Tinjau lingkungan sekitar gedung: pohon yang makin tinggi, bangunan baru yang berdiri, dan perubahan area pakan. Patokan jarak dan ketinggiannya bisa Pak Bos cocokkan dengan [tiga faktor lingkungan yang menentukan efektivitas LMB](/article/faktor-efektivitas-lmb/).
+-   **Tiap tahun**  
+    Tinjau lingkungan sekitar gedung: pohon yang makin tinggi, bangunan baru yang berdiri, dan perubahan area pakan. Patokan jarak dan ketinggiannya bisa Pak Bos cocokkan dengan [tiga faktor lingkungan yang menentukan efektivitas LMB](/article/faktor-efektivitas-lmb/).
 
 Catat semuanya di satu buku atau satu file saja, Pak Bos. Nilai sebenarnya dari kebiasaan ini baru terasa setelah dua-tiga tahun, waktu Pak Bos bisa membandingkan kondisi antarperiode dan melihat polanya dengan jelas.
 
@@ -83,6 +85,6 @@ LMB memang salah satu penentu keberhasilan sebuah rumah burung walet. Dengan mem
 
 **Baca juga:** [Sirip RBW Itu Penting! Ini Desain dan Material Sirip yang Bikin Walet Betah](/article/desain-dan-material-sirip-rbw/)
 
-Kalau catatan pengamatan Pak Bos sudah terkumpul tapi bingung menerjemahkannya jadi tindakan — apalagi kalau ujungnya mengarah ke keputusan besar seperti memindahkan LMB — jangan diputuskan sendirian. Silakan [hubungi kami](https://form.jotform.com/242052136147044) sambil membawa data pengamatannya. Tim Markaswalet siap bantu dari pembacaan hasil evaluasi, perencanaan desain, penempatan tweeter, sampai penentuan posisi LMB yang paling pas untuk lokasi Pak Bos.
+Kalau catatan pengamatan Pak Bos sudah terkumpul tapi bingung menerjemahkannya jadi tindakan — apalagi kalau ujungnya mengarah ke keputusan besar seperti memindahkan LMB — jangan diputuskan sendirian. Silakan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20RBW%20saya%20sepi%2C%20saya%20ingin%20konsultasi%20soal%20evaluasi%20dan%20penyesuaian%20LMB) sambil membawa data pengamatannya. Tim Markaswalet siap bantu dari pembacaan hasil evaluasi, perencanaan desain, penempatan tweeter, sampai penentuan posisi LMB yang paling pas untuk lokasi Pak Bos.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 269–270).

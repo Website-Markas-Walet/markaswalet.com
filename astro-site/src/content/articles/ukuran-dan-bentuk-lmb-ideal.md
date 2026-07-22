@@ -27,13 +27,15 @@ Pertanyaan lanjutannya selalu sama: kenapa nggak sekalian dibikin lebar biar mak
 
 Secara teori bentuk LMB bebas, Pak Bos. Mau bulat, oval, atau persegi panjang, semuanya bisa dipakai. Tapi pilihan kami jatuh ke **persegi panjang**, dan alasannya ada dua:
 
--   **Bidang masuknya lebih lega  
-    **Dengan dimensi yang sama persis, bukaan persegi panjang ngasih luas area masuk yang lebih besar dibanding lingkaran atau oval. Walet dapat ruang manuver lebih banyak tanpa perlu nambah ukuran lubang.
+-   **Bidang masuknya lebih lega**  
+    Dengan dimensi yang sama persis, bukaan persegi panjang ngasih luas area masuk yang lebih besar dibanding lingkaran atau oval. Walet dapat ruang manuver lebih banyak tanpa perlu nambah ukuran lubang.
 
--   **Pengerjaannya jauh lebih ringan  
-    **Buat tukang, bikin bukaan siku itu urusan gampang. Coba bandingin sama bikin lingkaran atau oval yang rapi dan simetris, jauh lebih makan waktu dan gampang meleset.
+-   **Pengerjaannya jauh lebih ringan**  
+    Buat tukang, bikin bukaan siku itu urusan gampang. Coba bandingin sama bikin lingkaran atau oval yang rapi dan simetris, jauh lebih makan waktu dan gampang meleset.
 
 Jadi persegi panjang ini menang dua-duanya: menang di fungsi, menang juga di kemudahan bikinnya. Wajar kalau mayoritas RBW yang dibangun sekarang pakai bentuk ini. Soal bentuk bukaan ini masih ada turunannya lagi — satu sisi, dua sisi, siku, sampai lubang naga — yang kami bahas di [empat tipe LMB gedung walet](/article/jenis-jenis-lmb/).
+
+[![Layanan Eksklusif untuk Pembangunan RBW Anda](/wp-content/uploads/2024/12/Layanan-Eksklusif-untuk-Pembangunan-RBW-Anda.png)](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20ukuran%20dan%20bentuk%20LMB%20yang%20pas%20untuk%20RBW%20saya)
 
 ## Jumlah Lubang Ngikutin Ukuran Gedung
 
@@ -49,6 +51,6 @@ Ini jebakan yang paling sering kami temuin di lapangan, Pak Bos. Lihat RBW tetan
 
 Pegang tiga angka ini, Pak Bos: bukaan di rentang 50-70 cm, bentuknya persegi panjang, dan jumlah lubang menyesuaikan luas gedung. Tapi jangan diputusin terpisah, tetap kaitkan sama kebutuhan cahaya dan ventilasi gedung Pak Bos. Kalau masih ragu nentuin angka final buat kondisi gedung sendiri, mendingan dikonsultasiin dulu selagi temboknya belum dicor, karena ngerombak LMB yang udah jadi itu jauh lebih mahal daripada mikirin baik-baik dari awal.
 
-Daripada nebak-nebak angka final terus nyesel pas tembok udah dicor, mendingan [hubungi kami](https://form.jotform.com/242052136147044) dulu sambil bawa ukuran gedung dan kondisi lokasi Pak Bos. Dari situ tim Markas Walet bisa bantu ngunci dimensi, bentuk, dan jumlah LMB yang pas — sekalian nyambungin ke desain gedung dan penempatan tweeternya biar hasilnya maksimal.
+Daripada nebak-nebak angka final terus nyesel pas tembok udah dicor, mendingan [hubungi kami](https://wa.me/6285235350662?text=Hi%20Markaswalet%2C%20saya%20ingin%20konsultasi%20soal%20ukuran%20dan%20bentuk%20LMB%20yang%20pas%20untuk%20RBW%20saya) dulu sambil bawa ukuran gedung dan kondisi lokasi Pak Bos. Dari situ tim Markas Walet bisa bantu ngunci dimensi, bentuk, dan jumlah LMB yang pas — sekalian nyambungin ke desain gedung dan penempatan tweeternya biar hasilnya maksimal.
 
 Sumber: *Buku Sukses Budidaya Walet* (hal. 256).
