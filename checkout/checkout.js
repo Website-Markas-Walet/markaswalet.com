@@ -30,6 +30,34 @@
 
   function rupiah(n) { return 'Rp ' + n.toLocaleString('id-ID'); }
 
+  // ---- Analitik ------------------------------------------------------------
+  // Varian LP dikirim di tiap event supaya ketiga halaman bisa dibandingkan.
+  // Ingat: tiap LP ada di tahap funnel berbeda, jadi angkanya tidak untuk
+  // diadu langsung — LP awareness memang wajar punya konversi lebih rendah.
+  var VARIAN = {
+    '/lp_matawalet_pro/': 'lp-a-conversion',
+    '/lp_matawalet_pro_b/': 'lp-b-awareness',
+    '/lp_matawalet_pro_c/': 'lp-c-consideration'
+  };
+  var lpVarian = VARIAN[location.pathname.replace(/index\.html$/, '')] || 'lain';
+
+  function lacak(nama, data) {
+    window.dataLayer = window.dataLayer || [];
+    // ecommerce dikosongkan dulu agar data event sebelumnya tidak ikut terbawa.
+    window.dataLayer.push({ ecommerce: null });
+    window.dataLayer.push(Object.assign({ event: nama, lp_varian: lpVarian }, data));
+  }
+
+  function itemPesanan(qty) {
+    return [{
+      item_id: 'matawalet-pro',
+      item_name: 'MataWalet PRO — AI IoT Camera',
+      item_brand: 'Markas Walet',
+      price: HARGA,
+      quantity: qty || 1
+    }];
+  }
+
   // ---- Suntik markup modal -------------------------------------------------
   var opsiQty = '';
   for (var i = 1; i <= MAX_QTY; i++) opsiQty += '<option value="' + i + '">' + i + ' unit</option>';
@@ -105,6 +133,9 @@
     wrap.classList.add('open');
     document.body.style.overflow = 'hidden';
     hitung();
+    lacak('begin_checkout', {
+      ecommerce: { currency: 'IDR', value: HARGA, items: itemPesanan(1) }
+    });
     setTimeout(function () { wrap.querySelector('#omNama').focus(); }, 50);
   }
 
@@ -186,7 +217,22 @@
       .then(function (res) {
         // Kegagalan dikirim server sebagai HTTP 200 dengan ok:false — status 5xx
         // tidak dipakai karena Cloudflare mengganti bodinya dengan halaman HTML.
-        if (res.data.url) { window.location.href = res.data.url; return; }
+        if (res.data.url) {
+          // Invoice berhasil dibuat — pengunjung akan diteruskan ke Xendit.
+          // Ini langkah funnel terakhir yang masih bisa kita lihat di situs kita.
+          var q = parseInt(qtyEl.value, 10) || 1;
+          var t = HARGA * q;
+          lacak('add_payment_info', {
+            ecommerce: {
+              currency: 'IDR',
+              value: bayarVal() === 'dp' ? Math.round(t / 2) : t,
+              payment_type: bayarVal() === 'dp' ? 'DP 50%' : 'Lunas',
+              items: itemPesanan(q)
+            }
+          });
+          window.location.href = res.data.url;
+          return;
+        }
         console.error('[checkout] ditolak server', res.data);
         gagal(res.data.error || 'Pembayaran gagal dibuat. Silakan coba lagi.', res.data.wa);
       })

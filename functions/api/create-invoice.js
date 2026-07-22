@@ -120,7 +120,13 @@ async function tanganiPesanan({ request, env }) {
         category: "Perangkat IoT",
       },
     ],
-    success_redirect_url: "https://markaswalet.com/lp_matawalet_pro/terima-kasih/",
+    // Data pesanan dititipkan di URL supaya halaman terima kasih bisa mengirim
+    // event purchase ke GA4 dengan nomor transaksi & nilai yang benar. Angka di
+    // sini HANYA untuk analitik — nominal yang ditagih sudah terkunci di invoice.
+    success_redirect_url:
+      "https://markaswalet.com/lp_matawalet_pro/terima-kasih/" +
+      `?external_id=${encodeURIComponent(externalId)}` +
+      `&amount=${amount}&total=${total}&qty=${qty}&bayar=${bayar}&lp=${sumber}`,
     failure_redirect_url: "https://markaswalet.com/lp_matawalet_pro/?bayar=gagal",
     invoice_duration: 86400, // 24 jam
   };
