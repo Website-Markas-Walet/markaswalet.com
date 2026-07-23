@@ -96,7 +96,12 @@
           '</div></div>' +
           '<div class="om-total"><span id="omTotalLbl">Total bayar sekarang</span><b id="omTotal">' + rupiah(HARGA) + '</b></div>' +
           '<button type="submit" class="btn btn-primary om-sub" id="omSubmit">Lanjut ke Pembayaran →</button>' +
-          '<p class="om-note">Pembayaran diproses aman oleh Xendit. Tersedia transfer bank, e-wallet, QRIS, dan kartu kredit.</p>' +
+          // Sengaja tidak menyebut channel satu per satu. Metode pembayaran
+          // diaktifkan/dimatikan dari dashboard Xendit, jadi daftar yang ditulis
+          // di sini pasti basi suatu saat — dan menjanjikan metode yang ternyata
+          // tidak ada adalah cara termahal kehilangan pembeli, tepat di langkah
+          // terakhir. Halaman Xendit sendiri yang menampilkan pilihan aslinya.
+          '<p class="om-note">Pembayaran diproses aman oleh Xendit. Pilihan metode pembayaran muncul di langkah berikutnya.</p>' +
           '<div class="om-wa">Masih ada pertanyaan? <a href="https://wa.me/' + WA +
             '?text=Halo%20Markaswalet%2C%20saya%20mau%20tanya%20soal%20MataWalet%20PRO" target="_blank" rel="noopener">Tanya via WhatsApp</a></div>' +
         '</form>' +
