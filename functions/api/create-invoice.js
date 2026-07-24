@@ -1,5 +1,5 @@
 /**
- * Cloudflare Pages Function — membuat invoice Xendit untuk Pre-Order MataWalet PRO.
+ * Cloudflare Pages Function — membuat invoice Xendit untuk paket MataWalet.
  *
  * Endpoint: POST /api/create-invoice
  *
@@ -8,10 +8,34 @@
  * Pakai key Mode Test dulu (xnd_development_...), ganti ke xnd_production_... saat live.
  *
  * Harga dihitung di sini, bukan dikirim dari browser — kalau amount dipercayakan ke
- * client, siapa pun bisa ubah jadi Rp 1.000 lewat devtools.
+ * client, siapa pun bisa ubah jadi Rp 1.000 lewat devtools. Produk pun dibatasi ke
+ * daftar tetap di bawah; nilai apa pun di luar daftar ditolak, bukan dipakai apa adanya.
  */
 
-const HARGA_UNIT = 1500000; // Rp / unit — sinkron dengan lp_matawalet_pro/index.html
+/**
+ * Katalog produk. Satu-satunya tempat harga ditentukan.
+ * Kalau harga berubah, ubah di sini DAN di teks landing page terkait.
+ */
+const PRODUK = {
+  "matawalet-pro": {
+    harga: 1500000,
+    nama: "MataWalet PRO — AI IoT Camera",
+    rincian: "perangkat Rp 500.000 + langganan 12 bulan Rp 1.000.000",
+    // Nilainya besar, jadi DP masuk akal untuk mengamankan slot.
+    dp: true,
+  },
+  "matawalet-trial": {
+    harga: 600000,
+    // Perangkat sama dengan PRO — yang beda paket harganya (bulanan, bukan tahunan).
+    nama: "MataWalet PRO — Paket Trial Bulanan",
+    rincian: "perangkat Rp 500.000 + langganan bulan pertama Rp 100.000",
+    // DP tidak ditawarkan: setengah dari Rp 600.000 belum menutup harga
+    // perangkatnya sendiri (Rp 500.000), jadi merugikan kalau pembeli berhenti.
+    dp: false,
+  },
+};
+const PRODUK_DEFAULT = "matawalet-pro";
+
 const MAX_QTY = 5; // samakan dengan pilihan di checkout/checkout.js
 const WA_ADMIN = "6285235350662";
 
@@ -74,13 +98,23 @@ async function tanganiPesanan({ request, env }) {
   const email = String(body.email || "").trim().toLowerCase();
   const phone = String(body.phone || "").replace(/\s|-/g, "");
   const qty = Math.min(Math.max(parseInt(body.qty, 10) || 1, 1), MAX_QTY);
-  const bayar = body.bayar === "dp" ? "dp" : "lunas";
-  // Varian LP asal — dipakai untuk membandingkan konversi A/B/C di dashboard.
+  // Produk dibatasi ke katalog; nilai asing jatuh ke default, tidak dipakai mentah.
+  const produkId = Object.prototype.hasOwnProperty.call(PRODUK, body.produk)
+    ? body.produk
+    : PRODUK_DEFAULT;
+  const produk = PRODUK[produkId];
+  // DP hanya untuk produk yang mengizinkan (lihat katalog di atas).
+  const bayar = body.bayar === "dp" && produk.dp ? "dp" : "lunas";
+
+  // Varian LP asal — dipakai untuk membandingkan konversi antar varian di dashboard.
   // Dibatasi ke daftar tetap; kalau tidak dikenali, tandai "lain".
   const VARIAN = {
     "/lp_matawalet_pro/": "lp-a-conversion",
     "/lp_matawalet_pro_b/": "lp-b-awareness",
     "/lp_matawalet_pro_c/": "lp-c-consideration",
+    "/lp_matawalet_trial/": "trial-a-conversion",
+    "/lp_matawalet_trial_b/": "trial-b-awareness",
+    "/lp_matawalet_trial_c/": "trial-c-consideration",
   };
   const sumber = VARIAN[String(body.sumber || "").replace(/index\.html$/, "")] || "lain";
 
@@ -88,7 +122,7 @@ async function tanganiPesanan({ request, env }) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return json({ error: "Email tidak valid." }, 400);
   if (!/^(\+?62|0)8\d{7,12}$/.test(phone)) return json({ error: "Nomor WhatsApp tidak valid." }, 400);
 
-  const total = HARGA_UNIT * qty;
+  const total = produk.harga * qty;
   const amount = bayar === "dp" ? Math.round(total / 2) : total;
   const label = bayar === "dp" ? `DP 50% dari ${qty} unit` : `Lunas ${qty} unit`;
 
@@ -101,7 +135,9 @@ async function tanganiPesanan({ request, env }) {
     amount,
     currency: "IDR",
     payer_email: email,
-    description: `Pre-Order MataWalet PRO — ${label}`,
+    // Rincian ikut ditulis di invoice supaya pembeli melihat komposisi harga
+    // yang sama seperti di landing page — bukan cuma angka totalnya.
+    description: `${produk.nama} — ${label} (${produk.rincian})`,
     customer: {
       given_names: nama,
       email,
@@ -114,20 +150,29 @@ async function tanganiPesanan({ request, env }) {
     },
     items: [
       {
-        name: "MataWalet PRO — AI IoT Camera",
+        name: produk.nama,
         quantity: qty,
-        price: bayar === "dp" ? Math.round(HARGA_UNIT / 2) : HARGA_UNIT,
+        price: bayar === "dp" ? Math.round(produk.harga / 2) : produk.harga,
         category: "Perangkat IoT",
       },
     ],
     // Data pesanan dititipkan di URL supaya halaman terima kasih bisa mengirim
     // event purchase ke GA4 dengan nomor transaksi & nilai yang benar. Angka di
     // sini HANYA untuk analitik — nominal yang ditagih sudah terkunci di invoice.
+    // Trial punya halaman terima kasih sendiri (pesan & alur beda dari PRO).
     success_redirect_url:
-      "https://markaswalet.com/lp_matawalet_pro/terima-kasih/" +
+      `https://markaswalet.com${
+        produkId === "matawalet-trial"
+          ? "/lp_matawalet_trial/terima-kasih/"
+          : "/lp_matawalet_pro/terima-kasih/"
+      }` +
       `?external_id=${encodeURIComponent(externalId)}` +
-      `&amount=${amount}&total=${total}&qty=${qty}&bayar=${bayar}&lp=${sumber}`,
-    failure_redirect_url: "https://markaswalet.com/lp_matawalet_pro/?bayar=gagal",
+      `&amount=${amount}&total=${total}&qty=${qty}&bayar=${bayar}&lp=${sumber}` +
+      `&produk=${produkId}`,
+    // Dikembalikan ke LP asalnya, bukan selalu ke LP PRO.
+    failure_redirect_url: `https://markaswalet.com${
+      Object.keys(VARIAN).find((p) => VARIAN[p] === sumber) || "/lp_matawalet_pro/"
+    }?bayar=gagal`,
     invoice_duration: 86400, // 24 jam
   };
 

@@ -28,6 +28,14 @@
   var WA = (script && script.getAttribute('data-wa')) || '6285235350662';
   var MAX_QTY = 5;
 
+  // Produk yang dijual halaman ini. Harus cocok dengan katalog di
+  // functions/api/create-invoice.js — server menolak nilai di luar daftar.
+  var PRODUK = (script && script.getAttribute('data-produk')) || 'matawalet-pro';
+  var NAMA_PRODUK = (script && script.getAttribute('data-nama')) || 'MataWalet PRO — AI IoT Camera';
+  // DP hanya ditawarkan kalau halaman memintanya. Paket trial tidak, karena
+  // separuh harganya belum menutup ongkos perangkat.
+  var PAKAI_DP = (script && script.getAttribute('data-dp')) !== 'off';
+
   function rupiah(n) { return 'Rp ' + n.toLocaleString('id-ID'); }
 
   // ---- Analitik ------------------------------------------------------------
@@ -37,7 +45,10 @@
   var VARIAN = {
     '/lp_matawalet_pro/': 'lp-a-conversion',
     '/lp_matawalet_pro_b/': 'lp-b-awareness',
-    '/lp_matawalet_pro_c/': 'lp-c-consideration'
+    '/lp_matawalet_pro_c/': 'lp-c-consideration',
+    '/lp_matawalet_trial/': 'trial-a-conversion',
+    '/lp_matawalet_trial_b/': 'trial-b-awareness',
+    '/lp_matawalet_trial_c/': 'trial-c-consideration'
   };
   var lpVarian = VARIAN[location.pathname.replace(/index\.html$/, '')] || 'lain';
 
@@ -50,8 +61,8 @@
 
   function itemPesanan(qty) {
     return [{
-      item_id: 'matawalet-pro',
-      item_name: 'MataWalet PRO — AI IoT Camera',
+      item_id: PRODUK,
+      item_name: NAMA_PRODUK,
       item_brand: 'Markas Walet',
       price: HARGA,
       quantity: qty || 1
@@ -88,12 +99,14 @@
             '<div class="hint">Invoice dan bukti bayar dikirim ke sini.</div></div>' +
           '<div class="om-f"><label for="omQty">Jumlah Unit</label>' +
             '<select id="omQty" name="qty">' + opsiQty + '</select></div>' +
-          '<div class="om-f"><label>Metode Pembayaran</label><div class="om-pay">' +
-            '<label><input type="radio" name="bayar" value="lunas" checked>' +
-              '<span class="opt"><b>Lunas</b><span>Prioritas pengiriman</span></span></label>' +
-            '<label><input type="radio" name="bayar" value="dp">' +
-              '<span class="opt"><b>DP 50%</b><span>Amankan slot</span></span></label>' +
-          '</div></div>' +
+          (PAKAI_DP
+            ? '<div class="om-f"><label>Metode Pembayaran</label><div class="om-pay">' +
+                '<label><input type="radio" name="bayar" value="lunas" checked>' +
+                  '<span class="opt"><b>Lunas</b><span>Prioritas pengiriman</span></span></label>' +
+                '<label><input type="radio" name="bayar" value="dp">' +
+                  '<span class="opt"><b>DP 50%</b><span>Amankan slot</span></span></label>' +
+              '</div></div>'
+            : '') +
           '<div class="om-total"><span id="omTotalLbl">Total bayar sekarang</span><b id="omTotal">' + rupiah(HARGA) + '</b></div>' +
           '<button type="submit" class="btn btn-primary om-sub" id="omSubmit">Lanjut ke Pembayaran →</button>' +
           // Sengaja tidak menyebut channel satu per satu. Metode pembayaran
@@ -196,6 +209,7 @@
         phone: phone,
         qty: qtyEl.value,
         bayar: bayarVal(),
+        produk: PRODUK,
         // Menandai LP asal supaya konversi tiap varian bisa dibandingkan
         // langsung dari daftar invoice di dashboard Xendit.
         sumber: location.pathname
