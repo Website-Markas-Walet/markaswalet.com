@@ -3,42 +3,51 @@
 <head><!--mw-perf--><link rel="dns-prefetch" href="https://www.youtube.com"><link rel="dns-prefetch" href="https://i.ytimg.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MataWalet PRO vs CCTV Biasa: Mana yang Cocok untuk RBW? | Markas Walet</title>
-<meta name="description" content="Bandingkan MataWalet PRO dengan CCTV biasa dan hitung manual. Lihat cara kerjanya, dokumentasi pemasangan langsung di RBW, dan apa saja yang Anda dapat.">
-
-<!-- HALAMAN FUNNEL: CONSIDERATION.
-     Berbeda dari /lp_matawalet_pro/ (awareness, product-led) dan
-     /lp_matawalet_pro_b/ (awareness, problem-led). Halaman ini untuk calon
-     pembeli yang SUDAH tahu butuh alat pantau dan sedang membandingkan pilihan.
-     Isinya beda secara substansial (tabel perbandingan + dokumentasi lapangan),
-     bukan halaman kembar, jadi sengaja TIDAK diberi noindex dan canonical-nya
-     menunjuk dirinya sendiri. -->
-<link rel="canonical" href="https://markaswalet.com/lp_matawalet_pro_c/">
+<title>Coba MataWalet PRO — Paket Trial Bulanan Rp 600.000 | Markas Walet</title>
+<meta name="description" content="Pre-order MataWalet PRO — AI IoT Camera pertama di Indonesia untuk rumah burung walet. Harga khusus untuk 100 pemesan pertama. Real-time population counting, terhubung ke Markaswalet App.">
 
 <!-- Open Graph — absolute URLs so preview works di WA/FB/LinkedIn -->
 <meta property="og:type" content="product">
-<meta property="og:title" content="MataWalet PRO vs CCTV Biasa: Mana yang Cocok untuk RBW?">
-<meta property="og:description" content="Perbandingan jujur dengan CCTV biasa dan hitung manual, plus dokumentasi pemasangan langsung di RBW oleh tim kami.">
-<!-- Pakai mockup banner: file packaging_matawalet_pro.jpeg yang dirujuk versi A
-     sebenarnya tidak ada di server (yang ada .jpg), jadi preview WhatsApp/FB
-     versi A tampil tanpa gambar. Ukuran diisi sesuai dimensi asli file. -->
+<meta property="og:title" content="Pre-Order MataWalet PRO — Early Bird 100 Orang Pertama">
+<meta property="og:description" content="AI IoT Camera pertama di Indonesia untuk rumah burung walet. Real-time population counting, terhubung ke Markaswalet App. Harga spesial untuk 100 pemesan pertama.">
+<!-- Sebelumnya menunjuk packaging_matawalet_pro.jpeg yang TIDAK ADA di server
+     (yang ada berekstensi .jpg), sehingga preview WhatsApp/FB halaman ini
+     tampil tanpa gambar. Diganti ke mockup banner, ukuran sesuai file asli. -->
 <meta property="og:image" content="https://markaswalet.com/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png">
 <meta property="og:image:width" content="763">
 <meta property="og:image:height" content="606">
-<meta property="og:url" content="https://markaswalet.com/lp_matawalet_pro_c/">
+<meta property="og:url" content="https://markaswalet.com/lp_matawalet_trial/">
 <meta property="og:site_name" content="Markas Walet">
 <meta property="og:locale" content="id_ID">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MataWalet PRO vs CCTV Biasa: Mana yang Cocok untuk RBW?">
-<meta name="twitter:description" content="Perbandingan jujur dengan CCTV biasa dan hitung manual, plus dokumentasi pemasangan di lapangan.">
+<meta name="twitter:title" content="Pre-Order MataWalet PRO — Early Bird 100 Orang Pertama">
+<meta name="twitter:description" content="AI IoT Camera pertama di Indonesia untuk rumah burung walet.">
 <meta name="twitter:image" content="https://markaswalet.com/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png">
 
+<!-- Canonical -->
+<link rel="canonical" href="https://markaswalet.com/lp_matawalet_trial/">
 
-<!-- Product schema sengaja TIDAK dipasang di sini. Halaman ini memang terindeks,
-     tapi rich snippet produk cukup diklaim satu halaman saja (versi A) agar
-     tidak jadi sinyal ganda untuk produk yang sama. -->
+<!-- Product schema for rich snippet -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "MataWalet PRO — AI IoT Camera",
+  "image": "https://markaswalet.com/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png",
+  "description": "AI IoT Camera pertama di Indonesia untuk rumah burung walet. Real-time population counting, membedakan static vs motion, terhubung ke Markaswalet App.",
+  "brand": { "@type": "Brand", "name": "Markas Walet" },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://markaswalet.com/lp_matawalet_trial/",
+    "priceCurrency": "IDR",
+    "price": "600000",
+    "availability": "https://schema.org/PreOrder",
+    "seller": { "@type": "Organization", "name": "PT Lentera Alam Nusantara" }
+  }
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,10 +154,10 @@ img{max-width:100%;display:block;height:auto}
 
 /* ===== PRODUCT GALLERY (new) ===== */
 .gallery{padding:72px 0 40px;background:var(--bg-soft)}
-/* Galeri mockup: 2 kolom. Gambar sengaja TIDAK dipotong (object-fit:contain)
-   karena "komponen kamera" adalah diagram berlabel — memotongnya akan
-   menghilangkan keterangan. Rasio kedua mockup juga berbeda (1.83 vs 1.26),
-   jadi tiap gambar dibiarkan tampil utuh di dalam bingkai berukuran sama. */
+/* Galeri mockup: 2 kolom, sama persis dengan /lp_matawalet_trial_b/ supaya A/B test
+   hanya menguji perbedaan copy, bukan perbedaan tampilan. Gambar sengaja TIDAK
+   dipotong (object-fit:contain) karena salah satunya diagram berlabel yang
+   keterangannya hilang kalau dipangkas, dan rasio kedua mockup berbeda. */
 .gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
 .gal-item{border-radius:14px;overflow:hidden;background:#ffffff;border:1px solid var(--border);transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;cursor:zoom-in;box-shadow:0 4px 12px rgba(19,47,94,.05)}
 .gal-item:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 14px 32px rgba(40,85,161,.18)}
@@ -231,39 +240,6 @@ footer a{color:var(--blue)}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
 .lightbox .close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 
-/* ===== TABEL PERBANDINGAN (khusus halaman consideration) ===== */
-.cmp-wrap{margin-top:38px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:var(--radius);background:#fff;box-shadow:0 4px 12px rgba(19,47,94,.05)}
-.cmp{width:100%;border-collapse:collapse;min-width:660px}
-.cmp th,.cmp td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--border);font-size:14.5px;vertical-align:top}
-.cmp thead th{background:var(--bg-soft);font-size:13px;font-weight:800;letter-spacing:.3px;color:var(--text);white-space:nowrap}
-.cmp thead th.hi{background:var(--blue);color:#fff}
-.cmp tbody tr:last-child td{border-bottom:0}
-.cmp td.hi{background:rgba(40,85,161,.05);font-weight:600;color:var(--text)}
-.cmp td:first-child{font-weight:700;color:var(--text);white-space:nowrap}
-.cmp .ya{color:#1f7c44;font-weight:800}
-.cmp .no{color:#b3261e;font-weight:800}
-.cmp-note{margin-top:14px;font-size:13.5px;color:var(--muted);line-height:1.7}
-
-/* ===== DOKUMENTASI LAPANGAN (pengganti FAQ) ===== */
-/* Empat kolom untuk empat foto. Slot dibuat POTRET (3:4) mengikuti foto asli
-   dari lapangan yang semuanya 720x1280 hasil kamera HP tegak. Dipaksakan ke
-   slot mendatar, sekitar separuh tinggi foto akan terpotong. */
-.doc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
-.doc-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 4px 12px rgba(19,47,94,.05);transition:transform .25s ease, box-shadow .25s ease}
-.doc-item:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,85,161,.14)}
-.doc-item .shot{aspect-ratio:3/4;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.doc-item .shot img{width:100%;height:100%;object-fit:cover}
-.doc-item .cap{padding:14px 16px;border-top:1px solid var(--border)}
-.doc-item .cap b{display:block;font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:3px}
-.doc-item .cap span{font-size:13px;color:var(--muted);line-height:1.55}
-/* Placeholder sementara sampai foto lapangan tersedia.
-   Sengaja dibuat terlihat "disiapkan", bukan seperti gambar rusak. */
-.doc-item.kosong .shot{background:
-  repeating-linear-gradient(45deg, rgba(40,85,161,.045) 0 12px, transparent 12px 24px), var(--bg-soft);
-  border-bottom:1px dashed var(--border-strong);flex-direction:column;gap:8px;color:var(--muted)}
-.doc-item.kosong .shot svg{width:34px;height:34px;opacity:.5}
-.doc-item.kosong .shot em{font-style:normal;font-size:12.5px;font-weight:600;letter-spacing:.3px}
-
 
 /* ===== RINCIAN HARGA (perangkat + langganan) ===== */
 .price-break{background:var(--bg-soft,#f6f6f7);border:1px solid var(--border,#e1e0e0);border-radius:12px;padding:14px 16px;margin:12px 0 14px}
@@ -284,7 +260,6 @@ footer a{color:var(--blue)}
   .steps{grid-template-columns:repeat(2,1fr)}
   .slot-card{grid-template-columns:1fr;text-align:center;gap:14px}
   .gal-grid{grid-template-columns:1fr}
-  .doc-grid{grid-template-columns:repeat(2,1fr)}
   .sticky{display:flex}
   section{padding:58px 0}
   .hero{padding:48px 0 40px}
@@ -292,7 +267,6 @@ footer a{color:var(--blue)}
 }
 @media (max-width:520px){
   .steps{grid-template-columns:1fr}
-  .doc-grid{grid-template-columns:1fr}
   .btn{padding:13px 18px;font-size:14px;width:100%;justify-content:center}
   .cta-row{flex-direction:column}
 }
@@ -311,27 +285,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<div class="bar">🚀 <strong>PRE-ORDER RESMI DIBUKA!</strong> Khusus 100 pemesan pertama</div>
-
-<!-- ================================================================
-     VARIAN B — angle: problem/outcome-led (versi A: product/tech-led).
-     Copy memimpin dari rasa sakit pemilik RBW (bolak-balik, menebak angka,
-     tidak tahu apakah perubahan berhasil), bukan dari spesifikasi alat.
-     Semua fakta penawaran identik dengan versi A.
-     ================================================================ -->
+<div class="bar">✨ <strong>PAKET TRIAL</strong> — coba MataWalet PRO tanpa komitmen tahunan</div>
 
 <!-- ============= HERO ============= -->
 <header class="hero">
   <div class="wrap hero-in">
     <div>
-      <div class="badge"><span class="dot"></span>Panduan Memilih Alat Pantau RBW</div>
-      <h1 class="h1">Pasang CCTV biasa atau <span>MataWalet PRO?</span></h1>
-      <p class="lead">Kami bandingkan apa adanya, termasuk yang tidak bisa dilakukan alat ini. Lengkap dengan foto pemasangan langsung di RBW.</p>
+      <div class="badge"><span class="dot"></span>Paket Trial · Tanpa Komitmen</div>
+      <h1 class="h1">AI IoT Camera untuk Rumah Walet — <span>MataWalet PRO</span></h1>
+      <p class="lead">Kamera AI pertama di Indonesia yang menghitung populasi burung walet <b>secara real-time</b>, membedakan static vs motion dengan confidence score, dan terhubung langsung ke aplikasi Markaswalet. Pantau RBW Anda dari mana saja, 24/7.</p>
 
       <div class="cta-row">
-        <a href="#banding" class="btn btn-primary">📊 Lihat Perbandingannya</a>
-        <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20masih%20membandingkan%20pilihan%20alat%20pantau%20RBW.%20Boleh%20tanya-tanya%20soal%20MataWalet%20PRO%3F" target="_blank" rel="noopener" class="btn btn-ghost">Tanya Dulu, Gratis</a>
+        <button type="button" class="btn btn-primary js-order">🎯 Ambil Slot Pre-Order</button>
+        <a href="#fitur" class="btn btn-ghost">Lihat Fitur →</a>
       </div>
+      <a class="cta-wa" href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20mau%20tanya%20soal%20MataWalet%20PRO" target="_blank" rel="noopener">💬 Tanya dulu via WhatsApp</a>
 
       <div class="meta">
         <div><span class="chk">✓</span> Garansi 1 tahun</div>
@@ -348,7 +316,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            dan sekaligus syarat wajib agar autoplay tidak diblokir browser. -->
       <video id="heroVideo" autoplay muted loop playsinline controls preload="auto">
         <source src="/wp-content/uploads/nestcosystem/matawalet_pro_demo.mp4" type="video/mp4">
-        <img src="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png" alt="MataWalet PRO, kamera penghitung walet untuk rumah burung walet">
+        <img src="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png" alt="MataWalet PRO — AI IoT Camera untuk Rumah Burung Walet">
       </video>
       <button class="hero-play" id="heroPlay" type="button" aria-label="Putar video MataWalet PRO">
         <i></i>
@@ -363,89 +331,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="slot-card">
     <div class="slot-icon">🔥</div>
     <div class="slot-label">Pre-Order Early Bird dibuka sampai <b>10 September 2026</b>
-      <span>Atau sampai slot 100 unit habis, mana yang lebih dulu. Siapa cepat, dia dapat!</span>
+      <span>Atau sampai slot 100 unit terisi — mana yang lebih cepat. First come, first served.</span>
     </div>
     <button type="button" class="btn btn-primary js-order">Amankan Slot</button>
   </div>
 </div>
 
-<!-- ============= TABEL PERBANDINGAN (inti halaman consideration) ============= -->
-<section id="banding">
-  <div class="wrap">
-    <div class="sec-lbl">Perbandingan</div>
-    <h2 class="sec-h">Tiga cara memantau RBW, <em>apa bedanya</em>.</h2>
-    <p class="sec-p">Banyak pemilik RBW sudah pasang CCTV, tapi tetap harus menghitung sendiri lewat layar. Ini bedanya dengan alat yang memang dirancang untuk menghitung walet.</p>
-
-    <div class="cmp-wrap">
-      <table class="cmp">
-        <thead>
-          <tr>
-            <th scope="col">Yang Anda butuhkan</th>
-            <th scope="col">Cek manual ke RBW</th>
-            <th scope="col">CCTV biasa</th>
-            <th scope="col" class="hi">MataWalet PRO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tahu jumlah walet</td>
-            <td>Dihitung sendiri, capek</td>
-            <td>Dihitung sendiri lewat layar</td>
-            <td class="hi"><span class="ya">✓</span> Dihitung otomatis</td>
-          </tr>
-          <tr>
-            <td>Bedakan menetap atau lewat</td>
-            <td>Sulit, mudah keliru</td>
-            <td><span class="no">✗</span> Tidak bisa</td>
-            <td class="hi"><span class="ya">✓</span> Dipisah otomatis</td>
-          </tr>
-          <tr>
-            <td>Pantau tanpa datang</td>
-            <td><span class="no">✗</span> Harus datang</td>
-            <td><span class="ya">✓</span> Bisa, tapi harus ditonton</td>
-            <td class="hi"><span class="ya">✓</span> Cukup lihat angkanya</td>
-          </tr>
-          <tr>
-            <td>Kerja di gelap total</td>
-            <td>Perlu senter, walet terganggu</td>
-            <td>Tergantung tipe kamera</td>
-            <td class="hi"><span class="ya">✓</span> Tanpa cahaya tampak</td>
-          </tr>
-          <tr>
-            <td>Catatan naik turun populasi</td>
-            <td>Dicatat manual di buku</td>
-            <td><span class="no">✗</span> Tidak ada</td>
-            <td class="hi"><span class="ya">✓</span> Tersimpan sendiri</td>
-          </tr>
-          <tr>
-            <td>Tahu perubahan berhasil atau tidak</td>
-            <td>Berdasarkan kesan</td>
-            <td>Berdasarkan kesan</td>
-            <td class="hi"><span class="ya">✓</span> Dibandingkan dari angka</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="cmp-note"><b>Yang perlu Anda tahu sebelum memutuskan:</b> MataWalet PRO butuh koneksi WiFi atau modem 4G di lokasi. Alat ini menghitung populasi, bukan memprediksi hasil panen. Dan meski Anda jadi jarang datang, pengecekan fisik bangunan tetap perlu dilakukan berkala. Kalau RBW Anda belum ada koneksi internet sama sekali, bilang ke tim kami dulu sebelum pesan.</p>
-  </div>
-</section>
-
 <!-- ============= PRODUCT GALLERY ============= -->
 <section class="gallery">
   <div class="wrap">
-    <div class="sec-lbl">Bentuk Alatnya</div>
-    <h2 class="sec-h">Sekecil ini, dan waletnya <em>tetap betah</em>.</h2>
-    <p class="sec-p">Banyak yang takut pasang alat bikin walet kabur. Tenang, alat ini kecil dan tidak pakai lampu yang bikin silau. Tempel di plafon, biarkan kerja sendiri.</p>
+    <div class="sec-lbl">Product Gallery</div>
+    <h2 class="sec-h">Lihat lebih dekat <em>MataWalet PRO</em>.</h2>
+    <p class="sec-p">Dirancang compact — mudah dipasang di plafon atau dinding RBW, tanpa mengganggu walet.</p>
 
     <div class="gal-grid">
       <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png">
         <div class="shot"><img src="/wp-content/uploads/nestcosystem/mockup_matawalet_banner.png" alt="Kamera MataWalet PRO tampak depan bersama banner produk" loading="lazy"></div>
-        <div class="cap">Beginilah bentuk alatnya</div>
+        <div class="cap">Tampak Depan Produk</div>
       </div>
       <div class="gal-item" data-img="/wp-content/uploads/nestcosystem/komponen_kamera.png">
         <div class="shot"><img src="/wp-content/uploads/nestcosystem/komponen_kamera.png" alt="Bagian-bagian kamera MataWalet PRO beserta keterangannya" loading="lazy"></div>
-        <div class="cap">Bagian-bagiannya, lengkap</div>
+        <div class="cap">Komponen &amp; Bagian Kamera</div>
       </div>
     </div>
   </div>
@@ -454,9 +360,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============= FITUR ============= -->
 <section id="fitur">
   <div class="wrap">
-    <div class="sec-lbl">Kemampuan Alat</div>
-    <h2 class="sec-h">Apa saja yang <em>bisa dilakukan</em> alat ini.</h2>
-    <p class="sec-p">Enam hal berikut yang membedakannya dari kamera pengawas biasa. Semuanya berjalan otomatis setelah alat terpasang dan tersambung ke jaringan.</p>
+    <div class="sec-lbl">Kenapa MataWalet PRO</div>
+    <h2 class="sec-h">Dibuat spesifik untuk <em>RBW Indonesia</em> — bukan CCTV biasa.</h2>
+    <p class="sec-p">Lebih dari sekedar kamera — MataWalet PRO menggunakan AI yang sudah dilatih khusus untuk mengenali burung walet di dalam rumah walet Anda.</p>
 
     <div class="grid-3">
       <div class="feat">
@@ -468,8 +374,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <circle cx="12" cy="12" r="2.2" fill="var(--blue-dark)"/>
           </svg>
         </div>
-        <h4>Nggak Usah Datang, Angkanya Nongol Sendiri</h4>
-        <p>Jumlah walet tiap lantai kehitung otomatis. Hemat bensin, hemat waktu, hemat capek di jalan.</p>
+        <h4>Real-Time Counting</h4>
+        <p>Deteksi otomatis dan hitung jumlah walet per lantai. Tidak perlu datang ke RBW untuk cek populasi.</p>
       </div>
       <div class="feat">
         <div class="ico">
@@ -485,8 +391,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.6" fill="var(--blue-dark)"/>
           </svg>
         </div>
-        <h4>Ketahuan Mana yang Nginap, Mana yang Cuma Lewat</h4>
-        <p>Walet yang benar-benar nempel dihitung terpisah dari yang cuma muter-muter. Jadi angkanya jujur, bukan angka semu.</p>
+        <h4>Static vs Motion AI</h4>
+        <p>Membedakan walet yang hinggap dan yang sedang terbang, dengan confidence score per individu.</p>
       </div>
       <div class="feat">
         <div class="ico">
@@ -498,8 +404,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <rect x="17.8" y="2.5" width="3.4" height="19" rx="1.4" fill="var(--blue-dark)"/>
           </svg>
         </div>
-        <h4>Dicek dari Mana Saja, Jam Berapa Saja</h4>
-        <p>Lagi di rumah, lagi di jalan, lagi ngopi. Buka aplikasi Markaswalet, langsung kelihatan kondisi RBW Anda.</p>
+        <h4>IoT Connected</h4>
+        <p>Data streaming real-time ke Markaswalet App — akses dari smartphone kapan saja.</p>
       </div>
       <div class="feat">
         <div class="ico">
@@ -510,8 +416,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <circle cx="13.6" cy="2.9" r="1" fill="var(--blue)" opacity=".45"/>
           </svg>
         </div>
-        <h4>Gelap Pun Tetap Kehitung</h4>
-        <p>Namanya RBW ya memang gelap. Alat ini tetap bisa melihat tanpa lampu yang bikin walet kaget.</p>
+        <h4>Night Vision</h4>
+        <p>Infrared yang tidak mengganggu walet. Tetap akurat di kondisi minim cahaya dalam RBW.</p>
       </div>
       <div class="feat">
         <div class="ico">
@@ -522,8 +428,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <rect x="11.1" y="11.6" width="1.8" height="4.2" rx=".9" fill="var(--blue-dark)"/>
           </svg>
         </div>
-        <h4>Datanya Aman, Cuma Anda yang Bisa Buka</h4>
-        <p>Rekaman tersimpan rapat dan dikunci. Tetangga, saingan, atau siapa pun tidak bisa mengintip isi RBW Anda.</p>
+        <h4>Data Aman</h4>
+        <p>Rekaman tersimpan di cloud dengan enkripsi. Hanya Anda yang dapat akses dashboard RBW.</p>
       </div>
       <div class="feat">
         <div class="ico">
@@ -538,8 +444,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <rect x="11" y="19.2" width="2" height="3.3" rx="1" fill="var(--blue-dark)"/>
           </svg>
         </div>
-        <h4>Gampang, Nggak Perlu Ngerti Teknologi</h4>
-        <p>Pasang, sambung WiFi, buka aplikasi. Sudah, cuma itu. Kalau bingung, tim kami temani sampai jalan.</p>
+        <h4>Plug &amp; Play</h4>
+        <p>Pasang, sambungkan ke WiFi, buka aplikasi — selesai. Tim kami siap bantu setup jika perlu.</p>
       </div>
     </div>
   </div>
@@ -551,29 +457,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="offer">
       <div>
         <div class="sec-lbl" style="color:var(--accent-text)">🎁 Penawaran Pre-Order</div>
-        <h2 class="sec-h" style="margin-bottom:6px">Sekali beli, tenang bertahun-tahun</h2>
-        <span class="save">Khusus 100 pemesan pertama · Bonus lengkap</span>
+        <h2 class="sec-h" style="margin-bottom:6px">Harga Paket Trial</h2>
+        <span class="save">Coba dulu — lanjut kapan Anda siap</span>
         <div class="price-row">
-          <span class="price-now">Rp 1.500.000<small> / unit</small></span>
+          <span class="price-now">Rp 600.000<small> / unit</small></span>
         </div>
         <div class="price-break">
           <div class="row"><span>Perangkat MataWalet PRO<small>Milik Anda seterusnya — sekali bayar</small></span><b>Rp 500.000</b></div>
-          <div class="row"><span>Langganan Markaswalet App 12 bulan<small>AI counting real-time + pantau dari HP</small></span><b>Rp 1.000.000</b></div>
-          <div class="row tot"><span>Total bayar sekarang</span><b>Rp 1.500.000</b></div>
+          <div class="row"><span>Langganan Markaswalet App bulan pertama<small>AI counting real-time + pantau dari HP</small></span><b>Rp 100.000</b></div>
+          <div class="row tot"><span>Total bayar sekarang</span><b>Rp 600.000</b></div>
         </div>
-        <p class="price-note">Setelah 12 bulan, perpanjangan langganan <b>Rp 1.000.000 per tahun</b> — harga sama, tanpa kenaikan. Setara <b>Rp 83.333/bulan</b>, lebih hemat Rp 200.000 dibanding langganan bulanan (Rp 100.000/bulan).<br>Tanpa perpanjangan, perangkat tetap menyala dan merekam, namun fitur AI counting dan akses lewat aplikasi berhenti.</p>
-        <p class="sec-p" style="margin-bottom:8px">Coba hitung bensin dan waktu Anda bolak-balik ke RBW selama setahun. Jauh lebih mahal, kan? Harga resmi produk, kiriman batch pertama 4 sampai 6 minggu setelah pre-order ditutup.</p>
+        <p class="price-note">Paket coba-dulu, tanpa komitmen tahunan. Bulan berikutnya <b>Rp 100.000/bulan</b> — tagihan dikirim via WhatsApp/email tiap bulan, bisa berhenti kapan saja.<br>Tanpa langganan aktif, perangkat tetap menyala dan merekam, namun fitur AI counting dan akses lewat aplikasi berhenti.</p>
+        <p class="sec-p" style="margin-bottom:8px">Pengiriman batch pertama dijadwalkan 4–6 minggu setelah pre-order ditutup.</p>
 
         <ul class="bullets">
           <li>1 unit MataWalet PRO AI IoT Camera</li>
-          <li>Langganan Markaswalet App <b>12 bulan</b> (dashboard monitoring) — sudah termasuk</li>
+          <li>Langganan Markaswalet App <b>bulan pertama</b> (dashboard monitoring) — sudah termasuk</li>
           <li>Bonus remote setup &amp; training 1-on-1 (senilai Rp 500.000)</li>
           <li>Garansi perangkat 1 tahun penuh</li>
           <li>Gratis ongkir ke seluruh Indonesia</li>
           <li>Prioritas support teknis grup Early Adopter</li>
         </ul>
 
-        <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20masih%20membandingkan%20pilihan%20alat%20pantau%20RBW.%20Boleh%20tanya-tanya%20soal%20MataWalet%20PRO%3F" target="_blank" rel="noopener" class="btn btn-primary">💬 Tanya Dulu, Gratis</a>
+        <button type="button" class="btn btn-primary js-order">🎯 Pesan via WhatsApp</button>
       </div>
 
       <div class="offer-card">
@@ -598,7 +504,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section>
   <div class="wrap">
     <div class="sec-lbl">Cara Pre-Order</div>
-    <h2 class="sec-h">Empat langkah, selesai dalam hitungan menit.</h2>
+    <h2 class="sec-h">4 langkah untuk amankan slot Anda.</h2>
 
     <div class="steps">
       <div class="step"><div class="n">01</div><h4>Isi Form Pre-Order</h4><p>Nama, WhatsApp, email, dan jumlah unit. Cukup 30 detik.</p></div>
@@ -609,86 +515,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ============= DOKUMENTASI LAPANGAN (menggantikan FAQ) =============
-     Berisi foto asli kiriman tim lapangan. Isinya bukan tahapan pemasangan
-     (survei, pasang, kabel, uji), melainkan unit yang SUDAH terpasang di
-     beberapa titik berbeda di dalam RBW. Keterangan tiap kartu ditulis sesuai
-     isi fotonya, jangan diubah tanpa melihat fotonya lagi.
-
-     MENAMBAH FOTO BARU:
-     1. Taruh di /wp-content/uploads/nestcosystem/ dengan nama tanpa spasi.
-     2. Salin satu blok <figure class="doc-item"> di bawah, ganti src, alt,
-        judul, dan keterangannya.
-     3. Foto dari lapangan umumnya potret hasil kamera HP, dan slot di sini
-        memang dibuat potret (3:4) mengikuti itu. Kalau nanti ada foto
-        mendatar, ia akan terpotong kiri kanan.
-     Kelas "kosong" beserta gayanya masih tersedia di CSS untuk dipakai kalau
-     suatu saat perlu kartu placeholder lagi.
-================================================================= -->
+<!-- ============= FAQ ============= -->
 <section class="section-alt" style="padding-top:20px">
   <div class="wrap">
     <div style="text-align:center">
-      <div class="sec-lbl">Dokumentasi Lapangan</div>
-      <h2 class="sec-h" style="margin:0 auto 14px">Begini wujudnya setelah terpasang di <em>RBW asli</em>.</h2>
-      <p class="sec-p" style="margin:0 auto">Bukan foto studio. Ini unit yang benar-benar sudah bekerja di dalam rumah walet, dipasang di beberapa titik berbeda sesuai kebutuhan pemantauan.</p>
+      <div class="sec-lbl">FAQ</div>
+      <h2 class="sec-h" style="margin:0 auto 14px">Pertanyaan yang sering ditanyakan</h2>
     </div>
 
-    <div class="doc-grid">
-      <figure class="doc-item">
-        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_1_balok_lantai.jpeg" alt="Kamera MataWalet PRO terpasang di bawah balok kayu di dalam RBW" loading="lazy"></div>
-        <figcaption class="cap">
-          <b>Menempel di balok lantai</b>
-          <span>Dipasang di bawah balok kayu menghadap ruang sarang. Kabel dirapikan mengikuti alur balok.</span>
-        </figcaption>
-      </figure>
-
-      <figure class="doc-item">
-        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_2_lubang_masuk.jpeg" alt="Kamera diarahkan ke lubang masuk burung di dalam RBW yang gelap" loading="lazy"></div>
-        <figcaption class="cap">
-          <b>Mengawasi lubang masuk burung</b>
-          <span>Diarahkan ke LMB untuk memantau walet yang keluar masuk, tetap bekerja di ruang gelap.</span>
-        </figcaption>
-      </figure>
-
-      <figure class="doc-item">
-        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_3_rangka_kayu.jpeg" alt="Kamera menempel pada rangka kayu di dinding RBW dengan panel surya di bawahnya" loading="lazy"></div>
-        <figcaption class="cap">
-          <b>Menempel pada rangka kayu</b>
-          <span>Dipasang di rangka kayu dekat dinding, dengan panel surya sebagai sumber daya.</span>
-        </figcaption>
-      </figure>
-
-      <figure class="doc-item">
-        <div class="shot"><img src="/wp-content/uploads/nestcosystem/pasang_4_jalur_masuk.jpeg" alt="Kamera dipasang pada tiang kayu di jalur masuk walet, dengan panel surya" loading="lazy"></div>
-        <figcaption class="cap">
-          <b>Di jalur lalu lintas walet</b>
-          <span>Ditempatkan pada tiang kayu di jalur keluar masuk, juga bertenaga panel surya.</span>
-        </figcaption>
-      </figure>
+    <div class="faq">
+      <details open>
+        <summary>Apa saja yang saya dapat dengan pre-order?</summary>
+        <p>1 unit MataWalet PRO, langganan Markaswalet App bulan pertama (Rp 100.000/bulan), garansi 1 tahun, gratis ongkir seluruh Indonesia, serta bonus remote setup dan training 1-on-1 senilai Rp 500.000. Anda juga masuk grup prioritas Early Adopter untuk support.</p>
+      </details>
+      <details>
+        <summary>Kapan unit dikirim?</summary>
+        <p>Batch pertama dikirim 4–6 minggu setelah masa pre-order ditutup (tanggal 10 September 2026 atau saat 100 slot terisi — mana yang lebih cepat). Anda akan menerima nomor resi via WhatsApp.</p>
+      </details>
+      <details>
+        <summary>Apakah butuh internet di RBW?</summary>
+        <p>Ya. MataWalet PRO perlu WiFi atau modem 4G untuk streaming data ke aplikasi. Jika RBW Anda belum ada koneksi, tim kami bisa rekomendasikan solusi terjangkau.</p>
+      </details>
+      <details>
+        <summary>Bagaimana cara membayar?</summary>
+        <p>Transfer bank atau e-wallet. DP 50% cukup untuk mengamankan slot, sisanya dilunasi sebelum pengiriman. Lunas di depan mendapat prioritas batch.</p>
+      </details>
+      <details>
+        <summary>Apakah bisa dipakai di RBW yang sudah berjalan?</summary>
+        <p>Bisa. MataWalet PRO dirancang untuk RBW baru maupun yang sudah beroperasi — tinggal dipasang di lantai yang ingin Anda monitor.</p>
+      </details>
+      <details>
+        <summary>Bagaimana jika slot 100 sudah penuh?</summary>
+        <p>Anda akan masuk waiting list batch berikutnya. Tim kami akan menginformasikan begitu jadwal batch baru dibuka. Perhatikan: bonus Early Adopter (training 1-on-1, grup prioritas) hanya untuk 100 slot pertama.</p>
+      </details>
     </div>
-
-    <p class="cmp-note" style="text-align:center;max-width:680px;margin:26px auto 0">Ingin lihat pemasangan di RBW yang kondisinya mirip punya Anda? Tanyakan ke tim kami, nanti kami kirimkan dokumentasinya lewat WhatsApp.</p>
   </div>
 </section>
 
 <!-- ============= FINAL CTA ============= -->
 <section class="final">
   <div class="wrap">
-    <h2>Masih ragu? Tanya dulu, tidak dipungut biaya.</h2>
-    <p>Ceritakan kondisi RBW Anda: berapa lantai, sudah ada internet atau belum, target pantau berapa titik. Tim kami bantu hitung kebutuhannya sebelum Anda memutuskan.</p>
-    <a href="https://wa.me/6285235350662?text=Halo%20Markaswalet%2C%20saya%20masih%20membandingkan%20pilihan%20alat%20pantau%20RBW.%20Boleh%20tanya-tanya%20soal%20MataWalet%20PRO%3F" target="_blank" rel="noopener" class="btn btn-primary">💬 Tanya Dulu via WhatsApp</a>
+    <h2>Jadilah satu dari 100 Early Adopter MataWalet PRO.</h2>
+    <p>Harga resmi, bonus eksklusif, dan prioritas support. Slot terbatas — first come, first served.</p>
+    <button type="button" class="btn btn-primary js-order">🎯 Ambil Slot Pre-Order Sekarang</button>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    © <script>document.write(new Date().getFullYear())</script> Markas Walet · <a href="/">rahma.markaswalet.id</a> · <a href="/about-us/">Tentang Kami</a> · <a href="/cultivation-technology/">Cultivation Technology</a>
+    © <script>document.write(new Date().getFullYear())</script> Markas Walet — <a href="/">rahma.markaswalet.id</a> · <a href="/about-us/">Tentang Kami</a> · <a href="/cultivation-technology/">Cultivation Technology</a>
   </div>
 </footer>
 
 <!-- Sticky mobile CTA -->
 <div class="sticky">
-  <div class="p">MataWalet PRO<b>Rp 1.500.000 / unit</b></div>
+  <div class="p">MataWalet PRO<b>Rp 600.000 / unit</b></div>
   <button type="button" class="btn btn-primary js-order" style="padding:11px 18px">Pre-Order</button>
 </div>
 
@@ -776,6 +657,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
-<script src="/checkout/checkout.js" defer></script>
+<script src="/checkout/checkout.js" data-produk="matawalet-trial" data-nama="MataWalet PRO — Paket Trial" data-harga="600000" data-dp="off" defer></script>
 </body>
 </html>
