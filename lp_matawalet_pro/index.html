@@ -240,6 +240,17 @@ footer a{color:var(--blue)}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
 .lightbox .close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;cursor:pointer;line-height:1;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 
+
+/* ===== RINCIAN HARGA (perangkat + langganan) ===== */
+.price-break{background:var(--bg-soft,#f6f6f7);border:1px solid var(--border,#e1e0e0);border-radius:12px;padding:14px 16px;margin:12px 0 14px}
+.price-break .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14.5px;color:var(--text-2,#3c4a63);padding:5px 0}
+.price-break .row b{color:var(--text,#132f5e);white-space:nowrap;font-weight:700}
+.price-break .row small{display:block;font-size:12.5px;color:var(--muted,#767c88);font-weight:400;margin-top:2px}
+.price-break .tot{border-top:1px solid var(--border-strong,#c8c7c7);margin-top:6px;padding-top:10px;font-weight:800;color:var(--text,#132f5e);font-size:15.5px}
+.price-break .tot b{font-size:17px}
+.price-note{font-size:12.5px;color:var(--muted,#767c88);line-height:1.65;margin-bottom:14px}
+.price-note b{color:var(--text-2,#3c4a63)}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width:900px){
   .hero-in{grid-template-columns:1fr;gap:40px}
@@ -451,11 +462,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="price-row">
           <span class="price-now">Rp 1.500.000<small> / unit</small></span>
         </div>
-        <p class="sec-p" style="margin-bottom:8px">Harga resmi produk. Pengiriman batch pertama dijadwalkan 4–6 minggu setelah pre-order ditutup.</p>
+        <div class="price-break">
+          <div class="row"><span>Perangkat MataWalet PRO<small>Milik Anda seterusnya — sekali bayar</small></span><b>Rp 500.000</b></div>
+          <div class="row"><span>Langganan Markaswalet App 12 bulan<small>AI counting real-time + pantau dari HP</small></span><b>Rp 1.000.000</b></div>
+          <div class="row tot"><span>Total bayar sekarang</span><b>Rp 1.500.000</b></div>
+        </div>
+        <p class="price-note">Setelah 12 bulan, perpanjangan langganan <b>Rp 1.000.000 per tahun</b> — harga sama, tanpa kenaikan. Setara <b>Rp 83.333/bulan</b>, lebih hemat Rp 200.000 dibanding langganan bulanan (Rp 100.000/bulan).<br>Tanpa perpanjangan, perangkat tetap menyala dan merekam, namun fitur AI counting dan akses lewat aplikasi berhenti.</p>
+        <p class="sec-p" style="margin-bottom:8px">Pengiriman batch pertama dijadwalkan 4–6 minggu setelah pre-order ditutup.</p>
 
         <ul class="bullets">
           <li>1 unit MataWalet PRO AI IoT Camera</li>
-          <li>Lifetime akses Markaswalet App (dashboard monitoring)</li>
+          <li>Langganan Markaswalet App <b>12 bulan</b> (dashboard monitoring) — sudah termasuk</li>
           <li>Bonus remote setup &amp; training 1-on-1 (senilai Rp 500.000)</li>
           <li>Garansi perangkat 1 tahun penuh</li>
           <li>Gratis ongkir ke seluruh Indonesia</li>
@@ -509,7 +526,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq">
       <details open>
         <summary>Apa saja yang saya dapat dengan pre-order?</summary>
-        <p>1 unit MataWalet PRO, akses lifetime Markaswalet App, garansi 1 tahun, gratis ongkir seluruh Indonesia, serta bonus remote setup dan training 1-on-1 senilai Rp 500.000. Anda juga masuk grup prioritas Early Adopter untuk support.</p>
+        <p>1 unit MataWalet PRO, langganan Markaswalet App selama 12 bulan, garansi 1 tahun, gratis ongkir seluruh Indonesia, serta bonus remote setup dan training 1-on-1 senilai Rp 500.000. Anda juga masuk grup prioritas Early Adopter untuk support.</p>
       </details>
       <details>
         <summary>Kapan unit dikirim?</summary>
