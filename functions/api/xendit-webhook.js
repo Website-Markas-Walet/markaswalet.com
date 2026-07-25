@@ -46,7 +46,12 @@ function normalkanTelepon(no) {
   return angka;
 }
 
-export async function onRequestPost(ctx) {
+// onRequest (semua metode), bukan onRequestPost — lihat catatan di create-invoice.js.
+// Route method-spesifik sempat membuat POST ditolak 405 di lapisan routing Cloudflare.
+export async function onRequest(ctx) {
+  if (ctx.request.method !== "POST") {
+    return json({ ok: false, error: "Metode tidak diizinkan." }, 200);
+  }
   try {
     return await tanganiWebhook(ctx);
   } catch (err) {

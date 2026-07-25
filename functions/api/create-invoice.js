@@ -64,7 +64,14 @@ const gagal = (pesan, debug) =>
     )}`,
   });
 
-export async function onRequestPost(ctx) {
+// Sengaja onRequest (semua metode), BUKAN onRequestPost. Route method-spesifik
+// dari onRequestPost sempat membuat Cloudflare menolak POST dengan 405 di lapisan
+// routing (kemungkinan efek migrasi build system). Dengan onRequest, semua metode
+// masuk ke fungsi dan kita yang menyaring — routing tidak bisa lagi memblokir POST.
+export async function onRequest(ctx) {
+  if (ctx.request.method !== "POST") {
+    return gagal("Metode tidak diizinkan.", "metode-" + ctx.request.method);
+  }
   // Pembungkus terluar: tanpa ini, exception apa pun yang lolos membuat
   // Cloudflare membalas halaman error HTML 502 — pengunjung bingung dan
   // penyebabnya tidak terlihat dari sisi browser sama sekali.
