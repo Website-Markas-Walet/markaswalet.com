@@ -9,6 +9,7 @@ export interface Props {
 const { title, description = '', canonical, image = '', ogType = 'website' } = Astro.props;
 const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site).href;
 
+import Footer from './Footer.astro';
 const products = [
   { label: 'Premium Birdnest Product', href: '/premium-birdnest-product/' },
   { label: 'Markaswalet Apps', href: '/markaswalet-apps/' },
@@ -88,30 +89,6 @@ const products = [
 
     <slot />
 
-    <footer class="site-footer">
-      <div class="cols">
-        <div>
-          <h4>Markas Walet</h4>
-          <p style="color:var(--muted);font-size:.9rem;margin:0">Edukasi & produk budidaya sarang burung walet.</p>
-        </div>
-        <div>
-          <h4>Produk</h4>
-          <ul>
-            <li><a href="/premium-birdnest-product/">Premium Birdnest</a></li>
-            <li><a href="/markaswalet-apps/">Markaswalet Apps</a></li>
-            <li><a href="/cultivation-technology/">Cultivation Technology</a></li>
-            <li><a href="/swiftlet-house-construction/">Swiftlet House Construction</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Jelajah</h4>
-          <ul>
-            <li><a href="/article/">Artikel</a></li>
-            <li><a href="/about-us/">Tentang Kami</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copy">© Markas Walet</div>
-    </footer>
+    <Footer />
   </body>
 </html>

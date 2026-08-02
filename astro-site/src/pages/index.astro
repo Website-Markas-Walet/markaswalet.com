@@ -5,6 +5,7 @@
 // none of the 40 stylesheets / 50 scripts / jQuery the export carried.
 import bodyHtml from '../home/homepage-body.html?raw';
 import customJs from '../home/homepage.js?raw';
+import Footer from '../layouts/Footer.astro';
 
 const products = [
   { label: 'Premium Birdnest Product', href: '/premium-birdnest-product/' },
@@ -80,6 +81,8 @@ const orgSchema = {
     </header>
 
     <Fragment set:html={bodyHtml} />
+
+    <Footer />
 
     <script is:inline set:html={customJs} />
   </body>
