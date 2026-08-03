@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birdnest Price Update — Markas Walet</title>
+<style>
+  :root{
+    --yellow:#FFB100;
+    --yellow-light:#F9C349;
+    --dark:#1E1810;
+    --gray:#62615C;
+    --offwhite:#F8F7F3;
+    --white:#FFFFFF;
+    --green:#2E9E5B;
+    --red:#D64541;
+    --blue:#3A78B5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins','Segoe UI',Arial,sans-serif;}
+  body{background:var(--offwhite);color:var(--dark);}
+
+  /* ===== Top bar ===== */
+  .topbar{background:var(--dark);color:#cfcabf;font-size:12.5px;padding:8px 5%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+  .topbar b{color:var(--yellow-light);font-weight:600;}
+
+  /* ===== Header ===== */
+  header{background:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.06);position:sticky;top:0;z-index:50;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.5px;}
+  .logo .mark{background:var(--dark);color:var(--yellow);padding:6px 9px;border-radius:6px;font-size:15px;}
+  nav{display:flex;gap:26px;align-items:center;font-size:14.5px;font-weight:500;}
+  nav a{text-decoration:none;color:var(--dark);padding:6px 2px;}
+  nav a:hover{color:var(--yellow);}
+  nav a.active{color:#fff;background:var(--yellow);padding:8px 14px;border-radius:20px;font-weight:600;}
+
+  /* ===== Hero ===== */
+  /* Font judul: Sue Vermeer — letakkan file font di samping HTML ini (SueVermeer.ttf) */
+  @font-face{
+    font-family:'Sue Vermeer';
+    src:url('SueVermeer.ttf') format('truetype');
+    font-display:swap;
+  }
+  .hero{
+    background:
+      linear-gradient(100deg, rgba(20,22,14,.62) 0%, rgba(20,22,14,.35) 55%, rgba(20,22,14,.15) 100%),
+      url('hero-rbw.jpg') center/cover no-repeat,
+      linear-gradient(120deg,var(--dark) 55%,#3a2f1c);
+    color:#fff;padding:44px 5% 110px;
+  }
+  .hero .badge{display:inline-block;border:1px solid #fff;color:#fff;background:rgba(0,0,0,.25);border-radius:20px;padding:5px 16px;font-size:12.5px;margin-bottom:16px;}
+  .hero h1{font-family:'Sue Vermeer','Poppins','Segoe UI',sans-serif;font-size:40px;line-height:1.2;font-weight:400;color:#fff;letter-spacing:1px;text-shadow:0 2px 14px rgba(0,0,0,.45);}
+  .hero h1 span{color:#fff;}
+  .hero p{color:#f2f0ea;margin-top:12px;max-width:640px;font-size:14.5px;line-height:1.7;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  .hero p b{color:#fff !important;}
+  .updated{margin-top:14px;font-size:13px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  .updated b{color:#fff;}
+
+  /* ===== Filter bar ===== */
+  .filterbar{background:#fff;border-radius:14px;box-shadow:0 8px 30px rgba(30,24,16,.12);padding:20px 24px;display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;width:90%;margin:-70px auto 0;}
+  .field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:160px;}
+  .field label{font-size:12px;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;}
+  .field select{padding:10px 12px;border:1.5px solid #e3ded4;border-radius:8px;font-size:14px;background:#fff;color:var(--dark);}
+  .btn-show{background:var(--yellow);border:none;color:var(--dark);font-weight:700;font-size:14px;padding:12px 28px;border-radius:8px;cursor:pointer;}
+  .btn-show:hover{background:var(--yellow-light);}
+
+  /* ===== Sections ===== */
+  section{padding:40px 5%;}
+  .sec-title{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .sec-title h2{font-size:22px;}
+  .sec-title .line{flex:1;height:3px;background:linear-gradient(90deg,var(--yellow),transparent);border-radius:2px;}
+  .sec-sub{color:var(--gray);font-size:13.5px;margin-bottom:24px;}
+
+  /* ===== Price cards ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px;}
+  .card{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 3px 14px rgba(30,24,16,.07);border-top:4px solid var(--yellow);}
+  .card h3{font-size:14.5px;margin-bottom:2px;}
+  .card .region{font-size:12px;color:var(--gray);margin-bottom:10px;}
+  .card .row{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;}
+  .price{font-size:22px;font-weight:700;}
+  .price small{font-size:11.5px;color:var(--gray);font-weight:500;display:block;text-align:right;}
+  .delta{font-size:11.5px;font-weight:600;border-radius:5px;padding:4px 8px;display:inline-block;margin-top:10px;color:#fff;}
+  .up{background:var(--green);}
+  .down{background:var(--red);}
+  .flat{background:var(--blue);}
+  .spark{width:100%;height:46px;margin-top:4px;}
+  .card a.more{font-size:12px;color:var(--blue);text-decoration:underline;float:right;margin-top:12px;}
+
+  /* ===== Table ===== */
+  .tablewrap{background:#fff;border-radius:12px;box-shadow:0 3px 14px rgba(30,24,16,.07);overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:760px;}
+  th{background:var(--dark);color:var(--yellow-light);text-align:left;padding:12px 16px;font-weight:600;white-space:nowrap;}
+  td{padding:11px 16px;border-bottom:1px solid #f0ece3;white-space:nowrap;}
+  tr:nth-child(even) td{background:#fbfaf6;}
+  td .chg{font-size:11px;font-weight:700;margin-left:6px;}
+  .cg{color:var(--green);} .cr{color:var(--red);} .cb{color:var(--blue);}
+
+  /* ===== Statistik ===== */
+  .stats-flex{display:flex;gap:20px;flex-wrap:wrap;}
+  .chartbox{flex:2;min-width:320px;background:#fff;border-radius:12px;padding:22px;box-shadow:0 3px 14px rgba(30,24,16,.07);}
+  .chartbox h3{font-size:15px;margin-bottom:4px;}
+  .chartbox .sub{font-size:12px;color:var(--gray);margin-bottom:12px;}
+  .statcol{flex:1;min-width:230px;display:flex;flex-direction:column;gap:14px;}
+  .stat{background:var(--dark);color:#fff;border-radius:12px;padding:18px;}
+  .stat .lbl{font-size:12px;color:#cfcabf;}
+  .stat .val{font-size:24px;font-weight:700;color:var(--yellow);margin-top:4px;}
+  .stat .note{font-size:11.5px;color:#cfcabf;margin-top:4px;}
+
+  /* ===== Artikel ===== */
+  .articles{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+  .art{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 14px rgba(30,24,16,.07);display:flex;flex-direction:column;}
+  .art .thumb{height:150px;background:linear-gradient(135deg,var(--dark),#4a3b20);display:flex;align-items:center;justify-content:center;color:var(--yellow);font-size:38px;}
+  .art .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .art .tag{font-size:11px;font-weight:700;color:var(--yellow);text-transform:uppercase;letter-spacing:.5px;}
+  .art h3{font-size:15px;line-height:1.45;}
+  .art p{font-size:13px;color:var(--gray);line-height:1.6;flex:1;}
+  .art .meta{font-size:11.5px;color:#9a958a;}
+  .art a{color:var(--dark);text-decoration:none;}
+  .art a:hover h3{color:var(--yellow);}
+
+  /* ===== CTA WA ===== */
+  .cta{margin:10px 5% 50px;background:linear-gradient(120deg,var(--yellow),var(--yellow-light));border-radius:16px;padding:34px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+  .cta h2{font-size:22px;color:var(--dark);}
+  .cta p{font-size:14px;color:#4a3b20;margin-top:6px;max-width:560px;}
+  .btn-wa{background:var(--dark);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:14px 26px;border-radius:30px;white-space:nowrap;}
+  .btn-wa:hover{background:#000;}
+
+  /* ===== Kalkulator simulasi ===== */
+  .calc{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;}
+  .calc-in{flex:3;min-width:320px;background:#fff;border-radius:12px;padding:22px;box-shadow:0 3px 14px rgba(30,24,16,.07);}
+  .calc-in h3,.calc-out h3{font-size:15px;margin-bottom:14px;}
+  .calc table{min-width:0;font-size:13px;}
+  .calc td,.calc th{padding:8px 10px;white-space:nowrap;}
+  .calc input[type=number]{width:90px;padding:8px 10px;border:1.5px solid #e3ded4;border-radius:8px;font-size:13.5px;text-align:right;}
+  .calc select{padding:8px 10px;border:1.5px solid #e3ded4;border-radius:8px;font-size:13.5px;background:#fff;}
+  .calc-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
+  .calc-row .field{min-width:140px;}
+  .calc-out{flex:2;min-width:280px;background:var(--dark);color:#fff;border-radius:12px;padding:22px;position:sticky;top:80px;}
+  .calc-out .line{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px dashed #3d362a;color:#cfcabf;}
+  .calc-out .line b{color:#fff;}
+  .calc-out .grand{margin-top:14px;}
+  .calc-out .grand .lbl{font-size:12px;color:#cfcabf;}
+  .calc-out .grand .val{font-size:26px;font-weight:700;color:var(--yellow);}
+  .calc-out .perkg{font-size:12.5px;color:#cfcabf;margin-top:4px;}
+  .btn-jual{display:block;text-align:center;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14px;text-decoration:none;padding:13px;border-radius:9px;margin-top:16px;}
+  .btn-jual:hover{background:var(--yellow-light);}
+  .calc-note{font-size:11.5px;color:var(--gray);margin-top:12px;line-height:1.6;}
+
+  /* ===== Popup melayang CTA aplikasi ===== */
+  .float-cta{position:fixed;right:18px;bottom:18px;z-index:100;background:var(--dark);color:#fff;border-radius:14px;box-shadow:0 10px 34px rgba(30,24,16,.45);width:300px;padding:18px 18px 16px;border:1.5px solid var(--yellow);animation:slideup .5s ease;}
+  @keyframes slideup{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .float-cta .close{position:absolute;top:8px;right:12px;background:none;border:none;color:#9a958a;font-size:16px;cursor:pointer;}
+  .float-cta .close:hover{color:#fff;}
+  .float-cta .head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .float-cta .appicon{background:var(--yellow);color:var(--dark);font-weight:800;border-radius:9px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none;}
+  .float-cta h4{font-size:14px;line-height:1.35;}
+  .float-cta h4 span{color:var(--yellow);}
+  .float-cta p{font-size:11.5px;color:#cfcabf;line-height:1.55;margin-bottom:12px;}
+  .float-cta a.btn-app{display:block;text-align:center;background:var(--yellow);color:var(--dark);font-weight:700;font-size:13px;text-decoration:none;padding:10px 12px;border-radius:8px;}
+  .float-cta a.btn-app:hover{background:var(--yellow-light);}
+  @media(max-width:480px){.float-cta{width:calc(100% - 36px);}}
+
+  footer{background:var(--dark);color:#cfcabf;font-size:12.5px;text-align:center;padding:22px 5%;}
+  footer b{color:var(--yellow-light);}
+  .disclaimer{font-size:11.5px;color:var(--gray);margin-top:26px;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div><b>MARKAS WALET</b> — Sistem Informasi Harga Sarang Burung Walet</div>
+  <div>Pembaruan terakhir: <b class="js-tanggal">03 Agustus 2026</b></div>
+</div>
+
+<header>
+  <div class="logo"><span class="mark">MW</span> MARKAS WALET</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Our Product</a>
+    <a href="#">Article</a>
+    <a href="#" class="active">Birdnest Price Update</a>
+    <a href="#">About Us</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <span class="badge">● Data Harga Ditingkat Petani &amp; Pengepul</span>
+  <h1>Birdnest Price Update<br><span>Harga Sarang Walet Terkini</span></h1>
+  <p>Pantauan harga sarang burung walet mentah (raw bird nest) yang berlaku nasional. Data dihimpun berdasarkan <b>12.000 jaringan petani walet dan eksportir resmi</b>, diperbarui berkala sebagai acuan petani dan pengepul.</p>
+  <div class="updated">⏱ Harga per <b class="js-tanggal">03 Agustus 2026</b> — periode pembaruan mingguan</div>
+</div>
+
+<div class="filterbar">
+  <div class="field">
+    <label>Jenis Sarang</label>
+    <select><option>Semua Jenis</option><option>Mangkok</option><option>Sudut</option><option>Oval</option><option>Patahan</option><option>Kakian</option><option>Kronis / Bakpao</option></select>
+  </div>
+  <div class="field">
+    <label>Warna Sarang</label>
+    <select><option>Semua Warna</option><option>Putih Kapas</option><option>Beras Cerah</option><option>Beras</option><option>Kuning</option><option>Kronis</option></select>
+  </div>
+  <div class="field">
+    <label>Bulu</label>
+    <select><option>Semua</option><option>Berat</option><option>Sedang</option><option>Ringan</option><option>Pelontos</option></select>
+  </div>
+  <div class="field">
+    <label>Periode</label>
+    <select><option>Weekly</option><option>Monthly</option><option>YTD</option><option>Last Year</option><option>5 Year</option></select>
+  </div>
+  <button class="btn-show">Tampilkan</button>
+</div>
+
+<!-- ===== KARTU HARGA ===== -->
+<section>
+  <div class="sec-title"><h2>Harga Rata-Rata &amp; Perubahan</h2><div class="line"></div></div>
+  <div class="sec-sub">Harga per kilogram sarang walet mentah ditingkat petani, berlaku nasional — data berdasarkan <b>12.000 jaringan petani walet dan eksportir resmi</b>, dibandingkan dengan minggu sebelumnya.</div>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Mangkok</h3>
+      <div class="region">Harga nasional — acuan putih kapas · pelontos · 3 jari</div>
+      <svg class="spark" viewBox="0 0 200 46" preserveAspectRatio="none"><polyline points="0,34 33,30 66,31 100,26 133,22 166,18 200,12" fill="none" stroke="#2E9E5B" stroke-width="2.5"/><circle cx="200" cy="12" r="3.5" fill="#2E9E5B"/></svg>
+      <div class="row">
+        <span class="delta up">▲ Naik 3,1% — Rp 420rb</span>
+        <div class="price">Rp 14,1 jt<small>PER Kg</small></div>
+      </div>
+      <a class="more" href="#">Selengkapnya</a>
+    </div>
+
+    <div class="card">
+      <h3>Sudut</h3>
+      <div class="region">Harga nasional — berlaku semua wilayah</div>
+      <svg class="spark" viewBox="0 0 200 46" preserveAspectRatio="none"><polyline points="0,18 33,20 66,19 100,24 133,26 166,25 200,29" fill="none" stroke="#D64541" stroke-width="2.5"/><circle cx="200" cy="29" r="3.5" fill="#D64541"/></svg>
+      <div class="row">
+        <span class="delta down">▼ Turun 2,2% — Rp 200rb</span>
+        <div class="price">Rp 8,9 jt<small>PER Kg</small></div>
+      </div>
+      <a class="more" href="#">Selengkapnya</a>
+    </div>
+
+    <div class="card">
+      <h3>Oval</h3>
+      <div class="region">Harga nasional — berlaku semua wilayah</div>
+      <svg class="spark" viewBox="0 0 200 46" preserveAspectRatio="none"><polyline points="0,25 33,26 66,24 100,25 133,23 166,24 200,24" fill="none" stroke="#3A78B5" stroke-width="2.5"/><circle cx="200" cy="24" r="3.5" fill="#3A78B5"/></svg>
+      <div class="row">
+        <span class="delta flat">▮▮ Harga Tetap</span>
+        <div class="price">Rp 9,6 jt<small>PER Kg</small></div>
+      </div>
+      <a class="more" href="#">Selengkapnya</a>
+    </div>
+
+    <div class="card">
+      <h3>Patahan</h3>
+      <div class="region">Harga nasional — berlaku semua wilayah</div>
+      <svg class="spark" viewBox="0 0 200 46" preserveAspectRatio="none"><polyline points="0,30 33,28 66,29 100,27 133,25 166,26 200,23" fill="none" stroke="#2E9E5B" stroke-width="2.5"/><circle cx="200" cy="23" r="3.5" fill="#2E9E5B"/></svg>
+      <div class="row">
+        <span class="delta up">▲ Naik 1,8% — Rp 110rb</span>
+        <div class="price">Rp 6,2 jt<small>PER Kg</small></div>
+      </div>
+      <a class="more" href="#">Selengkapnya</a>
+    </div>
+
+    <div class="card">
+      <h3>Kakian</h3>
+      <div class="region">Harga nasional — berlaku semua wilayah</div>
+      <svg class="spark" viewBox="0 0 200 46" preserveAspectRatio="none"><polyline points="0,26 33,24 66,27 100,25 133,24 166,23 200,21" fill="none" stroke="#2E9E5B" stroke-width="2.5"/><circle cx="200" cy="21" r="3.5" fill="#2E9E5B"/></svg>
+      <div class="row">
+        <span class="delta up">▲ Naik 1,9% — Rp 100rb</span>
+        <div class="price">Rp 5,4 jt<small>PER Kg</small></div>
+      </div>
+      <a class="more" href="#">Selengkapnya</a>
+    </div>
+
+    <div class="card">
+      <h3>Kronis / Bakpao</h3>
+      <div class="region">Harga nasional — berlaku semua wilayah</div>
+      <svg class="spark" viewBox="0 0 200 46" preserveAspectRatio="none"><polyline points="0,22 33,22 66,23 100,22 133,22 166,22 200,22" fill="none" stroke="#3A78B5" stroke-width="2.5"/><circle cx="200" cy="22" r="3.5" fill="#3A78B5"/></svg>
+      <div class="row">
+        <span class="delta flat">▮▮ Harga Tetap</span>
+        <div class="price">Rp 4,8 jt<small>PER Kg</small></div>
+      </div>
+      <a class="more" href="#">Selengkapnya</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== TABEL RINGKAS PER GRADE ===== -->
+<section>
+  <div class="sec-title"><h2>Rincian Harga per Jenis Sarang</h2><div class="line"></div></div>
+  <div class="sec-sub">Harga acuan nasional sarang walet mentah (Rp juta/kg) · <span class="js-tanggal">03 Agustus 2026</span>. Harga akhir menyesuaikan <b>warna</b> (putih kapas +500rb · beras cerah 0 · beras −500rb · kuning −1jt), <b>bulu</b> (pelontos +200rb · ringan +100rb · sedang 0 · berat −100rb), dan <b>kadar air</b>.</div>
+  <div class="tablewrap">
+    <table id="priceTable">
+      <tr><th>Jenis Sarang</th><th>Harga Minggu Ini</th><th>Harga Minggu Lalu</th><th>Perubahan</th><th>Keterangan</th></tr>
+      <tr><td>Mangkok</td><td><b>14,1</b></td><td>13,7</td><td><span class="chg cg">▲ 3,1%</span></td><td>Bentuk mangkuk utuh</td></tr>
+      <tr><td>Sudut</td><td><b>8,9</b></td><td>9,1</td><td><span class="chg cr">▼ 2,2%</span></td><td>Menempel di sudut sirip</td></tr>
+      <tr><td>Oval</td><td><b>9,6</b></td><td>9,6</td><td><span class="chg cb">▮ Tetap</span></td><td>Bentuk lonjong</td></tr>
+      <tr><td>Patahan</td><td><b>6,2</b></td><td>6,1</td><td><span class="chg cg">▲ 1,8%</span></td><td>Pecahan / tidak utuh</td></tr>
+      <tr><td>Kakian</td><td><b>5,4</b></td><td>5,3</td><td><span class="chg cg">▲ 1,9%</span></td><td>Kaki / fondasi sarang</td></tr>
+      <tr><td>Kronis / Bakpao</td><td><b>4,8</b></td><td>4,8</td><td><span class="chg cb">▮ Tetap</span></td><td>Sarang tebal tidak rapi</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== STATISTIK ===== -->
+<section>
+  <div class="sec-title"><h2>Statistik &amp; Tren Harga</h2><div class="line"></div></div>
+  <div class="sec-sub">Pergerakan harga acuan nasional sarang jenis Mangkok, 12 bulan terakhir.</div>
+  <div class="stats-flex">
+    <div class="chartbox">
+      <h3>Tren Harga Mangkok (Rp juta/kg)</h3>
+      <div class="sub">Agu 2025 — Agu 2026 · sumber: tim lapangan Markas Walet</div>
+      <svg id="trendChart" viewBox="0 0 640 240" style="width:100%;height:auto;">
+        <!-- grid -->
+        <g stroke="#eee9dd" stroke-width="1">
+          <line x1="40" y1="20" x2="620" y2="20"/><line x1="40" y1="70" x2="620" y2="70"/>
+          <line x1="40" y1="120" x2="620" y2="120"/><line x1="40" y1="170" x2="620" y2="170"/>
+          <line x1="40" y1="205" x2="620" y2="205"/>
+        </g>
+        <g font-size="10" fill="#9a958a">
+          <text x="8" y="24">15,0</text><text x="8" y="74">13,5</text><text x="8" y="124">12,0</text><text x="8" y="174">10,5</text>
+          <text x="42" y="222">Agu</text><text x="138" y="222">Okt</text><text x="234" y="222">Des</text><text x="330" y="222">Feb</text><text x="426" y="222">Apr</text><text x="522" y="222">Jun</text><text x="600" y="222">Agu</text>
+        </g>
+        <polygon points="40,120 88,126 136,118 184,110 232,116 280,102 328,96 376,100 424,88 472,80 520,70 568,58 620,50 620,205 40,205" fill="#FFB10022"/>
+        <polyline points="40,120 88,126 136,118 184,110 232,116 280,102 328,96 376,100 424,88 472,80 520,70 568,58 620,50" fill="none" stroke="#FFB100" stroke-width="3"/>
+        <circle cx="620" cy="50" r="5" fill="#FFB100"/>
+        <circle cx="40" cy="120" r="4" fill="#1E1810"/>
+      </svg>
+    </div>
+    <div class="statcol">
+      <div class="stat"><div class="lbl">Harga Acuan Nasional (Mangkok)</div><div class="val" id="statPrice">Rp 14,1 jt/kg</div><div class="note" id="statPriceNote">per 03 Agustus 2026</div></div>
+      <div class="stat"><div class="lbl">Perubahan 1 Tahun</div><div class="val" id="statYear">+17,5%</div><div class="note" id="statYearNote">dari Rp 12,0 jt (Agu 2025)</div></div>
+      <div class="stat"><div class="lbl">Kenaikan Terbesar Minggu Ini</div><div class="val" id="statTop">+3,1%</div><div class="note" id="statTopNote">Jenis Mangkok</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KALKULATOR SIMULASI ===== -->
+<section id="kalkulator">
+  <div class="sec-title"><h2>Kalkulator Simulasi Jual Sarang Walet</h2><div class="line"></div></div>
+  <div class="sec-sub">Perkirakan nilai jual panen Anda memakai rumus pembelian resmi Markas Walet. Masukkan berat tiap komposisi, pilih warna &amp; kondisi bulu, lalu isi angka moisture meter.</div>
+
+  <div class="calc">
+    <div class="calc-in">
+      <h3>1 · Komposisi Panen</h3>
+      <div class="tablewrap" style="box-shadow:none;">
+        <table id="calcTable">
+          <tr><th>Komposisi</th><th>Harga Normal /kg</th><th>Berat (gram)</th><th>Harga Sesuai /kg</th><th>Subtotal</th></tr>
+          <tr data-harga="14100000"><td>Mangkok</td><td>Rp 14.100.000</td><td><input type="number" min="0" value="500" class="w8"></td><td class="sesuai">—</td><td class="subtotal">—</td></tr>
+          <tr data-harga="8900000"><td>Sudut</td><td>Rp 8.900.000</td><td><input type="number" min="0" value="200"></td><td class="sesuai">—</td><td class="subtotal">—</td></tr>
+          <tr data-harga="6200000"><td>Patahan</td><td>Rp 6.200.000</td><td><input type="number" min="0" value="300"></td><td class="sesuai">—</td><td class="subtotal">—</td></tr>
+          <tr data-harga="4800000"><td>Kronis / Bakpao</td><td>Rp 4.800.000</td><td><input type="number" min="0" value="0"></td><td class="sesuai">—</td><td class="subtotal">—</td></tr>
+        </table>
+      </div>
+
+      <h3 style="margin-top:20px;">2 · Kualitas &amp; Kadar Air</h3>
+      <div class="calc-row">
+        <div class="field">
+          <label>Warna Sarang</label>
+          <select id="selWarna">
+            <option value="500000">Putih Kapas (+500rb)</option>
+            <option value="0" selected>Beras Cerah (0)</option>
+            <option value="-500000">Beras (−500rb)</option>
+            <option value="-1000000">Kuning (−1jt)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Bulu</label>
+          <select id="selBulu">
+            <option value="200000">Pelontos (+200rb)</option>
+            <option value="100000">Ringan (+100rb)</option>
+            <option value="0" selected>Sedang (0)</option>
+            <option value="-100000">Berat (−100rb)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Angka Moisture Meter</label>
+          <input type="number" id="inMeter" min="0" value="15" style="width:100%;padding:9px 10px;border:1.5px solid #e3ded4;border-radius:8px;font-size:13.5px;">
+        </div>
+      </div>
+      <div class="calc-note">*Kadar air = angka moisture meter dikurangi 10. Contoh: meter menunjukkan 15 → kadar air 5%, harga dipotong 5%. Angka 10 atau kurang = tanpa potongan.</div>
+    </div>
+
+    <div class="calc-out">
+      <h3 style="color:#fff;">Estimasi Nilai Jual</h3>
+      <div class="line"><span>Total berat</span><b id="outBerat">—</b></div>
+      <div class="line"><span>Penyesuaian warna + bulu</span><b id="outAdj">—</b></div>
+      <div class="line"><span>Potongan kadar air</span><b id="outKadar">—</b></div>
+      <div class="grand">
+        <div class="lbl">Perkiraan Total</div>
+        <div class="val" id="outTotal">Rp 0</div>
+        <div class="perkg" id="outPerKg">—</div>
+      </div>
+      <a class="btn-jual" id="btnJual" href="#" target="_blank">💬 Jual Sekarang via WhatsApp</a>
+      <div class="calc-note" style="color:#9a958a;">Hasil simulasi bersifat estimasi — harga final ditentukan saat pengecekan fisik oleh tim Markas Walet.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var rows = document.querySelectorAll('#calcTable tr[data-harga]');
+  var fmt = function(n){ return 'Rp ' + Math.round(n).toLocaleString('id-ID'); };
+  function hitung(){
+    var warna = parseInt(document.getElementById('selWarna').value, 10);
+    var bulu = parseInt(document.getElementById('selBulu').value, 10);
+    var meter = parseFloat(document.getElementById('inMeter').value) || 0;
+    var kadar = Math.max(0, meter - 10) / 100;
+    var total = 0, berat = 0, rincian = [];
+    rows.forEach(function(tr){
+      var normal = parseInt(tr.dataset.harga, 10);
+      var gram = parseFloat(tr.querySelector('input').value) || 0;
+      var sesuai = (normal + warna + bulu) * (1 - kadar);
+      var sub = sesuai * gram / 1000;
+      tr.querySelector('.sesuai').textContent = fmt(sesuai);
+      tr.querySelector('.subtotal').textContent = gram > 0 ? fmt(sub) : '—';
+      total += sub; berat += gram;
+      if (gram > 0) rincian.push(tr.cells[0].textContent + ' ' + gram + 'gr');
+    });
+    document.getElementById('outBerat').textContent = berat >= 1000 ? (berat/1000).toLocaleString('id-ID') + ' kg' : berat + ' gram';
+    document.getElementById('outAdj').textContent = (warna + bulu >= 0 ? '+' : '−') + fmt(Math.abs(warna + bulu)).slice(3) + '/kg';
+    document.getElementById('outKadar').textContent = (kadar * 100).toFixed(0) + '%';
+    document.getElementById('outTotal').textContent = fmt(total);
+    document.getElementById('outPerKg').textContent = berat > 0 ? '≈ ' + fmt(total / (berat/1000)) + ' per kg (harga cong)' : '—';
+    var pesan = 'Halo Admin Markas Walet, saya ingin jual sarang walet.%0AKomposisi: ' +
+      encodeURIComponent(rincian.join(', ')) +
+      '%0AEstimasi kalkulator: ' + encodeURIComponent(fmt(total)) + '%0AMohon info lebih lanjut.';
+    document.getElementById('btnJual').href = 'https://wa.me/6285235350662?text=' + pesan;
+  }
+  document.querySelectorAll('#kalkulator input, #kalkulator select').forEach(function(el){
+    el.addEventListener('input', hitung);
+  });
+  hitung();
+})();
+</script>
+
+<!-- ===== ARTIKEL ===== -->
+<section>
+  <div class="sec-title"><h2>Analisis &amp; Perkembangan Pasar</h2><div class="line"></div></div>
+  <div class="sec-sub">Artikel terbaru seputar pergerakan harga dan dinamika pasar sarang walet.</div>
+  <div class="articles">
+
+    <div class="art"><a href="#">
+      <div class="thumb">📈</div>
+      <div class="body">
+        <span class="tag">Analisis Harga</span>
+        <h3>Harga Sarang Mangkok Tembus Rp 14 Juta: Apa Pendorongnya?</h3>
+        <p>Permintaan ekspor ke Tiongkok kembali menguat pasca pelonggaran kuota impor. Kami bedah faktor musiman dan kurs yang ikut mengerek harga.</p>
+        <div class="meta">03 Agustus 2026 · Tim Markas Walet</div>
+      </div>
+    </a></div>
+
+    <div class="art"><a href="#">
+      <div class="thumb">🏠</div>
+      <div class="body">
+        <span class="tag">Tips Petani</span>
+        <h3>Cara Panen agar Sarang Tetap Putih Kapas &amp; Pelontos</h3>
+        <p>Selisih harga antar grade bisa lebih dari Rp 3 juta/kg. Pelajari teknik panen dan penyimpanan agar sarang tidak turun kelas.</p>
+        <div class="meta">28 Juli 2026 · Tim Markas Walet</div>
+      </div>
+    </a></div>
+
+    <div class="art"><a href="#">
+      <div class="thumb">🌏</div>
+      <div class="body">
+        <span class="tag">Pasar Ekspor</span>
+        <h3>Ringkasan Bulanan: Ekspor Sarang Walet Indonesia Juli 2026</h3>
+        <p>Volume ekspor, negara tujuan utama, dan proyeksi harga kuartal berikutnya berdasarkan data BPS dan jaringan mitra kami.</p>
+        <div class="meta">25 Juli 2026 · Tim Markas Walet</div>
+      </div>
+    </a></div>
+
+  </div>
+
+  <div class="disclaimer"><b>Disclaimer:</b> Harga di atas merupakan harga acuan nasional ditingkat petani/pengepul, dihimpun berdasarkan <b>12.000 jaringan petani walet dan eksportir resmi</b> Markas Walet. Harga akhir dapat menyesuaikan kualitas, kadar air, dan kondisi pasar. Data diperbarui setiap minggu.</div>
+</section>
+
+<!-- ===== CTA WA ===== -->
+<div class="cta">
+  <div>
+    <h2>Punya sarang walet untuk dijual?</h2>
+    <p>Dapatkan penawaran harga terbaik langsung dari tim Markas Walet — transparan, tertelusur, dan sesuai grade panen Anda.</p>
+  </div>
+  <a class="btn-wa" href="https://wa.me/6285235350662?text=Halo%20Admin%20Markas%20Walet%2C%20saya%20ingin%20tanya%20harga%20sarang%20walet%20hari%20ini" target="_blank">💬 Cek Harga via WhatsApp</a>
+</div>
+
+<footer>© 2026 <b>PT Lentera Alam Nusantara — Markas Walet</b>. Birdnest Price Update · Data harga bersifat acuan, bukan harga transaksi resmi.</footer>
+
+<!-- ===== POPUP MELAYANG: CTA APLIKASI MARKAS WALET ===== -->
+<div class="float-cta" id="floatCta">
+  <button class="close" onclick="document.getElementById('floatCta').style.display='none'" aria-label="Tutup">✕</button>
+  <div class="head">
+    <div class="appicon">MW</div>
+    <h4>Jual Sarang Waletmu di <span>Aplikasi Markas Walet</span></h4>
+  </div>
+  <p>Harga transparan sesuai update terbaru, penjemputan dari lokasi, dan pembayaran aman — didukung 12.000 jaringan petani &amp; eksportir resmi.</p>
+  <a class="btn-app" href="https://play.google.com/store/apps/details?id=com.xomodo.markaswalet" target="_blank">Jual di Aplikasi Sekarang →</a>
+</div>
+
+<!-- ===== SINKRONISASI DATA DARI GOOGLE SHEET ===== -->
+<script>
+(function(){
+  var SHEET_ID = '1kYXUs3LiNfydAmWD244msZCGaFM_AseYwC9BVIOmKPE';
+  var JENIS = ['mangkok','sudut','oval','patahan','kakian','kronis/bakpao'];
+  var BULAN_ID = {'01':'Januari','02':'Februari','03':'Maret','04':'April','05':'Mei','06':'Juni','07':'Juli','08':'Agustus','09':'September','10':'Oktober','11':'November','12':'Desember'};
+
+  function csvUrl(sheet){
+    return 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(sheet);
+  }
+  function parseCSV(text){
+    var rows = [], row = [], cell = '', q = false;
+    for (var i = 0; i < text.length; i++){
+      var c = text[i];
+      if (q){
+        if (c === '"' && text[i+1] === '"'){ cell += '"'; i++; }
+        else if (c === '"'){ q = false; }
+        else cell += c;
+      } else {
+        if (c === '"') q = true;
+        else if (c === ','){ row.push(cell); cell = ''; }
+        else if (c === '\n'){ row.push(cell); rows.push(row); row = []; cell = ''; }
+        else if (c !== '\r') cell += c;
+      }
+    }
+    if (cell !== '' || row.length){ row.push(cell); rows.push(row); }
+    return rows;
+  }
+  function norm(s){ return (s || '').replace(/\s+/g, '').toLowerCase(); }
+  function num(s){
+    s = (s || '').trim();
+    if (/,\d+$/.test(s) && s.indexOf('.') < 0) s = s.replace(',', '.');
+    var v = parseFloat(s);
+    return isNaN(v) ? null : v;
+  }
+  function fmt1(v){ return v.toLocaleString('id-ID', {minimumFractionDigits: 0, maximumFractionDigits: 1}); }
+  function fmtJt(v){ return 'Rp ' + fmt1(v) + ' jt'; }
+  function pctStr(p){ return fmt1(Math.abs(p)) + '%'; }
+  function tanggalIndo(s){ // "03/08/2026" -> "03 Agustus 2026"
+    var m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec((s || '').trim());
+    if (!m) return null;
+    var mm = ('0' + m[2]).slice(-2);
+    return ('0' + m[1]).slice(-2) + ' ' + (BULAN_ID[mm] || '') + ' ' + m[3];
+  }
+
+  function ambilMingguan(rows){
+    var data = {}, tanggal = null;
+    rows.forEach(function(r){
+      var k = norm(r[0]);
+      if (k === 'tanggalupdate'){ tanggal = tanggalIndo(r[1]); return; }
+      if (JENIS.indexOf(k) >= 0){
+        var now = num(r[1]), prev = num(r[2]);
+        if (now !== null) data[k] = { now: now, prev: prev };
+      }
+    });
+    return { data: data, tanggal: tanggal };
+  }
+  function ambilRiwayat(rows){
+    var hdrIdx = -1, kolom = {};
+    rows.forEach(function(r, i){
+      if (hdrIdx < 0 && norm(r[0]) === 'bulan'){
+        hdrIdx = i;
+        r.forEach(function(c, j){ if (JENIS.indexOf(norm(c)) >= 0) kolom[norm(c)] = j; });
+      }
+    });
+    if (hdrIdx < 0) return null;
+    var bulan = [], seri = {};
+    JENIS.forEach(function(j){ seri[j] = []; });
+    for (var i = hdrIdx + 1; i < rows.length; i++){
+      var r = rows[i];
+      if (!r[0] || num(r[kolom['mangkok']]) === null) continue;
+      bulan.push(r[0].trim());
+      JENIS.forEach(function(j){
+        if (kolom[j] !== undefined) seri[j].push(num(r[kolom[j]]));
+      });
+    }
+    return { bulan: bulan, seri: seri };
+  }
+
+  function deltaInfo(d){
+    if (d.prev === null || d.prev === 0) return { cls: 'flat', pct: 0, txt: '▮▮ Harga Tetap', tbl: '▮ Tetap', tcls: 'cb' };
+    var p = (d.now - d.prev) / d.prev * 100;
+    if (Math.abs(p) < 0.05) return { cls: 'flat', pct: 0, txt: '▮▮ Harga Tetap', tbl: '▮ Tetap', tcls: 'cb' };
+    var rb = Math.round(Math.abs(d.now - d.prev) * 1000);
+    if (p > 0) return { cls: 'up', pct: p, txt: '▲ Naik ' + pctStr(p) + ' — Rp ' + rb + 'rb', tbl: '▲ ' + pctStr(p), tcls: 'cg' };
+    return { cls: 'down', pct: p, txt: '▼ Turun ' + pctStr(p) + ' — Rp ' + rb + 'rb', tbl: '▼ ' + pctStr(p), tcls: 'cr' };
+  }
+
+  function sparkPoints(vals){
+    var w = 200, h = 46, pad = 5;
+    var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
+    if (mx - mn < 0.001){ mn -= 0.5; mx += 0.5; }
+    return vals.map(function(v, i){
+      var x = i * (w / (vals.length - 1));
+      var y = pad + (h - 2 * pad) * (1 - (v - mn) / (mx - mn));
+      return Math.round(x) + ',' + Math.round(y);
+    });
+  }
+
+  function terapkan(mingguan, riwayat){
+    var data = mingguan.data, tanggal = mingguan.tanggal;
+
+    if (tanggal){
+      document.querySelectorAll('.js-tanggal').forEach(function(el){ el.textContent = tanggal; });
+    }
+
+    // Kartu harga
+    document.querySelectorAll('.grid .card').forEach(function(card){
+      var k = norm(card.querySelector('h3').textContent);
+      var d = data[k];
+      if (!d) return;
+      card.querySelector('.price').innerHTML = fmtJt(d.now) + '<small>PER Kg</small>';
+      var info = deltaInfo(d);
+      var badge = card.querySelector('.delta');
+      badge.className = 'delta ' + info.cls;
+      badge.textContent = info.txt;
+      // Sparkline dari riwayat 8 bulan terakhir
+      if (riwayat && riwayat.seri[k] && riwayat.seri[k].length >= 2){
+        var vals = riwayat.seri[k].slice(-8);
+        var pts = sparkPoints(vals);
+        var warna = info.cls === 'up' ? '#2E9E5B' : info.cls === 'down' ? '#D64541' : '#3A78B5';
+        var last = pts[pts.length - 1].split(',');
+        var svg = card.querySelector('svg.spark');
+        if (svg) svg.innerHTML = '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + warna + '" stroke-width="2.5"/>' +
+          '<circle cx="' + last[0] + '" cy="' + last[1] + '" r="3.5" fill="' + warna + '"/>';
+      }
+    });
+
+    // Tabel rincian
+    document.querySelectorAll('#priceTable tr').forEach(function(tr){
+      var k = norm(tr.cells[0] && tr.cells[0].textContent);
+      var d = data[k];
+      if (!d) return;
+      var info = deltaInfo(d);
+      tr.cells[1].innerHTML = '<b>' + fmt1(d.now) + '</b>';
+      tr.cells[2].textContent = d.prev !== null ? fmt1(d.prev) : '—';
+      tr.cells[3].innerHTML = '<span class="chg ' + info.tcls + '">' + info.tbl + '</span>';
+    });
+
+    // Kalkulator
+    var adaPerubahan = false;
+    document.querySelectorAll('#calcTable tr[data-harga]').forEach(function(tr){
+      var k = norm(tr.cells[0].textContent);
+      var d = data[k];
+      if (!d) return;
+      tr.dataset.harga = Math.round(d.now * 1000000);
+      tr.cells[1].textContent = 'Rp ' + Math.round(d.now * 1000000).toLocaleString('id-ID');
+      adaPerubahan = true;
+    });
+    if (adaPerubahan){
+      var input = document.querySelector('#calcTable input');
+      if (input) input.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+
+    // Statistik
+    var mk = data['mangkok'];
+    if (mk){
+      document.getElementById('statPrice').textContent = fmtJt(mk.now) + '/kg';
+      if (tanggal) document.getElementById('statPriceNote').textContent = 'per ' + tanggal;
+      var infoMk = deltaInfo(mk);
+      var terbaik = null;
+      JENIS.forEach(function(j){
+        if (!data[j]) return;
+        var inf = deltaInfo(data[j]);
+        if (!terbaik || inf.pct > terbaik.pct) terbaik = { jenis: j, pct: inf.pct };
+      });
+      if (terbaik){
+        document.getElementById('statTop').textContent = (terbaik.pct >= 0 ? '+' : '−') + pctStr(terbaik.pct);
+        document.getElementById('statTopNote').textContent = 'Jenis ' + terbaik.jenis.charAt(0).toUpperCase() + terbaik.jenis.slice(1);
+      }
+    }
+    if (riwayat && riwayat.seri['mangkok'] && riwayat.seri['mangkok'].length >= 2){
+      var s = riwayat.seri['mangkok'];
+      var awal = s[0], akhir = s[s.length - 1];
+      var pTahun = (akhir - awal) / awal * 100;
+      document.getElementById('statYear').textContent = (pTahun >= 0 ? '+' : '−') + pctStr(pTahun);
+      document.getElementById('statYearNote').textContent = 'dari ' + fmtJt(awal) + ' (' + riwayat.bulan[0] + ')';
+      gambarGrafik(riwayat.bulan, s);
+    }
+  }
+
+  function gambarGrafik(bulan, vals){
+    var svg = document.getElementById('trendChart');
+    if (!svg) return;
+    var L = 40, R = 620, T = 20, B = 205;
+    var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
+    var padV = Math.max((mx - mn) * 0.15, 0.3);
+    mn -= padV; mx += padV;
+    var x = function(i){ return L + (R - L) * i / (vals.length - 1); };
+    var y = function(v){ return T + (B - T) * (1 - (v - mn) / (mx - mn)); };
+    var pts = vals.map(function(v, i){ return Math.round(x(i)) + ',' + Math.round(y(v)); });
+    var html = '<g stroke="#eee9dd" stroke-width="1">';
+    var labelY = '';
+    for (var g = 0; g <= 3; g++){
+      var vy = T + (B - T) * g / 3;
+      var vv = mx - (mx - mn) * g / 3;
+      html += '<line x1="' + L + '" y1="' + vy.toFixed(0) + '" x2="' + R + '" y2="' + vy.toFixed(0) + '"/>';
+      labelY += '<text x="8" y="' + (vy + 4).toFixed(0) + '">' + fmt1(vv) + '</text>';
+    }
+    html += '</g><g font-size="10" fill="#9a958a">' + labelY;
+    var step = Math.max(1, Math.ceil(bulan.length / 7));
+    for (var i = 0; i < bulan.length; i += step){
+      html += '<text x="' + (x(i) - 10).toFixed(0) + '" y="222">' + bulan[i].split(' ')[0] + '</text>';
+    }
+    html += '</g>';
+    html += '<polygon points="' + pts.join(' ') + ' ' + R + ',' + B + ' ' + L + ',' + B + '" fill="#FFB10022"/>';
+    html += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="#FFB100" stroke-width="3"/>';
+    var last = pts[pts.length - 1].split(',');
+    html += '<circle cx="' + last[0] + '" cy="' + last[1] + '" r="5" fill="#FFB100"/>';
+    svg.innerHTML = html;
+  }
+
+  Promise.all([
+    fetch(csvUrl('Harga Mingguan')).then(function(r){ if (!r.ok) throw new Error(r.status); return r.text(); }),
+    fetch(csvUrl('Riwayat Bulanan')).then(function(r){ return r.ok ? r.text() : null; }).catch(function(){ return null; })
+  ]).then(function(hasil){
+    var mingguan = ambilMingguan(parseCSV(hasil[0]));
+    if (!Object.keys(mingguan.data).length) throw new Error('data kosong');
+    var riwayat = hasil[1] ? ambilRiwayat(parseCSV(hasil[1])) : null;
+    terapkan(mingguan, riwayat);
+  }).catch(function(e){
+    console.warn('Gagal memuat data Google Sheet, memakai angka bawaan:', e);
+  });
+})();
+</script>
+
+</body>
+</html>
