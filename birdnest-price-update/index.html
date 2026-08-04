@@ -321,9 +321,9 @@
       </svg>
     </div>
     <div class="statcol">
-      <div class="stat"><div class="lbl">Harga Acuan Nasional (Mangkok)</div><div class="val" id="statPrice">Rp 8,3 jt/kg</div><div class="note" id="statPriceNote">per 03 Agustus 2026</div></div>
+      <div class="stat"><div class="lbl" id="statPriceLbl">Harga Acuan Nasional (Mangkok)</div><div class="val" id="statPrice">Rp 8,3 jt/kg</div><div class="note" id="statPriceNote">per 03 Agustus 2026</div></div>
       <div class="stat"><div class="lbl">Perubahan 1 Tahun</div><div class="val" id="statYear">−13,2%</div><div class="note" id="statYearNote">dari Rp 9,6 jt (Agu 2025)</div></div>
-      <div class="stat"><div class="lbl">Kenaikan Terbesar Minggu Ini</div><div class="val" id="statTop">−0,6%</div><div class="note" id="statTopNote">Jenis Mangkok</div></div>
+      <div class="stat"><div class="lbl" id="statTopLbl">Kenaikan Terbesar Minggu Ini</div><div class="val" id="statTop">−0,6%</div><div class="note" id="statTopNote">Jenis Mangkok</div></div>
     </div>
   </div>
 </section>
@@ -555,7 +555,7 @@
   function pctStr(p){ return fmt1(Math.abs(p)) + '%'; }
   function tanggalIndo(x){
     var m2 = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec((x || '').trim());
-    if (!m2) return null;
+    if (!m2) return (x || '').trim() || null;
     var mm = ('0' + m2[2]).slice(-2);
     return ('0' + m2[1]).slice(-2) + ' ' + (BULAN_ID[mm] || '') + ' ' + m2[3];
   }
@@ -701,28 +701,41 @@
         '<text x="20" y="10" font-size="8" fill="#9a958a">minggu lalu</text>' +
         '<text x="180" y="44" font-size="8" fill="#9a958a" text-anchor="end">minggu ini</text>';
     });
-    var mk = data['mangkok'];
+    var jSelLbl = nilaiFilter('fJenis');
+    var kSel = jSelLbl.indexOf('Semua') >= 0 ? null : kunci(jSelLbl);
+    var kUtama = (kSel && data[kSel]) ? kSel : 'mangkok';
+    var mk = data[kUtama];
     if (mk){
-      document.getElementById('statPrice').textContent = fmtJt(sesuai('mangkok', mk.now, adj)) + '/kg';
-      var ket = 'per ' + (acuan.tanggal || '');
-      if (adj.w || adj.b) ket += ' \u00b7 ' + (adj.w ? adj.wLabel : '') + (adj.w && adj.b ? ' + ' : '') + (adj.b ? 'bulu ' + adj.bLabel.toLowerCase() : '');
-      else ket += ' \u00b7 acuan putih kapas';
-      document.getElementById('statPriceNote').textContent = ket;
-      var terbaik = null;
-      JENIS.forEach(function(j){
-        if (!data[j]) return;
-        var inf = deltaInfo(sesuai(j, data[j].now, adj), sesuai(j, data[j].prev, adj));
-        if (!terbaik || inf.pct > terbaik.pct) terbaik = { jenis: j, pct: inf.pct };
-      });
-      if (terbaik){
-        document.getElementById('statTop').textContent = (terbaik.pct >= 0 ? '+' : '\u2212') + pctStr(terbaik.pct);
-        document.getElementById('statTopNote').textContent = 'Jenis ' + NAMA[terbaik.jenis];
+      document.getElementById('statPriceLbl').textContent = 'Harga Acuan Nasional (' + NAMA[kUtama] + ')';
+      document.getElementById('statPrice').textContent = fmtJt(sesuai(kUtama, mk.now, adj)) + '/kg';
+      var bagian = [];
+      if (acuan.tanggal) bagian.push('per ' + acuan.tanggal);
+      if (adj.w || adj.b) bagian.push((adj.w ? adj.wLabel : '') + (adj.w && adj.b ? ' + ' : '') + (adj.b ? 'bulu ' + adj.bLabel.toLowerCase() : ''));
+      else bagian.push('acuan putih kapas');
+      document.getElementById('statPriceNote').textContent = bagian.join(' \u00b7 ');
+      if (kSel){
+        var infSel = deltaInfo(sesuai(kUtama, mk.now, adj), sesuai(kUtama, mk.prev, adj));
+        document.getElementById('statTopLbl').textContent = 'Perubahan Minggu Ini';
+        document.getElementById('statTop').textContent = (infSel.pct >= 0 ? '+' : '\u2212') + pctStr(infSel.pct);
+        document.getElementById('statTopNote').textContent = 'Jenis ' + NAMA[kUtama];
+      } else {
+        var terbaik = null;
+        JENIS.forEach(function(j){
+          if (!data[j]) return;
+          var inf = deltaInfo(sesuai(j, data[j].now, adj), sesuai(j, data[j].prev, adj));
+          if (!terbaik || inf.pct > terbaik.pct) terbaik = { jenis: j, pct: inf.pct };
+        });
+        if (terbaik){
+          document.getElementById('statTopLbl').textContent = 'Kenaikan Terbesar Minggu Ini';
+          document.getElementById('statTop').textContent = (terbaik.pct >= 0 ? '+' : '\u2212') + pctStr(terbaik.pct);
+          document.getElementById('statTopNote').textContent = 'Jenis ' + NAMA[terbaik.jenis];
+        }
       }
     }
-    if (riwayat && riwayat.seri['mangkok'] && riwayat.seri['mangkok'].length >= 13){
-      var sM = riwayat.seri['mangkok'];
-      var akhirV = sesuai('mangkok', (mk && mk.now) || sM[sM.length - 1], adj);
-      var awalV = sesuai('mangkok', sM[sM.length - 13], adj);
+    if (riwayat && riwayat.seri[kUtama] && riwayat.seri[kUtama].length >= 13){
+      var sM = riwayat.seri[kUtama];
+      var akhirV = sesuai(kUtama, (mk && mk.now) || sM[sM.length - 1], adj);
+      var awalV = sesuai(kUtama, sM[sM.length - 13], adj);
       var pTahun = (akhirV - awalV) / awalV * 100;
       document.getElementById('statYear').textContent = (pTahun >= 0 ? '+' : '\u2212') + pctStr(pTahun);
       document.getElementById('statYearNote').textContent = 'dari ' + fmtJt(awalV) + ' (' + riwayat.bulan[riwayat.bulan.length - 13] + ')';
