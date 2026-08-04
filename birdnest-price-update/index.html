@@ -23,14 +23,14 @@
   .topbar{background:var(--dark);color:#cfcabf;font-size:12.5px;padding:8px 5%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
   .topbar b{color:var(--yellow-light);font-weight:600;}
 
-  /* ===== Header ===== */
-  header{background:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.06);position:sticky;top:0;z-index:50;}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.5px;}
-  .logo .mark{background:var(--dark);color:var(--yellow);padding:6px 9px;border-radius:6px;font-size:15px;}
-  nav{display:flex;gap:26px;align-items:center;font-size:14.5px;font-weight:500;}
-  nav a{text-decoration:none;color:var(--dark);padding:6px 2px;}
-  nav a:hover{color:var(--yellow);}
-  nav a.active{color:#fff;background:var(--yellow);padding:8px 14px;border-radius:20px;font-weight:600;}
+  /* ===== Header (transparan di atas gambar hero) ===== */
+  header{background:transparent;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;}
+  .logo img{height:40px;width:auto;display:block;}
+  nav{display:flex;gap:26px;align-items:center;font-size:14.5px;font-weight:600;}
+  nav a{text-decoration:none;color:#fff;padding:6px 2px;text-shadow:0 1px 6px rgba(0,0,0,.55);}
+  nav a:hover{color:var(--yellow-light);}
+  nav a.active{color:var(--dark);background:var(--yellow);padding:8px 14px;border-radius:20px;font-weight:700;text-shadow:none;}
 
   /* ===== Hero ===== */
   /* Font judul: Sue Vermeer — letakkan file font di samping HTML ini (SueVermeer.ttf) */
@@ -39,19 +39,20 @@
     src:url('SueVermeer.ttf') format('truetype');
     font-display:swap;
   }
-  .hero{
-    background:
-      linear-gradient(100deg, rgba(20,22,14,.62) 0%, rgba(20,22,14,.35) 55%, rgba(20,22,14,.15) 100%),
-      url('hero-rbw.png') center/cover no-repeat,
-      linear-gradient(120deg,var(--dark) 55%,#3a2f1c);
-    color:#fff;padding:44px 5% 110px;
+  /* Gambar asli tanpa penggelapan & tanpa crop: area hero mengikuti rasio gambar (1664x936),
+     dan gambar yang sama menjadi latar nav bar (header ada di dalam .hero-area). */
+  .hero-area{
+    background:url('hero-rbw.png') center top/cover no-repeat, linear-gradient(120deg,var(--dark) 55%,#3a2f1c);
+    aspect-ratio:1664/936;
+    display:flex;flex-direction:column;
   }
-  .hero .badge{display:inline-block;border:1px solid #fff;color:#fff;background:rgba(0,0,0,.25);border-radius:20px;padding:5px 16px;font-size:12.5px;margin-bottom:16px;}
-  .hero h1{font-family:'Sue Vermeer','Poppins','Segoe UI',sans-serif;font-size:40px;line-height:1.2;font-weight:400;color:#fff;letter-spacing:1px;text-shadow:0 2px 14px rgba(0,0,0,.45);}
+  .hero{background:none;color:#fff;padding:34px 5% 110px;flex:1;}
+  .hero .badge{display:inline-block;border:1px solid #fff;color:#fff;background:rgba(0,0,0,.35);border-radius:20px;padding:5px 16px;font-size:12.5px;margin-bottom:16px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.5);}
+  .hero h1{font-family:'Sue Vermeer','Poppins','Segoe UI',sans-serif;font-size:42px;line-height:1.2;font-weight:700;color:#fff;letter-spacing:1px;text-shadow:0 2px 6px rgba(0,0,0,.55),0 4px 18px rgba(0,0,0,.35);}
   .hero h1 span{color:#fff;}
-  .hero p{color:#f2f0ea;margin-top:12px;max-width:640px;font-size:14.5px;line-height:1.7;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  .hero p{color:#fff;margin-top:12px;max-width:640px;font-size:15px;font-weight:600;line-height:1.7;text-shadow:0 1px 5px rgba(0,0,0,.6);}
   .hero p b{color:#fff !important;}
-  .updated{margin-top:14px;font-size:13px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  .updated{margin-top:14px;font-size:13.5px;font-weight:700;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,.6);}
   .updated b{color:#fff;}
 
   /* ===== Filter bar ===== */
@@ -70,7 +71,16 @@
   .sec-sub{color:var(--gray);font-size:13.5px;margin-bottom:24px;}
 
   /* ===== Price cards ===== */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+  /* 6 jenis sarang selalu satu baris di layar lebar */
+  @media(min-width:1150px){
+    .grid{grid-template-columns:repeat(6,1fr);gap:14px;}
+    .card{padding:14px 14px;}
+    .price{font-size:19px;}
+    .delta{font-size:10.5px;padding:4px 6px;}
+    .card h3{font-size:13.5px;}
+    .card .region{font-size:11px;}
+  }
   .card{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 3px 14px rgba(30,24,16,.07);border-top:4px solid var(--yellow);}
   .card h3{font-size:14.5px;margin-bottom:2px;}
   .card .region{font-size:12px;color:var(--gray);margin-bottom:10px;}
@@ -170,14 +180,15 @@
   <div>Pembaruan terakhir: <b class="js-tanggal">03 Agustus 2026</b></div>
 </div>
 
+<div class="hero-area">
 <header>
-  <div class="logo"><span class="mark">MW</span> MARKAS WALET</div>
+  <a href="/" class="logo"><img src="/wp-content/uploads/2023/04/cropped-logo-website-white-291x45.png" alt="Markas Walet — PT Lentera Alam Nusantara"></a>
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Our Product</a>
-    <a href="#">Article</a>
-    <a href="#" class="active">Birdnest Price Update</a>
-    <a href="#">About Us</a>
+    <a href="/">Home</a>
+    <a href="/our-product/">Our Product</a>
+    <a href="/article/">Article</a>
+    <a href="/birdnest-price-update/" class="active">Birdnest Price Update</a>
+    <a href="/about-us/">About Us</a>
   </nav>
 </header>
 
@@ -187,6 +198,7 @@
   <p>Pantauan harga sarang burung walet mentah (raw bird nest) yang berlaku nasional. Data dihimpun berdasarkan <b>12.000 jaringan petani walet dan eksportir resmi</b>, diperbarui berkala sebagai acuan petani dan pengepul.</p>
   <div class="updated">⏱ Harga per <b class="js-tanggal">03 Agustus 2026</b> — periode pembaruan mingguan</div>
 </div>
+</div><!-- /hero-area -->
 
 <div class="filterbar">
   <div class="field">
@@ -435,39 +447,43 @@
 <!-- ===== ARTIKEL ===== -->
 <section>
   <div class="sec-title"><h2>Analisis &amp; Perkembangan Pasar</h2><div class="line"></div></div>
-  <div class="sec-sub">Artikel terbaru seputar pergerakan harga dan dinamika pasar sarang walet.</div>
+  <div class="sec-sub">Artikel dari rubrik <a href="/article/" style="color:var(--blue);">Article</a> yang berhubungan dengan sarang walet dan informasi harganya.</div>
   <div class="articles">
 
-    <div class="art"><a href="#">
+    <div class="art"><a href="/article/berikut-harga-sarang-walet-putih-terupdate/">
       <div class="thumb">📈</div>
       <div class="body">
-        <span class="tag">Analisis Harga</span>
-        <h3>Harga Sarang Mangkok Tembus Rp 14 Juta: Apa Pendorongnya?</h3>
-        <p>Permintaan ekspor ke Tiongkok kembali menguat pasca pelonggaran kuota impor. Kami bedah faktor musiman dan kurs yang ikut mengerek harga.</p>
-        <div class="meta">03 Agustus 2026 · Tim Markas Walet</div>
+        <span class="tag">Info Harga</span>
+        <h3>Berikut Harga Sarang Walet Putih Terupdate</h3>
+        <p>Pembaruan harga sarang walet putih di pasaran: faktor yang memengaruhi serta kisaran harga per kualitasnya.</p>
+        <div class="meta">Markas Walet · Article</div>
       </div>
     </a></div>
 
-    <div class="art"><a href="#">
-      <div class="thumb">🏠</div>
+    <div class="art"><a href="/article/kupas-tuntas-sarang-walet-jenis-dan-variasi-harganya/">
+      <div class="thumb">🪺</div>
       <div class="body">
-        <span class="tag">Tips Petani</span>
-        <h3>Cara Panen agar Sarang Tetap Putih Kapas &amp; Pelontos</h3>
-        <p>Selisih harga antar grade bisa lebih dari Rp 3 juta/kg. Pelajari teknik panen dan penyimpanan agar sarang tidak turun kelas.</p>
-        <div class="meta">28 Juli 2026 · Tim Markas Walet</div>
+        <span class="tag">Jenis &amp; Harga</span>
+        <h3>Kupas Tuntas Sarang Walet, Jenis, dan Variasi Harganya</h3>
+        <p>Mengenal jenis-jenis sarang walet — mangkok, sudut, patahan — dan bagaimana masing-masing dihargai di pasar.</p>
+        <div class="meta">Markas Walet · Article</div>
       </div>
     </a></div>
 
-    <div class="art"><a href="#">
-      <div class="thumb">🌏</div>
+    <div class="art"><a href="/article/bikin-melongo-inilah-alasan-mengapa-sarang-walet-mahal/">
+      <div class="thumb">💰</div>
       <div class="body">
-        <span class="tag">Pasar Ekspor</span>
-        <h3>Ringkasan Bulanan: Ekspor Sarang Walet Indonesia Juli 2026</h3>
-        <p>Volume ekspor, negara tujuan utama, dan proyeksi harga kuartal berikutnya berdasarkan data BPS dan jaringan mitra kami.</p>
-        <div class="meta">25 Juli 2026 · Tim Markas Walet</div>
+        <span class="tag">Analisis Pasar</span>
+        <h3>Bikin Melongo! Inilah Alasan Mengapa Sarang Walet Mahal</h3>
+        <p>Dari kandungan gizi hingga permintaan ekspor — inilah alasan sarang burung walet menjadi komoditas bernilai tinggi.</p>
+        <div class="meta">Markas Walet · Article</div>
       </div>
     </a></div>
 
+  </div>
+
+  <div style="text-align:center;margin-top:22px;">
+    <a href="/article/" style="display:inline-block;background:var(--dark);color:#fff;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 26px;border-radius:24px;">Lihat Semua Artikel →</a>
   </div>
 
   <div class="disclaimer"><b>Disclaimer:</b> Harga di atas merupakan harga acuan nasional ditingkat petani/pengepul, dihimpun berdasarkan <b>12.000 jaringan petani walet dan eksportir resmi</b> Markas Walet. Harga akhir dapat menyesuaikan kualitas, kadar air, dan kondisi pasar. Data diperbarui setiap minggu.</div>
