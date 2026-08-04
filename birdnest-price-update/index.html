@@ -49,7 +49,8 @@
   }
   /* Lengkungan putih di batas bawah gambar (ala Greenfields) */
   .hero-curve{position:absolute;left:0;bottom:-1px;width:100%;height:110px;display:block;pointer-events:none;z-index:1;}
-  .hero{background:none;color:#fff;padding:26px 5% 150px;flex:1;text-align:center;}
+  .hero{background:none;color:#fff;padding:26px 5% 0;text-align:center;}
+  .cards-hero{padding:0 4% 130px;margin-top:34px;position:relative;z-index:2;}
   .hero .badge{display:inline-block;border:1px solid #fff;color:#fff;background:rgba(0,0,0,.35);border-radius:20px;padding:5px 16px;font-size:12px;margin-bottom:14px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.5);}
   .hero h1{font-family:'Sue Vermeer','Poppins','Segoe UI',sans-serif;font-size:44px;line-height:1.2;font-weight:800;color:#fff;letter-spacing:1px;text-shadow:0 2px 6px rgba(0,0,0,.55),0 4px 18px rgba(0,0,0,.35);}
   .hero h1 span{color:#fff;}
@@ -85,7 +86,7 @@
     .card h3{font-size:13.5px;}
     .card .region{font-size:11px;}
   }
-  .card{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 3px 14px rgba(30,24,16,.07);border-top:4px solid var(--yellow);}
+  .card{background:rgba(255,255,255,.85);border-radius:12px;padding:16px 18px;box-shadow:0 3px 14px rgba(30,24,16,.07);border-top:4px solid var(--yellow);}
   .card h3{font-size:14.5px;margin-bottom:2px;}
   .card .region{font-size:12px;color:var(--gray);margin-bottom:10px;}
   .card .row{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;}
@@ -202,33 +203,7 @@
   <p>Pantauan harga sarang burung walet mentah (raw bird nest) yang berlaku nasional. Data dihimpun berdasarkan <b>12.000 jaringan petani walet dan eksportir resmi</b>, diperbarui berkala sebagai acuan petani dan pengepul.</p>
   <div class="updated">⏱ Harga per <b class="js-tanggal">03 Agustus 2026</b> — periode pembaruan mingguan</div>
 </div>
-<svg class="hero-curve" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0,34 C360,108 1080,108 1440,26 L1440,110 L0,110 Z" fill="#F8F7F3"/></svg>
-</div><!-- /hero-area -->
-
-<div class="filterbar">
-  <div class="field">
-    <label>Jenis Sarang</label>
-    <select><option>Semua Jenis</option><option>Mangkok</option><option>Sudut</option><option>Oval</option><option>Patahan</option><option>Kakian</option><option>Kronis / Bakpao</option></select>
-  </div>
-  <div class="field">
-    <label>Warna Sarang</label>
-    <select><option>Semua Warna</option><option>Putih Kapas</option><option>Beras Cerah</option><option>Beras</option><option>Kuning</option><option>Kronis</option></select>
-  </div>
-  <div class="field">
-    <label>Bulu</label>
-    <select><option>Semua</option><option>Berat</option><option>Sedang</option><option>Ringan</option><option>Pelontos</option></select>
-  </div>
-  <div class="field">
-    <label>Periode</label>
-    <select><option>Weekly</option><option>Monthly</option><option>YTD</option><option>Last Year</option><option>5 Year</option></select>
-  </div>
-  <button class="btn-show">Tampilkan</button>
-</div>
-
-<!-- ===== KARTU HARGA ===== -->
-<section>
-  <div class="sec-title"><h2>Harga Rata-Rata &amp; Perubahan</h2><div class="line"></div></div>
-  <div class="sec-sub">Harga per kilogram sarang walet mentah ditingkat petani, berlaku nasional — data berdasarkan <b>12.000 jaringan petani walet dan eksportir resmi</b>, dibandingkan dengan minggu sebelumnya.</div>
+<div class="cards-hero">
   <div class="grid">
 
     <div class="card">
@@ -298,24 +273,33 @@
     </div>
 
   </div>
-</section>
+</div>
+<svg class="hero-curve" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0,34 C360,108 1080,108 1440,26 L1440,110 L0,110 Z" fill="#F8F7F3"/></svg>
+</div><!-- /hero-area -->
 
-<!-- ===== TABEL RINGKAS PER GRADE ===== -->
-<section>
-  <div class="sec-title"><h2>Rincian Harga per Jenis Sarang</h2><div class="line"></div></div>
-  <div class="sec-sub">Harga acuan nasional sarang walet mentah (Rp juta/kg) · <span class="js-tanggal">03 Agustus 2026</span>. Harga akhir menyesuaikan <b>warna</b> (putih kapas +500rb · beras cerah 0 · beras −500rb · kuning −1jt), <b>bulu</b> (pelontos +200rb · ringan +100rb · sedang 0 · berat −100rb), dan <b>kadar air</b>.</div>
-  <div class="tablewrap">
-    <table id="priceTable">
-      <tr><th>Jenis Sarang</th><th>Harga Minggu Ini</th><th>Harga Minggu Lalu</th><th>Perubahan</th><th>Keterangan</th></tr>
-      <tr><td>Mangkok</td><td><b>14,1</b></td><td>13,7</td><td><span class="chg cg">▲ 3,1%</span></td><td>Bentuk mangkuk utuh</td></tr>
-      <tr><td>Sudut</td><td><b>8,9</b></td><td>9,1</td><td><span class="chg cr">▼ 2,2%</span></td><td>Menempel di sudut sirip</td></tr>
-      <tr><td>Oval</td><td><b>9,6</b></td><td>9,6</td><td><span class="chg cb">▮ Tetap</span></td><td>Bentuk lonjong</td></tr>
-      <tr><td>Patahan</td><td><b>6,2</b></td><td>6,1</td><td><span class="chg cg">▲ 1,8%</span></td><td>Pecahan / tidak utuh</td></tr>
-      <tr><td>Kakian</td><td><b>5,4</b></td><td>5,3</td><td><span class="chg cg">▲ 1,9%</span></td><td>Kaki / fondasi sarang</td></tr>
-      <tr><td>Kronis / Bakpao</td><td><b>4,8</b></td><td>4,8</td><td><span class="chg cb">▮ Tetap</span></td><td>Sarang tebal tidak rapi</td></tr>
-    </table>
+<div class="filterbar">
+  <div class="field">
+    <label>Jenis Sarang</label>
+    <select><option>Semua Jenis</option><option>Mangkok</option><option>Sudut</option><option>Oval</option><option>Patahan</option><option>Kakian</option><option>Kronis / Bakpao</option></select>
   </div>
-</section>
+  <div class="field">
+    <label>Warna Sarang</label>
+    <select><option>Semua Warna</option><option>Putih Kapas</option><option>Beras Cerah</option><option>Beras</option><option>Kuning</option><option>Kronis</option></select>
+  </div>
+  <div class="field">
+    <label>Bulu</label>
+    <select><option>Semua</option><option>Berat</option><option>Sedang</option><option>Ringan</option><option>Pelontos</option></select>
+  </div>
+  <div class="field">
+    <label>Periode</label>
+    <select><option>Mingguan</option><option>Bulanan</option><option>Awal Tahun &gt; Sekarang</option><option>Tahun Kemarin</option><option>5 Tahun</option></select>
+  </div>
+  <button class="btn-show">Tampilkan</button>
+</div>
+
+
+
+
 
 <!-- ===== STATISTIK ===== -->
 <section>
