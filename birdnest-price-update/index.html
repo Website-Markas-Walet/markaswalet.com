@@ -278,7 +278,7 @@
   </div>
   <div class="field">
     <label>Warna Sarang</label>
-    <select id="fWarna"><option>Semua Warna</option><option>Putih Kapas</option><option>Beras Cerah</option><option>Beras</option><option>Kuning</option><option>Kronis</option></select>
+    <select id="fWarna"><option>Semua Warna</option><option>Putih Kapas</option><option>Beras Cerah</option><option>Beras</option><option>Kuning</option></select>
   </div>
   <div class="field">
     <label>Bulu</label>
@@ -296,8 +296,6 @@
 
 <!-- ===== STATISTIK ===== -->
 <section>
-  <div class="sec-title"><h2>Statistik &amp; Tren Harga</h2><div class="line"></div></div>
-  <div class="sec-sub">Pergerakan harga acuan (warna putih kapas · bulu ringan). Ubah filter di atas untuk memilih jenis, warna, bulu, dan periode — statistik & grafik menyesuaikan otomatis.</div>
   <div class="stats-flex">
     <div class="chartbox">
       <h3 id="chartTitle">Tren Harga Mangkok (Rp juta/kg)</h3>
@@ -354,7 +352,6 @@
             <option value="-320000">Beras Cerah (−320rb)</option>
             <option value="-511000">Beras (−511rb)</option>
             <option value="-923000">Kuning (−923rb)</option>
-            <option value="-1100000">Kronis (−1,1jt)</option>
           </select>
         </div>
         <div class="field">
@@ -385,6 +382,7 @@
         <div class="perkg" id="outPerKg">—</div>
       </div>
       <a class="btn-jual" id="btnJual" href="#" target="_blank">💬 Jual Sekarang via WhatsApp</a>
+      <a class="btn-jual" href="https://play.google.com/store/apps/details?id=com.xomodo.markaswalet" target="_blank" style="background:#fff;margin-top:10px;">📱 Jual di Aplikasi — dapatkan tambahan +150rb/kg</a>
       <div class="calc-note" style="color:#9a958a;">Hasil simulasi bersifat estimasi — harga final ditentukan saat pengecekan fisik oleh tim Markas Walet.</div>
     </div>
   </div>
@@ -504,7 +502,7 @@
   var WARNA_SERI = { mangkok:'#FFB100', sudut:'#D64541', oval:'#3A78B5', patahan:'#2E9E5B', kakian:'#8E44AD', bakpao:'#62615C' };
   var BULAN_ID = {'01':'Januari','02':'Februari','03':'Maret','04':'April','05':'Mei','06':'Juni','07':'Juli','08':'Agustus','09':'September','10':'Oktober','11':'November','12':'Desember'};
   var PARAM = {
-    warna: { putihkapas:0, berascerah:-320000, beras:-511000, kuning:-923000, kronis:-1100000 },
+    warna: { putihkapas:0, berascerah:-320000, beras:-511000, kuning:-923000 },
     bulu: { ringan:0, pelontos:100000, sedang:-100000, berat:-300000 }
   };
   var state = { acuan:null, riwayat:null };
@@ -627,7 +625,7 @@
       var v = num(r[1]);
       if (v === null) return;
       var label = norm(r[0].replace(/\(.*\)/, ''));
-      if (['putihkapas','berascerah','beras','kuning','kronis','ringan','pelontos','sedang','berat'].indexOf(label) >= 0){
+      if (['putihkapas','berascerah','beras','kuning','ringan','pelontos','sedang','berat'].indexOf(label) >= 0){
         PARAM[bagian][label] = v;
       }
     });
@@ -638,7 +636,7 @@
     return '(' + (v > 0 ? '+' : '\u2212') + t + ')';
   }
   function pasangParameter(){
-    [['selWarna', PARAM.warna, ['Putih Kapas','Beras Cerah','Beras','Kuning','Kronis']],
+    [['selWarna', PARAM.warna, ['Putih Kapas','Beras Cerah','Beras','Kuning']],
      ['selBulu', PARAM.bulu, ['Ringan','Pelontos','Sedang','Berat']]].forEach(function(item){
       var sel = document.getElementById(item[0]);
       if (!sel) return;
@@ -813,9 +811,9 @@
       var last = pts[pts.length - 1].split(',');
       html += '<circle cx="' + last[0] + '" cy="' + last[1] + '" r="' + (seri.length === 1 ? 5 : 3) + '" fill="' + sx.warna + '"/>';
       if (seri.length > 1){
-        var lx = L + 8 + Math.floor(si / 3) * 150, ly = T + 6 + (si % 3) * 16;
-        html += '<rect x="' + lx + '" y="' + (ly - 8) + '" width="10" height="10" fill="' + sx.warna + '" rx="2"/>' +
-          '<text x="' + (lx + 15) + '" y="' + ly + '" font-size="10" fill="#62615C">' + sx.nama + '</text>';
+        var lx = L + si * 96, ly = 11;
+        html += '<rect x="' + lx + '" y="3" width="9" height="9" fill="' + sx.warna + '" rx="2"/>' +
+          '<text x="' + (lx + 13) + '" y="' + ly + '" font-size="9" fill="#62615C">' + sx.nama + '</text>';
       }
     });
     svg.innerHTML = html;
