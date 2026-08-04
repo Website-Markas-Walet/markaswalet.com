@@ -89,10 +89,10 @@
   .card{background:rgba(255,255,255,.85);border-radius:12px;padding:16px 18px;box-shadow:0 3px 14px rgba(30,24,16,.07);border-top:4px solid var(--yellow);}
   .card h3{font-size:14.5px;margin-bottom:2px;}
   .card .region{font-size:12px;color:var(--gray);margin-bottom:10px;}
-  .card .row{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;}
-  .price{font-size:22px;font-weight:700;}
+  .card .row{display:flex;flex-direction:column-reverse;align-items:stretch;gap:8px;}
+  .price{font-size:22px;font-weight:700;text-align:right;}
   .price small{font-size:11.5px;color:var(--gray);font-weight:500;display:block;text-align:right;}
-  .delta{font-size:11.5px;font-weight:600;border-radius:5px;padding:4px 8px;display:inline-block;margin-top:10px;color:#fff;}
+  .delta{font-size:11.5px;font-weight:600;border-radius:6px;padding:6px 8px;display:block;width:100%;text-align:center;margin-top:2px;color:#fff;}
   .up{background:var(--green);}
   .down{background:var(--red);}
   .flat{background:var(--blue);}
@@ -288,7 +288,6 @@
     <label>Periode</label>
     <select id="fPeriode"><option>Bulanan</option><option selected>Awal Tahun &gt; Sekarang</option><option>Tahun Kemarin</option><option>5 Tahun</option></select>
   </div>
-  <button class="btn-show" id="btnTampil">Tampilkan</button>
 </div>
 
 
@@ -298,7 +297,7 @@
 <!-- ===== STATISTIK ===== -->
 <section>
   <div class="sec-title"><h2>Statistik &amp; Tren Harga</h2><div class="line"></div></div>
-  <div class="sec-sub">Pergerakan harga acuan nasional sarang jenis Mangkok, 12 bulan terakhir.</div>
+  <div class="sec-sub">Pergerakan harga acuan (warna putih kapas · bulu ringan). Ubah filter di atas untuk memilih jenis, warna, bulu, dan periode — statistik & grafik menyesuaikan otomatis.</div>
   <div class="stats-flex">
     <div class="chartbox">
       <h3 id="chartTitle">Tren Harga Mangkok (Rp juta/kg)</h3>
@@ -504,7 +503,6 @@
   var NAMA = { mangkok:'Mangkok', sudut:'Sudut', oval:'Oval', patahan:'Patahan', kakian:'Kakian', bakpao:'Kronis/Bakpao' };
   var WARNA_SERI = { mangkok:'#FFB100', sudut:'#D64541', oval:'#3A78B5', patahan:'#2E9E5B', kakian:'#8E44AD', bakpao:'#62615C' };
   var BULAN_ID = {'01':'Januari','02':'Februari','03':'Maret','04':'April','05':'Mei','06':'Juni','07':'Juli','08':'Agustus','09':'September','10':'Oktober','11':'November','12':'Desember'};
-  // parameter bawaan (tertimpa nilai dari tab Parameter bila terbaca)
   var PARAM = {
     warna: { putihkapas:0, berascerah:-320000, beras:-511000, kuning:-923000, kronis:-1100000 },
     bulu: { ringan:0, pelontos:100000, sedang:-100000, berat:-300000 }
@@ -538,7 +536,6 @@
     if (k.indexOf('bakpao') >= 0) return 'bakpao';
     return k;
   }
-  // Tangani format tampilan Google: "83,100,000" (koma ribuan), "83.100.000", "83.1", "-320,000"
   function num(x){
     x = (x || '').trim().replace(/[^0-9.,-]/g, '');
     if (!x) return null;
@@ -574,7 +571,7 @@
     });
     return { data: data, tanggal: tanggal };
   }
-  function ambilRiwayatSheet(rows){ // nilai juta -> rupiah
+  function ambilRiwayatSheet(rows){
     var hdr = -1, kolom = {};
     rows.forEach(function(r, i){
       if (hdr < 0 && norm(r[0]) === 'bulan'){
@@ -630,7 +627,7 @@
       var v = num(r[1]);
       if (v === null) return;
       var label = norm(r[0].replace(/\(.*\)/, ''));
-      if (PARAM[bagian][label] !== undefined || ['putihkapas','berascerah','beras','kuning','kronis','ringan','pelontos','sedang','berat'].indexOf(label) >= 0){
+      if (['putihkapas','berascerah','beras','kuning','kronis','ringan','pelontos','sedang','berat'].indexOf(label) >= 0){
         PARAM[bagian][label] = v;
       }
     });
@@ -654,75 +651,66 @@
     });
   }
 
-  function deltaInfo(d){
-    if (d.prev === null || d.prev === 0) return { cls: 'flat', pct: 0, txt: '\u25ae\u25ae Harga Tetap' };
-    var p = (d.now - d.prev) / d.prev * 100;
+  function deltaInfo(now, prev){
+    if (prev === null || prev === 0) return { cls: 'flat', pct: 0, txt: '\u25ae\u25ae Harga Tetap' };
+    var p = (now - prev) / prev * 100;
     if (Math.abs(p) < 0.05) return { cls: 'flat', pct: 0, txt: '\u25ae\u25ae Harga Tetap' };
-    if (p > 0) return { cls: 'up', pct: p, txt: '\u25b2 Naik ' + pctStr(p) + ' \u2014 ' + fmtDiff(d.now - d.prev) };
-    return { cls: 'down', pct: p, txt: '\u25bc Turun ' + pctStr(p) + ' \u2014 ' + fmtDiff(d.now - d.prev) };
-  }
-  function sparkPoints(vals){
-    var w = 200, h = 46, pad = 5;
-    var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
-    if (mx - mn < 1){ mn -= 1; mx += 1; }
-    return vals.map(function(v, i){
-      var x = i * (w / (vals.length - 1));
-      var y = pad + (h - 2 * pad) * (1 - (v - mn) / (mx - mn));
-      return Math.round(x) + ',' + Math.round(y);
-    });
+    if (p > 0) return { cls: 'up', pct: p, txt: '\u25b2 Naik ' + pctStr(p) + ' \u2014 ' + fmtDiff(now - prev) };
+    return { cls: 'down', pct: p, txt: '\u25bc Turun ' + pctStr(p) + ' \u2014 ' + fmtDiff(now - prev) };
   }
 
-  function terapkan(){
+  function nilaiFilter(id){
+    var el = document.getElementById(id);
+    return el ? el.options[el.selectedIndex].textContent.trim() : '';
+  }
+  function adjSaatIni(){
+    var wLabel = nilaiFilter('fWarna'), bLabel = nilaiFilter('fBulu');
+    return {
+      w: wLabel.indexOf('Semua') >= 0 ? 0 : (PARAM.warna[norm(wLabel.split('(')[0])] || 0),
+      b: bLabel.indexOf('Semua') >= 0 ? 0 : (PARAM.bulu[norm(bLabel.split('(')[0])] || 0),
+      wLabel: wLabel, bLabel: bLabel
+    };
+  }
+  function sesuai(k, v, adj){ // terapkan filter warna/bulu; Bakpao kebal warna
+    if (v === null) return null;
+    return Math.max(0, v + (k === 'bakpao' ? 0 : adj.w) + adj.b);
+  }
+
+  function perbaruiKartuStat(adj){
     var acuan = state.acuan || { data:{}, tanggal:null };
     var data = acuan.data, riwayat = state.riwayat;
-    if (acuan.tanggal){
-      document.querySelectorAll('.js-tanggal').forEach(function(el){ el.textContent = acuan.tanggal; });
-    }
     document.querySelectorAll('.grid .card').forEach(function(card){
       var k = kunci(card.querySelector('h3').textContent);
       var d = data[k];
-      if (d){
-        card.querySelector('.price').innerHTML = fmtJt(d.now) + '<small>PER Kg</small>';
-        var info = deltaInfo(d);
-        var badge = card.querySelector('.delta');
-        badge.className = 'delta ' + info.cls;
-        badge.textContent = info.txt;
-      }
-      if (d && d.prev !== null && d.prev > 0){
-        var info2 = deltaInfo(d);
-        var warna = info2.cls === 'up' ? '#2E9E5B' : info2.cls === 'down' ? '#D64541' : '#3A78B5';
-        var yLalu = info2.cls === 'up' ? 30 : info2.cls === 'down' ? 16 : 23;
-        var yKini = info2.cls === 'up' ? 16 : info2.cls === 'down' ? 30 : 23;
-        var svg = card.querySelector('svg.spark');
-        if (svg) svg.innerHTML = '<polyline points="20,' + yLalu + ' 180,' + yKini + '" fill="none" stroke="' + warna + '" stroke-width="2.5"/>' +
-          '<circle cx="20" cy="' + yLalu + '" r="3.5" fill="' + warna + '" opacity=".35"/>' +
-          '<circle cx="180" cy="' + yKini + '" r="3.5" fill="' + warna + '"/>' +
-          '<text x="20" y="10" font-size="8" fill="#9a958a">minggu lalu</text>' +
-          '<text x="180" y="44" font-size="8" fill="#9a958a" text-anchor="end">minggu ini</text>';
-      }
-    });
-    // Kalkulator
-    var ada = false;
-    document.querySelectorAll('#calcTable tr[data-harga]').forEach(function(tr){
-      var d = data[kunci(tr.cells[0].textContent)];
       if (!d) return;
-      tr.dataset.harga = Math.round(d.now);
-      tr.cells[1].textContent = 'Rp ' + Math.round(d.now).toLocaleString('id-ID');
-      ada = true;
+      var now = sesuai(k, d.now, adj), prev = sesuai(k, d.prev, adj);
+      card.querySelector('.price').innerHTML = fmtJt(now) + '<small>PER Kg</small>';
+      var info = deltaInfo(now, prev);
+      var badge = card.querySelector('.delta');
+      badge.className = 'delta ' + info.cls;
+      badge.textContent = info.txt;
+      var yLalu = info.cls === 'up' ? 30 : info.cls === 'down' ? 16 : 23;
+      var yKini = info.cls === 'up' ? 16 : info.cls === 'down' ? 30 : 23;
+      var warna = info.cls === 'up' ? '#2E9E5B' : info.cls === 'down' ? '#D64541' : '#3A78B5';
+      var svg = card.querySelector('svg.spark');
+      if (svg && prev !== null && prev > 0) svg.innerHTML =
+        '<polyline points="20,' + yLalu + ' 180,' + yKini + '" fill="none" stroke="' + warna + '" stroke-width="2.5"/>' +
+        '<circle cx="20" cy="' + yLalu + '" r="3.5" fill="' + warna + '" opacity=".35"/>' +
+        '<circle cx="180" cy="' + yKini + '" r="3.5" fill="' + warna + '"/>' +
+        '<text x="20" y="10" font-size="8" fill="#9a958a">minggu lalu</text>' +
+        '<text x="180" y="44" font-size="8" fill="#9a958a" text-anchor="end">minggu ini</text>';
     });
-    if (ada){
-      var input = document.querySelector('#calcTable input');
-      if (input) input.dispatchEvent(new Event('input', { bubbles: true }));
-    }
-    // Statistik
     var mk = data['mangkok'];
     if (mk){
-      document.getElementById('statPrice').textContent = fmtJt(mk.now) + '/kg';
-      if (acuan.tanggal) document.getElementById('statPriceNote').textContent = 'per ' + acuan.tanggal;
+      document.getElementById('statPrice').textContent = fmtJt(sesuai('mangkok', mk.now, adj)) + '/kg';
+      var ket = 'per ' + (acuan.tanggal || '');
+      if (adj.w || adj.b) ket += ' \u00b7 ' + (adj.w ? adj.wLabel : '') + (adj.w && adj.b ? ' + ' : '') + (adj.b ? 'bulu ' + adj.bLabel.toLowerCase() : '');
+      else ket += ' \u00b7 acuan putih kapas';
+      document.getElementById('statPriceNote').textContent = ket;
       var terbaik = null;
       JENIS.forEach(function(j){
         if (!data[j]) return;
-        var inf = deltaInfo(data[j]);
+        var inf = deltaInfo(sesuai(j, data[j].now, adj), sesuai(j, data[j].prev, adj));
         if (!terbaik || inf.pct > terbaik.pct) terbaik = { jenis: j, pct: inf.pct };
       });
       if (terbaik){
@@ -732,28 +720,21 @@
     }
     if (riwayat && riwayat.seri['mangkok'] && riwayat.seri['mangkok'].length >= 13){
       var sM = riwayat.seri['mangkok'];
-      var akhirV = (mk && mk.now) || sM[sM.length - 1];
-      var awalV = sM[sM.length - 13];
+      var akhirV = sesuai('mangkok', (mk && mk.now) || sM[sM.length - 1], adj);
+      var awalV = sesuai('mangkok', sM[sM.length - 13], adj);
       var pTahun = (akhirV - awalV) / awalV * 100;
       document.getElementById('statYear').textContent = (pTahun >= 0 ? '+' : '\u2212') + pctStr(pTahun);
       document.getElementById('statYearNote').textContent = 'dari ' + fmtJt(awalV) + ' (' + riwayat.bulan[riwayat.bulan.length - 13] + ')';
     }
-    renderTren();
   }
 
-  /* ====== Grafik tren sesuai filter ====== */
-  function nilaiFilter(id){
-    var el = document.getElementById(id);
-    return el ? el.options[el.selectedIndex].textContent.trim() : '';
-  }
   function renderTren(){
+    var adj = adjSaatIni();
+    perbaruiKartuStat(adj);
     var R = state.riwayat;
     if (!R || !R.bulan.length) return;
     var jLabel = nilaiFilter('fJenis');
-    var wLabel = nilaiFilter('fWarna');
-    var bLabel = nilaiFilter('fBulu');
     var periode = nilaiFilter('fPeriode');
-    // rentang periode
     var idxAwal = Math.max(0, R.bulan.length - 13), idxAkhir = R.bulan.length;
     if (periode === 'Bulanan') idxAwal = Math.max(0, R.bulan.length - 13);
     else if (periode.indexOf('Awal Tahun') >= 0){
@@ -767,17 +748,13 @@
       R.bulan.forEach(function(b, i){ if (b.indexOf(target) >= 0){ if (pertama < 0) pertama = i; terakhir = i; } });
       if (pertama >= 0){ idxAwal = pertama; idxAkhir = terakhir + 1; }
     } else if (periode === '5 Tahun') idxAwal = 0;
-    // penyesuaian warna & bulu dari filter
-    var adjW = wLabel.indexOf('Semua') >= 0 ? 0 : (PARAM.warna[norm(wLabel)] || 0);
-    var adjB = bLabel.indexOf('Semua') >= 0 ? 0 : (PARAM.bulu[norm(bLabel)] || 0);
     var daftar = jLabel.indexOf('Semua') >= 0 ? JENIS.slice() : [kunci(jLabel)];
     var seri = [];
     daftar.forEach(function(k){
       if (!R.seri[k] || !R.seri[k].length) return;
       var vals = R.seri[k].slice(idxAwal, idxAkhir).map(function(v){
-        if (v === null) return null;
-        var a = (k === 'bakpao' ? 0 : adjW) + adjB; // Bakpao kebal warna
-        return Math.max(0, v + a) / 1000000;
+        var x = sesuai(k, v, adj);
+        return x === null ? null : x / 1000000;
       });
       seri.push({ k: k, nama: NAMA[k], warna: WARNA_SERI[k], vals: vals });
     });
@@ -788,38 +765,41 @@
     if (judul) judul.textContent = 'Tren Harga ' + (jLabel.indexOf('Semua') >= 0 ? 'Semua Jenis' : jLabel) + ' (Rp juta/kg)';
     if (sub){
       var ket = R.bulan[idxAwal] + ' \u2014 ' + R.bulan[idxAkhir - 1];
-      if (adjW || adjB) ket += ' \u00b7 ' + (wLabel.indexOf('Semua') < 0 ? wLabel + ' ' : '') + (bLabel.indexOf('Semua') < 0 ? 'bulu ' + bLabel.toLowerCase() : '');
+      ket += ' \u00b7 ' + (adj.w ? adj.wLabel : 'acuan putih kapas') + (adj.b ? ' \u00b7 bulu ' + adj.bLabel.toLowerCase() : ' \u00b7 bulu ringan');
       sub.textContent = ket + ' \u00b7 sumber: jaringan Markas Walet';
     }
-    var subJudul = document.querySelector('#trendChart') && document.querySelector('.stats-flex') ? null : null;
   }
+
   function gambarMulti(bulan, seri){
     var svg = document.getElementById('trendChart');
     if (!svg) return;
     var L = 44, R2 = 620, T = 20, B = 205;
     var semua = [];
     seri.forEach(function(x){ x.vals.forEach(function(v){ if (v !== null) semua.push(v); }); });
-    var mn = Math.min.apply(null, semua), mx = Math.max.apply(null, semua);
-    var padV = Math.max((mx - mn) * 0.12, 0.3);
-    mn = Math.max(0, mn - padV); mx += padV;
+    if (!semua.length) return;
+    // skala bulat: garis bantu tiap 1 jt
+    var lo = Math.floor(Math.min.apply(null, semua));
+    var hi = Math.ceil(Math.max.apply(null, semua));
+    if (hi <= lo) hi = lo + 1;
     var n = bulan.length;
     var x = function(i){ return L + (R2 - L) * (n === 1 ? 0.5 : i / (n - 1)); };
-    var y = function(v){ return T + (B - T) * (1 - (v - mn) / (mx - mn)); };
+    var y = function(v){ return T + (B - T) * (1 - (v - lo) / (hi - lo)); };
     var html = '<g stroke="#eee9dd" stroke-width="1">';
     var labelY = '';
-    for (var g = 0; g <= 3; g++){
-      var vy = T + (B - T) * g / 3;
-      var vv = mx - (mx - mn) * g / 3;
+    var langkah = Math.max(1, Math.ceil((hi - lo) / 12)); // maks ~12 garis
+    for (var v = lo; v <= hi; v += langkah){
+      var vy = y(v);
       html += '<line x1="' + L + '" y1="' + vy.toFixed(0) + '" x2="' + R2 + '" y2="' + vy.toFixed(0) + '"/>';
-      labelY += '<text x="2" y="' + (vy + 4).toFixed(0) + '">' + fmt1(vv) + '</text>';
+      labelY += '<text x="6" y="' + (vy + 4).toFixed(0) + '">' + v + '</text>';
     }
-    html += '</g><g font-size="10" fill="#9a958a">' + labelY;
-    var step = Math.max(1, Math.ceil(n / 7));
-    for (var i = 0; i < n; i += step){
-      var lbl = bulan[i];
-      if (n > 20) lbl = lbl.replace(/^(\w{3}) 20(\d\d)$/, "$1 '$2");
-      else lbl = lbl.split(' ')[0];
-      html += '<text x="' + (x(i) - 12).toFixed(0) + '" y="222">' + lbl + '</text>';
+    html += '</g><g font-size="9" fill="#9a958a">' + labelY;
+    // sumbu X: tiap triwulan (Jan, Apr, Jul, Okt)
+    var TRIWULAN = ['Jan','Apr','Jul','Okt'];
+    for (var i = 0; i < n; i++){
+      var potong = bulan[i].split(' ');
+      if (TRIWULAN.indexOf(potong[0]) < 0 && n > 3) continue;
+      var lbl = potong[0] === 'Jan' || n <= 13 ? potong[0] + " '" + potong[1].slice(2) : potong[0];
+      html += '<text x="' + (x(i) - 10).toFixed(0) + '" y="222">' + lbl + '</text>';
     }
     html += '</g>';
     seri.forEach(function(sx, si){
@@ -832,7 +812,6 @@
       html += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + sx.warna + '" stroke-width="' + (seri.length === 1 ? 3 : 2) + '"/>';
       var last = pts[pts.length - 1].split(',');
       html += '<circle cx="' + last[0] + '" cy="' + last[1] + '" r="' + (seri.length === 1 ? 5 : 3) + '" fill="' + sx.warna + '"/>';
-      // legenda
       if (seri.length > 1){
         var lx = L + 8 + Math.floor(si / 3) * 150, ly = T + 6 + (si % 3) * 16;
         html += '<rect x="' + lx + '" y="' + (ly - 8) + '" width="10" height="10" fill="' + sx.warna + '" rx="2"/>' +
@@ -842,8 +821,26 @@
     svg.innerHTML = html;
   }
 
-  var btn = document.getElementById('btnTampil');
-  if (btn) btn.addEventListener('click', function(e){ e.preventDefault(); renderTren(); });
+  function terapkan(){
+    var acuan = state.acuan || { data:{}, tanggal:null };
+    if (acuan.tanggal){
+      document.querySelectorAll('.js-tanggal').forEach(function(el){ el.textContent = acuan.tanggal; });
+    }
+    var ada = false;
+    document.querySelectorAll('#calcTable tr[data-harga]').forEach(function(tr){
+      var d = acuan.data[kunci(tr.cells[0].textContent)];
+      if (!d) return;
+      tr.dataset.harga = Math.round(d.now);
+      tr.cells[1].textContent = 'Rp ' + Math.round(d.now).toLocaleString('id-ID');
+      ada = true;
+    });
+    if (ada){
+      var input = document.querySelector('#calcTable input');
+      if (input) input.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    renderTren();
+  }
+
   ['fJenis','fWarna','fBulu','fPeriode'].forEach(function(id){
     var el = document.getElementById(id);
     if (el) el.addEventListener('change', renderTren);
