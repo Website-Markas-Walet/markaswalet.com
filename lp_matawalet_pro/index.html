@@ -270,6 +270,12 @@ a{color:var(--mw-navy-600);text-decoration:none}
 .mw-pricing .col span small{display:block;font-size:.62em;font-weight:var(--mw-weight-light);opacity:.72;margin-top:5px;line-height:1.3}
 .mw-pricing .col .tot{font-weight:var(--mw-weight-extrabold)}
 .mw-pricing .col .rule{height:4px;background:var(--mw-divider);margin:8px 0;border-radius:2px}
+.mw-price-head{display:flex;flex-direction:column;gap:10px}
+.mw-price-head .eyebrow{font-size:var(--mw-size-body-lg);font-weight:var(--mw-weight-light);line-height:var(--mw-leading-copy);color:var(--mw-text-body)}
+.mw-price-head .big{font-size:var(--mw-size-display);font-weight:var(--mw-weight-extrabold);line-height:1;color:var(--mw-text-heading)}
+.mw-price-head .big small{font-size:.42em;font-weight:var(--mw-weight-medium);color:var(--mw-text-muted)}
+.mw-after{display:flex;flex-direction:column;gap:10px}
+.mw-after h3{margin:0;font-size:var(--mw-size-title-md);font-weight:var(--mw-weight-extrabold);line-height:var(--mw-leading-flat);color:var(--mw-text-heading)}
 .mw-price-note{margin:0;font-size:var(--mw-size-body-sm);font-weight:var(--mw-weight-light);line-height:var(--mw-leading-copy);color:var(--mw-text-body);text-wrap:pretty}
 .mw-price-note b{font-weight:var(--mw-weight-bold)}
 .mw-buy{display:grid;grid-template-columns:minmax(0,1094fr) minmax(0,700fr);gap:clamp(24px,3vw,50px);align-items:center}
@@ -303,12 +309,12 @@ a{color:var(--mw-navy-600);text-decoration:none}
 
 /* ===== FINAL CTA BAND ===== */
 .mw-final{background:var(--mw-surface-final-cta);border-radius:var(--mw-radius-card);display:grid;grid-template-columns:minmax(0,702fr) minmax(0,776fr);gap:clamp(24px,6vw,110px);align-items:center;padding:clamp(30px,5vw,67px) clamp(24px,5vw,100px)}
-/* Design system menetapkan teks putih di sini, tapi putih di atas amber #FFBB2A
-   hanya ~1,7:1 (gagal WCAG). Dipakai navy — warna heading brand — yang mencapai
-   ~7,9:1 di atas amber. Deviasi disengaja demi keterbacaan; mudah dibalik. */
-.mw-final h2{margin:0;font-size:var(--mw-size-display);font-weight:var(--mw-weight-semibold);line-height:var(--mw-leading-copy);color:var(--mw-navy-900);text-wrap:pretty}
+/* Teks putih menyesuaikan Figma. Catatan: putih di atas amber #FFBB2A hanya
+   ~1,7:1 (di bawah ambang WCAG). Untuk keterbacaan, ganti color ke
+   var(--mw-navy-900) yang mencapai ~7,9:1 — tinggal ubah dua baris di bawah. */
+.mw-final h2{margin:0;font-size:var(--mw-size-display);font-weight:var(--mw-weight-semibold);line-height:var(--mw-leading-copy);color:var(--mw-text-on-dark);text-wrap:pretty}
 .mw-final .r{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
-.mw-final .r p{margin:0;font-size:var(--mw-size-body-lg);font-weight:var(--mw-weight-medium);line-height:var(--mw-leading-copy);color:var(--mw-navy-900);text-wrap:pretty}
+.mw-final .r p{margin:0;font-size:var(--mw-size-body-lg);font-weight:var(--mw-weight-medium);line-height:var(--mw-leading-copy);color:var(--mw-text-on-dark);text-wrap:pretty}
 
 /* ===== FOOTER ===== */
 .mw-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--mw-space-4);padding:var(--mw-space-4) clamp(20px,4vw,94px);border-top:4px solid var(--mw-divider)}
@@ -361,14 +367,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="mw-page">
 
-  <!-- 1. TOP BANNER -->
-  <div class="mw-banner"><span>PRE-ORDER RESMI DIBUKA — KHUSUS 100 PEMESAN PERTAMA</span></div>
+  <!-- 1. TOP BANNER — teks & casing verbatim dari Figma -->
+  <div class="mw-banner"><span>PRE-ORDER RESMI DIBUKA — khusus 100 pemesan pertama</span></div>
 
-  <!-- 2. HERO -->
+  <!-- 2. HERO — heading & deskripsi verbatim dari Figma frame -->
   <header class="mw-hero">
     <div class="mw-hero-left">
-      <h1>AI IoT Camera untuk Rumah Walet — <b>MataWalet PRO.</b></h1>
-      <p class="lead">Kamera AI pertama di Indonesia yang menghitung populasi burung walet <b>secara real-time</b>, membedakan static vs motion dengan confidence score, dan terhubung langsung ke aplikasi Markaswalet. Pantau RBW Anda dari mana saja, 24/7.</p>
+      <h1>MataWalet PRO, Kamera Penghitung Populasi Walet</h1>
+      <p class="lead">Petani walet modern, pantau RBW pakai AI! Hitung populasi walet real-time, 24/7 dari aplikasi Markaswalet.</p>
       <div class="mw-actions">
         <a class="mw-btn mw-btn--navy" href="https://wa.me/6287725260196?text=Halo%20Markaswalet%2C%20saya%20ingin%20pesan%20MataWalet%20PRO%20(Rp%201.500.000%20%E2%80%94%20perangkat%20%2B%20langganan%20aplikasi%2012%20bulan).%20Mohon%20info%20cara%20pemesanannya." target="_blank" rel="noopener"><img src="assets/icons/icon-phone.png" alt="">Ambil Slot Pre-Order</a>
         <a class="mw-btn mw-btn--grey" href="#fitur">Lihat Fitur<span class="arrow">→</span></a>
@@ -403,16 +409,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 4. FITUR -->
   <section class="mw-panel" id="fitur">
     <div class="mw-sh">
-      <h2>Dibuat spesifik untuk <em>RBW Indonesia</em> — bukan CCTV biasa.</h2>
-      <p>Lebih dari sekedar kamera — MataWalet PRO menggunakan AI yang sudah dilatih khusus untuk mengenali burung walet di dalam rumah walet Anda.</p>
+      <h2>Dibuat spesifik untuk RBW Indonesia, bukan CCTV biasa.</h2>
+      <p>MataWalet PRO menggunakan AI yang sudah dilatih khusus untuk mengenali burung walet di dalam rumah walet Anda.</p>
     </div>
     <div class="mw-grid-3">
+      <!-- Feature 01: body Figma adalah teks nyasar soal audio Audax ("reproduksi
+           frekuensi tinggi..."); dipakai copy MataWalet yang benar dari halaman live. -->
       <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-pocket-watch.png" alt=""></span><div><h3>Real-Time Counting</h3><p>Deteksi otomatis dan hitung jumlah walet per lantai. Tidak perlu datang ke RBW untuk cek populasi.</p></div></div></article>
-      <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-motion-ai.png" alt=""></span><div><h3>Static vs Motion AI</h3><p>Membedakan walet yang hinggap dan yang sedang terbang, dengan confidence score per individu.</p></div></div></article>
-      <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-iot-connected.png" alt=""></span><div><h3>IoT Connected</h3><p>Data streaming real-time ke Markaswalet App — akses dari smartphone kapan saja.</p></div></div></article>
+      <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-motion-ai.png" alt=""></span><div><h3>Motion AI</h3><p>Mendeteksi walet yang keluar masuk dan yang sedang terbang, dengan confidence score per individu.</p></div></div></article>
+      <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-iot-connected.png" alt=""></span><div><h3>IoT Connected</h3><p>Data streaming real-time ke Markaswalet App dan bisa diakses dari smartphone kapan saja.</p></div></div></article>
       <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-night-vision.png" alt=""></span><div><h3>Night Vision</h3><p>Infrared yang tidak mengganggu walet. Tetap akurat di kondisi minim cahaya dalam RBW.</p></div></div></article>
       <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-data-secure.png" alt=""></span><div><h3>Data Aman</h3><p>Rekaman tersimpan di cloud dengan enkripsi. Hanya Anda yang dapat akses dashboard RBW.</p></div></div></article>
-      <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-plug-play.png" alt=""></span><div><h3>Plug &amp; Play</h3><p>Pasang, sambungkan ke WiFi, buka aplikasi — selesai. Tim kami siap bantu setup jika perlu.</p></div></div></article>
+      <article class="mw-feature"><span class="mw-decor mw-decor--feature" aria-hidden="true"></span><div class="in"><span class="mw-tile"><img src="assets/icons/icon-plug-play.png" alt=""></span><div><h3>Plug &amp; Play</h3><p>Pasang, sambungkan ke WiFi, buka aplikasi dan selesai. Tim kami siap bantu setup jika perlu.</p></div></div></article>
     </div>
   </section>
 
@@ -434,16 +442,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- 6. HARGA -->
+  <!-- 6. HARGA — header: eyebrow + harga besar (struktur Figma) -->
   <section class="mw-panel" id="pesan">
-    <div class="mw-sh">
-      <h2>Harga pre-order.</h2>
-      <p>Satu paket, semua sudah termasuk. Harga khusus 100 pemesan pertama.</p>
+    <div class="mw-price-head">
+      <span class="eyebrow">Khusus 100 pemesan pertama · Bonus lengkap</span>
+      <span class="big">Rp1.500.000 <small>/ unit</small></span>
     </div>
     <div class="mw-pricing">
       <div class="col col--l">
-        <span>MataWalet PRO AIoT Camera<small>Milik Anda seterusnya — sekali bayar</small></span>
-        <span>Langganan Markaswalet App 12 bulan<small>AI counting real-time + pantau dari HP</small></span>
+        <span>MataWalet PRO AIoT Camera</span>
+        <span>Langganan Markaswalet App 12 bulan</span>
         <span class="rule"></span>
         <span class="tot">Total Cuma Bayar</span>
       </div>
@@ -454,11 +462,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="tot">Rp1.500.000</span>
       </div>
     </div>
-    <p class="mw-price-note">Setelah 12 bulan, perpanjangan langganan <b>Rp 1.000.000 per tahun</b> — harga sama, tanpa kenaikan. Setara <b>Rp 83.333/bulan</b>, lebih hemat Rp 200.000 dibanding langganan bulanan (Rp 100.000/bulan). Tanpa perpanjangan, perangkat tetap menyala dan merekam, namun fitur AI counting dan akses lewat aplikasi berhenti.</p>
+    <div class="mw-after">
+      <h3>Setelah 12 bulan</h3>
+      <p class="mw-price-note">Perpanjangan <b>Rp1.000.000/tahun</b>, tanpa kenaikan harga. Perangkat tetap menyala dan merekam meski langganan tidak diperpanjang, namun tidak bisa menghitung populasi.</p>
+    </div>
     <div class="mw-buy">
       <ul class="mw-check">
         <li><span class="mw-tile"><img src="assets/icons/icon-verified-account.png" alt=""></span><span>1 unit MataWalet PRO AI IoT Camera</span></li>
-        <li><span class="mw-tile"><img src="assets/icons/icon-verified-account.png" alt=""></span><span>Langganan Markaswalet App <b>12 bulan</b> — sudah termasuk</span></li>
+        <li><span class="mw-tile"><img src="assets/icons/icon-verified-account.png" alt=""></span><span>Langganan Markaswalet App 12 bulan (dashboard monitoring) — sudah termasuk</span></li>
         <li><span class="mw-tile"><img src="assets/icons/icon-verified-account.png" alt=""></span><span>Bonus remote setup &amp; training 1-on-1 (senilai Rp 500.000)</span></li>
         <li><span class="mw-tile"><img src="assets/icons/icon-verified-account.png" alt=""></span><span>Garansi perangkat 1 tahun penuh</span></li>
         <li><span class="mw-tile"><img src="assets/icons/icon-verified-account.png" alt=""></span><span>Gratis ongkir ke seluruh Indonesia</span></li>
@@ -483,13 +494,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 8. CARA PESAN -->
   <section class="mw-panel">
-    <div class="mw-sh">
-      <h2>Cara pesan.</h2>
-      <p>Empat langkah dari pesan sampai kamera terpasang di RBW Anda.</p>
-    </div>
+    <div class="mw-sh"><h2>4 langkah untuk amankan slot anda.</h2></div>
     <div class="mw-grid-4">
       <article class="mw-step"><span class="mw-decor mw-decor--step" aria-hidden="true"></span><div class="in"><span class="num">01</span><div><h3>Isi Form Pre-Order</h3><p>Nama, WhatsApp, email, dan jumlah unit. Cukup 30 detik.</p></div></div></article>
-      <article class="mw-step"><span class="mw-decor mw-decor--step" aria-hidden="true"></span><div class="in"><span class="num">02</span><div><h3>Bayar Online</h3><p>DP 50% untuk amankan slot, atau lunas untuk prioritas pengiriman. Transfer bank atau e-wallet.</p></div></div></article>
+      <article class="mw-step"><span class="mw-decor mw-decor--step" aria-hidden="true"></span><div class="in"><span class="num">02</span><div><h3>Bayar Online</h3><p>DP 50% untuk amankan slot, atau lunas untuk prioritas pengiriman.</p></div></div></article>
       <article class="mw-step"><span class="mw-decor mw-decor--step" aria-hidden="true"></span><div class="in"><span class="num">03</span><div><h3>Konfirmasi Alamat</h3><p>Tim kami hubungi via WhatsApp untuk alamat pengiriman.</p></div></div></article>
       <article class="mw-step"><span class="mw-decor mw-decor--step" aria-hidden="true"></span><div class="in"><span class="num">04</span><div><h3>Unit Dikirim</h3><p>Batch pertama dikirim 4–6 minggu setelah pre-order ditutup.</p></div></div></article>
     </div>
@@ -497,7 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 9. FAQ -->
   <section class="mw-panel">
-    <div class="mw-sh mw-sh--navy"><h2>Pertanyaan yang sering ditanya.</h2></div>
+    <div class="mw-sh mw-sh--navy"><h2>Pertanyaan yang sering ditanyakan</h2></div>
     <div class="mw-stack">
       <article class="mw-faq"><span class="mw-decor mw-decor--faq" aria-hidden="true"></span><div class="in"><span class="num">01</span><div><h3>Apa saja yang saya dapat dengan pre-order?</h3><p>1 unit MataWalet PRO, langganan Markaswalet App selama 12 bulan, garansi 1 tahun, gratis ongkir seluruh Indonesia, serta bonus remote setup dan training 1-on-1 senilai Rp 500.000. Anda juga masuk grup prioritas Early Adopter untuk support.</p></div></div></article>
       <article class="mw-faq"><span class="mw-decor mw-decor--faq" aria-hidden="true"></span><div class="in"><span class="num">02</span><div><h3>Kapan unit dikirim?</h3><p>Batch pertama dikirim 4–6 minggu setelah masa pre-order ditutup (tanggal 10 September 2026 atau saat 100 slot terisi — mana yang lebih cepat). Anda akan menerima nomor resi via WhatsApp.</p></div></div></article>
