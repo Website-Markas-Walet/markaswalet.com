@@ -577,6 +577,15 @@
         if (now !== null && now > 0) data[k] = { now: now, prev: prev };
       }
     });
+    if (!tanggal){
+      // Google kadang melipat baris 'Tanggal Update' ke baris header gabungan
+      for (var i = 0; i < Math.min(rows.length, 4) && !tanggal; i++){
+        for (var c = 0; c < rows[i].length && !tanggal; c++){
+          var m2 = /(\d{1,2}\/\d{1,2}\/\d{4})/.exec(rows[i][c] || '');
+          if (m2) tanggal = tanggalIndo(m2[1]);
+        }
+      }
+    }
     return { data: data, tanggal: tanggal };
   }
   function ambilRiwayatSheet(rows){
@@ -587,13 +596,17 @@
         r.forEach(function(c, j){ var k = kunci(c); if (JENIS.indexOf(k) >= 0) kolom[k] = j; });
       }
     });
-    if (hdr < 0) return null;
+    if (hdr < 0){
+      hdr = -1; // baris header terlipat: pakai urutan kolom bawaan B..G
+      JENIS.forEach(function(j, i2){ kolom[j] = i2 + 1; });
+    }
     var out = { bulan: [], seri: {} };
     JENIS.forEach(function(j){ out.seri[j] = []; });
     for (var i = hdr + 1; i < rows.length; i++){
       var r = rows[i];
       var vM = num(r[kolom['mangkok']]);
       if (!r[0] || vM === null) continue;
+      if (!/^[A-Za-z]{3} \d{4}$/.test(r[0].trim())) continue; // hanya baris berlabel bulan (mis. 'Sep 2026')
       out.bulan.push(r[0].trim());
       JENIS.forEach(function(j){
         var v = kolom[j] !== undefined ? num(r[kolom[j]]) : null;
@@ -626,18 +639,15 @@
     return bulan.length ? { bulan: bulan, seri: seri } : null;
   }
   function ambilParameter(rows){
-    var bagian = '';
+    var WARNA_L = ['putihkapas','berascerah','beras','kuning'];
+    var BULU_L = ['ringan','pelontos','sedang','berat'];
     rows.forEach(function(r){
-      var k = norm(r[0]);
-      if (k.indexOf('penyesuaianwarna') >= 0){ bagian = 'warna'; return; }
-      if (k.indexOf('penyesuaianbulu') >= 0){ bagian = 'bulu'; return; }
-      if (!bagian || !r[0]) return;
+      if (!r[0]) return;
       var v = num(r[1]);
       if (v === null) return;
       var label = norm(r[0].replace(/\(.*\)/, ''));
-      if (['putihkapas','berascerah','beras','kuning','ringan','pelontos','sedang','berat'].indexOf(label) >= 0){
-        PARAM[bagian][label] = v;
-      }
+      if (WARNA_L.indexOf(label) >= 0) PARAM.warna[label] = v;
+      else if (BULU_L.indexOf(label) >= 0) PARAM.bulu[label] = v;
     });
   }
   function fmtAdj(v){
