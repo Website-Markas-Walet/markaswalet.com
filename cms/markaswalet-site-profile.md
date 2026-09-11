@@ -39,7 +39,7 @@ Total **±1.341 halaman `index.html`**. Kelompok utama:
 | `/article/<slug>/` | Artikel | **262** |
 | `/category/.../` + `/page/N/` | Halaman kategori & paginasi | 25 |
 | `/premium-birdnest-product/`, `/markaswalet-apps/`, `/cultivation-technology/`, `/swiftlet-house-construction/`, `/farming-products/`, `/our-product/`, `/nestcosystem/`, `/manufacture-and-export/`, `/information-center/`, `/about-us/`, `/edible-birds-nest-cleaning/` | Halaman produk/landing bespoke | ~12 |
-| `/lp_matawalet_pro[_b/_c]/`, `/lp_matawalet_trial[...]/`, `/lp_parfum/`, `/lp_seminar/`, `/lp_tweeter_walet/`, `/parfumwalet1..4/` | Landing page kampanye (sebagian + pembayaran) | ~48 |
+| `/lp_matawalet_pro[_b/_c]/`, `/lp_matawalet_trial[...]/`, `/lp_seminar/`, `/lp_tweeter_walet/`, `/parfumwalet1..4/` | Landing page kampanye (sebagian + pembayaran) | ~48 |
 | `/id/...` | **Varian bahasa Indonesia** (`lang=id-ID`) — menerjemahkan artikel & halaman | 246 |
 | `/banjarbaru/...` | **Varian wilayah** (edisi Banjarbaru, `lang=en-US`) | 160 |
 | `/MRS/`, `/2/`,`/3/`.., `/author/`, `/comments/`, `/feed/`, `/checkout/` | Varian kecil, paginasi, utilitas | sisanya |
