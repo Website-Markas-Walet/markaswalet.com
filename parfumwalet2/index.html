@@ -39,7 +39,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="wp-content/uploads/2024/06/IMAGE-5.png">
+<link rel="preload" as="image" href="assets/hero-media.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" media="all">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WX5D42HV');</script>
@@ -91,6 +91,7 @@
   --fs-btn-lg:clamp(17px,1.9vw,30px);    /* tombol 30 */
   --fs-card-title:clamp(19px,2vw,28px);  /* judul kartu 28 */
   --fs-body-sm:clamp(15px,1.5vw,21px);   /* copy kecil 21 */
+  --fs-nav:clamp(15px,1.67vw,32px);      /* menu header 32 (sebanding kanvas 1920) */
 
   /* radius (verbatim) */
   --mw-radius-tile-sm:7px;
@@ -128,12 +129,13 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
 
 /* ===== 01 HEADER ===== */
 .site-header{background:var(--nh-black);padding:clamp(12px,2.66vw,51px) clamp(16px,5.47vw,105px)}
-.site-header .in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.site-header .in{display:flex;align-items:center;justify-content:space-between;gap:clamp(32px,6vw,120px)}
+.logo{flex:0 0 auto}
 .logo img{width:clamp(96px,9.95vw,191px);aspect-ratio:191/86;height:auto;object-fit:cover}
-.nav{display:flex;align-items:center;gap:clamp(12px,1.6vw,31px)}
-.nav a:not(.btn){color:var(--mw-white);font-size:var(--fs-body-lg);font-weight:300;line-height:var(--mw-leading-flat);padding:0 clamp(4px,.9vw,18px)}
+.nav{display:flex;align-items:center;gap:clamp(12px,1.6vw,31px);flex-wrap:nowrap}
+.nav a:not(.btn){color:var(--mw-white);font-size:var(--fs-nav);font-weight:300;line-height:var(--mw-leading-flat);padding:0 clamp(4px,.9vw,18px);white-space:nowrap}
 .nav a:not(.btn):hover{color:var(--mw-amber-400)}
-.nav .btn-pill{margin-left:clamp(8px,2.8vw,54px);min-width:clamp(0px,16.46vw,316px)}
+.nav .btn-pill{margin-left:clamp(8px,2.8vw,54px);min-width:clamp(0px,16.46vw,316px);flex:0 0 auto;font-size:var(--fs-nav);white-space:nowrap}
 
 /* ===== 02 HERO ===== */
 .hero{background:var(--mw-grey-300);padding-block:clamp(28px,3.33vw,64px) clamp(40px,4.9vw,94px)}
@@ -167,6 +169,23 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
 .strip figcaption{position:absolute;left:clamp(12px,1.2vw,22px);bottom:clamp(12px,1.2vw,22px);padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.62);color:var(--mw-white);font-size:var(--fs-body-sm);font-weight:600;line-height:1.2}
 .strip-note{margin-top:clamp(16px,1.5vw,28px);text-align:center;font-size:var(--fs-body-sm);font-weight:300;color:var(--mw-grey-500)}
 .dark .strip-note{color:#bdbdbd}
+
+/* ===== SLIDER (08 TESTIMONI): panah, titik, geser mouse ===== */
+.slider{position:relative}
+.slider .strip{cursor:grab}
+.slider .strip.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.slider .strip img{-webkit-user-drag:none;user-select:none}
+.slider-btn{position:absolute;top:50%;z-index:3;display:grid;place-items:center;width:clamp(44px,3.4vw,64px);height:clamp(44px,3.4vw,64px);padding:0;border:0;border-radius:50%;background:var(--nh-pill);color:var(--nh-black);cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35);translate:-50% -50%;transition:opacity .2s ease,scale .18s ease}
+.slider-btn:hover{scale:1.06}
+.slider-btn:focus-visible{outline:3px solid var(--mw-white);outline-offset:3px}
+.slider-btn[disabled]{opacity:0;pointer-events:none}
+.slider-btn svg{width:46%;height:46%}
+.slider-btn.prev{left:calc(50% - var(--card) / 2)}
+.slider-btn.next{left:calc(50% + var(--card) / 2)}
+.dots{display:flex;justify-content:center;gap:12px;margin-top:clamp(20px,1.7vw,32px)}
+.dots button{width:12px;height:12px;padding:0;border:0;border-radius:999px;background:var(--mw-grey-500);cursor:pointer;transition:width .25s ease,background-color .25s ease}
+.dots button[aria-current="true"]{width:36px;background:var(--mw-amber-500)}
+.dots button:focus-visible{outline:2px solid var(--mw-white);outline-offset:3px}
 
 /* ===== 04 BENEFIT (kartu fitur) ===== */
 .benefit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:21px clamp(14px,1.19vw,23px)}
@@ -238,6 +257,14 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
 .site-footer .note{font-size:var(--fs-body-sm);font-weight:300;color:var(--mw-grey-500)}
 .site-footer a{color:var(--nh-black);font-weight:600}
 
+/* ===== TOMBOL WHATSAPP MELAYANG (selalu terlihat saat scroll) ===== */
+.float-wa{position:fixed;right:clamp(16px,1.67vw,32px);bottom:clamp(16px,1.67vw,32px);z-index:110;display:grid;place-items:center;width:clamp(56px,3.54vw,68px);height:clamp(56px,3.54vw,68px);border-radius:50%;background:var(--nh-green);color:var(--mw-white);box-shadow:0 10px 26px rgba(37,202,31,.45);transition:transform .18s ease}
+.float-wa:hover{transform:scale(1.07)}
+.float-wa:focus-visible{outline:3px solid var(--nh-black);outline-offset:3px}
+.float-wa svg{position:relative;width:54%;height:54%;fill:currentColor}
+.float-wa::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--nh-green);animation:wa-pulse 2.4s ease-out infinite}
+@keyframes wa-pulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.6);opacity:0}}
+
 /* ===== STICKY CTA (HP) ===== */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:100;display:none;align-items:center;justify-content:space-between;gap:14px;padding:10px 16px;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--mw-grey-300)}
 .sticky .p{font-size:13px;font-weight:600;line-height:1.25}
@@ -250,6 +277,7 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
   .nav .btn-pill{margin-left:0}
 }
 @media (max-width:900px){
+  .float-wa{right:16px;bottom:84px}
   .hero-copy{padding-right:0}
   .hero .wrap,.sh,.about-row,.about-row.flip,.price-grid{grid-template-columns:minmax(0,1fr)}
   .hero .wrap{row-gap:28px}
@@ -267,7 +295,7 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
   .hero-cta .btn{flex:1 1 100%}
 }
 @media (max-width:700px){ :root{--card:82vw} }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.float-wa{transition:none}.float-wa::before{animation:none}}
 </style>
 </head>
 <body>
@@ -275,7 +303,7 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WX5D42HV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- 01 HEADER -->
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="in">
     <a class="logo" href="#top" aria-label="NH3X Super"><img src="assets/nh3x-logo.png" alt="NH3X Super — Parfum Pemikat Burung Walet" width="894" height="403"></a>
     <nav class="nav" aria-label="Navigasi halaman">
@@ -283,12 +311,12 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
       <a href="#produk">Parfum Alami</a>
       <a href="#harga">Harga</a>
       <a href="#testimoni">Testimoni</a>
-      <a class="btn btn-pill" href="https://wa.me/6287725260196?text=Halo%20Markas%20Walet%2C%20saya%20tertarik%20parfum%20walet%20NH3X%20Super.%20Mohon%20info%20harga%20%26%20cara%20pesan." target="_blank" rel="noopener">Pesan Sekarang</a>
+      <a class="btn btn-pill" href="#pesan">Pesan Sekarang</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main>
 
 <!-- 02 HERO -->
 <section class="hero">
@@ -302,7 +330,7 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
       </div>
     </div>
     <div class="media hero-media">
-      <img src="wp-content/uploads/2024/06/IMAGE-5.png" alt="Dua kemasan parfum walet NH3X Super: pouch 150 gram dan 300 gram" width="1592" height="985" fetchpriority="high">
+      <img src="assets/hero-media.png" alt="Tiga kemasan parfum walet NH3X Super: pouch 150 gram, 300 gram, dan sisi belakang berisi aturan pakai" width="1920" height="1080" fetchpriority="high">
     </div>
     <div class="benefits">
       <div class="benefit"><span class="tile"><span class="glyph" style="left:5px;top:5px;width:47px;height:47px;-webkit-mask-image:url(assets/icons/icon-approval.png);mask-image:url(assets/icons/icon-approval.png)"></span></span><span><b>Bahan Alami</b><br>Aman untuk walet</span></div>
@@ -448,15 +476,21 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
       <p>Tangkapan layar dan foto asli dari pengguna NH3X Super.</p>
     </div>
   </div>
+  <div class="slider" data-slider>
+    <button class="slider-btn prev" type="button" aria-label="Testimoni sebelumnya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <div class="strip" tabindex="0" role="region" aria-label="Testimoni pengguna NH3X Super — geser untuk melihat">
+    <div class="media contain"><img src="wp-content/uploads/2024/06/testimoni-1.png" alt="Testimoni alumni Seminar Markas Walet: perpaduan parfum NH3X Super dengan suara Markaswalet menjadi solusi bagi petani walet" width="286" height="295" loading="lazy" decoding="async"></div>
     <div class="media contain"><img src="wp-content/uploads/2024/06/testimoni-2.png" alt="Percakapan WhatsApp pelanggan NH3X Super yang melaporkan pertambahan lebih dari 10 sarang" width="286" height="295" loading="lazy" decoding="async"></div>
-    <div class="media contain"><img src="assets/testimoni-nh3x.webp" alt="Testimoni parfum walet NH3X Super dari pelanggan di Sumatera Selatan dan Sumbawa, NTB" width="1024" height="1024" loading="lazy" decoding="async"></div>
     <div class="media contain"><img src="wp-content/uploads/2024/06/testimoni-3.png" alt="Percakapan WhatsApp pelanggan NH3X Super" width="286" height="295" loading="lazy" decoding="async"></div>
+    <div class="media contain"><img src="wp-content/uploads/2024/06/testimoni-4-.png" alt="Petani walet membersihkan hasil panen sarang walet" width="286" height="295" loading="lazy" decoding="async"></div>
   </div>
+    <button class="slider-btn next" type="button" aria-label="Testimoni berikutnya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+  <div class="dots" aria-label="Pilih testimoni"></div>
 </section>
 
 <!-- 09 FINAL CTA -->
-<section>
+<section id="pesan">
   <div class="wrap">
     <div class="sh">
       <h2>Bikin gedung walet Anda ramai &amp; anakan betah</h2>
@@ -476,6 +510,7 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
   <span class="note">© <span id="yr">2026</span> Markas Walet · PT Lentera Alam Nusantara · <a href="/">markaswalet.com</a> · <a href="/about-us/">Tentang Kami</a></span>
 </footer>
 
+<a class="float-wa" href="https://wa.me/6287725260196?text=Halo%20Markas%20Walet%2C%20saya%20tertarik%20parfum%20walet%20NH3X%20Super.%20Mohon%20info%20harga%20%26%20cara%20pesan." target="_blank" rel="noopener" aria-label="Chat WhatsApp Markas Walet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.06 24l1.7-6.2A11.9 11.9 0 1 1 12 24a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.1l.37.22a9.9 9.9 0 0 0 5.03 1.38 9.9 9.9 0 1 0-9.9-9.9c0 1.9.54 3.7 1.5 5.25l.24.38-1 3.65 3.76-.98zM17.5 14.3c-.15-.25-.55-.4-1.15-.7s-1.35-.65-1.55-.72c-.2-.08-.35-.11-.5.11s-.57.72-.7.87c-.13.15-.26.17-.48.06a7.9 7.9 0 0 1-2.35-1.45 8.7 8.7 0 0 1-1.6-2c-.17-.29 0-.44.13-.58.11-.13.25-.33.37-.5.12-.16.16-.28.24-.46.08-.18.04-.34-.02-.48-.06-.14-.5-1.28-.7-1.75-.18-.45-.37-.39-.5-.4h-.43c-.15 0-.4.06-.6.28s-.8.78-.8 1.9.82 2.2.94 2.36c.11.15 1.6 2.5 3.9 3.5.54.24.97.38 1.3.49.55.17 1.05.15 1.44.09.44-.07 1.35-.55 1.54-1.09.19-.53.19-.99.13-1.09z"/></svg></a>
 <div class="sticky">
   <div class="p">NH3X Super<b>Rp260.000 / 150 gr</b></div>
   <a class="btn" href="https://wa.me/6287725260196?text=Halo%20Markas%20Walet%2C%20saya%20tertarik%20parfum%20walet%20NH3X%20Super.%20Mohon%20info%20harga%20%26%20cara%20pesan." target="_blank" rel="noopener">Pesan via WA</a>
@@ -485,9 +520,82 @@ section.dark{margin-block:clamp(0px,3.33vw,64px)}
 document.getElementById('yr').textContent = new Date().getFullYear();
 // Carousel: tampilkan kartu tengah di tengah layar (kartu samping terpotong, sesuai Figma)
 document.querySelectorAll('.strip').forEach(function (s) {
-  function center() { s.scrollLeft = (s.scrollWidth - s.clientWidth) / 2; }
+  function center() {
+    var c = s.children[Math.floor((s.children.length - 1) / 2)];
+    var cr = c.getBoundingClientRect(), sr = s.getBoundingClientRect();
+    s.scrollLeft += (cr.left + cr.width / 2) - (sr.left + sr.width / 2);
+  }
   center();
   window.addEventListener('load', center, { once: true });
+});
+// Tautan menu & tombol "#section": gulir langsung ke section tujuan
+document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  a.addEventListener("click", function (e) {
+    var id = a.getAttribute("href").slice(1);
+    var target = id && document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    try { history.replaceState(null, "", "#" + id); } catch (err) {}
+  });
+});
+// Slider testimoni: tombol panah, titik navigasi, keyboard, dan geser dengan mouse (sentuh sudah native)
+document.querySelectorAll("[data-slider]").forEach(function (wrap) {
+  var s = wrap.querySelector(".strip");
+  var cards = [].slice.call(s.children);
+  var prev = wrap.querySelector(".prev"), next = wrap.querySelector(".next");
+  var dots = wrap.parentNode.querySelector(".dots");
+  var behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  function offsetFor(i) { var cr = cards[i].getBoundingClientRect(), sr = s.getBoundingClientRect(); return (cr.left + cr.width / 2) - (sr.left + sr.width / 2); }
+  function current() { var best = 0, min = Infinity; cards.forEach(function (c, i) { var d = Math.abs(offsetFor(i)); if (d < min) { min = d; best = i; } }); return best; }
+  function go(i) { i = Math.max(0, Math.min(cards.length - 1, i)); s.scrollBy({ left: offsetFor(i), behavior: behavior }); }
+  cards.forEach(function (c, i) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", "Testimoni " + (i + 1) + " dari " + cards.length);
+    b.addEventListener("click", function () { go(i); });
+    dots.appendChild(b);
+    var img = c.querySelector("img"); if (img) img.draggable = false;
+  });
+  function update() {
+    var i = current();
+    [].forEach.call(dots.children, function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
+    prev.disabled = i === 0;
+    next.disabled = i === cards.length - 1;
+  }
+  prev.addEventListener("click", function () { go(current() - 1); });
+  next.addEventListener("click", function () { go(current() + 1); });
+  s.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+  });
+  var timer;
+  s.addEventListener("scroll", function () { clearTimeout(timer); timer = setTimeout(update, 60); }, { passive: true });
+  var startX = 0, startLeft = 0, dragging = false, moved = false;
+  s.addEventListener("pointerdown", function (e) {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    dragging = true; moved = false; startX = e.clientX; startLeft = s.scrollLeft;
+    s.classList.add("dragging"); s.setPointerCapture(e.pointerId);
+  });
+  s.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    s.scrollLeft = startLeft - dx;
+  });
+  function end(e) {
+    if (!dragging) return;
+    dragging = false; s.classList.remove("dragging");
+    var dx = e.clientX - startX, i = current();
+    if (Math.abs(dx) > 60 && Math.abs(offsetFor(i)) < 40) i += dx < 0 ? 1 : -1;
+    go(i);
+  }
+  s.addEventListener("pointerup", end);
+  s.addEventListener("pointercancel", end);
+  s.addEventListener("click", function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+  update();
+  window.addEventListener("load", update, { once: true });
 });
 </script>
 </body>
