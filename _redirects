@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects: https://developers.cloudflare.com/pages/configuration/redirects/
+# LP parfum lama (dihapus di PR #57) -> LP NH3X Super yang baru.
+# Pola "/parfumwalet/*" menuntut "/" tepat setelah "parfumwalet", jadi /parfumwalet1..4/ tidak ikut teralihkan.
+/lp_parfum            /parfumwalet1/  301
+/lp_parfum/*          /parfumwalet1/  301
+/parfum_walet         /parfumwalet1/  301
+/parfum_walet/*       /parfumwalet1/  301
+/parfumwalet          /parfumwalet1/  301
+/parfumwalet/*        /parfumwalet1/  301
