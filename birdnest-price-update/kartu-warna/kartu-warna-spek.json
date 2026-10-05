@@ -1,0 +1,135 @@
+{
+  "versi": 1,
+  "ukuran_kartu_mm": {
+    "lebar": 86,
+    "tinggi": 54
+  },
+  "penanda_sudut": [
+    {
+      "x_mm": 2.5,
+      "y_mm": 2.5,
+      "ukuran_mm": 6,
+      "titik_orientasi": true
+    },
+    {
+      "x_mm": 77.5,
+      "y_mm": 2.5,
+      "ukuran_mm": 6,
+      "titik_orientasi": false
+    },
+    {
+      "x_mm": 2.5,
+      "y_mm": 45.5,
+      "ukuran_mm": 6,
+      "titik_orientasi": false
+    },
+    {
+      "x_mm": 77.5,
+      "y_mm": 45.5,
+      "ukuran_mm": 6,
+      "titik_orientasi": false
+    }
+  ],
+  "patch": [
+    {
+      "id": "N100",
+      "nama": "Putih",
+      "srgb": "#FFFFFF",
+      "x_mm": 9,
+      "y_mm": 14.5,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "N75",
+      "nama": "Abu 75%",
+      "srgb": "#C9C9C9",
+      "x_mm": 20.6,
+      "y_mm": 14.5,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "N50",
+      "nama": "Abu 50%",
+      "srgb": "#979797",
+      "x_mm": 32.2,
+      "y_mm": 14.5,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "N25",
+      "nama": "Abu 25%",
+      "srgb": "#636363",
+      "x_mm": 43.8,
+      "y_mm": 14.5,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "N05",
+      "nama": "Hitam",
+      "srgb": "#232323",
+      "x_mm": 55.4,
+      "y_mm": 14.5,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "R",
+      "nama": "Merah redup",
+      "srgb": "#B04A3A",
+      "x_mm": 67,
+      "y_mm": 14.5,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "G",
+      "nama": "Hijau redup",
+      "srgb": "#4E8A50",
+      "x_mm": 9,
+      "y_mm": 26.1,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "B",
+      "nama": "Biru redup",
+      "srgb": "#3A5A96",
+      "x_mm": 20.6,
+      "y_mm": 26.1,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "S1",
+      "nama": "Putih kapas",
+      "srgb": "#F6F1E6",
+      "x_mm": 32.2,
+      "y_mm": 26.1,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "S2",
+      "nama": "Beras",
+      "srgb": "#E9DCC0",
+      "x_mm": 43.8,
+      "y_mm": 26.1,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "S3",
+      "nama": "Kuning",
+      "srgb": "#D9BE8C",
+      "x_mm": 55.4,
+      "y_mm": 26.1,
+      "ukuran_mm": 10
+    },
+    {
+      "id": "S4",
+      "nama": "Kronis",
+      "srgb": "#B9894F",
+      "x_mm": 67,
+      "y_mm": 26.1,
+      "ukuran_mm": 10
+    }
+  ],
+  "catatan": [
+    "Nilai srgb = TARGET desain. Setelah batch dicetak, ukur 1 kartu hasil cetak dan simpan nilai TERUKUR sebagai acuan software (konsistensi dalam batch > akurasi absolut).",
+    "Cetak di satu percetakan yang sama untuk seluruh batch. Kertas matte, laminasi doff, tanpa UV glossy."
+  ]
+}
