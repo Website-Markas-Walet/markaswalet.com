@@ -169,6 +169,25 @@
   .btn-jual:hover{background:var(--yellow-light);}
   .calc-note{font-size:11.5px;color:var(--gray);margin-top:12px;line-height:1.6;}
 
+  /* ===== Cek Kualitas Warna ===== */
+  .cw-wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;}
+  .cw-left{flex:3;min-width:320px;background:#fff;border-radius:12px;padding:22px;box-shadow:0 3px 14px rgba(30,24,16,.07);}
+  .cw-left canvas{width:100%;border-radius:10px;cursor:crosshair;display:none;background:#f3f0e8;}
+  .cw-steps{font-size:13px;color:var(--gray);line-height:1.8;margin:10px 0 14px;}
+  .cw-steps b{color:var(--dark);}
+  .cw-file{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14px;padding:12px 22px;border-radius:9px;cursor:pointer;}
+  .cw-file:hover{background:var(--yellow-light);}
+  .cw-reset{display:none;margin-left:10px;background:#fff;border:1.5px solid #e3ded4;color:var(--gray);font-size:13px;padding:11px 16px;border-radius:9px;cursor:pointer;}
+  .cw-out{flex:2;min-width:280px;background:var(--dark);color:#fff;border-radius:12px;padding:22px;}
+  .cw-status{font-size:13px;color:#cfcabf;line-height:1.7;min-height:48px;}
+  .cw-kelas{font-size:26px;font-weight:700;color:var(--yellow);margin:10px 0 2px;}
+  .cw-conf{font-size:12.5px;color:#cfcabf;}
+  .cw-swatch{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(255,255,255,.4);}
+  .cw-apply{display:none;text-align:center;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14px;text-decoration:none;padding:12px;border-radius:9px;margin-top:14px;cursor:pointer;}
+  .cw-apply:hover{background:var(--yellow-light);}
+  .cw-note{font-size:11.5px;color:#9a958a;margin-top:12px;line-height:1.6;}
+  .cw-tolak{color:#ff9d94;font-weight:600;}
+
   /* ===== Popup melayang CTA aplikasi ===== */
   .float-cta{position:fixed;right:18px;bottom:18px;z-index:100;background:var(--dark);color:#fff;border-radius:14px;box-shadow:0 10px 34px rgba(30,24,16,.45);width:300px;padding:18px 18px 16px;border:1.5px solid var(--yellow);animation:slideup .5s ease;}
   @keyframes slideup{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
@@ -433,6 +452,293 @@
     el.addEventListener('input', hitung);
   });
   hitung();
+})();
+</script>
+
+<!-- ===== CEK KUALITAS WARNA ===== -->
+<section id="cekwarna">
+  <div class="sec-title"><h2>Cek Kualitas Warna Sarang 📷 <span style="font-size:12px;color:var(--yellow);vertical-align:middle;">BETA</span></h2><div class="line"></div></div>
+  <div class="sec-sub">Foto sarang bersama <b>Kartu Warna Markas Walet</b>, dan sistem akan menetralkan warna foto (apa pun HP &amp; lampunya) lalu memperkirakan kelas warna sarang. Belum punya kartunya? <a href="kartu-warna/kartu-warna-markaswalet.pdf" style="color:var(--blue);">Unduh file cetak di sini</a> (cetak di percetakan, kertas matte + laminasi doff) atau minta ke tim lapangan.</div>
+
+  <div class="cw-wrap">
+    <div class="cw-left">
+      <div class="cw-steps">
+        <b>1.</b> Jepret/pilih foto — sarang &amp; kartu menempel berdampingan, satu bingkai, tanpa silau.<br>
+        <b>2.</b> Ketuk <b>4 kotak hitam</b> di sudut kartu, urut: kiri-atas (yang bertitik putih) → kanan-atas → kanan-bawah → kiri-bawah.<br>
+        <b>3.</b> Ketuk <b>permukaan sarang</b> yang paling mewakili warnanya.
+      </div>
+      <label class="cw-file">📷 Pilih / Jepret Foto<input type="file" id="cwFile" accept="image/*" capture="environment" style="display:none;"></label>
+      <button class="cw-reset" id="cwReset" type="button">↺ Ulangi Titik</button>
+      <canvas id="cwCanvas" style="margin-top:14px;"></canvas>
+    </div>
+    <div class="cw-out">
+      <h3 style="color:#fff;">Hasil Pemeriksaan</h3>
+      <div class="cw-status" id="cwStatus">Menunggu foto…</div>
+      <div class="cw-kelas" id="cwKelas"></div>
+      <div class="cw-conf" id="cwConf"></div>
+      <a class="cw-apply" id="cwApply">✓ Terapkan ke Kalkulator</a>
+      <div class="cw-note">Hasil bersifat indikasi kualitas minimal berdasarkan koreksi Kartu Warna v1. Foto yang tidak layak (silau, cahaya campur, terlalu gelap) akan ditolak otomatis. Penilaian final tetap oleh tim Markas Walet saat pengecekan fisik.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* ===== Spesifikasi Kartu Warna v1 (sinkron dengan kartu-warna/kartu-warna-spek.json) ===== */
+  var KARTU = {
+    // pusat 4 penanda sudut (mm): kiri-atas bertitik, kanan-atas, kanan-bawah, kiri-bawah
+    sudut: [[5.5, 5.5], [80.5, 5.5], [80.5, 48.5], [5.5, 48.5]],
+    patch: [
+      ['N100', 255, 255, 255], ['N75', 201, 201, 201], ['N50', 151, 151, 151], ['N25', 99, 99, 99], ['N05', 35, 35, 35],
+      ['R', 176, 74, 58], ['G', 78, 138, 80], ['B', 58, 90, 150],
+      ['S1', 246, 241, 230], ['S2', 233, 220, 192], ['S3', 217, 190, 140], ['S4', 185, 137, 79]
+    ],
+    posisi: function(i){ // pusat patch ke-i (mm) — grid 6x2, patch 10mm, celah 1.6mm, mulai x=9, y=14.5
+      var c = i % 6, r = Math.floor(i / 6);
+      return [9 + c * 11.6 + 5, 14.5 + r * 11.6 + 5];
+    }
+  };
+  var KELAS = [
+    { nama: 'Putih Kapas', idx: [8],    warnaCalc: 0 },
+    { nama: 'Beras Cerah', idx: [8, 9], warnaCalc: 1 }, // titik tengah S1-S2
+    { nama: 'Beras',       idx: [9],    warnaCalc: 2 },
+    { nama: 'Kuning',      idx: [10],   warnaCalc: 3 },
+    { nama: 'Kronis',      idx: [11],   warnaCalc: -1 } // masuk jenis Kronis/Bakpao
+  ];
+
+  /* ===== Matematika warna ===== */
+  function s2l(v){ v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+  function l2s(v){ v = Math.max(0, Math.min(1, v)); return 255 * (v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow(v, 1 / 2.4) - 0.055); }
+  function rgb2lab(r, g, b){ // input linear 0..1 (sRGB D65)
+    var X = 0.4124 * r + 0.3576 * g + 0.1805 * b;
+    var Y = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    var Z = 0.0193 * r + 0.1192 * g + 0.9505 * b;
+    X /= 0.95047; Z /= 1.08883;
+    var f = function(t){ return t > 0.008856 ? Math.pow(t, 1 / 3) : 7.787 * t + 16 / 116; };
+    var fx = f(X), fy = f(Y), fz = f(Z);
+    return [116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz)];
+  }
+  function dE(a, b){ return Math.sqrt(Math.pow(a[0]-b[0],2) + Math.pow(a[1]-b[1],2) + Math.pow(a[2]-b[2],2)); }
+  function inv3(m){
+    var a=m[0][0],b=m[0][1],c=m[0][2],d=m[1][0],e=m[1][1],f=m[1][2],g=m[2][0],h=m[2][1],i=m[2][2];
+    var det = a*(e*i-f*h) - b*(d*i-f*g) + c*(d*h-e*g);
+    if (Math.abs(det) < 1e-12) return null;
+    return [[(e*i-f*h)/det,(c*h-b*i)/det,(b*f-c*e)/det],
+            [(f*g-d*i)/det,(a*i-c*g)/det,(c*d-a*f)/det],
+            [(d*h-e*g)/det,(b*g-a*h)/det,(a*e-b*d)/det]];
+  }
+  // Least squares: cari M (3x3) sehingga M * tangkap ≈ target (keduanya linear RGB)
+  function solveKoreksi(tangkap, target){
+    var AtA = [[0,0,0],[0,0,0],[0,0,0]], AtB = [[0,0,0],[0,0,0],[0,0,0]];
+    for (var n = 0; n < tangkap.length; n++){
+      var x = tangkap[n], y = target[n];
+      for (var i = 0; i < 3; i++) for (var j = 0; j < 3; j++){
+        AtA[i][j] += x[i] * x[j];
+        AtB[i][j] += x[i] * y[j];
+      }
+    }
+    var inv = inv3(AtA);
+    if (!inv) return null;
+    var M = [[0,0,0],[0,0,0],[0,0,0]];
+    for (var r = 0; r < 3; r++) for (var c2 = 0; c2 < 3; c2++)
+      for (var k = 0; k < 3; k++) M[r][c2] += AtB[k][r] * inv[k][c2];
+    return M;
+  }
+  function terapkanM(M, v){
+    return [M[0][0]*v[0]+M[0][1]*v[1]+M[0][2]*v[2],
+            M[1][0]*v[0]+M[1][1]*v[1]+M[1][2]*v[2],
+            M[2][0]*v[0]+M[2][1]*v[1]+M[2][2]*v[2]];
+  }
+  // Homografi dari 4 pasangan titik (kartu mm -> piksel foto), eliminasi Gauss 8x8
+  function homografi(src, dst){
+    var A = [], B = [];
+    for (var i = 0; i < 4; i++){
+      var x = src[i][0], y = src[i][1], u = dst[i][0], v = dst[i][1];
+      A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); B.push(u);
+      A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); B.push(v);
+    }
+    for (var col = 0; col < 8; col++){
+      var piv = col;
+      for (var r2 = col + 1; r2 < 8; r2++) if (Math.abs(A[r2][col]) > Math.abs(A[piv][col])) piv = r2;
+      if (Math.abs(A[piv][col]) < 1e-10) return null;
+      var t = A[col]; A[col] = A[piv]; A[piv] = t;
+      var tb = B[col]; B[col] = B[piv]; B[piv] = tb;
+      for (var r3 = 0; r3 < 8; r3++){
+        if (r3 === col) continue;
+        var fk = A[r3][col] / A[col][col];
+        for (var c3 = col; c3 < 8; c3++) A[r3][c3] -= fk * A[col][c3];
+        B[r3] -= fk * B[col];
+      }
+    }
+    var h = B.map(function(bv, i2){ return bv / A[i2][i2]; });
+    return function(x, y){
+      var w = h[6] * x + h[7] * y + 1;
+      return [(h[0] * x + h[1] * y + h[2]) / w, (h[3] * x + h[4] * y + h[5]) / w];
+    };
+  }
+  // Median sampel kotak di sekitar (x,y) dari ImageData penuh
+  function sampel(img, x, y, rad){
+    var rs = [], gs = [], bs = [];
+    for (var dy = -rad; dy <= rad; dy++) for (var dx = -rad; dx <= rad; dx++){
+      var px = Math.round(x + dx), py = Math.round(y + dy);
+      if (px < 0 || py < 0 || px >= img.width || py >= img.height) continue;
+      var o = (py * img.width + px) * 4;
+      rs.push(img.data[o]); gs.push(img.data[o + 1]); bs.push(img.data[o + 2]);
+    }
+    var med = function(a){ a.sort(function(p, q){ return p - q; }); return a[Math.floor(a.length / 2)]; };
+    return [med(rs), med(gs), med(bs)];
+  }
+
+  function klasifikasi(M, rgbTangkap){
+    var lin = rgbTangkap.map(s2l);
+    var kor = terapkanM(M, lin);
+    var lab = rgb2lab(kor[0], kor[1], kor[2]);
+    var labKelas = KELAS.map(function(k){
+      var acc = [0, 0, 0];
+      k.idx.forEach(function(i){
+        var p = KARTU.patch[i];
+        var l = rgb2lab(s2l(p[1]), s2l(p[2]), s2l(p[3]));
+        acc[0] += l[0] / k.idx.length; acc[1] += l[1] / k.idx.length; acc[2] += l[2] / k.idx.length;
+      });
+      return acc;
+    });
+    var jarak = labKelas.map(function(l){ return dE(lab, l); });
+    var urut = jarak.map(function(d, i){ return [d, i]; }).sort(function(a, b){ return a[0] - b[0]; });
+    var conf = Math.round(100 * (1 - urut[0][0] / (urut[0][0] + urut[1][0])));
+    var srgbKor = kor.map(l2s).map(Math.round);
+    return { utama: urut[0][1], kedua: urut[1][1], conf: conf, srgb: srgbKor, lab: lab };
+  }
+
+  /* ===== UI ===== */
+  var elFile = document.getElementById('cwFile');
+  if (!elFile){ window.__cwTest = { s2l: s2l, solveKoreksi: solveKoreksi, terapkanM: terapkanM, homografi: homografi, klasifikasi: klasifikasi, KARTU: KARTU, KELAS: KELAS }; return; }
+  var kanvas = document.getElementById('cwCanvas'), ctx = kanvas.getContext('2d');
+  var status = document.getElementById('cwStatus'), elKelas = document.getElementById('cwKelas');
+  var elConf = document.getElementById('cwConf'), elApply = document.getElementById('cwApply');
+  var elReset = document.getElementById('cwReset');
+  var foto = null, imgData = null, titik = [], peta = null, M = null, hasil = null;
+
+  function setStatus(t, tolak){ status.innerHTML = tolak ? '<span class="cw-tolak">' + t + '</span>' : t; }
+  function gambar(){
+    if (!foto) return;
+    ctx.drawImage(foto, 0, 0, kanvas.width, kanvas.height);
+    var sk = kanvas.width / foto.naturalWidth;
+    titik.forEach(function(p, i){
+      ctx.beginPath(); ctx.arc(p[0] * sk, p[1] * sk, 9, 0, 7);
+      ctx.fillStyle = 'rgba(255,177,0,.85)'; ctx.fill();
+      ctx.fillStyle = '#1E1810'; ctx.font = 'bold 11px Arial'; ctx.textAlign = 'center';
+      ctx.fillText(String(i + 1), p[0] * sk, p[1] * sk + 4);
+    });
+    if (peta){ // tampilkan grid patch terproyeksi sebagai umpan balik
+      ctx.strokeStyle = 'rgba(255,177,0,.9)'; ctx.lineWidth = 2;
+      KARTU.patch.forEach(function(_, i){
+        var c = KARTU.posisi(i), p1 = peta(c[0] - 5, c[1] - 5), p2 = peta(c[0] + 5, c[1] + 5);
+        ctx.strokeRect(p1[0] * sk, p1[1] * sk, (p2[0] - p1[0]) * sk, (p2[1] - p1[1]) * sk);
+      });
+    }
+  }
+  function reset(){
+    titik = []; peta = null; M = null; hasil = null;
+    elKelas.textContent = ''; elConf.textContent = ''; elApply.style.display = 'none';
+    if (foto){ setStatus('Langkah 2: ketuk 4 kotak hitam sudut kartu — mulai dari kiri-atas yang bertitik putih, lalu searah jarum jam.'); gambar(); }
+  }
+  elReset.addEventListener('click', reset);
+
+  elFile.addEventListener('change', function(){
+    var f = elFile.files && elFile.files[0];
+    if (!f) return;
+    var img = new Image();
+    img.onload = function(){
+      foto = img;
+      var maxW = 1400, skala = Math.min(1, maxW / img.naturalWidth);
+      var off = document.createElement('canvas');
+      off.width = Math.round(img.naturalWidth * skala); off.height = Math.round(img.naturalHeight * skala);
+      off.getContext('2d').drawImage(img, 0, 0, off.width, off.height);
+      imgData = off.getContext('2d').getImageData(0, 0, off.width, off.height);
+      foto.naturalWidth = off.width; foto.naturalHeight = off.height; // pakai skala kerja
+      kanvas.width = off.width; kanvas.height = off.height;
+      kanvas.style.display = 'block'; elReset.style.display = 'inline-block';
+      reset();
+    };
+    img.src = URL.createObjectURL(f);
+  });
+
+  kanvas.addEventListener('click', function(ev){
+    if (!foto) return;
+    var rect = kanvas.getBoundingClientRect();
+    var x = (ev.clientX - rect.left) / rect.width * foto.naturalWidth;
+    var y = (ev.clientY - rect.top) / rect.height * foto.naturalHeight;
+    if (titik.length < 4){
+      titik.push([x, y]);
+      if (titik.length === 4){
+        peta = homografi(KARTU.sudut, titik);
+        if (!peta){ setStatus('Titik tidak membentuk kartu — ulangi.', true); titik = []; gambar(); return; }
+        prosesKartu();
+      } else {
+        setStatus('Titik ' + titik.length + ' tersimpan. Lanjut ketuk sudut berikutnya (searah jarum jam).');
+      }
+      gambar(); return;
+    }
+    if (M){ prosesSarang(x, y); }
+  });
+
+  function prosesKartu(){
+    var tangkapS = KARTU.patch.map(function(_, i){
+      var c = KARTU.posisi(i), p = peta(c[0], c[1]);
+      return sampel(imgData, p[0], p[1], 5);
+    });
+    // Pemeriksaan kelayakan foto
+    var putih = tangkapS[0], hitam = tangkapS[4];
+    if (Math.max.apply(null, putih) >= 252){ setStatus('Foto DITOLAK: patch putih silau/terbakar. Matikan sumber silau atau ubah sudut, lalu foto ulang.', true); M = null; return; }
+    if ((putih[0] + putih[1] + putih[2]) / 3 < 60){ setStatus('Foto DITOLAK: terlalu gelap. Nyalakan flash/lampu lalu foto ulang.', true); M = null; return; }
+    if ((hitam[0] + hitam[1] + hitam[2]) / 3 > 130){ setStatus('Foto DITOLAK: kontras sangat rendah (patch hitam terbaca terang) — kemungkinan silau merata. Foto ulang.', true); M = null; return; }
+    var tangkapL = tangkapS.map(function(p){ return p.map(s2l); });
+    var targetL = KARTU.patch.map(function(p){ return [s2l(p[1]), s2l(p[2]), s2l(p[3])]; });
+    M = solveKoreksi(tangkapL, targetL);
+    if (!M){ setStatus('Gagal menghitung koreksi — ulangi titik.', true); return; }
+    // residu: rata-rata deltaE patch terkoreksi vs target
+    var tot = 0;
+    for (var i = 0; i < 12; i++){
+      var kor = terapkanM(M, tangkapL[i]);
+      tot += dE(rgb2lab(kor[0], kor[1], kor[2]), rgb2lab(targetL[i][0], targetL[i][1], targetL[i][2]));
+    }
+    var residu = tot / 12;
+    if (residu > 14){ setStatus('Foto DITOLAK: cahaya tidak merata/campur (galat koreksi ' + residu.toFixed(1) + '). Pastikan kartu & sarang kena cahaya yang sama, foto ulang.', true); M = null; return; }
+    setStatus('Kartu terbaca ✓ (galat koreksi ' + residu.toFixed(1) + ' — makin kecil makin baik).<br><b>Langkah 3:</b> ketuk permukaan sarang.');
+  }
+
+  function prosesSarang(x, y){
+    var rgb = sampel(imgData, x, y, 7);
+    hasil = klasifikasi(M, rgb);
+    var u = KELAS[hasil.utama], k2 = KELAS[hasil.kedua];
+    var sw = '<span class="cw-swatch" style="background:rgb(' + hasil.srgb.join(',') + ')"></span>';
+    if (hasil.conf < 60){
+      elKelas.innerHTML = sw + u.nama + ' – ' + k2.nama;
+      elConf.textContent = 'Perbatasan dua kelas (keyakinan ' + hasil.conf + '%) — ambil kelas lebih rendah untuk aman.';
+    } else {
+      elKelas.innerHTML = sw + u.nama;
+      elConf.textContent = 'Keyakinan ' + hasil.conf + '%';
+    }
+    setStatus('Selesai ✓ — boleh ketuk titik sarang lain untuk cek ulang, atau terapkan ke kalkulator.');
+    elApply.style.display = 'block';
+  }
+
+  elApply.addEventListener('click', function(){
+    if (!hasil) return;
+    var u = KELAS[hasil.utama];
+    var sel = document.getElementById('selWarna');
+    if (u.warnaCalc >= 0 && sel){
+      sel.selectedIndex = u.warnaCalc;
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+      var inp = document.querySelector('#calcTable input');
+      if (inp) inp.dispatchEvent(new Event('input', { bubbles: true }));
+      setStatus('Warna "' + u.nama + '" diterapkan ke kalkulator ✓');
+    } else {
+      setStatus('Warna tergolong KRONIS — sarang masuk jenis <b>Kronis/Bakpao</b> di kalkulator (harga mentok, tidak terpengaruh warna). Isi beratnya di baris Kronis/Bakpao.');
+    }
+    var kal = document.getElementById('kalkulator');
+    if (kal) kal.scrollIntoView({ behavior: 'smooth' });
+  });
 })();
 </script>
 
