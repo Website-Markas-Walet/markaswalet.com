@@ -467,7 +467,8 @@
         <b>2.</b> Ketuk <b>4 kotak hitam</b> di sudut kartu, urut: kiri-atas (yang bertitik putih) → kanan-atas → kanan-bawah → kiri-bawah.<br>
         <b>3.</b> Ketuk <b>permukaan sarang</b> yang paling mewakili warnanya.
       </div>
-      <label class="cw-file">📷 Pilih / Jepret Foto<input type="file" id="cwFile" accept="image/*" capture="environment" style="display:none;"></label>
+      <label class="cw-file">📷 Jepret Foto<input type="file" id="cwFile" accept="image/*" capture="environment" style="display:none;"></label>
+      <label class="cw-file" style="background:#fff;border:1.5px solid var(--yellow);margin-left:10px;">🖼️ Ambil dari Galeri<input type="file" id="cwFileGaleri" accept="image/*" style="display:none;"></label>
       <button class="cw-reset" id="cwReset" type="button">↺ Ulangi Titik</button>
       <canvas id="cwCanvas" style="margin-top:14px;"></canvas>
     </div>
@@ -647,8 +648,8 @@
   }
   elReset.addEventListener('click', reset);
 
-  elFile.addEventListener('change', function(){
-    var f = elFile.files && elFile.files[0];
+  function muatBerkas(ev){
+    var f = ev.target.files && ev.target.files[0];
     if (!f) return;
     var img = new Image();
     img.onload = function(){
@@ -664,7 +665,10 @@
       reset();
     };
     img.src = URL.createObjectURL(f);
-  });
+  }
+  elFile.addEventListener('change', muatBerkas);
+  var elFileGaleri = document.getElementById('cwFileGaleri');
+  if (elFileGaleri) elFileGaleri.addEventListener('change', muatBerkas);
 
   kanvas.addEventListener('click', function(ev){
     if (!foto) return;
