@@ -619,12 +619,13 @@
   var elConf = document.getElementById('cwConf'), elApply = document.getElementById('cwApply');
   var elReset = document.getElementById('cwReset');
   var foto = null, imgData = null, titik = [], peta = null, M = null, hasil = null;
+  var lebarKerja = 0, tinggiKerja = 0;
 
   function setStatus(t, tolak){ status.innerHTML = tolak ? '<span class="cw-tolak">' + t + '</span>' : t; }
   function gambar(){
     if (!foto) return;
     ctx.drawImage(foto, 0, 0, kanvas.width, kanvas.height);
-    var sk = kanvas.width / foto.naturalWidth;
+    var sk = kanvas.width / lebarKerja;
     titik.forEach(function(p, i){
       ctx.beginPath(); ctx.arc(p[0] * sk, p[1] * sk, 9, 0, 7);
       ctx.fillStyle = 'rgba(255,177,0,.85)'; ctx.fill();
@@ -657,7 +658,7 @@
       off.width = Math.round(img.naturalWidth * skala); off.height = Math.round(img.naturalHeight * skala);
       off.getContext('2d').drawImage(img, 0, 0, off.width, off.height);
       imgData = off.getContext('2d').getImageData(0, 0, off.width, off.height);
-      foto.naturalWidth = off.width; foto.naturalHeight = off.height; // pakai skala kerja
+      lebarKerja = off.width; tinggiKerja = off.height; // dimensi kerja (naturalWidth readonly!)
       kanvas.width = off.width; kanvas.height = off.height;
       kanvas.style.display = 'block'; elReset.style.display = 'inline-block';
       reset();
@@ -668,8 +669,8 @@
   kanvas.addEventListener('click', function(ev){
     if (!foto) return;
     var rect = kanvas.getBoundingClientRect();
-    var x = (ev.clientX - rect.left) / rect.width * foto.naturalWidth;
-    var y = (ev.clientY - rect.top) / rect.height * foto.naturalHeight;
+    var x = (ev.clientX - rect.left) / rect.width * lebarKerja;
+    var y = (ev.clientY - rect.top) / rect.height * tinggiKerja;
     if (titik.length < 4){
       titik.push([x, y]);
       if (titik.length === 4){
