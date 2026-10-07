@@ -488,10 +488,11 @@
   var KARTU = {
     // pusat 4 penanda sudut (mm): kiri-atas bertitik, kanan-atas, kanan-bawah, kiri-bawah
     sudut: [[5.5, 5.5], [80.5, 5.5], [80.5, 48.5], [5.5, 48.5]],
+    // Nilai TERUKUR dari kartu cetak batch v1 (Okt 2026) — bukan nilai desain
     patch: [
-      ['N100', 255, 255, 255], ['N75', 201, 201, 201], ['N50', 151, 151, 151], ['N25', 99, 99, 99], ['N05', 35, 35, 35],
-      ['R', 176, 74, 58], ['G', 78, 138, 80], ['B', 58, 90, 150],
-      ['S1', 246, 241, 230], ['S2', 233, 220, 192], ['S3', 217, 190, 140], ['S4', 185, 137, 79]
+      ['N100', 255, 255, 255], ['N75', 191, 188, 195], ['N50', 118, 111, 121], ['N25', 70, 69, 76], ['N05', 45, 47, 47],
+      ['R', 138, 50, 65], ['G', 88, 106, 100], ['B', 60, 80, 118],
+      ['S1', 253, 250, 243], ['S2', 246, 218, 208], ['S3', 215, 167, 149], ['S4', 163, 98, 91]
     ],
     posisi: function(i){ // pusat patch ke-i (mm) — grid 6x2, patch 10mm, celah 1.6mm, mulai x=9, y=14.5
       var c = i % 6, r = Math.floor(i / 6);
@@ -585,6 +586,7 @@
       var o = (py * img.width + px) * 4;
       rs.push(img.data[o]); gs.push(img.data[o + 1]); bs.push(img.data[o + 2]);
     }
+    if (!rs.length) return null; // area sampel di luar gambar
     var med = function(a){ a.sort(function(p, q){ return p - q; }); return a[Math.floor(a.length / 2)]; };
     return [med(rs), med(gs), med(bs)];
   }
@@ -687,6 +689,17 @@
       var c = KARTU.posisi(i), p = peta(c[0], c[1]);
       return sampel(imgData, p[0], p[1], 5);
     });
+    if (tangkapS.some(function(p){ return !p || p.some(function(v){ return !isFinite(v); }); })){
+      setStatus('Foto DITOLAK: sebagian kartu di luar bingkai — pastikan seluruh kartu terlihat, lalu ulangi titik.', true); M = null; return;
+    }
+    // Urutan ketukan benar? Patch netral harus menurun dari terang ke gelap
+    var lum = function(p){ return (p[0] + p[1] + p[2]) / 3; };
+    for (var u2 = 0; u2 < 4; u2++){
+      if (lum(tangkapS[u2]) < lum(tangkapS[u2 + 1]) - 10){
+        setStatus('Urutan ketukan sudut tampak salah (deret abu-abu tidak terbaca terang→gelap). Ulangi: mulai kotak hitam yang BERTITIK PUTIH, lalu searah jarum jam.', true);
+        M = null; return;
+      }
+    }
     // Pemeriksaan kelayakan foto
     var putih = tangkapS[0], hitam = tangkapS[4];
     if (Math.max.apply(null, putih) >= 252){ setStatus('Foto DITOLAK: patch putih silau/terbakar. Matikan sumber silau atau ubah sudut, lalu foto ulang.', true); M = null; return; }
@@ -709,7 +722,9 @@
 
   function prosesSarang(x, y){
     var rgb = sampel(imgData, x, y, 7);
+    if (!rgb || rgb.some(function(v){ return !isFinite(v); })){ setStatus('Titik di luar gambar — ketuk area sarang di dalam foto.', true); return; }
     hasil = klasifikasi(M, rgb);
+    if (!hasil || !isFinite(hasil.conf)){ setStatus('Perhitungan tidak valid — ulangi titik kartu lalu ketuk sarang lagi.', true); hasil = null; return; }
     var u = KELAS[hasil.utama], k2 = KELAS[hasil.kedua];
     var sw = '<span class="cw-swatch" style="background:rgb(' + hasil.srgb.join(',') + ')"></span>';
     if (hasil.conf < 60){
