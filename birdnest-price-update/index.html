@@ -187,6 +187,10 @@
   .cw-dominan .kotak{width:64px;height:64px;border-radius:12px;flex:none;border:2px solid rgba(255,255,255,.35);box-shadow:0 2px 10px rgba(0,0,0,.3);}
   .cw-dominan .lbl{font-size:11.5px;color:#9a958a;}
   .cw-dominan .kode{font-size:13px;color:#fff;font-weight:600;margin-top:2px;}
+  .cw-mode{margin:4px 0 14px;}
+  .cw-mode-btn{border:1.5px solid var(--yellow);background:transparent;color:inherit;padding:7px 18px;border-radius:999px;font-weight:700;cursor:pointer;font-size:13px;}
+  .cw-mode-btn + .cw-mode-btn{margin-left:8px;}
+  .cw-mode-btn.aktif{background:var(--yellow);color:#241c0e;}
   .cw-rinci{margin-top:12px;}
   .cw-rinci .brs{display:flex;align-items:center;gap:8px;font-size:12px;color:#cfcabf;margin:5px 0;}
   .cw-rinci .brs .nm{width:86px;flex:none;}
@@ -477,7 +481,11 @@
       <div class="cw-steps">
         <b>1.</b> Jepret/pilih foto — sarang &amp; kartu menempel berdampingan, satu bingkai, tanpa silau.<br>
         <b>2.</b> Ketuk <b>4 kotak hitam</b> di sudut kartu, urut: kiri-atas (yang bertitik putih) → kanan-atas → kanan-bawah → kiri-bawah.<br>
-        <b>3.</b> Pagari sarang: ketuk <b>4–8 titik mengelilingi tepi sarang</b>, lalu tekan <b>Analisis Sarang</b> — seluruh permukaan di dalam pagar dianalisis. Pagar hanya menyentuh sarang: jangan ikutkan meja, kartu, atau bayangan. <b>Untuk borongan</b>: tata sarang selapis (sedikit bertumpuk tak apa — yang ternilai sisi teratas), kartu di sampingnya, lalu pagari seluruh tumpukan — hasil menjadi profil keseluruhan lot.
+        <b>3.</b> Pagari sarang: ketuk <b>4–8 titik mengelilingi tepi sarang</b>, lalu tekan <b>Analisis Sarang</b> — seluruh permukaan di dalam pagar dianalisis. Pagar hanya menyentuh sarang: jangan ikutkan meja, kartu, atau bayangan. <b>Mode Borongan</b>: pilih tombol Borongan, tata sarang selapis (sedikit bertumpuk tak apa), kartu di sampingnya, lalu pagari seluruh tumpukan — sistem otomatis mengabaikan bayangan antar sarang & celah tumpukan, dan menilai hanya permukaan yang tersinari. Hasil = komposisi lot per kelas.
+      </div>
+      <div class="cw-mode">
+        <button type="button" class="cw-mode-btn aktif" id="cwModeSatu">🪺 1 Sarang</button>
+        <button type="button" class="cw-mode-btn" id="cwModeBorongan">📦 Borongan</button>
       </div>
       <label class="cw-file">📷 Jepret Foto<input type="file" id="cwFile" accept="image/*" capture="environment" style="display:none;"></label>
       <label class="cw-file" style="background:#fff;border:1.5px solid var(--yellow);margin-left:10px;">🖼️ Ambil dari Galeri<input type="file" id="cwFileGaleri" accept="image/*" style="display:none;"></label>
@@ -669,6 +677,16 @@
   var pagar = [];
   var imgKor = null, kanvasKor = null, tonRGB = null;
   var btnAnalisis = document.getElementById('cwAnalisis');
+  var modeCek = 'satu';
+  var btnModeSatu = document.getElementById('cwModeSatu'), btnModeBorongan = document.getElementById('cwModeBorongan');
+  function setMode(m){
+    modeCek = m;
+    if (btnModeSatu) btnModeSatu.className = 'cw-mode-btn' + (m === 'satu' ? ' aktif' : '');
+    if (btnModeBorongan) btnModeBorongan.className = 'cw-mode-btn' + (m === 'borongan' ? ' aktif' : '');
+    if (M && imgKor && pagar.length >= 3) prosesSarang();
+  }
+  if (btnModeSatu) btnModeSatu.addEventListener('click', function(){ setMode('satu'); });
+  if (btnModeBorongan) btnModeBorongan.addEventListener('click', function(){ setMode('borongan'); });
   var lebarKerja = 0, tinggiKerja = 0;
 
   function setStatus(t, tolak){ status.innerHTML = tolak ? '<span class="cw-tolak">' + t + '</span>' : t; }
@@ -862,10 +880,17 @@
     var gelapBatas = Math.min(medL - 22, 45);
     var serat = [], nGelap = 0, nSilau = 0;
     titik2.forEach(function(t){
-      if (t.L > 96){ nSilau++; return; }
+      if (t.mo || t.L > 98){ nSilau++; return; }
       if (t.L < gelapBatas){ nGelap++; return; }
       serat.push(t);
     });
+    var nBayang = 0;
+    if (modeCek === 'borongan'){
+      // bayangan antar sarang & celah tumpukan menempati band L paling redup; nilai hanya permukaan tersinari
+      serat.sort(function(p, q){ return p.L - q.L; });
+      nBayang = Math.floor(serat.length * 0.45);
+      serat = serat.slice(nBayang);
+    }
     if (serat.length < 200){ setStatus('Terlalu banyak silau/area gelap di dalam pagar — foto ulang tanpa silau, atau perbaiki pagar.', true); return; }
     var medKanal = function(k8){
       var a = serat.map(function(t){ return t[k8]; }).sort(function(p, q){ return p - q; });
@@ -873,10 +898,11 @@
     };
     var domSrgb = [medKanal('r'), medKanal('g'), medKanal('b')];
     var hitungK = [0, 0, 0, 0, 0];
+    var wL = (modeCek === 'borongan') ? 0.35 : 1;
     serat.forEach(function(t){
       var terbaik = 0, dmin = Infinity;
       for (var i = 0; i < labKelas.length; i++){
-        var d = Math.pow(t.L - labKelas[i][0], 2) + Math.pow(t.a - labKelas[i][1], 2) + Math.pow(t.lb - labKelas[i][2], 2);
+        var d = wL * Math.pow(t.L - labKelas[i][0], 2) + Math.pow(t.a - labKelas[i][1], 2) + Math.pow(t.lb - labKelas[i][2], 2);
         if (d < dmin){ dmin = d; terbaik = i; }
       }
       hitungK[terbaik]++;
@@ -917,7 +943,13 @@
       });
       elRinci.innerHTML = barisHtml;
     }
-    var pesanAkhir = 'Selesai ✓ — dianalisis dari ' + serat.length + ' titik di seluruh area pagar. Area gelap (bulu/kotoran/bayangan) ' + pctGelap + '% dikecualikan dari penilaian warna.';
+    var pesanAkhir;
+    if (modeCek === 'borongan'){
+      var pctBuang = Math.round(100 * (nGelap + nBayang) / titik2.length);
+      pesanAkhir = 'Selesai ✓ (mode borongan) — dinilai dari ' + serat.length + ' titik permukaan tersinari saja; bayangan antar sarang, celah tumpukan & area gelap (' + pctBuang + '%) dikecualikan. Persentase per kelas = komposisi lot.';
+    } else {
+      pesanAkhir = 'Selesai ✓ — dianalisis dari ' + serat.length + ' titik di seluruh area pagar. Area gelap (bulu/kotoran/bayangan) ' + pctGelap + '% dikecualikan dari penilaian warna.';
+    }
     if (pctMentok > 25) pesanAkhir += '<br>⚠ ' + pctMentok + '% area mentok di foto asli (overexposure kamera) — hasil bisa bergeser. Coba ulangi dengan pencahayaan sedikit lebih redup / jauh dari lampu.';
     setStatus(pesanAkhir);
     elApply.style.display = 'block';
