@@ -183,6 +183,14 @@
   .cw-kelas{font-size:26px;font-weight:700;color:var(--yellow);margin:10px 0 2px;}
   .cw-conf{font-size:12.5px;color:#cfcabf;}
   .cw-swatch{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(255,255,255,.4);}
+  .cw-rinci{margin-top:12px;}
+  .cw-rinci .brs{display:flex;align-items:center;gap:8px;font-size:12px;color:#cfcabf;margin:5px 0;}
+  .cw-rinci .brs .nm{width:86px;flex:none;}
+  .cw-rinci .brs .bar{flex:1;height:8px;background:#3d362a;border-radius:4px;overflow:hidden;}
+  .cw-rinci .brs .bar i{display:block;height:100%;background:var(--yellow);border-radius:4px;}
+  .cw-rinci .brs.puncak{color:#fff;font-weight:700;}
+  .cw-rinci .brs.puncak .bar i{background:#2E9E5B;}
+  .cw-rinci .brs .pc{width:40px;text-align:right;flex:none;}
   .cw-apply{display:none;text-align:center;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14px;text-decoration:none;padding:12px;border-radius:9px;margin-top:14px;cursor:pointer;}
   .cw-apply:hover{background:var(--yellow-light);}
   .cw-note{font-size:11.5px;color:#9a958a;margin-top:12px;line-height:1.6;}
@@ -477,6 +485,7 @@
       <div class="cw-status" id="cwStatus">Menunggu foto…</div>
       <div class="cw-kelas" id="cwKelas"></div>
       <div class="cw-conf" id="cwConf"></div>
+      <div class="cw-rinci" id="cwRinci"></div>
       <a class="cw-apply" id="cwApply">✓ Terapkan ke Kalkulator</a>
       <div class="cw-note">Hasil bersifat indikasi kualitas minimal berdasarkan koreksi Kartu Warna v1. Foto yang tidak layak (silau, cahaya campur, terlalu gelap) akan ditolak otomatis. Penilaian final tetap oleh tim Markas Walet saat pengecekan fisik.</div>
     </div>
@@ -608,8 +617,12 @@
     var jarak = labKelas.map(function(l){ return dE(lab, l); });
     var urut = jarak.map(function(d, i){ return [d, i]; }).sort(function(a, b){ return a[0] - b[0]; });
     var conf = Math.round(100 * (1 - urut[0][0] / (urut[0][0] + urut[1][0])));
+    var bobot = jarak.map(function(d){ var dd = Math.max(d, 0.5); return 1 / (dd * dd); });
+    var totB = 0;
+    bobot.forEach(function(w){ totB += w; });
+    var prob = bobot.map(function(w){ return 100 * w / totB; });
     var srgbKor = kor.map(l2s).map(Math.round);
-    return { utama: urut[0][1], kedua: urut[1][1], conf: conf, srgb: srgbKor, lab: lab };
+    return { utama: urut[0][1], kedua: urut[1][1], conf: conf, prob: prob, srgb: srgbKor, lab: lab };
   }
 
   /* ===== UI ===== */
@@ -618,6 +631,7 @@
   var kanvas = document.getElementById('cwCanvas'), ctx = kanvas.getContext('2d');
   var status = document.getElementById('cwStatus'), elKelas = document.getElementById('cwKelas');
   var elConf = document.getElementById('cwConf'), elApply = document.getElementById('cwApply');
+  var elRinci = document.getElementById('cwRinci');
   var elReset = document.getElementById('cwReset');
   var foto = null, imgData = null, titik = [], peta = null, M = null, hasil = null;
   var lebarKerja = 0, tinggiKerja = 0;
@@ -644,6 +658,7 @@
   function reset(){
     titik = []; peta = null; M = null; hasil = null;
     elKelas.textContent = ''; elConf.textContent = ''; elApply.style.display = 'none';
+    if (elRinci) elRinci.innerHTML = '';
     if (foto){ setStatus('Langkah 2: ketuk 4 kotak hitam sudut kartu — mulai dari kiri-atas yang bertitik putih, lalu searah jarum jam.'); gambar(); }
   }
   elReset.addEventListener('click', reset);
@@ -732,12 +747,25 @@
     if (!hasil || !isFinite(hasil.conf)){ setStatus('Perhitungan tidak valid — ulangi titik kartu lalu ketuk sarang lagi.', true); hasil = null; return; }
     var u = KELAS[hasil.utama], k2 = KELAS[hasil.kedua];
     var sw = '<span class="cw-swatch" style="background:rgb(' + hasil.srgb.join(',') + ')"></span>';
-    if (hasil.conf < 60){
+    var err = Math.max(0, Math.round(100 - hasil.prob[hasil.utama]));
+    if (err > 40){
       elKelas.innerHTML = sw + u.nama + ' – ' + k2.nama;
-      elConf.textContent = 'Perbatasan dua kelas (keyakinan ' + hasil.conf + '%) — ambil kelas lebih rendah untuk aman.';
+      elConf.textContent = 'Tingkat error ±' + err + '% — perbatasan dua kelas, ambil kelas lebih rendah untuk aman.';
     } else {
       elKelas.innerHTML = sw + u.nama;
-      elConf.textContent = 'Keyakinan ' + hasil.conf + '%';
+      elConf.textContent = 'Tingkat error ±' + err + '%' + (err < 5 ? ' (sangat meyakinkan)' : '');
+    }
+    if (elRinci){
+      var barisHtml = '';
+      KELAS.forEach(function(k, i){
+        var p = hasil.prob[i];
+        var pTxt = p >= 99.5 ? '>99%' : p < 1 ? '<1%' : Math.round(p) + '%';
+        barisHtml += '<div class="brs' + (i === hasil.utama ? ' puncak' : '') + '">' +
+          '<span class="nm">' + k.nama + '</span>' +
+          '<span class="bar"><i style="width:' + Math.max(2, Math.round(p)) + '%"></i></span>' +
+          '<span class="pc">' + pTxt + '</span></div>';
+      });
+      elRinci.innerHTML = barisHtml;
     }
     setStatus('Selesai ✓ — boleh ketuk titik sarang lain untuk cek ulang, atau terapkan ke kalkulator.');
     elApply.style.display = 'block';
