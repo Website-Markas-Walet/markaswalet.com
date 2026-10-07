@@ -183,6 +183,10 @@
   .cw-kelas{font-size:26px;font-weight:700;color:var(--yellow);margin:10px 0 2px;}
   .cw-conf{font-size:12.5px;color:#cfcabf;}
   .cw-swatch{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(255,255,255,.4);}
+  .cw-dominan{display:none;align-items:center;gap:14px;margin:14px 0 4px;}
+  .cw-dominan .kotak{width:64px;height:64px;border-radius:12px;flex:none;border:2px solid rgba(255,255,255,.35);box-shadow:0 2px 10px rgba(0,0,0,.3);}
+  .cw-dominan .lbl{font-size:11.5px;color:#9a958a;}
+  .cw-dominan .kode{font-size:13px;color:#fff;font-weight:600;margin-top:2px;}
   .cw-rinci{margin-top:12px;}
   .cw-rinci .brs{display:flex;align-items:center;gap:8px;font-size:12px;color:#cfcabf;margin:5px 0;}
   .cw-rinci .brs .nm{width:86px;flex:none;}
@@ -483,6 +487,7 @@
     <div class="cw-out">
       <h3 style="color:#fff;">Hasil Pemeriksaan</h3>
       <div class="cw-status" id="cwStatus">Menunggu foto…</div>
+      <div class="cw-dominan" id="cwDominan"><div class="kotak" id="cwDominanKotak"></div><div><div class="lbl">Warna dominan sarang (setelah dinetralkan kartu)</div><div class="kode" id="cwDominanKode"></div></div></div>
       <div class="cw-kelas" id="cwKelas"></div>
       <div class="cw-conf" id="cwConf"></div>
       <div class="cw-rinci" id="cwRinci"></div>
@@ -632,6 +637,7 @@
   var status = document.getElementById('cwStatus'), elKelas = document.getElementById('cwKelas');
   var elConf = document.getElementById('cwConf'), elApply = document.getElementById('cwApply');
   var elRinci = document.getElementById('cwRinci');
+  var elDom = document.getElementById('cwDominan'), elDomKotak = document.getElementById('cwDominanKotak'), elDomKode = document.getElementById('cwDominanKode');
   var elReset = document.getElementById('cwReset');
   var foto = null, imgData = null, titik = [], peta = null, M = null, hasil = null;
   var lebarKerja = 0, tinggiKerja = 0;
@@ -659,6 +665,7 @@
     titik = []; peta = null; M = null; hasil = null;
     elKelas.textContent = ''; elConf.textContent = ''; elApply.style.display = 'none';
     if (elRinci) elRinci.innerHTML = '';
+    if (elDom) elDom.style.display = 'none';
     if (foto){ setStatus('Langkah 2: ketuk 4 kotak hitam sudut kartu — mulai dari kiri-atas yang bertitik putih, lalu searah jarum jam.'); gambar(); }
   }
   elReset.addEventListener('click', reset);
@@ -741,12 +748,18 @@
   }
 
   function prosesSarang(x, y){
-    var rgb = sampel(imgData, x, y, 7);
+    var rgb = sampel(imgData, x, y, 14);
     if (!rgb || rgb.some(function(v){ return !isFinite(v); })){ setStatus('Titik di luar gambar — ketuk area sarang di dalam foto.', true); return; }
     hasil = klasifikasi(M, rgb);
     if (!hasil || !isFinite(hasil.conf)){ setStatus('Perhitungan tidak valid — ulangi titik kartu lalu ketuk sarang lagi.', true); hasil = null; return; }
     var u = KELAS[hasil.utama], k2 = KELAS[hasil.kedua];
     var sw = '<span class="cw-swatch" style="background:rgb(' + hasil.srgb.join(',') + ')"></span>';
+    if (elDom){
+      var hx = '#' + hasil.srgb.map(function(v){ return ('0' + v.toString(16)).slice(-2); }).join('').toUpperCase();
+      elDomKotak.style.background = 'rgb(' + hasil.srgb.join(',') + ')';
+      elDomKode.textContent = hx + ' · rgb(' + hasil.srgb.join(', ') + ')';
+      elDom.style.display = 'flex';
+    }
     var err = Math.max(0, Math.round(100 - hasil.prob[hasil.utama]));
     if (err > 40){
       elKelas.innerHTML = sw + u.nama + ' – ' + k2.nama;
