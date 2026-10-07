@@ -477,11 +477,12 @@
       <div class="cw-steps">
         <b>1.</b> Jepret/pilih foto — sarang &amp; kartu menempel berdampingan, satu bingkai, tanpa silau.<br>
         <b>2.</b> Ketuk <b>4 kotak hitam</b> di sudut kartu, urut: kiri-atas (yang bertitik putih) → kanan-atas → kanan-bawah → kiri-bawah.<br>
-        <b>3.</b> Ketuk <b>permukaan sarang</b> yang paling mewakili warnanya.
+        <b>3.</b> Pagari sarang: ketuk <b>4–8 titik mengelilingi tepi sarang</b>, lalu tekan <b>Analisis Sarang</b> — seluruh permukaan di dalam pagar dianalisis.
       </div>
       <label class="cw-file">📷 Jepret Foto<input type="file" id="cwFile" accept="image/*" capture="environment" style="display:none;"></label>
       <label class="cw-file" style="background:#fff;border:1.5px solid var(--yellow);margin-left:10px;">🖼️ Ambil dari Galeri<input type="file" id="cwFileGaleri" accept="image/*" style="display:none;"></label>
       <button class="cw-reset" id="cwReset" type="button">↺ Ulangi Titik</button>
+      <button class="cw-file" id="cwAnalisis" type="button" style="display:none;margin-left:10px;">🔍 Analisis Sarang</button>
       <canvas id="cwCanvas" style="margin-top:14px;"></canvas>
     </div>
     <div class="cw-out">
@@ -640,6 +641,8 @@
   var elDom = document.getElementById('cwDominan'), elDomKotak = document.getElementById('cwDominanKotak'), elDomKode = document.getElementById('cwDominanKode');
   var elReset = document.getElementById('cwReset');
   var foto = null, imgData = null, titik = [], peta = null, M = null, hasil = null;
+  var pagar = [];
+  var btnAnalisis = document.getElementById('cwAnalisis');
   var lebarKerja = 0, tinggiKerja = 0;
 
   function setStatus(t, tolak){ status.innerHTML = tolak ? '<span class="cw-tolak">' + t + '</span>' : t; }
@@ -653,6 +656,14 @@
       ctx.fillStyle = '#1E1810'; ctx.font = 'bold 11px Arial'; ctx.textAlign = 'center';
       ctx.fillText(String(i + 1), p[0] * sk, p[1] * sk + 4);
     });
+    if (pagar.length){
+      ctx.strokeStyle = 'rgba(46,158,91,.95)'; ctx.lineWidth = 2;
+      ctx.beginPath();
+      pagar.forEach(function(p, i){ var X = p[0] * sk, Y = p[1] * sk; if (i) ctx.lineTo(X, Y); else ctx.moveTo(X, Y); });
+      if (pagar.length > 2){ ctx.closePath(); ctx.fillStyle = 'rgba(46,158,91,.14)'; ctx.fill(); }
+      ctx.stroke();
+      pagar.forEach(function(p){ ctx.beginPath(); ctx.arc(p[0] * sk, p[1] * sk, 5, 0, 7); ctx.fillStyle = '#2E9E5B'; ctx.fill(); });
+    }
     if (peta){ // tampilkan grid patch terproyeksi sebagai umpan balik
       ctx.strokeStyle = 'rgba(255,177,0,.9)'; ctx.lineWidth = 2;
       KARTU.patch.forEach(function(_, i){
@@ -662,13 +673,15 @@
     }
   }
   function reset(){
-    titik = []; peta = null; M = null; hasil = null;
+    titik = []; peta = null; M = null; hasil = null; pagar = [];
+    if (btnAnalisis) btnAnalisis.style.display = 'none';
     elKelas.textContent = ''; elConf.textContent = ''; elApply.style.display = 'none';
     if (elRinci) elRinci.innerHTML = '';
     if (elDom) elDom.style.display = 'none';
     if (foto){ setStatus('Langkah 2: ketuk 4 kotak hitam sudut kartu — mulai dari kiri-atas yang bertitik putih, lalu searah jarum jam.'); gambar(); }
   }
   elReset.addEventListener('click', reset);
+  if (btnAnalisis) btnAnalisis.addEventListener('click', prosesSarang);
 
   function muatBerkas(ev){
     var f = ev.target.files && ev.target.files[0];
@@ -708,7 +721,12 @@
       }
       gambar(); return;
     }
-    if (M){ prosesSarang(x, y); }
+    if (M){
+      pagar.push([x, y]);
+      if (pagar.length >= 3 && btnAnalisis) btnAnalisis.style.display = 'inline-block';
+      setStatus('Titik pagar: ' + pagar.length + (pagar.length < 3 ? ' — minimal 3 titik mengelilingi sarang.' : ' — tambah titik lagi, atau tekan "Analisis Sarang".'));
+      gambar();
+    }
   });
 
   function prosesKartu(){
@@ -729,7 +747,7 @@
     }
     // Pemeriksaan kelayakan foto
     var putih = tangkapS[0], hitam = tangkapS[4];
-    if (Math.max.apply(null, putih) >= 252){ setStatus('Foto DITOLAK: patch putih silau/terbakar. Matikan sumber silau atau ubah sudut, lalu foto ulang.', true); M = null; return; }
+    if (Math.max.apply(null, putih) >= 254){ setStatus('Foto DITOLAK: patch putih silau/terbakar. Matikan sumber silau atau ubah sudut, lalu foto ulang.', true); M = null; return; }
     if ((putih[0] + putih[1] + putih[2]) / 3 < 60){ setStatus('Foto DITOLAK: terlalu gelap. Nyalakan flash/lampu lalu foto ulang.', true); M = null; return; }
     if ((hitam[0] + hitam[1] + hitam[2]) / 3 > 130){ setStatus('Foto DITOLAK: kontras sangat rendah (patch hitam terbaca terang) — kemungkinan silau merata. Foto ulang.', true); M = null; return; }
     var tangkapL = tangkapS.map(function(p){ return p.map(s2l); });
@@ -744,14 +762,73 @@
     }
     var residu = tot / 12;
     if (residu > 14){ setStatus('Foto DITOLAK: cahaya tidak merata/campur (galat koreksi ' + residu.toFixed(1) + '). Pastikan kartu & sarang kena cahaya yang sama, foto ulang.', true); M = null; return; }
-    setStatus('Kartu terbaca ✓ (galat koreksi ' + residu.toFixed(1) + ' — makin kecil makin baik).<br><b>Langkah 3:</b> ketuk permukaan sarang.');
+    setStatus('Kartu terbaca ✓ (galat koreksi ' + residu.toFixed(1) + ' — makin kecil makin baik).<br><b>Langkah 3:</b> pagari sarang — ketuk titik-titik mengelilingi tepinya, lalu tekan "Analisis Sarang".');
   }
 
-  function prosesSarang(x, y){
-    var rgb = sampel(imgData, x, y, 14);
-    if (!rgb || rgb.some(function(v){ return !isFinite(v); })){ setStatus('Titik di luar gambar — ketuk area sarang di dalam foto.', true); return; }
-    hasil = klasifikasi(M, rgb);
-    if (!hasil || !isFinite(hasil.conf)){ setStatus('Perhitungan tidak valid — ulangi titik kartu lalu ketuk sarang lagi.', true); hasil = null; return; }
+  function dalamPoligon(x, y, poly){
+    var dalam = false;
+    for (var i = 0, j = poly.length - 1; i < poly.length; j = i++){
+      if ((poly[i][1] > y) !== (poly[j][1] > y) &&
+          x < (poly[j][0] - poly[i][0]) * (y - poly[i][1]) / (poly[j][1] - poly[i][1]) + poly[i][0]) dalam = !dalam;
+    }
+    return dalam;
+  }
+  function prosesSarang(){
+    if (!M || pagar.length < 3) return;
+    setStatus('Menganalisis seluruh area sarang…');
+    var xs = pagar.map(function(p){ return p[0]; }), ys = pagar.map(function(p){ return p[1]; });
+    var x0 = Math.max(0, Math.floor(Math.min.apply(null, xs))), x1 = Math.min(imgData.width - 1, Math.ceil(Math.max.apply(null, xs)));
+    var y0 = Math.max(0, Math.floor(Math.min.apply(null, ys))), y1 = Math.min(imgData.height - 1, Math.ceil(Math.max.apply(null, ys)));
+    var langkah = Math.max(1, Math.ceil(Math.sqrt(((x1 - x0 + 1) * (y1 - y0 + 1)) / 60000)));
+    var labKelas = KELAS.map(function(k){
+      var acc = [0, 0, 0];
+      k.idx.forEach(function(i){
+        var p = KARTU.patch[i];
+        var l = rgb2lab(s2l(p[1]), s2l(p[2]), s2l(p[3]));
+        acc[0] += l[0] / k.idx.length; acc[1] += l[1] / k.idx.length; acc[2] += l[2] / k.idx.length;
+      });
+      return acc;
+    });
+    var titik2 = [];
+    for (var py = y0; py <= y1; py += langkah){
+      for (var px = x0; px <= x1; px += langkah){
+        if (!dalamPoligon(px, py, pagar)) continue;
+        var o = (py * imgData.width + px) * 4;
+        var kor = terapkanM(M, [s2l(imgData.data[o]), s2l(imgData.data[o + 1]), s2l(imgData.data[o + 2])]);
+        var lab = rgb2lab(Math.max(0, kor[0]), Math.max(0, kor[1]), Math.max(0, kor[2]));
+        if (!isFinite(lab[0])) continue;
+        titik2.push({ L: lab[0], a: lab[1], b: lab[2], kor: kor });
+      }
+    }
+    if (titik2.length < 300){ setStatus('Pagar terlalu kecil — ketuk titik-titik yang mengelilingi seluruh sarang.', true); return; }
+    var Ls = titik2.map(function(t){ return t.L; }).sort(function(a, b){ return a - b; });
+    var medL = Ls[Math.floor(Ls.length / 2)];
+    var gelapBatas = Math.min(medL - 22, 45);
+    var serat = [], nGelap = 0, nSilau = 0;
+    titik2.forEach(function(t){
+      if (t.L > 96){ nSilau++; return; }
+      if (t.L < gelapBatas){ nGelap++; return; }
+      serat.push(t);
+    });
+    if (serat.length < 200){ setStatus('Terlalu banyak silau/area gelap di dalam pagar — foto ulang tanpa silau, atau perbaiki pagar.', true); return; }
+    var medKanal = function(idx){
+      var a = serat.map(function(t){ return t.kor[idx]; }).sort(function(p, q){ return p - q; });
+      return a[Math.floor(a.length / 2)];
+    };
+    var domSrgb = [medKanal(0), medKanal(1), medKanal(2)].map(l2s).map(Math.round);
+    var hitungK = [0, 0, 0, 0, 0];
+    serat.forEach(function(t){
+      var terbaik = 0, dmin = Infinity;
+      for (var i = 0; i < labKelas.length; i++){
+        var d = Math.pow(t.L - labKelas[i][0], 2) + Math.pow(t.a - labKelas[i][1], 2) + Math.pow(t.b - labKelas[i][2], 2);
+        if (d < dmin){ dmin = d; terbaik = i; }
+      }
+      hitungK[terbaik]++;
+    });
+    var prob = hitungK.map(function(n){ return 100 * n / serat.length; });
+    var urut = prob.map(function(p, i){ return [p, i]; }).sort(function(a, b){ return b[0] - a[0]; });
+    hasil = { utama: urut[0][1], kedua: urut[1][1], conf: Math.round(urut[0][0]), prob: prob, srgb: domSrgb };
+    var pctGelap = Math.round(100 * nGelap / titik2.length);
     var u = KELAS[hasil.utama], k2 = KELAS[hasil.kedua];
     var sw = '<span class="cw-swatch" style="background:rgb(' + hasil.srgb.join(',') + ')"></span>';
     if (elDom){
@@ -780,7 +857,7 @@
       });
       elRinci.innerHTML = barisHtml;
     }
-    setStatus('Selesai ✓ — boleh ketuk titik sarang lain untuk cek ulang, atau terapkan ke kalkulator.');
+    setStatus('Selesai ✓ — dianalisis dari ' + serat.length + ' titik di seluruh area pagar. Area gelap (bulu/kotoran/bayangan) ' + pctGelap + '% dikecualikan dari penilaian warna. Tambah titik pagar lalu Analisis lagi bila perlu.');
     elApply.style.display = 'block';
   }
 
