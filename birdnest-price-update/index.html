@@ -913,6 +913,8 @@
     var prob = hitungK.map(function(n){ return 100 * n / serat.length; });
     var urut = prob.map(function(p, i){ return [p, i]; }).sort(function(a, b){ return b[0] - a[0]; });
     hasil = { utama: urut[0][1], kedua: urut[1][1], conf: Math.round(urut[0][0]), prob: prob, srgb: domSrgb };
+    // Aturan penilaian: kuning lebih dari 65% permukaan = otomatis Kronis
+    if (prob[3] > 65){ hasil.aturanKuning = Math.round(prob[3]); hasil.utama = 4; hasil.kedua = 3; }
     var pctGelap = Math.round(100 * nGelap / titik2.length);
     var u = KELAS[hasil.utama], k2 = KELAS[hasil.kedua];
     var sw = '<span class="cw-swatch" style="background:rgb(' + hasil.srgb.join(',') + ')"></span>';
@@ -923,7 +925,10 @@
       elDom.style.display = 'flex';
     }
     var err = Math.max(0, Math.round(100 - hasil.prob[hasil.utama]));
-    if (err > 40){
+    if (hasil.aturanKuning !== undefined){
+      elKelas.innerHTML = sw + 'Kronis';
+      elConf.textContent = 'Kuning ' + hasil.aturanKuning + '% dari permukaan (>65%) — sesuai aturan penilaian, otomatis masuk Kronis.';
+    } else if (err > 40){
       hasil.aman = Math.max(hasil.utama, hasil.kedua); // indeks lebih besar = kelas lebih rendah
       elKelas.innerHTML = sw + u.nama + ' – ' + k2.nama;
       elConf.textContent = 'Tingkat error ±' + err + '% — perbatasan dua kelas; demi aman, tombol Terapkan memakai kelas ' + KELAS[hasil.aman].nama + '.';
