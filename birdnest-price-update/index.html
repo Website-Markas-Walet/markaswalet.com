@@ -867,6 +867,9 @@
       }
       hitungK[terbaik]++;
     });
+    var nMentok = 0;
+    serat.forEach(function(t){ if (t.r >= 254 || t.g >= 254 || t.b >= 254) nMentok++; });
+    var pctMentok = Math.round(100 * nMentok / serat.length);
     var prob = hitungK.map(function(n){ return 100 * n / serat.length; });
     var urut = prob.map(function(p, i){ return [p, i]; }).sort(function(a, b){ return b[0] - a[0]; });
     hasil = { utama: urut[0][1], kedua: urut[1][1], conf: Math.round(urut[0][0]), prob: prob, srgb: domSrgb };
@@ -881,8 +884,9 @@
     }
     var err = Math.max(0, Math.round(100 - hasil.prob[hasil.utama]));
     if (err > 40){
+      hasil.aman = Math.max(hasil.utama, hasil.kedua); // indeks lebih besar = kelas lebih rendah
       elKelas.innerHTML = sw + u.nama + ' – ' + k2.nama;
-      elConf.textContent = 'Tingkat error ±' + err + '% — perbatasan dua kelas, ambil kelas lebih rendah untuk aman.';
+      elConf.textContent = 'Tingkat error ±' + err + '% — perbatasan dua kelas; demi aman, tombol Terapkan memakai kelas ' + KELAS[hasil.aman].nama + '.';
     } else {
       elKelas.innerHTML = sw + u.nama;
       elConf.textContent = 'Tingkat error ±' + err + '%' + (err < 5 ? ' (sangat meyakinkan)' : '');
@@ -899,13 +903,15 @@
       });
       elRinci.innerHTML = barisHtml;
     }
-    setStatus('Selesai ✓ — dianalisis dari ' + serat.length + ' titik di seluruh area pagar. Area gelap (bulu/kotoran/bayangan) ' + pctGelap + '% dikecualikan dari penilaian warna. Tambah titik pagar lalu Analisis lagi bila perlu.');
+    var pesanAkhir = 'Selesai ✓ — dianalisis dari ' + serat.length + ' titik di seluruh area pagar. Area gelap (bulu/kotoran/bayangan) ' + pctGelap + '% dikecualikan dari penilaian warna.';
+    if (pctMentok > 25) pesanAkhir += '<br>⚠ ' + pctMentok + '% area sangat terang (saluran warna mentok) — foto terlalu terang, hasil bisa bergeser. Coba ulangi dengan pencahayaan sedikit lebih redup / jauh dari lampu.';
+    setStatus(pesanAkhir);
     elApply.style.display = 'block';
   }
 
   elApply.addEventListener('click', function(){
     if (!hasil) return;
-    var u = KELAS[hasil.utama];
+    var u = KELAS[hasil.aman !== undefined ? hasil.aman : hasil.utama];
     var sel = document.getElementById('selWarna');
     if (u.warnaCalc >= 0 && sel){
       sel.selectedIndex = u.warnaCalc;
